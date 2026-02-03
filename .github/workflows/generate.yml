@@ -1,0 +1,117 @@
+name: Regenerate
+
+on:
+  repository_dispatch:
+    types: [openapi-updated]
+  workflow_dispatch:
+
+jobs:
+  generate:
+    name: Regenerate from OpenAPI
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Setup Java (for openapi-generator)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install OpenAPI Generator
+        run: |
+          npm install -g @openapitools/openapi-generator-cli
+
+      - name: Fetch latest OpenAPI spec
+        run: |
+          curl -f -o openapi.yaml https://getlate.dev/openapi.yaml
+          echo "Fetched OpenAPI spec"
+
+      - name: Generate SDK
+        run: |
+          openapi-generator-cli generate \
+            -i openapi.yaml \
+            -g ruby \
+            -o . \
+            --additional-properties=gemName=late,moduleName=Late,gemVersion=0.1.0 \
+            --git-user-id=getlate-dev \
+            --git-repo-id=late-ruby
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add -A
+          if git diff --staged --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Get next version
+        if: steps.changes.outputs.has_changes == 'true'
+        id: version
+        run: |
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          NEW_VERSION=$(echo $LATEST_TAG | awk -F. '{printf "v%d.%d.%d", $1, $2, $3+1}' | sed 's/vv/v/')
+          GEM_VERSION=$(echo $NEW_VERSION | sed 's/v//')
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "gem_version=$GEM_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Update gem version
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          sed -i "s/gem.version.*/gem.version = '${{ steps.version.outputs.gem_version }}'/" late.gemspec || true
+
+      - name: Commit and push
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: regenerate from OpenAPI spec
+
+          - Auto-generated SDK updates
+          - Version: ${{ steps.version.outputs.new_version }}"
+          git push
+
+      - name: Build gem
+        if: steps.changes.outputs.has_changes == 'true'
+        run: gem build late.gemspec
+
+      - name: Publish to RubyGems
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          mkdir -p ~/.gem
+          echo -e "---\n:rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}" > ~/.gem/credentials
+          chmod 0600 ~/.gem/credentials
+          gem push late-${{ steps.version.outputs.gem_version }}.gem
+        continue-on-error: true
+
+      - name: Create GitHub Release
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.new_version }}
+          name: ${{ steps.version.outputs.new_version }}
+          generate_release_notes: true
+          body: |
+            ## Auto-generated SDK Update
+
+            ```bash
+            gem install late
+            ```
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
