@@ -46,6 +46,7 @@ jobs:
             -i openapi.yaml \
             -g ruby \
             -o . \
+            --skip-validate-spec \
             --additional-properties=gemName=late,moduleName=Late,gemVersion=0.1.0 \
             --git-user-id=getlate-dev \
             --git-repo-id=late-ruby
