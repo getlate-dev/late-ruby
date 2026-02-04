@@ -267,7 +267,7 @@ module Late
     end
 
     # Like a comment
-    # Like or upvote a comment on a post.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the `cid` (content identifier) is required in the request body. 
+    # Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the `cid` (content identifier) is required in the request body. 
     # @param post_id [String] 
     # @param comment_id [String] 
     # @param like_inbox_comment_request [LikeInboxCommentRequest] 
@@ -279,7 +279,7 @@ module Late
     end
 
     # Like a comment
-    # Like or upvote a comment on a post.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
+    # Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
     # @param post_id [String] 
     # @param comment_id [String] 
     # @param like_inbox_comment_request [LikeInboxCommentRequest] 
@@ -347,7 +347,7 @@ module Late
     end
 
     # List posts with comments across all accounts
-    # Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Bluesky, YouTube, LinkedIn, Reddit, TikTok (write-only) 
+    # Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter by profile ID
     # @option opts [String] :platform Filter by platform
@@ -365,7 +365,7 @@ module Late
     end
 
     # List posts with comments across all accounts
-    # Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Bluesky, YouTube, LinkedIn, Reddit, TikTok (write-only) 
+    # Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter by profile ID
     # @option opts [String] :platform Filter by platform
@@ -381,7 +381,7 @@ module Late
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CommentsApi.list_inbox_comments ...'
       end
-      allowable_values = ["facebook", "instagram", "youtube", "linkedin", "reddit", "bluesky", "tiktok"]
+      allowable_values = ["facebook", "instagram", "twitter", "bluesky", "threads", "youtube", "linkedin", "reddit", "tiktok"]
       if @api_client.config.client_side_validation && opts[:'platform'] && !allowable_values.include?(opts[:'platform'])
         fail ArgumentError, "invalid value for \"platform\", must be one of #{allowable_values}"
       end
@@ -685,7 +685,7 @@ module Late
     end
 
     # Unlike a comment
-    # Remove a like from a comment.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the `likeUri` query parameter is required. 
+    # Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the `likeUri` query parameter is required. 
     # @param post_id [String] 
     # @param comment_id [String] 
     # @param account_id [String] 
@@ -698,7 +698,7 @@ module Late
     end
 
     # Unlike a comment
-    # Remove a like from a comment.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
+    # Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
     # @param post_id [String] 
     # @param comment_id [String] 
     # @param account_id [String] 

@@ -160,7 +160,7 @@ module Late
     end
 
     # List conversations across all accounts
-    # Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Bluesky, Reddit, Telegram 
+    # Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter by profile ID
     # @option opts [String] :platform Filter by platform
@@ -176,7 +176,7 @@ module Late
     end
 
     # List conversations across all accounts
-    # Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Bluesky, Reddit, Telegram 
+    # Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter by profile ID
     # @option opts [String] :platform Filter by platform
@@ -190,7 +190,7 @@ module Late
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessagesApi.list_inbox_conversations ...'
       end
-      allowable_values = ["facebook", "instagram", "bluesky", "reddit", "telegram"]
+      allowable_values = ["facebook", "instagram", "twitter", "bluesky", "reddit", "telegram"]
       if @api_client.config.client_side_validation && opts[:'platform'] && !allowable_values.include?(opts[:'platform'])
         fail ArgumentError, "invalid value for \"platform\", must be one of #{allowable_values}"
       end
