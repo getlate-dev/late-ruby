@@ -140,8 +140,18 @@ Class | Method | HTTP request | Description
 *Late::ConnectApi* | [**update_linked_in_organization**](docs/ConnectApi.md#update_linked_in_organization) | **PUT** /v1/accounts/{accountId}/linkedin-organization | Switch LinkedIn account type (personal/organization)
 *Late::ConnectApi* | [**update_pinterest_boards**](docs/ConnectApi.md#update_pinterest_boards) | **PUT** /v1/accounts/{accountId}/pinterest-boards | Set default Pinterest board on the connection
 *Late::ConnectApi* | [**update_reddit_subreddits**](docs/ConnectApi.md#update_reddit_subreddits) | **PUT** /v1/accounts/{accountId}/reddit-subreddits | Set default subreddit on the connection
+*Late::GMBAttributesApi* | [**get_google_business_attributes**](docs/GMBAttributesApi.md#get_google_business_attributes) | **GET** /v1/accounts/{accountId}/gmb-attributes | Get Google Business Profile location attributes
+*Late::GMBAttributesApi* | [**update_google_business_attributes**](docs/GMBAttributesApi.md#update_google_business_attributes) | **PUT** /v1/accounts/{accountId}/gmb-attributes | Update Google Business Profile location attributes
 *Late::GMBFoodMenusApi* | [**get_google_business_food_menus**](docs/GMBFoodMenusApi.md#get_google_business_food_menus) | **GET** /v1/accounts/{accountId}/gmb-food-menus | Get Google Business Profile food menus
 *Late::GMBFoodMenusApi* | [**update_google_business_food_menus**](docs/GMBFoodMenusApi.md#update_google_business_food_menus) | **PUT** /v1/accounts/{accountId}/gmb-food-menus | Update Google Business Profile food menus
+*Late::GMBLocationDetailsApi* | [**get_google_business_location_details**](docs/GMBLocationDetailsApi.md#get_google_business_location_details) | **GET** /v1/accounts/{accountId}/gmb-location-details | Get Google Business Profile location details
+*Late::GMBLocationDetailsApi* | [**update_google_business_location_details**](docs/GMBLocationDetailsApi.md#update_google_business_location_details) | **PUT** /v1/accounts/{accountId}/gmb-location-details | Update Google Business Profile location details
+*Late::GMBMediaApi* | [**create_google_business_media**](docs/GMBMediaApi.md#create_google_business_media) | **POST** /v1/accounts/{accountId}/gmb-media | Upload a photo to Google Business Profile
+*Late::GMBMediaApi* | [**delete_google_business_media**](docs/GMBMediaApi.md#delete_google_business_media) | **DELETE** /v1/accounts/{accountId}/gmb-media | Delete a photo from Google Business Profile
+*Late::GMBMediaApi* | [**list_google_business_media**](docs/GMBMediaApi.md#list_google_business_media) | **GET** /v1/accounts/{accountId}/gmb-media | List Google Business Profile media (photos)
+*Late::GMBPlaceActionsApi* | [**create_google_business_place_action**](docs/GMBPlaceActionsApi.md#create_google_business_place_action) | **POST** /v1/accounts/{accountId}/gmb-place-actions | Create a place action link (booking, ordering, reservation)
+*Late::GMBPlaceActionsApi* | [**delete_google_business_place_action**](docs/GMBPlaceActionsApi.md#delete_google_business_place_action) | **DELETE** /v1/accounts/{accountId}/gmb-place-actions | Delete a place action link
+*Late::GMBPlaceActionsApi* | [**list_google_business_place_actions**](docs/GMBPlaceActionsApi.md#list_google_business_place_actions) | **GET** /v1/accounts/{accountId}/gmb-place-actions | List place action links (booking, ordering, reservations)
 *Late::GMBReviewsApi* | [**get_google_business_reviews**](docs/GMBReviewsApi.md#get_google_business_reviews) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get Google Business Profile reviews
 *Late::InvitesApi* | [**create_invite_token**](docs/InvitesApi.md#create_invite_token) | **POST** /v1/invite/tokens | Create a team member invite token
 *Late::LinkedInMentionsApi* | [**get_linked_in_mentions**](docs/LinkedInMentionsApi.md#get_linked_in_mentions) | **GET** /v1/accounts/{accountId}/linkedin-mentions | Resolve a LinkedIn profile or company URL to a URN for @mentions
@@ -224,6 +234,10 @@ Class | Method | HTTP request | Description
  - [Late::CreateAccountGroupRequest](docs/CreateAccountGroupRequest.md)
  - [Late::CreateApiKey201Response](docs/CreateApiKey201Response.md)
  - [Late::CreateApiKeyRequest](docs/CreateApiKeyRequest.md)
+ - [Late::CreateGoogleBusinessMedia200Response](docs/CreateGoogleBusinessMedia200Response.md)
+ - [Late::CreateGoogleBusinessMediaRequest](docs/CreateGoogleBusinessMediaRequest.md)
+ - [Late::CreateGoogleBusinessPlaceAction200Response](docs/CreateGoogleBusinessPlaceAction200Response.md)
+ - [Late::CreateGoogleBusinessPlaceActionRequest](docs/CreateGoogleBusinessPlaceActionRequest.md)
  - [Late::CreateInviteToken201Response](docs/CreateInviteToken201Response.md)
  - [Late::CreateInviteTokenRequest](docs/CreateInviteTokenRequest.md)
  - [Late::CreatePost409Response](docs/CreatePost409Response.md)
@@ -238,6 +252,8 @@ Class | Method | HTTP request | Description
  - [Late::CreateQueueSlotRequest](docs/CreateQueueSlotRequest.md)
  - [Late::CreateWebhookSettingsRequest](docs/CreateWebhookSettingsRequest.md)
  - [Late::DeleteAccountGroup200Response](docs/DeleteAccountGroup200Response.md)
+ - [Late::DeleteGoogleBusinessMedia200Response](docs/DeleteGoogleBusinessMedia200Response.md)
+ - [Late::DeleteGoogleBusinessPlaceAction200Response](docs/DeleteGoogleBusinessPlaceAction200Response.md)
  - [Late::DeleteInboxComment200Response](docs/DeleteInboxComment200Response.md)
  - [Late::DeleteInboxReviewReply200Response](docs/DeleteInboxReviewReply200Response.md)
  - [Late::DeleteInboxReviewReplyRequest](docs/DeleteInboxReviewReplyRequest.md)
@@ -279,7 +295,18 @@ Class | Method | HTTP request | Description
  - [Late::GetFollowerStats403Response](docs/GetFollowerStats403Response.md)
  - [Late::GetGmbLocations200Response](docs/GetGmbLocations200Response.md)
  - [Late::GetGmbLocations200ResponseLocationsInner](docs/GetGmbLocations200ResponseLocationsInner.md)
+ - [Late::GetGoogleBusinessAttributes200Response](docs/GetGoogleBusinessAttributes200Response.md)
+ - [Late::GetGoogleBusinessAttributes200ResponseAttributesInner](docs/GetGoogleBusinessAttributes200ResponseAttributesInner.md)
+ - [Late::GetGoogleBusinessAttributes200ResponseAttributesInnerRepeatedEnumValue](docs/GetGoogleBusinessAttributes200ResponseAttributesInnerRepeatedEnumValue.md)
  - [Late::GetGoogleBusinessFoodMenus200Response](docs/GetGoogleBusinessFoodMenus200Response.md)
+ - [Late::GetGoogleBusinessLocationDetails200Response](docs/GetGoogleBusinessLocationDetails200Response.md)
+ - [Late::GetGoogleBusinessLocationDetails200ResponsePhoneNumbers](docs/GetGoogleBusinessLocationDetails200ResponsePhoneNumbers.md)
+ - [Late::GetGoogleBusinessLocationDetails200ResponseProfile](docs/GetGoogleBusinessLocationDetails200ResponseProfile.md)
+ - [Late::GetGoogleBusinessLocationDetails200ResponseRegularHours](docs/GetGoogleBusinessLocationDetails200ResponseRegularHours.md)
+ - [Late::GetGoogleBusinessLocationDetails200ResponseRegularHoursPeriodsInner](docs/GetGoogleBusinessLocationDetails200ResponseRegularHoursPeriodsInner.md)
+ - [Late::GetGoogleBusinessLocationDetails200ResponseSpecialHours](docs/GetGoogleBusinessLocationDetails200ResponseSpecialHours.md)
+ - [Late::GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInner](docs/GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInner.md)
+ - [Late::GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInnerStartDate](docs/GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInnerStartDate.md)
  - [Late::GetGoogleBusinessReviews200Response](docs/GetGoogleBusinessReviews200Response.md)
  - [Late::GetGoogleBusinessReviews200ResponseReviewsInner](docs/GetGoogleBusinessReviews200ResponseReviewsInner.md)
  - [Late::GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply](docs/GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply.md)
@@ -360,6 +387,11 @@ Class | Method | HTTP request | Description
  - [Late::ListFacebookPages200ResponsePagesInner](docs/ListFacebookPages200ResponsePagesInner.md)
  - [Late::ListGoogleBusinessLocations200Response](docs/ListGoogleBusinessLocations200Response.md)
  - [Late::ListGoogleBusinessLocations200ResponseLocationsInner](docs/ListGoogleBusinessLocations200ResponseLocationsInner.md)
+ - [Late::ListGoogleBusinessMedia200Response](docs/ListGoogleBusinessMedia200Response.md)
+ - [Late::ListGoogleBusinessMedia200ResponseMediaItemsInner](docs/ListGoogleBusinessMedia200ResponseMediaItemsInner.md)
+ - [Late::ListGoogleBusinessMedia200ResponseMediaItemsInnerLocationAssociation](docs/ListGoogleBusinessMedia200ResponseMediaItemsInnerLocationAssociation.md)
+ - [Late::ListGoogleBusinessPlaceActions200Response](docs/ListGoogleBusinessPlaceActions200Response.md)
+ - [Late::ListGoogleBusinessPlaceActions200ResponsePlaceActionLinksInner](docs/ListGoogleBusinessPlaceActions200ResponsePlaceActionLinksInner.md)
  - [Late::ListInboxComments200Response](docs/ListInboxComments200Response.md)
  - [Late::ListInboxComments200ResponseDataInner](docs/ListInboxComments200ResponseDataInner.md)
  - [Late::ListInboxConversations200Response](docs/ListInboxConversations200Response.md)
@@ -483,8 +515,16 @@ Class | Method | HTTP request | Description
  - [Late::UpdateFacebookPageRequest](docs/UpdateFacebookPageRequest.md)
  - [Late::UpdateGmbLocation200Response](docs/UpdateGmbLocation200Response.md)
  - [Late::UpdateGmbLocationRequest](docs/UpdateGmbLocationRequest.md)
+ - [Late::UpdateGoogleBusinessAttributes200Response](docs/UpdateGoogleBusinessAttributes200Response.md)
+ - [Late::UpdateGoogleBusinessAttributesRequest](docs/UpdateGoogleBusinessAttributesRequest.md)
+ - [Late::UpdateGoogleBusinessAttributesRequestAttributesInner](docs/UpdateGoogleBusinessAttributesRequestAttributesInner.md)
  - [Late::UpdateGoogleBusinessFoodMenus200Response](docs/UpdateGoogleBusinessFoodMenus200Response.md)
  - [Late::UpdateGoogleBusinessFoodMenusRequest](docs/UpdateGoogleBusinessFoodMenusRequest.md)
+ - [Late::UpdateGoogleBusinessLocationDetails200Response](docs/UpdateGoogleBusinessLocationDetails200Response.md)
+ - [Late::UpdateGoogleBusinessLocationDetailsRequest](docs/UpdateGoogleBusinessLocationDetailsRequest.md)
+ - [Late::UpdateGoogleBusinessLocationDetailsRequestProfile](docs/UpdateGoogleBusinessLocationDetailsRequestProfile.md)
+ - [Late::UpdateGoogleBusinessLocationDetailsRequestRegularHours](docs/UpdateGoogleBusinessLocationDetailsRequestRegularHours.md)
+ - [Late::UpdateGoogleBusinessLocationDetailsRequestRegularHoursPeriodsInner](docs/UpdateGoogleBusinessLocationDetailsRequestRegularHoursPeriodsInner.md)
  - [Late::UpdateInboxConversation200Response](docs/UpdateInboxConversation200Response.md)
  - [Late::UpdateInboxConversation200ResponseData](docs/UpdateInboxConversation200ResponseData.md)
  - [Late::UpdateInboxConversationRequest](docs/UpdateInboxConversationRequest.md)
