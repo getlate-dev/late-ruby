@@ -14,41 +14,24 @@ require 'date'
 require 'time'
 
 module Late
-  class PostAnalytics < ApiModelBase
-    attr_accessor :impressions
+  class FoodMenu < ApiModelBase
+    attr_accessor :labels
 
-    attr_accessor :reach
+    attr_accessor :sections
 
-    attr_accessor :likes
+    # Cuisine types (e.g. AMERICAN, ITALIAN, JAPANESE)
+    attr_accessor :cuisines
 
-    attr_accessor :comments
-
-    attr_accessor :shares
-
-    # Number of saves/bookmarks (Instagram, Pinterest)
-    attr_accessor :saves
-
-    attr_accessor :clicks
-
-    attr_accessor :views
-
-    attr_accessor :engagement_rate
-
-    attr_accessor :last_updated
+    # URL of the original menu source
+    attr_accessor :source_url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'impressions' => :'impressions',
-        :'reach' => :'reach',
-        :'likes' => :'likes',
-        :'comments' => :'comments',
-        :'shares' => :'shares',
-        :'saves' => :'saves',
-        :'clicks' => :'clicks',
-        :'views' => :'views',
-        :'engagement_rate' => :'engagementRate',
-        :'last_updated' => :'lastUpdated'
+        :'labels' => :'labels',
+        :'sections' => :'sections',
+        :'cuisines' => :'cuisines',
+        :'source_url' => :'sourceUrl'
       }
     end
 
@@ -65,16 +48,10 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'impressions' => :'Integer',
-        :'reach' => :'Integer',
-        :'likes' => :'Integer',
-        :'comments' => :'Integer',
-        :'shares' => :'Integer',
-        :'saves' => :'Integer',
-        :'clicks' => :'Integer',
-        :'views' => :'Integer',
-        :'engagement_rate' => :'Float',
-        :'last_updated' => :'Time'
+        :'labels' => :'Array<FoodMenuLabel>',
+        :'sections' => :'Array<FoodMenuSection>',
+        :'cuisines' => :'Array<String>',
+        :'source_url' => :'String'
       }
     end
 
@@ -88,56 +65,40 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::PostAnalytics` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::FoodMenu` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::PostAnalytics`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::FoodMenu`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'impressions')
-        self.impressions = attributes[:'impressions']
+      if attributes.key?(:'labels')
+        if (value = attributes[:'labels']).is_a?(Array)
+          self.labels = value
+        end
+      else
+        self.labels = nil
       end
 
-      if attributes.key?(:'reach')
-        self.reach = attributes[:'reach']
+      if attributes.key?(:'sections')
+        if (value = attributes[:'sections']).is_a?(Array)
+          self.sections = value
+        end
       end
 
-      if attributes.key?(:'likes')
-        self.likes = attributes[:'likes']
+      if attributes.key?(:'cuisines')
+        if (value = attributes[:'cuisines']).is_a?(Array)
+          self.cuisines = value
+        end
       end
 
-      if attributes.key?(:'comments')
-        self.comments = attributes[:'comments']
-      end
-
-      if attributes.key?(:'shares')
-        self.shares = attributes[:'shares']
-      end
-
-      if attributes.key?(:'saves')
-        self.saves = attributes[:'saves']
-      end
-
-      if attributes.key?(:'clicks')
-        self.clicks = attributes[:'clicks']
-      end
-
-      if attributes.key?(:'views')
-        self.views = attributes[:'views']
-      end
-
-      if attributes.key?(:'engagement_rate')
-        self.engagement_rate = attributes[:'engagement_rate']
-      end
-
-      if attributes.key?(:'last_updated')
-        self.last_updated = attributes[:'last_updated']
+      if attributes.key?(:'source_url')
+        self.source_url = attributes[:'source_url']
       end
     end
 
@@ -146,6 +107,10 @@ module Late
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @labels.nil?
+        invalid_properties.push('invalid value for "labels", labels cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -153,7 +118,18 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @labels.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] labels Value to be assigned
+    def labels=(labels)
+      if labels.nil?
+        fail ArgumentError, 'labels cannot be nil'
+      end
+
+      @labels = labels
     end
 
     # Checks equality by comparing each attribute.
@@ -161,16 +137,10 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          impressions == o.impressions &&
-          reach == o.reach &&
-          likes == o.likes &&
-          comments == o.comments &&
-          shares == o.shares &&
-          saves == o.saves &&
-          clicks == o.clicks &&
-          views == o.views &&
-          engagement_rate == o.engagement_rate &&
-          last_updated == o.last_updated
+          labels == o.labels &&
+          sections == o.sections &&
+          cuisines == o.cuisines &&
+          source_url == o.source_url
     end
 
     # @see the `==` method
@@ -182,7 +152,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [impressions, reach, likes, comments, shares, saves, clicks, views, engagement_rate, last_updated].hash
+      [labels, sections, cuisines, source_url].hash
     end
 
     # Builds the object from hash

@@ -9,6 +9,7 @@
 | **likes** | **Integer** |  | [optional] |
 | **comments** | **Integer** |  | [optional] |
 | **shares** | **Integer** |  | [optional] |
+| **saves** | **Integer** | Number of saves/bookmarks (Instagram, Pinterest) | [optional] |
 | **clicks** | **Integer** |  | [optional] |
 | **views** | **Integer** |  | [optional] |
 | **engagement_rate** | **Float** |  | [optional] |
@@ -25,6 +26,7 @@ instance = Late::PostAnalytics.new(
   likes: 0,
   comments: 0,
   shares: 0,
+  saves: 0,
   clicks: 0,
   views: 0,
   engagement_rate: 0,

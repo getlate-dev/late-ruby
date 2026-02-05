@@ -68,6 +68,13 @@ docs/ErrorResponse.md
 docs/Expired.md
 docs/FacebookPlatformData.md
 docs/FollowerStatsResponse.md
+docs/FoodMenu.md
+docs/FoodMenuItem.md
+docs/FoodMenuItemAttributes.md
+docs/FoodMenuItemOptionsInner.md
+docs/FoodMenuLabel.md
+docs/FoodMenuSection.md
+docs/GMBFoodMenusApi.md
 docs/GMBReviewsApi.md
 docs/GetAccountHealth200Response.md
 docs/GetAccountHealth200ResponsePermissions.md
@@ -87,6 +94,7 @@ docs/GetFollowerStats200ResponseStatsValueInner.md
 docs/GetFollowerStats403Response.md
 docs/GetGmbLocations200Response.md
 docs/GetGmbLocations200ResponseLocationsInner.md
+docs/GetGoogleBusinessFoodMenus200Response.md
 docs/GetGoogleBusinessReviews200Response.md
 docs/GetGoogleBusinessReviews200ResponseReviewsInner.md
 docs/GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply.md
@@ -199,6 +207,7 @@ docs/MediaApi.md
 docs/MediaItem.md
 docs/MediaUploadResponse.md
 docs/MessagesApi.md
+docs/Money.md
 docs/Pagination.md
 docs/Pending.md
 docs/PinterestPlatformData.md
@@ -300,6 +309,8 @@ docs/UpdateFacebookPage200ResponseSelectedPage.md
 docs/UpdateFacebookPageRequest.md
 docs/UpdateGmbLocation200Response.md
 docs/UpdateGmbLocationRequest.md
+docs/UpdateGoogleBusinessFoodMenus200Response.md
+docs/UpdateGoogleBusinessFoodMenusRequest.md
 docs/UpdateInboxConversation200Response.md
 docs/UpdateInboxConversation200ResponseData.md
 docs/UpdateInboxConversationRequest.md
@@ -356,6 +367,7 @@ lib/late/api/analytics_api.rb
 lib/late/api/api_keys_api.rb
 lib/late/api/comments_api.rb
 lib/late/api/connect_api.rb
+lib/late/api/gmb_food_menus_api.rb
 lib/late/api/gmb_reviews_api.rb
 lib/late/api/invites_api.rb
 lib/late/api/linked_in_mentions_api.rb
@@ -431,6 +443,12 @@ lib/late/models/error_response.rb
 lib/late/models/expired.rb
 lib/late/models/facebook_platform_data.rb
 lib/late/models/follower_stats_response.rb
+lib/late/models/food_menu.rb
+lib/late/models/food_menu_item.rb
+lib/late/models/food_menu_item_attributes.rb
+lib/late/models/food_menu_item_options_inner.rb
+lib/late/models/food_menu_label.rb
+lib/late/models/food_menu_section.rb
 lib/late/models/get_account_health200_response.rb
 lib/late/models/get_account_health200_response_permissions.rb
 lib/late/models/get_account_health200_response_permissions_posting_inner.rb
@@ -449,6 +467,7 @@ lib/late/models/get_follower_stats200_response_stats_value_inner.rb
 lib/late/models/get_follower_stats403_response.rb
 lib/late/models/get_gmb_locations200_response.rb
 lib/late/models/get_gmb_locations200_response_locations_inner.rb
+lib/late/models/get_google_business_food_menus200_response.rb
 lib/late/models/get_google_business_reviews200_response.rb
 lib/late/models/get_google_business_reviews200_response_reviews_inner.rb
 lib/late/models/get_google_business_reviews200_response_reviews_inner_review_reply.rb
@@ -556,6 +575,7 @@ lib/late/models/list_users200_response.rb
 lib/late/models/list_users200_response_users_inner.rb
 lib/late/models/media_item.rb
 lib/late/models/media_upload_response.rb
+lib/late/models/money.rb
 lib/late/models/pagination.rb
 lib/late/models/pending.rb
 lib/late/models/pinterest_platform_data.rb
@@ -651,6 +671,8 @@ lib/late/models/update_facebook_page200_response_selected_page.rb
 lib/late/models/update_facebook_page_request.rb
 lib/late/models/update_gmb_location200_response.rb
 lib/late/models/update_gmb_location_request.rb
+lib/late/models/update_google_business_food_menus200_response.rb
+lib/late/models/update_google_business_food_menus_request.rb
 lib/late/models/update_inbox_conversation200_response.rb
 lib/late/models/update_inbox_conversation200_response_data.rb
 lib/late/models/update_inbox_conversation_request.rb
@@ -696,4 +718,15 @@ lib/late/models/you_tube_platform_data.rb
 lib/late/models/you_tube_scope_missing_response.rb
 lib/late/models/you_tube_scope_missing_response_scope_status.rb
 lib/late/version.rb
+spec/api/gmb_food_menus_api_spec.rb
+spec/models/food_menu_item_attributes_spec.rb
+spec/models/food_menu_item_options_inner_spec.rb
+spec/models/food_menu_item_spec.rb
+spec/models/food_menu_label_spec.rb
+spec/models/food_menu_section_spec.rb
+spec/models/food_menu_spec.rb
+spec/models/get_google_business_food_menus200_response_spec.rb
+spec/models/money_spec.rb
+spec/models/update_google_business_food_menus200_response_spec.rb
+spec/models/update_google_business_food_menus_request_spec.rb
 spec/spec_helper.rb

@@ -14,41 +14,25 @@ require 'date'
 require 'time'
 
 module Late
-  class PostAnalytics < ApiModelBase
-    attr_accessor :impressions
+  class UpdateGoogleBusinessFoodMenus200Response < ApiModelBase
+    attr_accessor :success
 
-    attr_accessor :reach
+    attr_accessor :account_id
 
-    attr_accessor :likes
+    attr_accessor :location_id
 
-    attr_accessor :comments
+    attr_accessor :name
 
-    attr_accessor :shares
-
-    # Number of saves/bookmarks (Instagram, Pinterest)
-    attr_accessor :saves
-
-    attr_accessor :clicks
-
-    attr_accessor :views
-
-    attr_accessor :engagement_rate
-
-    attr_accessor :last_updated
+    attr_accessor :menus
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'impressions' => :'impressions',
-        :'reach' => :'reach',
-        :'likes' => :'likes',
-        :'comments' => :'comments',
-        :'shares' => :'shares',
-        :'saves' => :'saves',
-        :'clicks' => :'clicks',
-        :'views' => :'views',
-        :'engagement_rate' => :'engagementRate',
-        :'last_updated' => :'lastUpdated'
+        :'success' => :'success',
+        :'account_id' => :'accountId',
+        :'location_id' => :'locationId',
+        :'name' => :'name',
+        :'menus' => :'menus'
       }
     end
 
@@ -65,16 +49,11 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'impressions' => :'Integer',
-        :'reach' => :'Integer',
-        :'likes' => :'Integer',
-        :'comments' => :'Integer',
-        :'shares' => :'Integer',
-        :'saves' => :'Integer',
-        :'clicks' => :'Integer',
-        :'views' => :'Integer',
-        :'engagement_rate' => :'Float',
-        :'last_updated' => :'Time'
+        :'success' => :'Boolean',
+        :'account_id' => :'String',
+        :'location_id' => :'String',
+        :'name' => :'String',
+        :'menus' => :'Array<FoodMenu>'
       }
     end
 
@@ -88,56 +67,38 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::PostAnalytics` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::UpdateGoogleBusinessFoodMenus200Response` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::PostAnalytics`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::UpdateGoogleBusinessFoodMenus200Response`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'impressions')
-        self.impressions = attributes[:'impressions']
+      if attributes.key?(:'success')
+        self.success = attributes[:'success']
       end
 
-      if attributes.key?(:'reach')
-        self.reach = attributes[:'reach']
+      if attributes.key?(:'account_id')
+        self.account_id = attributes[:'account_id']
       end
 
-      if attributes.key?(:'likes')
-        self.likes = attributes[:'likes']
+      if attributes.key?(:'location_id')
+        self.location_id = attributes[:'location_id']
       end
 
-      if attributes.key?(:'comments')
-        self.comments = attributes[:'comments']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'shares')
-        self.shares = attributes[:'shares']
-      end
-
-      if attributes.key?(:'saves')
-        self.saves = attributes[:'saves']
-      end
-
-      if attributes.key?(:'clicks')
-        self.clicks = attributes[:'clicks']
-      end
-
-      if attributes.key?(:'views')
-        self.views = attributes[:'views']
-      end
-
-      if attributes.key?(:'engagement_rate')
-        self.engagement_rate = attributes[:'engagement_rate']
-      end
-
-      if attributes.key?(:'last_updated')
-        self.last_updated = attributes[:'last_updated']
+      if attributes.key?(:'menus')
+        if (value = attributes[:'menus']).is_a?(Array)
+          self.menus = value
+        end
       end
     end
 
@@ -161,16 +122,11 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          impressions == o.impressions &&
-          reach == o.reach &&
-          likes == o.likes &&
-          comments == o.comments &&
-          shares == o.shares &&
-          saves == o.saves &&
-          clicks == o.clicks &&
-          views == o.views &&
-          engagement_rate == o.engagement_rate &&
-          last_updated == o.last_updated
+          success == o.success &&
+          account_id == o.account_id &&
+          location_id == o.location_id &&
+          name == o.name &&
+          menus == o.menus
     end
 
     # @see the `==` method
@@ -182,7 +138,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [impressions, reach, likes, comments, shares, saves, clicks, views, engagement_rate, last_updated].hash
+      [success, account_id, location_id, name, menus].hash
     end
 
     # Builds the object from hash

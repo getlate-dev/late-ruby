@@ -140,6 +140,8 @@ Class | Method | HTTP request | Description
 *Late::ConnectApi* | [**update_linked_in_organization**](docs/ConnectApi.md#update_linked_in_organization) | **PUT** /v1/accounts/{accountId}/linkedin-organization | Switch LinkedIn account type (personal/organization)
 *Late::ConnectApi* | [**update_pinterest_boards**](docs/ConnectApi.md#update_pinterest_boards) | **PUT** /v1/accounts/{accountId}/pinterest-boards | Set default Pinterest board on the connection
 *Late::ConnectApi* | [**update_reddit_subreddits**](docs/ConnectApi.md#update_reddit_subreddits) | **PUT** /v1/accounts/{accountId}/reddit-subreddits | Set default subreddit on the connection
+*Late::GMBFoodMenusApi* | [**get_google_business_food_menus**](docs/GMBFoodMenusApi.md#get_google_business_food_menus) | **GET** /v1/accounts/{accountId}/gmb-food-menus | Get Google Business Profile food menus
+*Late::GMBFoodMenusApi* | [**update_google_business_food_menus**](docs/GMBFoodMenusApi.md#update_google_business_food_menus) | **PUT** /v1/accounts/{accountId}/gmb-food-menus | Update Google Business Profile food menus
 *Late::GMBReviewsApi* | [**get_google_business_reviews**](docs/GMBReviewsApi.md#get_google_business_reviews) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get Google Business Profile reviews
 *Late::InvitesApi* | [**create_invite_token**](docs/InvitesApi.md#create_invite_token) | **POST** /v1/invite/tokens | Create a team member invite token
 *Late::LinkedInMentionsApi* | [**get_linked_in_mentions**](docs/LinkedInMentionsApi.md#get_linked_in_mentions) | **GET** /v1/accounts/{accountId}/linkedin-mentions | Resolve a LinkedIn profile or company URL to a URN for @mentions
@@ -253,6 +255,12 @@ Class | Method | HTTP request | Description
  - [Late::Expired](docs/Expired.md)
  - [Late::FacebookPlatformData](docs/FacebookPlatformData.md)
  - [Late::FollowerStatsResponse](docs/FollowerStatsResponse.md)
+ - [Late::FoodMenu](docs/FoodMenu.md)
+ - [Late::FoodMenuItem](docs/FoodMenuItem.md)
+ - [Late::FoodMenuItemAttributes](docs/FoodMenuItemAttributes.md)
+ - [Late::FoodMenuItemOptionsInner](docs/FoodMenuItemOptionsInner.md)
+ - [Late::FoodMenuLabel](docs/FoodMenuLabel.md)
+ - [Late::FoodMenuSection](docs/FoodMenuSection.md)
  - [Late::GetAccountHealth200Response](docs/GetAccountHealth200Response.md)
  - [Late::GetAccountHealth200ResponsePermissions](docs/GetAccountHealth200ResponsePermissions.md)
  - [Late::GetAccountHealth200ResponsePermissionsPostingInner](docs/GetAccountHealth200ResponsePermissionsPostingInner.md)
@@ -271,6 +279,7 @@ Class | Method | HTTP request | Description
  - [Late::GetFollowerStats403Response](docs/GetFollowerStats403Response.md)
  - [Late::GetGmbLocations200Response](docs/GetGmbLocations200Response.md)
  - [Late::GetGmbLocations200ResponseLocationsInner](docs/GetGmbLocations200ResponseLocationsInner.md)
+ - [Late::GetGoogleBusinessFoodMenus200Response](docs/GetGoogleBusinessFoodMenus200Response.md)
  - [Late::GetGoogleBusinessReviews200Response](docs/GetGoogleBusinessReviews200Response.md)
  - [Late::GetGoogleBusinessReviews200ResponseReviewsInner](docs/GetGoogleBusinessReviews200ResponseReviewsInner.md)
  - [Late::GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply](docs/GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply.md)
@@ -378,6 +387,7 @@ Class | Method | HTTP request | Description
  - [Late::ListUsers200ResponseUsersInner](docs/ListUsers200ResponseUsersInner.md)
  - [Late::MediaItem](docs/MediaItem.md)
  - [Late::MediaUploadResponse](docs/MediaUploadResponse.md)
+ - [Late::Money](docs/Money.md)
  - [Late::Pagination](docs/Pagination.md)
  - [Late::Pending](docs/Pending.md)
  - [Late::PinterestPlatformData](docs/PinterestPlatformData.md)
@@ -473,6 +483,8 @@ Class | Method | HTTP request | Description
  - [Late::UpdateFacebookPageRequest](docs/UpdateFacebookPageRequest.md)
  - [Late::UpdateGmbLocation200Response](docs/UpdateGmbLocation200Response.md)
  - [Late::UpdateGmbLocationRequest](docs/UpdateGmbLocationRequest.md)
+ - [Late::UpdateGoogleBusinessFoodMenus200Response](docs/UpdateGoogleBusinessFoodMenus200Response.md)
+ - [Late::UpdateGoogleBusinessFoodMenusRequest](docs/UpdateGoogleBusinessFoodMenusRequest.md)
  - [Late::UpdateInboxConversation200Response](docs/UpdateInboxConversation200Response.md)
  - [Late::UpdateInboxConversation200ResponseData](docs/UpdateInboxConversation200ResponseData.md)
  - [Late::UpdateInboxConversationRequest](docs/UpdateInboxConversationRequest.md)
