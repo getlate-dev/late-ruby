@@ -1,4 +1,4 @@
-# Late::GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInnerStartDate
+# Late::GbpSpecialHourPeriodStartDate
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'late'
 
-instance = Late::GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInnerStartDate.new(
+instance = Late::GbpSpecialHourPeriodStartDate.new(
   year: null,
   month: null,
   day: null

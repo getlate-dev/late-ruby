@@ -37,7 +37,7 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'special_hour_periods' => :'Array<GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInner>'
+        :'special_hour_periods' => :'Array<GbpSpecialHourPeriod>'
       }
     end
 

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **special_hour_periods** | [**Array&lt;GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInner&gt;**](GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInner.md) |  | [optional] |
+| **special_hour_periods** | [**Array&lt;GbpSpecialHourPeriod&gt;**](GbpSpecialHourPeriod.md) |  | [optional] |
 
 ## Example
 

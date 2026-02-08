@@ -14,19 +14,25 @@ require 'date'
 require 'time'
 
 module Late
-  class GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInnerStartDate < ApiModelBase
-    attr_accessor :year
+  class GbpSpecialHourPeriod < ApiModelBase
+    attr_accessor :start_date
 
-    attr_accessor :month
+    attr_accessor :end_date
 
-    attr_accessor :day
+    attr_accessor :open_time
+
+    attr_accessor :close_time
+
+    attr_accessor :closed
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'year' => :'year',
-        :'month' => :'month',
-        :'day' => :'day'
+        :'start_date' => :'startDate',
+        :'end_date' => :'endDate',
+        :'open_time' => :'openTime',
+        :'close_time' => :'closeTime',
+        :'closed' => :'closed'
       }
     end
 
@@ -43,9 +49,11 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'year' => :'Integer',
-        :'month' => :'Integer',
-        :'day' => :'Integer'
+        :'start_date' => :'GbpSpecialHourPeriodStartDate',
+        :'end_date' => :'GbpSpecialHourPeriodStartDate',
+        :'open_time' => :'String',
+        :'close_time' => :'String',
+        :'closed' => :'Boolean'
       }
     end
 
@@ -59,28 +67,36 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInnerStartDate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::GbpSpecialHourPeriod` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInnerStartDate`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::GbpSpecialHourPeriod`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'year')
-        self.year = attributes[:'year']
+      if attributes.key?(:'start_date')
+        self.start_date = attributes[:'start_date']
       end
 
-      if attributes.key?(:'month')
-        self.month = attributes[:'month']
+      if attributes.key?(:'end_date')
+        self.end_date = attributes[:'end_date']
       end
 
-      if attributes.key?(:'day')
-        self.day = attributes[:'day']
+      if attributes.key?(:'open_time')
+        self.open_time = attributes[:'open_time']
+      end
+
+      if attributes.key?(:'close_time')
+        self.close_time = attributes[:'close_time']
+      end
+
+      if attributes.key?(:'closed')
+        self.closed = attributes[:'closed']
       end
     end
 
@@ -104,9 +120,11 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          year == o.year &&
-          month == o.month &&
-          day == o.day
+          start_date == o.start_date &&
+          end_date == o.end_date &&
+          open_time == o.open_time &&
+          close_time == o.close_time &&
+          closed == o.closed
     end
 
     # @see the `==` method
@@ -118,7 +136,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [year, month, day].hash
+      [start_date, end_date, open_time, close_time, closed].hash
     end
 
     # Builds the object from hash
