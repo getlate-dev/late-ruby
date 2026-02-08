@@ -40,6 +40,10 @@ jobs:
           curl -f -o openapi.yaml https://getlate.dev/openapi.yaml
           echo "Fetched OpenAPI spec"
 
+      - name: Clean generated files
+        run: |
+          rm -rf lib/late/models lib/late/api docs spec
+
       - name: Generate SDK
         run: |
           openapi-generator-cli generate \
