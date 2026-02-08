@@ -52,7 +52,7 @@ jobs:
             -o . \
             --skip-validate-spec \
             --additional-properties=gemName=late,moduleName=Late,gemVersion=0.1.0 \
-            --inline-schema-name-mappings "GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInnerStartDate=GbpSpecialHourPeriodStartDate,GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInner=GbpSpecialHourPeriod" \
+            --inline-schema-name-mappings "getGoogleBusinessLocationDetails_200_response_specialHours_specialHourPeriods_inner_startDate=GbpSpecialHourPeriodStartDate,getGoogleBusinessLocationDetails_200_response_specialHours_specialHourPeriods_inner=GbpSpecialHourPeriod" \
             --git-user-id=getlate-dev \
             --git-repo-id=late-ruby
 
