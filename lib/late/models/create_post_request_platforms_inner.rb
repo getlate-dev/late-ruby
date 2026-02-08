@@ -19,6 +19,7 @@ module Late
 
     attr_accessor :account_id
 
+    # Platform-specific text override. When set, this content is used instead of the top-level post content for this platform. Useful for tailoring captions per platform (e.g. keeping tweets under 280 characters).
     attr_accessor :custom_content
 
     attr_accessor :custom_media
