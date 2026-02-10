@@ -57,7 +57,41 @@ describe 'LogsApi' do
     end
   end
 
+  # unit tests for list_connection_logs
+  # Get connection logs
+  # Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :platform Filter by platform
+  # @option opts [String] :event_type Filter by event type
+  # @option opts [String] :status Filter by status (shorthand for event types)
+  # @option opts [Integer] :days Number of days to look back (max 7)
+  # @option opts [Integer] :limit Maximum number of logs to return (max 100)
+  # @option opts [Integer] :skip Number of logs to skip (for pagination)
+  # @return [ListConnectionLogs200Response]
+  describe 'list_connection_logs test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for list_logs
+  # Get publishing logs (deprecated)
+  # **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :status Filter by log status
+  # @option opts [String] :platform Filter by platform
+  # @option opts [String] :action Filter by action type
+  # @option opts [Integer] :days Number of days to look back (max 7)
+  # @option opts [Integer] :limit Maximum number of logs to return (max 100)
+  # @option opts [Integer] :skip Number of logs to skip (for pagination)
+  # @return [ListLogs200Response]
+  describe 'list_logs test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for list_posts_logs
   # Get publishing logs
   # Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
   # @param [Hash] opts the optional parameters
@@ -68,7 +102,7 @@ describe 'LogsApi' do
   # @option opts [Integer] :limit Maximum number of logs to return (max 100)
   # @option opts [Integer] :skip Number of logs to skip (for pagination)
   # @return [ListLogs200Response]
-  describe 'list_logs test' do
+  describe 'list_posts_logs test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

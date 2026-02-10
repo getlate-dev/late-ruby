@@ -157,7 +157,9 @@ Class | Method | HTTP request | Description
 *Late::LinkedInMentionsApi* | [**get_linked_in_mentions**](docs/LinkedInMentionsApi.md#get_linked_in_mentions) | **GET** /v1/accounts/{accountId}/linkedin-mentions | Resolve a LinkedIn profile or company URL to a URN for @mentions
 *Late::LogsApi* | [**get_log**](docs/LogsApi.md#get_log) | **GET** /v1/logs/{logId} | Get a single log entry
 *Late::LogsApi* | [**get_post_logs**](docs/LogsApi.md#get_post_logs) | **GET** /v1/posts/{postId}/logs | Get logs for a specific post
-*Late::LogsApi* | [**list_logs**](docs/LogsApi.md#list_logs) | **GET** /v1/logs | Get publishing logs
+*Late::LogsApi* | [**list_connection_logs**](docs/LogsApi.md#list_connection_logs) | **GET** /v1/connections/logs | Get connection logs
+*Late::LogsApi* | [**list_logs**](docs/LogsApi.md#list_logs) | **GET** /v1/logs | Get publishing logs (deprecated)
+*Late::LogsApi* | [**list_posts_logs**](docs/LogsApi.md#list_posts_logs) | **GET** /v1/posts/logs | Get publishing logs
 *Late::MediaApi* | [**get_media_presigned_url**](docs/MediaApi.md#get_media_presigned_url) | **POST** /v1/media/presign | Get a presigned URL for direct file upload (up to 5GB)
 *Late::MessagesApi* | [**get_inbox_conversation**](docs/MessagesApi.md#get_inbox_conversation) | **GET** /v1/inbox/conversations/{conversationId} | Get conversation details
 *Late::MessagesApi* | [**get_inbox_conversation_messages**](docs/MessagesApi.md#get_inbox_conversation_messages) | **GET** /v1/inbox/conversations/{conversationId}/messages | Get messages in a conversation
@@ -217,6 +219,7 @@ Class | Method | HTTP request | Description
  - [Late::AnalyticsOverview](docs/AnalyticsOverview.md)
  - [Late::AnalyticsSinglePostResponse](docs/AnalyticsSinglePostResponse.md)
  - [Late::ApiKey](docs/ApiKey.md)
+ - [Late::BlueskyPlatformData](docs/BlueskyPlatformData.md)
  - [Late::BulkUploadPosts200Response](docs/BulkUploadPosts200Response.md)
  - [Late::BulkUploadPosts200ResponseErrorsInner](docs/BulkUploadPosts200ResponseErrorsInner.md)
  - [Late::BulkUploadPosts429Response](docs/BulkUploadPosts429Response.md)
@@ -230,6 +233,10 @@ Class | Method | HTTP request | Description
  - [Late::ConnectBlueskyCredentialsRequest](docs/ConnectBlueskyCredentialsRequest.md)
  - [Late::Connected](docs/Connected.md)
  - [Late::ConnectedAccount](docs/ConnectedAccount.md)
+ - [Late::ConnectionLog](docs/ConnectionLog.md)
+ - [Late::ConnectionLogContext](docs/ConnectionLogContext.md)
+ - [Late::ConnectionLogError](docs/ConnectionLogError.md)
+ - [Late::ConnectionLogSuccess](docs/ConnectionLogSuccess.md)
  - [Late::CreateAccountGroup201Response](docs/CreateAccountGroup201Response.md)
  - [Late::CreateAccountGroupRequest](docs/CreateAccountGroupRequest.md)
  - [Late::CreateApiKey201Response](docs/CreateApiKey201Response.md)
@@ -383,6 +390,7 @@ Class | Method | HTTP request | Description
  - [Late::ListAccountGroups200ResponseGroupsInner](docs/ListAccountGroups200ResponseGroupsInner.md)
  - [Late::ListAccounts200Response](docs/ListAccounts200Response.md)
  - [Late::ListApiKeys200Response](docs/ListApiKeys200Response.md)
+ - [Late::ListConnectionLogs200Response](docs/ListConnectionLogs200Response.md)
  - [Late::ListFacebookPages200Response](docs/ListFacebookPages200Response.md)
  - [Late::ListFacebookPages200ResponsePagesInner](docs/ListFacebookPages200ResponsePagesInner.md)
  - [Late::ListGoogleBusinessLocations200Response](docs/ListGoogleBusinessLocations200Response.md)
@@ -459,6 +467,7 @@ Class | Method | HTTP request | Description
  - [Late::QueueSlot](docs/QueueSlot.md)
  - [Late::QueueSlotsResponse](docs/QueueSlotsResponse.md)
  - [Late::QueueUpdateResponse](docs/QueueUpdateResponse.md)
+ - [Late::RedditPlatformData](docs/RedditPlatformData.md)
  - [Late::ReplyToInboxPost200Response](docs/ReplyToInboxPost200Response.md)
  - [Late::ReplyToInboxPost200ResponseData](docs/ReplyToInboxPost200ResponseData.md)
  - [Late::ReplyToInboxPostRequest](docs/ReplyToInboxPostRequest.md)

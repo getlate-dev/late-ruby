@@ -35,7 +35,7 @@ Late.configure do |config|
 end
 
 api_instance = Late::CommentsApi.new
-post_id = 'post_id_example' # String | 
+post_id = 'post_id_example' # String | The post identifier. Accepts a Late post ID or a platform-specific post ID.
 account_id = 'account_id_example' # String | 
 comment_id = 'comment_id_example' # String | 
 
@@ -70,7 +70,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **post_id** | **String** |  |  |
+| **post_id** | **String** | The post identifier. Accepts a Late post ID or a platform-specific post ID. |  |
 | **account_id** | **String** |  |  |
 | **comment_id** | **String** |  |  |
 
@@ -108,7 +108,7 @@ Late.configure do |config|
 end
 
 api_instance = Late::CommentsApi.new
-post_id = 'post_id_example' # String | 
+post_id = 'post_id_example' # String | The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID).
 account_id = 'account_id_example' # String | 
 opts = {
   subreddit: 'subreddit_example', # String | (Reddit only) Subreddit name
@@ -148,7 +148,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **post_id** | **String** |  |  |
+| **post_id** | **String** | The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). |  |
 | **account_id** | **String** |  |  |
 | **subreddit** | **String** | (Reddit only) Subreddit name | [optional] |
 | **limit** | **Integer** | Maximum number of comments to return | [optional][default to 25] |
@@ -422,7 +422,7 @@ Late.configure do |config|
 end
 
 api_instance = Late::CommentsApi.new
-post_id = 'post_id_example' # String | 
+post_id = 'post_id_example' # String | The post identifier. Accepts a Late post ID or a platform-specific post ID.
 reply_to_inbox_post_request = Late::ReplyToInboxPostRequest.new({account_id: 'account_id_example', message: 'message_example'}) # ReplyToInboxPostRequest | 
 
 begin
@@ -456,7 +456,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **post_id** | **String** |  |  |
+| **post_id** | **String** | The post identifier. Accepts a Late post ID or a platform-specific post ID. |  |
 | **reply_to_inbox_post_request** | [**ReplyToInboxPostRequest**](ReplyToInboxPostRequest.md) |  |  |
 
 ### Return type

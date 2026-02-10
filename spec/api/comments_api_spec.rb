@@ -35,7 +35,7 @@ describe 'CommentsApi' do
   # unit tests for delete_inbox_comment
   # Delete a comment
   # Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
-  # @param post_id 
+  # @param post_id The post identifier. Accepts a Late post ID or a platform-specific post ID.
   # @param account_id 
   # @param comment_id 
   # @param [Hash] opts the optional parameters
@@ -49,7 +49,7 @@ describe 'CommentsApi' do
   # unit tests for get_inbox_post_comments
   # Get comments for a post
   # Fetch comments for a specific post. Requires accountId query parameter.
-  # @param post_id 
+  # @param post_id The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID).
   # @param account_id 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :subreddit (Reddit only) Subreddit name
@@ -114,7 +114,7 @@ describe 'CommentsApi' do
   # unit tests for reply_to_inbox_post
   # Reply to a post or comment
   # Post a reply to a post or specific comment. Requires accountId in request body.
-  # @param post_id 
+  # @param post_id The post identifier. Accepts a Late post ID or a platform-specific post ID.
   # @param reply_to_inbox_post_request 
   # @param [Hash] opts the optional parameters
   # @return [ReplyToInboxPost200Response]

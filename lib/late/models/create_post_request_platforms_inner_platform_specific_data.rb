@@ -19,10 +19,13 @@ module Late
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
+          :'BlueskyPlatformData',
           :'FacebookPlatformData',
+          :'GoogleBusinessPlatformData',
           :'InstagramPlatformData',
           :'LinkedInPlatformData',
           :'PinterestPlatformData',
+          :'RedditPlatformData',
           :'SnapchatPlatformData',
           :'TelegramPlatformData',
           :'ThreadsPlatformData',

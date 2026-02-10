@@ -14,11 +14,13 @@ require 'late'
 Late::PlatformTargetPlatformSpecificData.openapi_one_of
 # =>
 # [
+#   :'BlueskyPlatformData',
 #   :'FacebookPlatformData',
 #   :'GoogleBusinessPlatformData',
 #   :'InstagramPlatformData',
 #   :'LinkedInPlatformData',
 #   :'PinterestPlatformData',
+#   :'RedditPlatformData',
 #   :'SnapchatPlatformData',
 #   :'TelegramPlatformData',
 #   :'ThreadsPlatformData',
@@ -38,7 +40,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'late'
 
 Late::PlatformTargetPlatformSpecificData.build(data)
-# => #<FacebookPlatformData:0x00007fdd4aab02a0>
+# => #<BlueskyPlatformData:0x00007fdd4aab02a0>
 
 Late::PlatformTargetPlatformSpecificData.build(data_that_doesnt_match)
 # => nil
@@ -52,11 +54,13 @@ Late::PlatformTargetPlatformSpecificData.build(data_that_doesnt_match)
 
 #### Return type
 
+- `BlueskyPlatformData`
 - `FacebookPlatformData`
 - `GoogleBusinessPlatformData`
 - `InstagramPlatformData`
 - `LinkedInPlatformData`
 - `PinterestPlatformData`
+- `RedditPlatformData`
 - `SnapchatPlatformData`
 - `TelegramPlatformData`
 - `ThreadsPlatformData`
