@@ -115,7 +115,7 @@ describe 'PostsApi' do
   # Update a post
   # Update an existing post. Only draft, scheduled, failed, and partial posts can be edited. Published, publishing, and cancelled posts cannot be modified. 
   # @param post_id 
-  # @param request_body 
+  # @param update_post_request 
   # @param [Hash] opts the optional parameters
   # @return [PostUpdateResponse]
   describe 'update_post test' do

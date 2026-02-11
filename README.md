@@ -539,6 +539,7 @@ Class | Method | HTTP request | Description
  - [Late::UpdateInboxConversationRequest](docs/UpdateInboxConversationRequest.md)
  - [Late::UpdateLinkedInOrganizationRequest](docs/UpdateLinkedInOrganizationRequest.md)
  - [Late::UpdatePinterestBoardsRequest](docs/UpdatePinterestBoardsRequest.md)
+ - [Late::UpdatePostRequest](docs/UpdatePostRequest.md)
  - [Late::UpdateProfile200Response](docs/UpdateProfile200Response.md)
  - [Late::UpdateProfileRequest](docs/UpdateProfileRequest.md)
  - [Late::UpdateQueueSlot200Response](docs/UpdateQueueSlot200Response.md)

@@ -447,7 +447,7 @@ end
 
 ## update_post
 
-> <PostUpdateResponse> update_post(post_id, request_body)
+> <PostUpdateResponse> update_post(post_id, update_post_request)
 
 Update a post
 
@@ -466,11 +466,11 @@ end
 
 api_instance = Late::PostsApi.new
 post_id = 'post_id_example' # String | 
-request_body = { key: 3.56} # Hash<String, Object> | 
+update_post_request = Late::UpdatePostRequest.new # UpdatePostRequest | 
 
 begin
   # Update a post
-  result = api_instance.update_post(post_id, request_body)
+  result = api_instance.update_post(post_id, update_post_request)
   p result
 rescue Late::ApiError => e
   puts "Error when calling PostsApi->update_post: #{e}"
@@ -481,12 +481,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PostUpdateResponse>, Integer, Hash)> update_post_with_http_info(post_id, request_body)
+> <Array(<PostUpdateResponse>, Integer, Hash)> update_post_with_http_info(post_id, update_post_request)
 
 ```ruby
 begin
   # Update a post
-  data, status_code, headers = api_instance.update_post_with_http_info(post_id, request_body)
+  data, status_code, headers = api_instance.update_post_with_http_info(post_id, update_post_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PostUpdateResponse>
@@ -500,7 +500,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **post_id** | **String** |  |  |
-| **request_body** | [**Hash&lt;String, Object&gt;**](Object.md) |  |  |
+| **update_post_request** | [**UpdatePostRequest**](UpdatePostRequest.md) |  |  |
 
 ### Return type
 

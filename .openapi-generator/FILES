@@ -357,6 +357,7 @@ docs/UpdateInboxConversation200ResponseData.md
 docs/UpdateInboxConversationRequest.md
 docs/UpdateLinkedInOrganizationRequest.md
 docs/UpdatePinterestBoardsRequest.md
+docs/UpdatePostRequest.md
 docs/UpdateProfile200Response.md
 docs/UpdateProfileRequest.md
 docs/UpdateQueueSlot200Response.md
@@ -760,6 +761,7 @@ lib/late/models/update_inbox_conversation200_response_data.rb
 lib/late/models/update_inbox_conversation_request.rb
 lib/late/models/update_linked_in_organization_request.rb
 lib/late/models/update_pinterest_boards_request.rb
+lib/late/models/update_post_request.rb
 lib/late/models/update_profile200_response.rb
 lib/late/models/update_profile_request.rb
 lib/late/models/update_queue_slot200_response.rb
@@ -1154,6 +1156,7 @@ spec/models/update_inbox_conversation200_response_spec.rb
 spec/models/update_inbox_conversation_request_spec.rb
 spec/models/update_linked_in_organization_request_spec.rb
 spec/models/update_pinterest_boards_request_spec.rb
+spec/models/update_post_request_spec.rb
 spec/models/update_profile200_response_spec.rb
 spec/models/update_profile_request_spec.rb
 spec/models/update_queue_slot200_response_spec.rb

@@ -443,21 +443,21 @@ module Late
     # Update a post
     # Update an existing post. Only draft, scheduled, failed, and partial posts can be edited. Published, publishing, and cancelled posts cannot be modified. 
     # @param post_id [String] 
-    # @param request_body [Hash<String, Object>] 
+    # @param update_post_request [UpdatePostRequest] 
     # @param [Hash] opts the optional parameters
     # @return [PostUpdateResponse]
-    def update_post(post_id, request_body, opts = {})
-      data, _status_code, _headers = update_post_with_http_info(post_id, request_body, opts)
+    def update_post(post_id, update_post_request, opts = {})
+      data, _status_code, _headers = update_post_with_http_info(post_id, update_post_request, opts)
       data
     end
 
     # Update a post
     # Update an existing post. Only draft, scheduled, failed, and partial posts can be edited. Published, publishing, and cancelled posts cannot be modified. 
     # @param post_id [String] 
-    # @param request_body [Hash<String, Object>] 
+    # @param update_post_request [UpdatePostRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PostUpdateResponse, Integer, Hash)>] PostUpdateResponse data, response status code and response headers
-    def update_post_with_http_info(post_id, request_body, opts = {})
+    def update_post_with_http_info(post_id, update_post_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PostsApi.update_post ...'
       end
@@ -465,9 +465,9 @@ module Late
       if @api_client.config.client_side_validation && post_id.nil?
         fail ArgumentError, "Missing the required parameter 'post_id' when calling PostsApi.update_post"
       end
-      # verify the required parameter 'request_body' is set
-      if @api_client.config.client_side_validation && request_body.nil?
-        fail ArgumentError, "Missing the required parameter 'request_body' when calling PostsApi.update_post"
+      # verify the required parameter 'update_post_request' is set
+      if @api_client.config.client_side_validation && update_post_request.nil?
+        fail ArgumentError, "Missing the required parameter 'update_post_request' when calling PostsApi.update_post"
       end
       # resource path
       local_var_path = '/v1/posts/{postId}'.sub('{' + 'postId' + '}', CGI.escape(post_id.to_s))
@@ -489,7 +489,7 @@ module Late
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(request_body)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(update_post_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'PostUpdateResponse'
