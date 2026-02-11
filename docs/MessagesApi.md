@@ -4,11 +4,85 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**edit_inbox_message**](MessagesApi.md#edit_inbox_message) | **PATCH** /v1/inbox/conversations/{conversationId}/messages/{messageId} | Edit a message (Telegram only) |
 | [**get_inbox_conversation**](MessagesApi.md#get_inbox_conversation) | **GET** /v1/inbox/conversations/{conversationId} | Get conversation details |
 | [**get_inbox_conversation_messages**](MessagesApi.md#get_inbox_conversation_messages) | **GET** /v1/inbox/conversations/{conversationId}/messages | Get messages in a conversation |
 | [**list_inbox_conversations**](MessagesApi.md#list_inbox_conversations) | **GET** /v1/inbox/conversations | List conversations across all accounts |
 | [**send_inbox_message**](MessagesApi.md#send_inbox_message) | **POST** /v1/inbox/conversations/{conversationId}/messages | Send a message |
 | [**update_inbox_conversation**](MessagesApi.md#update_inbox_conversation) | **PUT** /v1/inbox/conversations/{conversationId} | Update conversation status |
+
+
+## edit_inbox_message
+
+> <EditInboxMessage200Response> edit_inbox_message(conversation_id, message_id, edit_inbox_message_request)
+
+Edit a message (Telegram only)
+
+Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::MessagesApi.new
+conversation_id = 'conversation_id_example' # String | The conversation ID
+message_id = 'message_id_example' # String | The Telegram message ID to edit
+edit_inbox_message_request = Late::EditInboxMessageRequest.new({account_id: 'account_id_example'}) # EditInboxMessageRequest | 
+
+begin
+  # Edit a message (Telegram only)
+  result = api_instance.edit_inbox_message(conversation_id, message_id, edit_inbox_message_request)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling MessagesApi->edit_inbox_message: #{e}"
+end
+```
+
+#### Using the edit_inbox_message_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EditInboxMessage200Response>, Integer, Hash)> edit_inbox_message_with_http_info(conversation_id, message_id, edit_inbox_message_request)
+
+```ruby
+begin
+  # Edit a message (Telegram only)
+  data, status_code, headers = api_instance.edit_inbox_message_with_http_info(conversation_id, message_id, edit_inbox_message_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EditInboxMessage200Response>
+rescue Late::ApiError => e
+  puts "Error when calling MessagesApi->edit_inbox_message_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **conversation_id** | **String** | The conversation ID |  |
+| **message_id** | **String** | The Telegram message ID to edit |  |
+| **edit_inbox_message_request** | [**EditInboxMessageRequest**](EditInboxMessageRequest.md) |  |  |
+
+### Return type
+
+[**EditInboxMessage200Response**](EditInboxMessage200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## get_inbox_conversation
@@ -242,7 +316,7 @@ end
 
 Send a message
 
-Send a message in a conversation. Requires accountId in request body.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Twitter/X: Images, videos (requires media upload) - Instagram: Not supported (API limitation) - Bluesky: Not supported (API limitation) - Reddit: Not supported (API limitation) 
+Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
 
 ### Examples
 
@@ -257,7 +331,7 @@ end
 
 api_instance = Late::MessagesApi.new
 conversation_id = 'conversation_id_example' # String | The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID.
-send_inbox_message_request = Late::SendInboxMessageRequest.new({account_id: 'account_id_example', message: 'message_example'}) # SendInboxMessageRequest | 
+send_inbox_message_request = Late::SendInboxMessageRequest.new({account_id: 'account_id_example'}) # SendInboxMessageRequest | 
 
 begin
   # Send a message

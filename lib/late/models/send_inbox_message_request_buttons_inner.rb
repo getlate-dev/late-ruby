@@ -14,19 +14,21 @@ require 'date'
 require 'time'
 
 module Late
-  # Webhook payload for message received events (DMs from Instagram, Telegram)
-  class WebhookPayloadMessage < ApiModelBase
-    attr_accessor :event
+  class SendInboxMessageRequestButtonsInner < ApiModelBase
+    # Button type. phone is Facebook only.
+    attr_accessor :type
 
-    attr_accessor :message
+    # Button label (max 20 chars)
+    attr_accessor :title
 
-    attr_accessor :conversation
+    # URL for url-type buttons
+    attr_accessor :url
 
-    attr_accessor :account
+    # Payload for postback-type buttons
+    attr_accessor :payload
 
-    attr_accessor :metadata
-
-    attr_accessor :timestamp
+    # Phone number for phone-type buttons (Facebook only)
+    attr_accessor :phone
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -53,12 +55,11 @@ module Late
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'event' => :'event',
-        :'message' => :'message',
-        :'conversation' => :'conversation',
-        :'account' => :'account',
-        :'metadata' => :'metadata',
-        :'timestamp' => :'timestamp'
+        :'type' => :'type',
+        :'title' => :'title',
+        :'url' => :'url',
+        :'payload' => :'payload',
+        :'phone' => :'phone'
       }
     end
 
@@ -75,12 +76,11 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'event' => :'String',
-        :'message' => :'WebhookPayloadMessageMessage',
-        :'conversation' => :'WebhookPayloadMessageConversation',
-        :'account' => :'WebhookPayloadMessageAccount',
-        :'metadata' => :'WebhookPayloadMessageMetadata',
-        :'timestamp' => :'Time'
+        :'type' => :'String',
+        :'title' => :'String',
+        :'url' => :'String',
+        :'payload' => :'String',
+        :'phone' => :'String'
       }
     end
 
@@ -94,40 +94,40 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookPayloadMessage` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::SendInboxMessageRequestButtonsInner` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookPayloadMessage`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::SendInboxMessageRequestButtonsInner`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'event')
-        self.event = attributes[:'event']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = nil
       end
 
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
+      else
+        self.title = nil
       end
 
-      if attributes.key?(:'conversation')
-        self.conversation = attributes[:'conversation']
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       end
 
-      if attributes.key?(:'account')
-        self.account = attributes[:'account']
+      if attributes.key?(:'payload')
+        self.payload = attributes[:'payload']
       end
 
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
-      end
-
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
+      if attributes.key?(:'phone')
+        self.phone = attributes[:'phone']
       end
     end
 
@@ -136,6 +136,18 @@ module Late
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
+      if @title.nil?
+        invalid_properties.push('invalid value for "title", title cannot be nil.')
+      end
+
+      if @title.to_s.length > 20
+        invalid_properties.push('invalid value for "title", the character length must be smaller than or equal to 20.')
+      end
+
       invalid_properties
     end
 
@@ -143,19 +155,36 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      event_validator = EnumAttributeValidator.new('String', ["message.received"])
-      return false unless event_validator.valid?(@event)
+      return false if @type.nil?
+      type_validator = EnumAttributeValidator.new('String', ["url", "postback", "phone"])
+      return false unless type_validator.valid?(@type)
+      return false if @title.nil?
+      return false if @title.to_s.length > 20
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] event Object to be assigned
-    def event=(event)
-      validator = EnumAttributeValidator.new('String', ["message.received"])
-      unless validator.valid?(event)
-        fail ArgumentError, "invalid value for \"event\", must be one of #{validator.allowable_values}."
+    # @param [Object] type Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('String', ["url", "postback", "phone"])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end
-      @event = event
+      @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] title Value to be assigned
+    def title=(title)
+      if title.nil?
+        fail ArgumentError, 'title cannot be nil'
+      end
+
+      if title.to_s.length > 20
+        fail ArgumentError, 'invalid value for "title", the character length must be smaller than or equal to 20.'
+      end
+
+      @title = title
     end
 
     # Checks equality by comparing each attribute.
@@ -163,12 +192,11 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          event == o.event &&
-          message == o.message &&
-          conversation == o.conversation &&
-          account == o.account &&
-          metadata == o.metadata &&
-          timestamp == o.timestamp
+          type == o.type &&
+          title == o.title &&
+          url == o.url &&
+          payload == o.payload &&
+          phone == o.phone
     end
 
     # @see the `==` method
@@ -180,7 +208,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event, message, conversation, account, metadata, timestamp].hash
+      [type, title, url, payload, phone].hash
     end
 
     # Builds the object from hash

@@ -14,51 +14,27 @@ require 'date'
 require 'time'
 
 module Late
-  # Webhook payload for message received events (DMs from Instagram, Telegram)
-  class WebhookPayloadMessage < ApiModelBase
-    attr_accessor :event
+  # Interactive message metadata (present when message is a quick reply tap, postback button tap, or inline keyboard callback)
+  class WebhookPayloadMessageMetadata < ApiModelBase
+    # Payload from a quick reply tap (Meta platforms)
+    attr_accessor :quick_reply_payload
 
-    attr_accessor :message
+    # Payload from a postback button tap (Meta platforms)
+    attr_accessor :postback_payload
 
-    attr_accessor :conversation
+    # Title of the tapped postback button (Meta platforms)
+    attr_accessor :postback_title
 
-    attr_accessor :account
-
-    attr_accessor :metadata
-
-    attr_accessor :timestamp
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # Callback data from an inline keyboard button tap (Telegram)
+    attr_accessor :callback_data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'event' => :'event',
-        :'message' => :'message',
-        :'conversation' => :'conversation',
-        :'account' => :'account',
-        :'metadata' => :'metadata',
-        :'timestamp' => :'timestamp'
+        :'quick_reply_payload' => :'quickReplyPayload',
+        :'postback_payload' => :'postbackPayload',
+        :'postback_title' => :'postbackTitle',
+        :'callback_data' => :'callbackData'
       }
     end
 
@@ -75,12 +51,10 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'event' => :'String',
-        :'message' => :'WebhookPayloadMessageMessage',
-        :'conversation' => :'WebhookPayloadMessageConversation',
-        :'account' => :'WebhookPayloadMessageAccount',
-        :'metadata' => :'WebhookPayloadMessageMetadata',
-        :'timestamp' => :'Time'
+        :'quick_reply_payload' => :'String',
+        :'postback_payload' => :'String',
+        :'postback_title' => :'String',
+        :'callback_data' => :'String'
       }
     end
 
@@ -94,40 +68,32 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookPayloadMessage` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookPayloadMessageMetadata` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookPayloadMessage`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookPayloadMessageMetadata`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'event')
-        self.event = attributes[:'event']
+      if attributes.key?(:'quick_reply_payload')
+        self.quick_reply_payload = attributes[:'quick_reply_payload']
       end
 
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
+      if attributes.key?(:'postback_payload')
+        self.postback_payload = attributes[:'postback_payload']
       end
 
-      if attributes.key?(:'conversation')
-        self.conversation = attributes[:'conversation']
+      if attributes.key?(:'postback_title')
+        self.postback_title = attributes[:'postback_title']
       end
 
-      if attributes.key?(:'account')
-        self.account = attributes[:'account']
-      end
-
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
-      end
-
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
+      if attributes.key?(:'callback_data')
+        self.callback_data = attributes[:'callback_data']
       end
     end
 
@@ -143,19 +109,7 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      event_validator = EnumAttributeValidator.new('String', ["message.received"])
-      return false unless event_validator.valid?(@event)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] event Object to be assigned
-    def event=(event)
-      validator = EnumAttributeValidator.new('String', ["message.received"])
-      unless validator.valid?(event)
-        fail ArgumentError, "invalid value for \"event\", must be one of #{validator.allowable_values}."
-      end
-      @event = event
     end
 
     # Checks equality by comparing each attribute.
@@ -163,12 +117,10 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          event == o.event &&
-          message == o.message &&
-          conversation == o.conversation &&
-          account == o.account &&
-          metadata == o.metadata &&
-          timestamp == o.timestamp
+          quick_reply_payload == o.quick_reply_payload &&
+          postback_payload == o.postback_payload &&
+          postback_title == o.postback_title &&
+          callback_data == o.callback_data
     end
 
     # @see the `==` method
@@ -180,7 +132,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event, message, conversation, account, metadata, timestamp].hash
+      [quick_reply_payload, postback_payload, postback_title, callback_data].hash
     end
 
     # Builds the object from hash

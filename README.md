@@ -93,6 +93,15 @@ Class | Method | HTTP request | Description
 *Late::AccountGroupsApi* | [**delete_account_group**](docs/AccountGroupsApi.md#delete_account_group) | **DELETE** /v1/account-groups/{groupId} | Delete an account group
 *Late::AccountGroupsApi* | [**list_account_groups**](docs/AccountGroupsApi.md#list_account_groups) | **GET** /v1/account-groups | List account groups for the authenticated user
 *Late::AccountGroupsApi* | [**update_account_group**](docs/AccountGroupsApi.md#update_account_group) | **PUT** /v1/account-groups/{groupId} | Update an account group
+*Late::AccountSettingsApi* | [**delete_instagram_ice_breakers**](docs/AccountSettingsApi.md#delete_instagram_ice_breakers) | **DELETE** /v1/accounts/{accountId}/instagram-ice-breakers | Delete Instagram ice breakers
+*Late::AccountSettingsApi* | [**delete_messenger_menu**](docs/AccountSettingsApi.md#delete_messenger_menu) | **DELETE** /v1/accounts/{accountId}/messenger-menu | Delete Facebook persistent menu
+*Late::AccountSettingsApi* | [**delete_telegram_commands**](docs/AccountSettingsApi.md#delete_telegram_commands) | **DELETE** /v1/accounts/{accountId}/telegram-commands | Delete Telegram bot commands
+*Late::AccountSettingsApi* | [**get_instagram_ice_breakers**](docs/AccountSettingsApi.md#get_instagram_ice_breakers) | **GET** /v1/accounts/{accountId}/instagram-ice-breakers | Get Instagram ice breakers
+*Late::AccountSettingsApi* | [**get_messenger_menu**](docs/AccountSettingsApi.md#get_messenger_menu) | **GET** /v1/accounts/{accountId}/messenger-menu | Get Facebook persistent menu
+*Late::AccountSettingsApi* | [**get_telegram_commands**](docs/AccountSettingsApi.md#get_telegram_commands) | **GET** /v1/accounts/{accountId}/telegram-commands | Get Telegram bot commands
+*Late::AccountSettingsApi* | [**set_instagram_ice_breakers**](docs/AccountSettingsApi.md#set_instagram_ice_breakers) | **PUT** /v1/accounts/{accountId}/instagram-ice-breakers | Set Instagram ice breakers
+*Late::AccountSettingsApi* | [**set_messenger_menu**](docs/AccountSettingsApi.md#set_messenger_menu) | **PUT** /v1/accounts/{accountId}/messenger-menu | Set Facebook persistent menu
+*Late::AccountSettingsApi* | [**set_telegram_commands**](docs/AccountSettingsApi.md#set_telegram_commands) | **PUT** /v1/accounts/{accountId}/telegram-commands | Set Telegram bot commands
 *Late::AccountsApi* | [**delete_account**](docs/AccountsApi.md#delete_account) | **DELETE** /v1/accounts/{accountId} | Disconnect a social account
 *Late::AccountsApi* | [**get_account_health**](docs/AccountsApi.md#get_account_health) | **GET** /v1/accounts/{accountId}/health | Check health of a specific account
 *Late::AccountsApi* | [**get_all_accounts_health**](docs/AccountsApi.md#get_all_accounts_health) | **GET** /v1/accounts/health | Check health of all connected accounts
@@ -161,6 +170,7 @@ Class | Method | HTTP request | Description
 *Late::LogsApi* | [**list_logs**](docs/LogsApi.md#list_logs) | **GET** /v1/logs | Get publishing logs (deprecated)
 *Late::LogsApi* | [**list_posts_logs**](docs/LogsApi.md#list_posts_logs) | **GET** /v1/posts/logs | Get publishing logs
 *Late::MediaApi* | [**get_media_presigned_url**](docs/MediaApi.md#get_media_presigned_url) | **POST** /v1/media/presign | Get a presigned URL for direct file upload (up to 5GB)
+*Late::MessagesApi* | [**edit_inbox_message**](docs/MessagesApi.md#edit_inbox_message) | **PATCH** /v1/inbox/conversations/{conversationId}/messages/{messageId} | Edit a message (Telegram only)
 *Late::MessagesApi* | [**get_inbox_conversation**](docs/MessagesApi.md#get_inbox_conversation) | **GET** /v1/inbox/conversations/{conversationId} | Get conversation details
 *Late::MessagesApi* | [**get_inbox_conversation_messages**](docs/MessagesApi.md#get_inbox_conversation_messages) | **GET** /v1/inbox/conversations/{conversationId}/messages | Get messages in a conversation
 *Late::MessagesApi* | [**list_inbox_conversations**](docs/MessagesApi.md#list_inbox_conversations) | **GET** /v1/inbox/conversations | List conversations across all accounts
@@ -274,6 +284,11 @@ Class | Method | HTTP request | Description
  - [Late::DownloadTikTokVideo200ResponseFormatsInner](docs/DownloadTikTokVideo200ResponseFormatsInner.md)
  - [Late::DownloadYouTubeVideo200Response](docs/DownloadYouTubeVideo200Response.md)
  - [Late::DownloadYouTubeVideo200ResponseFormatsInner](docs/DownloadYouTubeVideo200ResponseFormatsInner.md)
+ - [Late::EditInboxMessage200Response](docs/EditInboxMessage200Response.md)
+ - [Late::EditInboxMessage200ResponseData](docs/EditInboxMessage200ResponseData.md)
+ - [Late::EditInboxMessageRequest](docs/EditInboxMessageRequest.md)
+ - [Late::EditInboxMessageRequestReplyMarkup](docs/EditInboxMessageRequestReplyMarkup.md)
+ - [Late::EditInboxMessageRequestReplyMarkupKeyboardInnerInner](docs/EditInboxMessageRequestReplyMarkupKeyboardInnerInner.md)
  - [Late::ErrorResponse](docs/ErrorResponse.md)
  - [Late::Expired](docs/Expired.md)
  - [Late::FacebookPlatformData](docs/FacebookPlatformData.md)
@@ -342,6 +357,7 @@ Class | Method | HTTP request | Description
  - [Late::GetLog200Response](docs/GetLog200Response.md)
  - [Late::GetMediaPresignedUrl200Response](docs/GetMediaPresignedUrl200Response.md)
  - [Late::GetMediaPresignedUrlRequest](docs/GetMediaPresignedUrlRequest.md)
+ - [Late::GetMessengerMenu200Response](docs/GetMessengerMenu200Response.md)
  - [Late::GetNextQueueSlot200Response](docs/GetNextQueueSlot200Response.md)
  - [Late::GetPendingOAuthData200Response](docs/GetPendingOAuthData200Response.md)
  - [Late::GetPendingOAuthData200ResponseOrganizationsInner](docs/GetPendingOAuthData200ResponseOrganizationsInner.md)
@@ -352,6 +368,8 @@ Class | Method | HTTP request | Description
  - [Late::GetRedditFeed200Response](docs/GetRedditFeed200Response.md)
  - [Late::GetRedditSubreddits200Response](docs/GetRedditSubreddits200Response.md)
  - [Late::GetRedditSubreddits200ResponseSubredditsInner](docs/GetRedditSubreddits200ResponseSubredditsInner.md)
+ - [Late::GetTelegramCommands200Response](docs/GetTelegramCommands200Response.md)
+ - [Late::GetTelegramCommands200ResponseDataInner](docs/GetTelegramCommands200ResponseDataInner.md)
  - [Late::GetTelegramConnectStatus200Response](docs/GetTelegramConnectStatus200Response.md)
  - [Late::GetUser200Response](docs/GetUser200Response.md)
  - [Late::GetUser200ResponseUser](docs/GetUser200ResponseUser.md)
@@ -499,8 +517,20 @@ Class | Method | HTTP request | Description
  - [Late::SendInboxMessage200ResponseData](docs/SendInboxMessage200ResponseData.md)
  - [Late::SendInboxMessage400Response](docs/SendInboxMessage400Response.md)
  - [Late::SendInboxMessageRequest](docs/SendInboxMessageRequest.md)
+ - [Late::SendInboxMessageRequestButtonsInner](docs/SendInboxMessageRequestButtonsInner.md)
+ - [Late::SendInboxMessageRequestQuickRepliesInner](docs/SendInboxMessageRequestQuickRepliesInner.md)
+ - [Late::SendInboxMessageRequestReplyMarkup](docs/SendInboxMessageRequestReplyMarkup.md)
+ - [Late::SendInboxMessageRequestReplyMarkupKeyboardInnerInner](docs/SendInboxMessageRequestReplyMarkupKeyboardInnerInner.md)
+ - [Late::SendInboxMessageRequestTemplate](docs/SendInboxMessageRequestTemplate.md)
+ - [Late::SendInboxMessageRequestTemplateElementsInner](docs/SendInboxMessageRequestTemplateElementsInner.md)
+ - [Late::SendInboxMessageRequestTemplateElementsInnerButtonsInner](docs/SendInboxMessageRequestTemplateElementsInnerButtonsInner.md)
  - [Late::SendPrivateReplyToComment200Response](docs/SendPrivateReplyToComment200Response.md)
  - [Late::SendPrivateReplyToCommentRequest](docs/SendPrivateReplyToCommentRequest.md)
+ - [Late::SetInstagramIceBreakersRequest](docs/SetInstagramIceBreakersRequest.md)
+ - [Late::SetInstagramIceBreakersRequestIceBreakersInner](docs/SetInstagramIceBreakersRequestIceBreakersInner.md)
+ - [Late::SetMessengerMenuRequest](docs/SetMessengerMenuRequest.md)
+ - [Late::SetTelegramCommandsRequest](docs/SetTelegramCommandsRequest.md)
+ - [Late::SetTelegramCommandsRequestCommandsInner](docs/SetTelegramCommandsRequestCommandsInner.md)
  - [Late::SnapchatPlatformData](docs/SnapchatPlatformData.md)
  - [Late::SocialAccount](docs/SocialAccount.md)
  - [Late::SocialAccountProfileId](docs/SocialAccountProfileId.md)
@@ -569,6 +599,7 @@ Class | Method | HTTP request | Description
  - [Late::WebhookPayloadMessageMessage](docs/WebhookPayloadMessageMessage.md)
  - [Late::WebhookPayloadMessageMessageAttachmentsInner](docs/WebhookPayloadMessageMessageAttachmentsInner.md)
  - [Late::WebhookPayloadMessageMessageSender](docs/WebhookPayloadMessageMessageSender.md)
+ - [Late::WebhookPayloadMessageMetadata](docs/WebhookPayloadMessageMetadata.md)
  - [Late::WebhookPayloadPost](docs/WebhookPayloadPost.md)
  - [Late::WebhookPayloadPostPost](docs/WebhookPayloadPostPost.md)
  - [Late::WebhookPayloadPostPostPlatformsInner](docs/WebhookPayloadPostPostPlatformsInner.md)

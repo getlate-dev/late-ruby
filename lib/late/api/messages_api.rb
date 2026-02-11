@@ -19,6 +19,86 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Edit a message (Telegram only)
+    # Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
+    # @param conversation_id [String] The conversation ID
+    # @param message_id [String] The Telegram message ID to edit
+    # @param edit_inbox_message_request [EditInboxMessageRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [EditInboxMessage200Response]
+    def edit_inbox_message(conversation_id, message_id, edit_inbox_message_request, opts = {})
+      data, _status_code, _headers = edit_inbox_message_with_http_info(conversation_id, message_id, edit_inbox_message_request, opts)
+      data
+    end
+
+    # Edit a message (Telegram only)
+    # Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
+    # @param conversation_id [String] The conversation ID
+    # @param message_id [String] The Telegram message ID to edit
+    # @param edit_inbox_message_request [EditInboxMessageRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EditInboxMessage200Response, Integer, Hash)>] EditInboxMessage200Response data, response status code and response headers
+    def edit_inbox_message_with_http_info(conversation_id, message_id, edit_inbox_message_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MessagesApi.edit_inbox_message ...'
+      end
+      # verify the required parameter 'conversation_id' is set
+      if @api_client.config.client_side_validation && conversation_id.nil?
+        fail ArgumentError, "Missing the required parameter 'conversation_id' when calling MessagesApi.edit_inbox_message"
+      end
+      # verify the required parameter 'message_id' is set
+      if @api_client.config.client_side_validation && message_id.nil?
+        fail ArgumentError, "Missing the required parameter 'message_id' when calling MessagesApi.edit_inbox_message"
+      end
+      # verify the required parameter 'edit_inbox_message_request' is set
+      if @api_client.config.client_side_validation && edit_inbox_message_request.nil?
+        fail ArgumentError, "Missing the required parameter 'edit_inbox_message_request' when calling MessagesApi.edit_inbox_message"
+      end
+      # resource path
+      local_var_path = '/v1/inbox/conversations/{conversationId}/messages/{messageId}'.sub('{' + 'conversationId' + '}', CGI.escape(conversation_id.to_s)).sub('{' + 'messageId' + '}', CGI.escape(message_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(edit_inbox_message_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EditInboxMessage200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"MessagesApi.edit_inbox_message",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MessagesApi#edit_inbox_message\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get conversation details
     # Retrieve details and metadata for a specific conversation. Requires accountId query parameter.
     # @param conversation_id [String] The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID.
@@ -258,7 +338,7 @@ module Late
     end
 
     # Send a message
-    # Send a message in a conversation. Requires accountId in request body.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Twitter/X: Images, videos (requires media upload) - Instagram: Not supported (API limitation) - Bluesky: Not supported (API limitation) - Reddit: Not supported (API limitation) 
+    # Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
     # @param conversation_id [String] The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID.
     # @param send_inbox_message_request [SendInboxMessageRequest] 
     # @param [Hash] opts the optional parameters
@@ -269,7 +349,7 @@ module Late
     end
 
     # Send a message
-    # Send a message in a conversation. Requires accountId in request body.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Twitter/X: Images, videos (requires media upload) - Instagram: Not supported (API limitation) - Bluesky: Not supported (API limitation) - Reddit: Not supported (API limitation) 
+    # Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
     # @param conversation_id [String] The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID.
     # @param send_inbox_message_request [SendInboxMessageRequest] 
     # @param [Hash] opts the optional parameters

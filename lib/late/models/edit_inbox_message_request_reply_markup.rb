@@ -14,19 +14,11 @@ require 'date'
 require 'time'
 
 module Late
-  # Webhook payload for message received events (DMs from Instagram, Telegram)
-  class WebhookPayloadMessage < ApiModelBase
-    attr_accessor :event
+  # New inline keyboard markup
+  class EditInboxMessageRequestReplyMarkup < ApiModelBase
+    attr_accessor :type
 
-    attr_accessor :message
-
-    attr_accessor :conversation
-
-    attr_accessor :account
-
-    attr_accessor :metadata
-
-    attr_accessor :timestamp
+    attr_accessor :keyboard
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -53,12 +45,8 @@ module Late
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'event' => :'event',
-        :'message' => :'message',
-        :'conversation' => :'conversation',
-        :'account' => :'account',
-        :'metadata' => :'metadata',
-        :'timestamp' => :'timestamp'
+        :'type' => :'type',
+        :'keyboard' => :'keyboard'
       }
     end
 
@@ -75,12 +63,8 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'event' => :'String',
-        :'message' => :'WebhookPayloadMessageMessage',
-        :'conversation' => :'WebhookPayloadMessageConversation',
-        :'account' => :'WebhookPayloadMessageAccount',
-        :'metadata' => :'WebhookPayloadMessageMetadata',
-        :'timestamp' => :'Time'
+        :'type' => :'String',
+        :'keyboard' => :'Array<Array<EditInboxMessageRequestReplyMarkupKeyboardInnerInner>>'
       }
     end
 
@@ -94,40 +78,26 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookPayloadMessage` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::EditInboxMessageRequestReplyMarkup` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookPayloadMessage`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::EditInboxMessageRequestReplyMarkup`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'event')
-        self.event = attributes[:'event']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'conversation')
-        self.conversation = attributes[:'conversation']
-      end
-
-      if attributes.key?(:'account')
-        self.account = attributes[:'account']
-      end
-
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
-      end
-
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
+      if attributes.key?(:'keyboard')
+        if (value = attributes[:'keyboard']).is_a?(Array)
+          self.keyboard = value
+        end
       end
     end
 
@@ -143,19 +113,19 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      event_validator = EnumAttributeValidator.new('String', ["message.received"])
-      return false unless event_validator.valid?(@event)
+      type_validator = EnumAttributeValidator.new('String', ["inline_keyboard"])
+      return false unless type_validator.valid?(@type)
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] event Object to be assigned
-    def event=(event)
-      validator = EnumAttributeValidator.new('String', ["message.received"])
-      unless validator.valid?(event)
-        fail ArgumentError, "invalid value for \"event\", must be one of #{validator.allowable_values}."
+    # @param [Object] type Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('String', ["inline_keyboard"])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end
-      @event = event
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -163,12 +133,8 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          event == o.event &&
-          message == o.message &&
-          conversation == o.conversation &&
-          account == o.account &&
-          metadata == o.metadata &&
-          timestamp == o.timestamp
+          type == o.type &&
+          keyboard == o.keyboard
     end
 
     # @see the `==` method
@@ -180,7 +146,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event, message, conversation, account, metadata, timestamp].hash
+      [type, keyboard].hash
     end
 
     # Builds the object from hash

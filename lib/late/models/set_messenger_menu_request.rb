@@ -14,51 +14,14 @@ require 'date'
 require 'time'
 
 module Late
-  # Webhook payload for message received events (DMs from Instagram, Telegram)
-  class WebhookPayloadMessage < ApiModelBase
-    attr_accessor :event
-
-    attr_accessor :message
-
-    attr_accessor :conversation
-
-    attr_accessor :account
-
-    attr_accessor :metadata
-
-    attr_accessor :timestamp
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+  class SetMessengerMenuRequest < ApiModelBase
+    # Persistent menu configuration array (Meta format)
+    attr_accessor :persistent_menu
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'event' => :'event',
-        :'message' => :'message',
-        :'conversation' => :'conversation',
-        :'account' => :'account',
-        :'metadata' => :'metadata',
-        :'timestamp' => :'timestamp'
+        :'persistent_menu' => :'persistent_menu'
       }
     end
 
@@ -75,12 +38,7 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'event' => :'String',
-        :'message' => :'WebhookPayloadMessageMessage',
-        :'conversation' => :'WebhookPayloadMessageConversation',
-        :'account' => :'WebhookPayloadMessageAccount',
-        :'metadata' => :'WebhookPayloadMessageMetadata',
-        :'timestamp' => :'Time'
+        :'persistent_menu' => :'Array<Object>'
       }
     end
 
@@ -94,40 +52,24 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookPayloadMessage` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::SetMessengerMenuRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookPayloadMessage`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::SetMessengerMenuRequest`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'event')
-        self.event = attributes[:'event']
-      end
-
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'conversation')
-        self.conversation = attributes[:'conversation']
-      end
-
-      if attributes.key?(:'account')
-        self.account = attributes[:'account']
-      end
-
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
-      end
-
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
+      if attributes.key?(:'persistent_menu')
+        if (value = attributes[:'persistent_menu']).is_a?(Array)
+          self.persistent_menu = value
+        end
+      else
+        self.persistent_menu = nil
       end
     end
 
@@ -136,6 +78,10 @@ module Late
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @persistent_menu.nil?
+        invalid_properties.push('invalid value for "persistent_menu", persistent_menu cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -143,19 +89,18 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      event_validator = EnumAttributeValidator.new('String', ["message.received"])
-      return false unless event_validator.valid?(@event)
+      return false if @persistent_menu.nil?
       true
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] event Object to be assigned
-    def event=(event)
-      validator = EnumAttributeValidator.new('String', ["message.received"])
-      unless validator.valid?(event)
-        fail ArgumentError, "invalid value for \"event\", must be one of #{validator.allowable_values}."
+    # Custom attribute writer method with validation
+    # @param [Object] persistent_menu Value to be assigned
+    def persistent_menu=(persistent_menu)
+      if persistent_menu.nil?
+        fail ArgumentError, 'persistent_menu cannot be nil'
       end
-      @event = event
+
+      @persistent_menu = persistent_menu
     end
 
     # Checks equality by comparing each attribute.
@@ -163,12 +108,7 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          event == o.event &&
-          message == o.message &&
-          conversation == o.conversation &&
-          account == o.account &&
-          metadata == o.metadata &&
-          timestamp == o.timestamp
+          persistent_menu == o.persistent_menu
     end
 
     # @see the `==` method
@@ -180,7 +120,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event, message, conversation, account, metadata, timestamp].hash
+      [persistent_menu].hash
     end
 
     # Builds the object from hash

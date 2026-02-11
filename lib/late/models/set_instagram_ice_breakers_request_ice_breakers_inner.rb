@@ -14,51 +14,16 @@ require 'date'
 require 'time'
 
 module Late
-  # Webhook payload for message received events (DMs from Instagram, Telegram)
-  class WebhookPayloadMessage < ApiModelBase
-    attr_accessor :event
+  class SetInstagramIceBreakersRequestIceBreakersInner < ApiModelBase
+    attr_accessor :question
 
-    attr_accessor :message
-
-    attr_accessor :conversation
-
-    attr_accessor :account
-
-    attr_accessor :metadata
-
-    attr_accessor :timestamp
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :payload
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'event' => :'event',
-        :'message' => :'message',
-        :'conversation' => :'conversation',
-        :'account' => :'account',
-        :'metadata' => :'metadata',
-        :'timestamp' => :'timestamp'
+        :'question' => :'question',
+        :'payload' => :'payload'
       }
     end
 
@@ -75,12 +40,8 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'event' => :'String',
-        :'message' => :'WebhookPayloadMessageMessage',
-        :'conversation' => :'WebhookPayloadMessageConversation',
-        :'account' => :'WebhookPayloadMessageAccount',
-        :'metadata' => :'WebhookPayloadMessageMetadata',
-        :'timestamp' => :'Time'
+        :'question' => :'String',
+        :'payload' => :'String'
       }
     end
 
@@ -94,40 +55,28 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookPayloadMessage` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::SetInstagramIceBreakersRequestIceBreakersInner` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookPayloadMessage`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::SetInstagramIceBreakersRequestIceBreakersInner`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'event')
-        self.event = attributes[:'event']
+      if attributes.key?(:'question')
+        self.question = attributes[:'question']
+      else
+        self.question = nil
       end
 
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'conversation')
-        self.conversation = attributes[:'conversation']
-      end
-
-      if attributes.key?(:'account')
-        self.account = attributes[:'account']
-      end
-
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
-      end
-
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
+      if attributes.key?(:'payload')
+        self.payload = attributes[:'payload']
+      else
+        self.payload = nil
       end
     end
 
@@ -136,6 +85,18 @@ module Late
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @question.nil?
+        invalid_properties.push('invalid value for "question", question cannot be nil.')
+      end
+
+      if @question.to_s.length > 80
+        invalid_properties.push('invalid value for "question", the character length must be smaller than or equal to 80.')
+      end
+
+      if @payload.nil?
+        invalid_properties.push('invalid value for "payload", payload cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -143,19 +104,34 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      event_validator = EnumAttributeValidator.new('String', ["message.received"])
-      return false unless event_validator.valid?(@event)
+      return false if @question.nil?
+      return false if @question.to_s.length > 80
+      return false if @payload.nil?
       true
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] event Object to be assigned
-    def event=(event)
-      validator = EnumAttributeValidator.new('String', ["message.received"])
-      unless validator.valid?(event)
-        fail ArgumentError, "invalid value for \"event\", must be one of #{validator.allowable_values}."
+    # Custom attribute writer method with validation
+    # @param [Object] question Value to be assigned
+    def question=(question)
+      if question.nil?
+        fail ArgumentError, 'question cannot be nil'
       end
-      @event = event
+
+      if question.to_s.length > 80
+        fail ArgumentError, 'invalid value for "question", the character length must be smaller than or equal to 80.'
+      end
+
+      @question = question
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] payload Value to be assigned
+    def payload=(payload)
+      if payload.nil?
+        fail ArgumentError, 'payload cannot be nil'
+      end
+
+      @payload = payload
     end
 
     # Checks equality by comparing each attribute.
@@ -163,12 +139,8 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          event == o.event &&
-          message == o.message &&
-          conversation == o.conversation &&
-          account == o.account &&
-          metadata == o.metadata &&
-          timestamp == o.timestamp
+          question == o.question &&
+          payload == o.payload
     end
 
     # @see the `==` method
@@ -180,7 +152,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event, message, conversation, account, metadata, timestamp].hash
+      [question, payload].hash
     end
 
     # Builds the object from hash

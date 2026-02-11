@@ -14,51 +14,25 @@ require 'date'
 require 'time'
 
 module Late
-  # Webhook payload for message received events (DMs from Instagram, Telegram)
-  class WebhookPayloadMessage < ApiModelBase
-    attr_accessor :event
+  class SendInboxMessageRequestTemplateElementsInner < ApiModelBase
+    # Element title (max 80 chars)
+    attr_accessor :title
 
-    attr_accessor :message
+    # Element subtitle
+    attr_accessor :subtitle
 
-    attr_accessor :conversation
+    # Element image URL
+    attr_accessor :image_url
 
-    attr_accessor :account
-
-    attr_accessor :metadata
-
-    attr_accessor :timestamp
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :buttons
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'event' => :'event',
-        :'message' => :'message',
-        :'conversation' => :'conversation',
-        :'account' => :'account',
-        :'metadata' => :'metadata',
-        :'timestamp' => :'timestamp'
+        :'title' => :'title',
+        :'subtitle' => :'subtitle',
+        :'image_url' => :'imageUrl',
+        :'buttons' => :'buttons'
       }
     end
 
@@ -75,12 +49,10 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'event' => :'String',
-        :'message' => :'WebhookPayloadMessageMessage',
-        :'conversation' => :'WebhookPayloadMessageConversation',
-        :'account' => :'WebhookPayloadMessageAccount',
-        :'metadata' => :'WebhookPayloadMessageMetadata',
-        :'timestamp' => :'Time'
+        :'title' => :'String',
+        :'subtitle' => :'String',
+        :'image_url' => :'String',
+        :'buttons' => :'Array<SendInboxMessageRequestTemplateElementsInnerButtonsInner>'
       }
     end
 
@@ -94,40 +66,36 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookPayloadMessage` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::SendInboxMessageRequestTemplateElementsInner` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookPayloadMessage`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::SendInboxMessageRequestTemplateElementsInner`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'event')
-        self.event = attributes[:'event']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
+      else
+        self.title = nil
       end
 
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
+      if attributes.key?(:'subtitle')
+        self.subtitle = attributes[:'subtitle']
       end
 
-      if attributes.key?(:'conversation')
-        self.conversation = attributes[:'conversation']
+      if attributes.key?(:'image_url')
+        self.image_url = attributes[:'image_url']
       end
 
-      if attributes.key?(:'account')
-        self.account = attributes[:'account']
-      end
-
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
-      end
-
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
+      if attributes.key?(:'buttons')
+        if (value = attributes[:'buttons']).is_a?(Array)
+          self.buttons = value
+        end
       end
     end
 
@@ -136,6 +104,18 @@ module Late
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @title.nil?
+        invalid_properties.push('invalid value for "title", title cannot be nil.')
+      end
+
+      if @title.to_s.length > 80
+        invalid_properties.push('invalid value for "title", the character length must be smaller than or equal to 80.')
+      end
+
+      if !@buttons.nil? && @buttons.length > 3
+        invalid_properties.push('invalid value for "buttons", number of items must be less than or equal to 3.')
+      end
+
       invalid_properties
     end
 
@@ -143,19 +123,38 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      event_validator = EnumAttributeValidator.new('String', ["message.received"])
-      return false unless event_validator.valid?(@event)
+      return false if @title.nil?
+      return false if @title.to_s.length > 80
+      return false if !@buttons.nil? && @buttons.length > 3
       true
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] event Object to be assigned
-    def event=(event)
-      validator = EnumAttributeValidator.new('String', ["message.received"])
-      unless validator.valid?(event)
-        fail ArgumentError, "invalid value for \"event\", must be one of #{validator.allowable_values}."
+    # Custom attribute writer method with validation
+    # @param [Object] title Value to be assigned
+    def title=(title)
+      if title.nil?
+        fail ArgumentError, 'title cannot be nil'
       end
-      @event = event
+
+      if title.to_s.length > 80
+        fail ArgumentError, 'invalid value for "title", the character length must be smaller than or equal to 80.'
+      end
+
+      @title = title
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] buttons Value to be assigned
+    def buttons=(buttons)
+      if buttons.nil?
+        fail ArgumentError, 'buttons cannot be nil'
+      end
+
+      if buttons.length > 3
+        fail ArgumentError, 'invalid value for "buttons", number of items must be less than or equal to 3.'
+      end
+
+      @buttons = buttons
     end
 
     # Checks equality by comparing each attribute.
@@ -163,12 +162,10 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          event == o.event &&
-          message == o.message &&
-          conversation == o.conversation &&
-          account == o.account &&
-          metadata == o.metadata &&
-          timestamp == o.timestamp
+          title == o.title &&
+          subtitle == o.subtitle &&
+          image_url == o.image_url &&
+          buttons == o.buttons
     end
 
     # @see the `==` method
@@ -180,7 +177,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event, message, conversation, account, metadata, timestamp].hash
+      [title, subtitle, image_url, buttons].hash
     end
 
     # Builds the object from hash

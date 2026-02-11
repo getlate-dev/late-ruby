@@ -21,11 +21,59 @@ module Late
     # Message text
     attr_accessor :message
 
+    # Quick reply buttons. Mutually exclusive with buttons. Max 13 items.
+    attr_accessor :quick_replies
+
+    # Action buttons. Mutually exclusive with quickReplies. Max 3 items.
+    attr_accessor :buttons
+
+    attr_accessor :template
+
+    attr_accessor :reply_markup
+
+    # Facebook messaging type. Required when using messageTag.
+    attr_accessor :messaging_type
+
+    # Facebook message tag for messaging outside 24h window. Requires messagingType MESSAGE_TAG. Instagram only supports HUMAN_AGENT.
+    attr_accessor :message_tag
+
+    # Platform message ID to reply to (Telegram only).
+    attr_accessor :reply_to
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'account_id' => :'accountId',
-        :'message' => :'message'
+        :'message' => :'message',
+        :'quick_replies' => :'quickReplies',
+        :'buttons' => :'buttons',
+        :'template' => :'template',
+        :'reply_markup' => :'replyMarkup',
+        :'messaging_type' => :'messagingType',
+        :'message_tag' => :'messageTag',
+        :'reply_to' => :'replyTo'
       }
     end
 
@@ -43,7 +91,14 @@ module Late
     def self.openapi_types
       {
         :'account_id' => :'String',
-        :'message' => :'String'
+        :'message' => :'String',
+        :'quick_replies' => :'Array<SendInboxMessageRequestQuickRepliesInner>',
+        :'buttons' => :'Array<SendInboxMessageRequestButtonsInner>',
+        :'template' => :'SendInboxMessageRequestTemplate',
+        :'reply_markup' => :'SendInboxMessageRequestReplyMarkup',
+        :'messaging_type' => :'String',
+        :'message_tag' => :'String',
+        :'reply_to' => :'String'
       }
     end
 
@@ -77,8 +132,38 @@ module Late
 
       if attributes.key?(:'message')
         self.message = attributes[:'message']
-      else
-        self.message = nil
+      end
+
+      if attributes.key?(:'quick_replies')
+        if (value = attributes[:'quick_replies']).is_a?(Array)
+          self.quick_replies = value
+        end
+      end
+
+      if attributes.key?(:'buttons')
+        if (value = attributes[:'buttons']).is_a?(Array)
+          self.buttons = value
+        end
+      end
+
+      if attributes.key?(:'template')
+        self.template = attributes[:'template']
+      end
+
+      if attributes.key?(:'reply_markup')
+        self.reply_markup = attributes[:'reply_markup']
+      end
+
+      if attributes.key?(:'messaging_type')
+        self.messaging_type = attributes[:'messaging_type']
+      end
+
+      if attributes.key?(:'message_tag')
+        self.message_tag = attributes[:'message_tag']
+      end
+
+      if attributes.key?(:'reply_to')
+        self.reply_to = attributes[:'reply_to']
       end
     end
 
@@ -91,8 +176,12 @@ module Late
         invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
       end
 
-      if @message.nil?
-        invalid_properties.push('invalid value for "message", message cannot be nil.')
+      if !@quick_replies.nil? && @quick_replies.length > 13
+        invalid_properties.push('invalid value for "quick_replies", number of items must be less than or equal to 13.')
+      end
+
+      if !@buttons.nil? && @buttons.length > 3
+        invalid_properties.push('invalid value for "buttons", number of items must be less than or equal to 3.')
       end
 
       invalid_properties
@@ -103,7 +192,12 @@ module Late
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @account_id.nil?
-      return false if @message.nil?
+      return false if !@quick_replies.nil? && @quick_replies.length > 13
+      return false if !@buttons.nil? && @buttons.length > 3
+      messaging_type_validator = EnumAttributeValidator.new('String', ["RESPONSE", "UPDATE", "MESSAGE_TAG"])
+      return false unless messaging_type_validator.valid?(@messaging_type)
+      message_tag_validator = EnumAttributeValidator.new('String', ["CONFIRMED_EVENT_UPDATE", "POST_PURCHASE_UPDATE", "ACCOUNT_UPDATE", "HUMAN_AGENT"])
+      return false unless message_tag_validator.valid?(@message_tag)
       true
     end
 
@@ -118,13 +212,51 @@ module Late
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] message Value to be assigned
-    def message=(message)
-      if message.nil?
-        fail ArgumentError, 'message cannot be nil'
+    # @param [Object] quick_replies Value to be assigned
+    def quick_replies=(quick_replies)
+      if quick_replies.nil?
+        fail ArgumentError, 'quick_replies cannot be nil'
       end
 
-      @message = message
+      if quick_replies.length > 13
+        fail ArgumentError, 'invalid value for "quick_replies", number of items must be less than or equal to 13.'
+      end
+
+      @quick_replies = quick_replies
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] buttons Value to be assigned
+    def buttons=(buttons)
+      if buttons.nil?
+        fail ArgumentError, 'buttons cannot be nil'
+      end
+
+      if buttons.length > 3
+        fail ArgumentError, 'invalid value for "buttons", number of items must be less than or equal to 3.'
+      end
+
+      @buttons = buttons
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] messaging_type Object to be assigned
+    def messaging_type=(messaging_type)
+      validator = EnumAttributeValidator.new('String', ["RESPONSE", "UPDATE", "MESSAGE_TAG"])
+      unless validator.valid?(messaging_type)
+        fail ArgumentError, "invalid value for \"messaging_type\", must be one of #{validator.allowable_values}."
+      end
+      @messaging_type = messaging_type
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] message_tag Object to be assigned
+    def message_tag=(message_tag)
+      validator = EnumAttributeValidator.new('String', ["CONFIRMED_EVENT_UPDATE", "POST_PURCHASE_UPDATE", "ACCOUNT_UPDATE", "HUMAN_AGENT"])
+      unless validator.valid?(message_tag)
+        fail ArgumentError, "invalid value for \"message_tag\", must be one of #{validator.allowable_values}."
+      end
+      @message_tag = message_tag
     end
 
     # Checks equality by comparing each attribute.
@@ -133,7 +265,14 @@ module Late
       return true if self.equal?(o)
       self.class == o.class &&
           account_id == o.account_id &&
-          message == o.message
+          message == o.message &&
+          quick_replies == o.quick_replies &&
+          buttons == o.buttons &&
+          template == o.template &&
+          reply_markup == o.reply_markup &&
+          messaging_type == o.messaging_type &&
+          message_tag == o.message_tag &&
+          reply_to == o.reply_to
     end
 
     # @see the `==` method
@@ -145,7 +284,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, message].hash
+      [account_id, message, quick_replies, buttons, template, reply_markup, messaging_type, message_tag, reply_to].hash
     end
 
     # Builds the object from hash
