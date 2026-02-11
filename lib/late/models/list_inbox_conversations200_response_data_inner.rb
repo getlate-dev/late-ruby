@@ -41,6 +41,8 @@ module Late
     # Direct link to open the conversation on the platform (if available)
     attr_accessor :url
 
+    attr_accessor :instagram_profile
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -77,7 +79,8 @@ module Late
         :'updated_time' => :'updatedTime',
         :'status' => :'status',
         :'unread_count' => :'unreadCount',
-        :'url' => :'url'
+        :'url' => :'url',
+        :'instagram_profile' => :'instagramProfile'
       }
     end
 
@@ -105,7 +108,8 @@ module Late
         :'updated_time' => :'Time',
         :'status' => :'String',
         :'unread_count' => :'Integer',
-        :'url' => :'String'
+        :'url' => :'String',
+        :'instagram_profile' => :'ListInboxConversations200ResponseDataInnerInstagramProfile'
       }
     end
 
@@ -178,6 +182,10 @@ module Late
       if attributes.key?(:'url')
         self.url = attributes[:'url']
       end
+
+      if attributes.key?(:'instagram_profile')
+        self.instagram_profile = attributes[:'instagram_profile']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -223,7 +231,8 @@ module Late
           updated_time == o.updated_time &&
           status == o.status &&
           unread_count == o.unread_count &&
-          url == o.url
+          url == o.url &&
+          instagram_profile == o.instagram_profile
     end
 
     # @see the `==` method
@@ -235,7 +244,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, platform, account_id, account_username, participant_id, participant_name, participant_picture, last_message, updated_time, status, unread_count, url].hash
+      [id, platform, account_id, account_username, participant_id, participant_name, participant_picture, last_message, updated_time, status, unread_count, url, instagram_profile].hash
     end
 
     # Builds the object from hash

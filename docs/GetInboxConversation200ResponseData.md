@@ -15,6 +15,7 @@
 | **last_message_at** | **Time** |  | [optional] |
 | **updated_time** | **Time** |  | [optional] |
 | **participants** | [**Array&lt;UpdateFacebookPage200ResponseSelectedPage&gt;**](UpdateFacebookPage200ResponseSelectedPage.md) |  | [optional] |
+| **instagram_profile** | [**ListInboxConversations200ResponseDataInnerInstagramProfile**](ListInboxConversations200ResponseDataInnerInstagramProfile.md) |  | [optional] |
 
 ## Example
 
@@ -32,7 +33,8 @@ instance = Late::GetInboxConversation200ResponseData.new(
   last_message: null,
   last_message_at: null,
   updated_time: null,
-  participants: null
+  participants: null,
+  instagram_profile: null
 )
 ```
 

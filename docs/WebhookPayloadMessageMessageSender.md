@@ -8,6 +8,7 @@
 | **name** | **String** |  | [optional] |
 | **username** | **String** |  | [optional] |
 | **picture** | **String** |  | [optional] |
+| **instagram_profile** | [**WebhookPayloadMessageMessageSenderInstagramProfile**](WebhookPayloadMessageMessageSenderInstagramProfile.md) |  | [optional] |
 
 ## Example
 
@@ -18,7 +19,8 @@ instance = Late::WebhookPayloadMessageMessageSender.new(
   id: null,
   name: null,
   username: null,
-  picture: null
+  picture: null,
+  instagram_profile: null
 )
 ```
 

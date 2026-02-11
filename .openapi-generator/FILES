@@ -222,6 +222,7 @@ docs/ListInboxComments200Response.md
 docs/ListInboxComments200ResponseDataInner.md
 docs/ListInboxConversations200Response.md
 docs/ListInboxConversations200ResponseDataInner.md
+docs/ListInboxConversations200ResponseDataInnerInstagramProfile.md
 docs/ListInboxConversations200ResponseMeta.md
 docs/ListInboxConversations200ResponseMetaFailedAccountsInner.md
 docs/ListInboxConversations200ResponsePagination.md
@@ -410,6 +411,7 @@ docs/WebhookPayloadMessageConversation.md
 docs/WebhookPayloadMessageMessage.md
 docs/WebhookPayloadMessageMessageAttachmentsInner.md
 docs/WebhookPayloadMessageMessageSender.md
+docs/WebhookPayloadMessageMessageSenderInstagramProfile.md
 docs/WebhookPayloadMessageMetadata.md
 docs/WebhookPayloadPost.md
 docs/WebhookPayloadPostPost.md
@@ -657,6 +659,7 @@ lib/late/models/list_inbox_comments200_response.rb
 lib/late/models/list_inbox_comments200_response_data_inner.rb
 lib/late/models/list_inbox_conversations200_response.rb
 lib/late/models/list_inbox_conversations200_response_data_inner.rb
+lib/late/models/list_inbox_conversations200_response_data_inner_instagram_profile.rb
 lib/late/models/list_inbox_conversations200_response_meta.rb
 lib/late/models/list_inbox_conversations200_response_meta_failed_accounts_inner.rb
 lib/late/models/list_inbox_conversations200_response_pagination.rb
@@ -834,6 +837,7 @@ lib/late/models/webhook_payload_message_conversation.rb
 lib/late/models/webhook_payload_message_message.rb
 lib/late/models/webhook_payload_message_message_attachments_inner.rb
 lib/late/models/webhook_payload_message_message_sender.rb
+lib/late/models/webhook_payload_message_message_sender_instagram_profile.rb
 lib/late/models/webhook_payload_message_metadata.rb
 lib/late/models/webhook_payload_post.rb
 lib/late/models/webhook_payload_post_post.rb
@@ -1072,6 +1076,7 @@ spec/models/list_google_business_place_actions200_response_place_action_links_in
 spec/models/list_google_business_place_actions200_response_spec.rb
 spec/models/list_inbox_comments200_response_data_inner_spec.rb
 spec/models/list_inbox_comments200_response_spec.rb
+spec/models/list_inbox_conversations200_response_data_inner_instagram_profile_spec.rb
 spec/models/list_inbox_conversations200_response_data_inner_spec.rb
 spec/models/list_inbox_conversations200_response_meta_failed_accounts_inner_spec.rb
 spec/models/list_inbox_conversations200_response_meta_spec.rb
@@ -1247,6 +1252,7 @@ spec/models/webhook_payload_account_disconnected_spec.rb
 spec/models/webhook_payload_message_account_spec.rb
 spec/models/webhook_payload_message_conversation_spec.rb
 spec/models/webhook_payload_message_message_attachments_inner_spec.rb
+spec/models/webhook_payload_message_message_sender_instagram_profile_spec.rb
 spec/models/webhook_payload_message_message_sender_spec.rb
 spec/models/webhook_payload_message_message_spec.rb
 spec/models/webhook_payload_message_metadata_spec.rb

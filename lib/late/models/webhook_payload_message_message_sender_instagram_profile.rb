@@ -14,25 +14,27 @@ require 'date'
 require 'time'
 
 module Late
-  class WebhookPayloadMessageMessageSender < ApiModelBase
-    attr_accessor :id
+  # Instagram profile data for the sender. Only present for Instagram conversations.
+  class WebhookPayloadMessageMessageSenderInstagramProfile < ApiModelBase
+    # Whether the sender follows your Instagram business account
+    attr_accessor :is_follower
 
-    attr_accessor :name
+    # Whether your Instagram business account follows the sender
+    attr_accessor :is_following
 
-    attr_accessor :username
+    # The sender's follower count on Instagram
+    attr_accessor :follower_count
 
-    attr_accessor :picture
-
-    attr_accessor :instagram_profile
+    # Whether the sender is a verified Instagram user
+    attr_accessor :is_verified
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name',
-        :'username' => :'username',
-        :'picture' => :'picture',
-        :'instagram_profile' => :'instagramProfile'
+        :'is_follower' => :'isFollower',
+        :'is_following' => :'isFollowing',
+        :'follower_count' => :'followerCount',
+        :'is_verified' => :'isVerified'
       }
     end
 
@@ -49,11 +51,10 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'name' => :'String',
-        :'username' => :'String',
-        :'picture' => :'String',
-        :'instagram_profile' => :'WebhookPayloadMessageMessageSenderInstagramProfile'
+        :'is_follower' => :'Boolean',
+        :'is_following' => :'Boolean',
+        :'follower_count' => :'Integer',
+        :'is_verified' => :'Boolean'
       }
     end
 
@@ -67,36 +68,32 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookPayloadMessageMessageSender` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookPayloadMessageMessageSenderInstagramProfile` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookPayloadMessageMessageSender`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookPayloadMessageMessageSenderInstagramProfile`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'is_follower')
+        self.is_follower = attributes[:'is_follower']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'is_following')
+        self.is_following = attributes[:'is_following']
       end
 
-      if attributes.key?(:'username')
-        self.username = attributes[:'username']
+      if attributes.key?(:'follower_count')
+        self.follower_count = attributes[:'follower_count']
       end
 
-      if attributes.key?(:'picture')
-        self.picture = attributes[:'picture']
-      end
-
-      if attributes.key?(:'instagram_profile')
-        self.instagram_profile = attributes[:'instagram_profile']
+      if attributes.key?(:'is_verified')
+        self.is_verified = attributes[:'is_verified']
       end
     end
 
@@ -120,11 +117,10 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name &&
-          username == o.username &&
-          picture == o.picture &&
-          instagram_profile == o.instagram_profile
+          is_follower == o.is_follower &&
+          is_following == o.is_following &&
+          follower_count == o.follower_count &&
+          is_verified == o.is_verified
     end
 
     # @see the `==` method
@@ -136,7 +132,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, username, picture, instagram_profile].hash
+      [is_follower, is_following, follower_count, is_verified].hash
     end
 
     # Builds the object from hash

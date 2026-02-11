@@ -37,6 +37,8 @@ module Late
 
     attr_accessor :participants
 
+    attr_accessor :instagram_profile
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -72,7 +74,8 @@ module Late
         :'last_message' => :'lastMessage',
         :'last_message_at' => :'lastMessageAt',
         :'updated_time' => :'updatedTime',
-        :'participants' => :'participants'
+        :'participants' => :'participants',
+        :'instagram_profile' => :'instagramProfile'
       }
     end
 
@@ -99,7 +102,8 @@ module Late
         :'last_message' => :'String',
         :'last_message_at' => :'Time',
         :'updated_time' => :'Time',
-        :'participants' => :'Array<UpdateFacebookPage200ResponseSelectedPage>'
+        :'participants' => :'Array<UpdateFacebookPage200ResponseSelectedPage>',
+        :'instagram_profile' => :'ListInboxConversations200ResponseDataInnerInstagramProfile'
       }
     end
 
@@ -170,6 +174,10 @@ module Late
           self.participants = value
         end
       end
+
+      if attributes.key?(:'instagram_profile')
+        self.instagram_profile = attributes[:'instagram_profile']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -214,7 +222,8 @@ module Late
           last_message == o.last_message &&
           last_message_at == o.last_message_at &&
           updated_time == o.updated_time &&
-          participants == o.participants
+          participants == o.participants &&
+          instagram_profile == o.instagram_profile
     end
 
     # @see the `==` method
@@ -226,7 +235,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, account_id, account_username, platform, status, participant_name, participant_id, last_message, last_message_at, updated_time, participants].hash
+      [id, account_id, account_username, platform, status, participant_name, participant_id, last_message, last_message_at, updated_time, participants, instagram_profile].hash
     end
 
     # Builds the object from hash
