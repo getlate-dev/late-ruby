@@ -128,6 +128,18 @@ describe 'ConnectApi' do
     end
   end
 
+  # unit tests for get_reddit_flairs
+  # List available post flairs for a Reddit subreddit
+  # @param account_id 
+  # @param subreddit Subreddit name (without \&quot;r/\&quot; prefix) to fetch flairs for
+  # @param [Hash] opts the optional parameters
+  # @return [GetRedditFlairs200Response]
+  describe 'get_reddit_flairs test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_reddit_subreddits
   # List Reddit subreddits for a connected account
   # @param account_id 

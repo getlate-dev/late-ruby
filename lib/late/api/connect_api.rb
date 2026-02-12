@@ -541,6 +541,74 @@ module Late
       return data, status_code, headers
     end
 
+    # List available post flairs for a Reddit subreddit
+    # @param account_id [String] 
+    # @param subreddit [String] Subreddit name (without \&quot;r/\&quot; prefix) to fetch flairs for
+    # @param [Hash] opts the optional parameters
+    # @return [GetRedditFlairs200Response]
+    def get_reddit_flairs(account_id, subreddit, opts = {})
+      data, _status_code, _headers = get_reddit_flairs_with_http_info(account_id, subreddit, opts)
+      data
+    end
+
+    # List available post flairs for a Reddit subreddit
+    # @param account_id [String] 
+    # @param subreddit [String] Subreddit name (without \&quot;r/\&quot; prefix) to fetch flairs for
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetRedditFlairs200Response, Integer, Hash)>] GetRedditFlairs200Response data, response status code and response headers
+    def get_reddit_flairs_with_http_info(account_id, subreddit, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConnectApi.get_reddit_flairs ...'
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling ConnectApi.get_reddit_flairs"
+      end
+      # verify the required parameter 'subreddit' is set
+      if @api_client.config.client_side_validation && subreddit.nil?
+        fail ArgumentError, "Missing the required parameter 'subreddit' when calling ConnectApi.get_reddit_flairs"
+      end
+      # resource path
+      local_var_path = '/v1/accounts/{accountId}/reddit-flairs'.sub('{' + 'accountId' + '}', CGI.escape(account_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'subreddit'] = subreddit
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetRedditFlairs200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"ConnectApi.get_reddit_flairs",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConnectApi#get_reddit_flairs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Reddit subreddits for a connected account
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters

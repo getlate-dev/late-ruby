@@ -14,31 +14,13 @@ require 'date'
 require 'time'
 
 module Late
-  # Reddit post settings: - Posts are either \"link\" (with URL/media) or \"self\" (text-only) - If media is provided, the first media item's URL is used as the link - Use forceSelf to override and create a text post with the URL in the body - Subreddit defaults to the account's configured subreddit if omitted - Use the same accountId multiple times with different subreddit values in platformSpecificData to post to multiple subreddits - Images are automatically compressed if they exceed Reddit's 20MB limit - Some subreddits require a flair; if not provided, the API will attempt to use the first available flair as fallback 
-  class RedditPlatformData < ApiModelBase
-    # Target subreddit name (without \"r/\" prefix). Overrides the default subreddit configured on the account connection. Use GET /api/v1/accounts/{id}/reddit-subreddits to list available subreddits. 
-    attr_accessor :subreddit
-
-    # Post title. Defaults to the first line of content, truncated to 300 characters.
-    attr_accessor :title
-
-    # URL for link posts. If provided (and forceSelf is not true), creates a link post instead of a text post.
-    attr_accessor :url
-
-    # When true, creates a text/self post even when a URL or media is provided.
-    attr_accessor :force_self
-
-    # Flair ID for the post. Required by some subreddits. Use GET /api/v1/accounts/{id}/reddit-flairs?subreddit=name to list available flairs. 
-    attr_accessor :flair_id
+  class GetRedditFlairs200Response < ApiModelBase
+    attr_accessor :flairs
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'subreddit' => :'subreddit',
-        :'title' => :'title',
-        :'url' => :'url',
-        :'force_self' => :'forceSelf',
-        :'flair_id' => :'flairId'
+        :'flairs' => :'flairs'
       }
     end
 
@@ -55,11 +37,7 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'subreddit' => :'String',
-        :'title' => :'String',
-        :'url' => :'String',
-        :'force_self' => :'Boolean',
-        :'flair_id' => :'String'
+        :'flairs' => :'Array<GetRedditFlairs200ResponseFlairsInner>'
       }
     end
 
@@ -73,36 +51,22 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::RedditPlatformData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::GetRedditFlairs200Response` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::RedditPlatformData`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::GetRedditFlairs200Response`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'subreddit')
-        self.subreddit = attributes[:'subreddit']
-      end
-
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'url')
-        self.url = attributes[:'url']
-      end
-
-      if attributes.key?(:'force_self')
-        self.force_self = attributes[:'force_self']
-      end
-
-      if attributes.key?(:'flair_id')
-        self.flair_id = attributes[:'flair_id']
+      if attributes.key?(:'flairs')
+        if (value = attributes[:'flairs']).is_a?(Array)
+          self.flairs = value
+        end
       end
     end
 
@@ -111,10 +75,6 @@ module Late
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@title.nil? && @title.to_s.length > 300
-        invalid_properties.push('invalid value for "title", the character length must be smaller than or equal to 300.')
-      end
-
       invalid_properties
     end
 
@@ -122,22 +82,7 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@title.nil? && @title.to_s.length > 300
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] title Value to be assigned
-    def title=(title)
-      if title.nil?
-        fail ArgumentError, 'title cannot be nil'
-      end
-
-      if title.to_s.length > 300
-        fail ArgumentError, 'invalid value for "title", the character length must be smaller than or equal to 300.'
-      end
-
-      @title = title
     end
 
     # Checks equality by comparing each attribute.
@@ -145,11 +90,7 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          subreddit == o.subreddit &&
-          title == o.title &&
-          url == o.url &&
-          force_self == o.force_self &&
-          flair_id == o.flair_id
+          flairs == o.flairs
     end
 
     # @see the `==` method
@@ -161,7 +102,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [subreddit, title, url, force_self, flair_id].hash
+      [flairs].hash
     end
 
     # Builds the object from hash

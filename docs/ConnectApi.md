@@ -12,6 +12,7 @@ All URIs are relative to *https://getlate.dev/api*
 | [**get_linked_in_organizations**](ConnectApi.md#get_linked_in_organizations) | **GET** /v1/accounts/{accountId}/linkedin-organizations | Get available LinkedIn organizations for a connected account |
 | [**get_pending_o_auth_data**](ConnectApi.md#get_pending_o_auth_data) | **GET** /v1/connect/pending-data | Fetch pending OAuth selection data (Headless Mode) |
 | [**get_pinterest_boards**](ConnectApi.md#get_pinterest_boards) | **GET** /v1/accounts/{accountId}/pinterest-boards | List Pinterest boards for a connected account |
+| [**get_reddit_flairs**](ConnectApi.md#get_reddit_flairs) | **GET** /v1/accounts/{accountId}/reddit-flairs | List available post flairs for a Reddit subreddit |
 | [**get_reddit_subreddits**](ConnectApi.md#get_reddit_subreddits) | **GET** /v1/accounts/{accountId}/reddit-subreddits | List Reddit subreddits for a connected account |
 | [**get_telegram_connect_status**](ConnectApi.md#get_telegram_connect_status) | **GET** /v1/connect/telegram | Generate Telegram access code |
 | [**handle_o_auth_callback**](ConnectApi.md#handle_o_auth_callback) | **POST** /v1/connect/{platform} | Complete OAuth token exchange manually (for server-side flows) |
@@ -576,6 +577,75 @@ end
 ### Return type
 
 [**GetPinterestBoards200Response**](GetPinterestBoards200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_reddit_flairs
+
+> <GetRedditFlairs200Response> get_reddit_flairs(account_id, subreddit)
+
+List available post flairs for a Reddit subreddit
+
+### Examples
+
+```ruby
+require 'time'
+require 'late'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::ConnectApi.new
+account_id = 'account_id_example' # String | 
+subreddit = 'subreddit_example' # String | Subreddit name (without \"r/\" prefix) to fetch flairs for
+
+begin
+  # List available post flairs for a Reddit subreddit
+  result = api_instance.get_reddit_flairs(account_id, subreddit)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling ConnectApi->get_reddit_flairs: #{e}"
+end
+```
+
+#### Using the get_reddit_flairs_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetRedditFlairs200Response>, Integer, Hash)> get_reddit_flairs_with_http_info(account_id, subreddit)
+
+```ruby
+begin
+  # List available post flairs for a Reddit subreddit
+  data, status_code, headers = api_instance.get_reddit_flairs_with_http_info(account_id, subreddit)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetRedditFlairs200Response>
+rescue Late::ApiError => e
+  puts "Error when calling ConnectApi->get_reddit_flairs_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_id** | **String** |  |  |
+| **subreddit** | **String** | Subreddit name (without \&quot;r/\&quot; prefix) to fetch flairs for |  |
+
+### Return type
+
+[**GetRedditFlairs200Response**](GetRedditFlairs200Response.md)
 
 ### Authorization
 

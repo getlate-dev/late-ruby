@@ -130,6 +130,7 @@ Class | Method | HTTP request | Description
 *Late::ConnectApi* | [**get_linked_in_organizations**](docs/ConnectApi.md#get_linked_in_organizations) | **GET** /v1/accounts/{accountId}/linkedin-organizations | Get available LinkedIn organizations for a connected account
 *Late::ConnectApi* | [**get_pending_o_auth_data**](docs/ConnectApi.md#get_pending_o_auth_data) | **GET** /v1/connect/pending-data | Fetch pending OAuth selection data (Headless Mode)
 *Late::ConnectApi* | [**get_pinterest_boards**](docs/ConnectApi.md#get_pinterest_boards) | **GET** /v1/accounts/{accountId}/pinterest-boards | List Pinterest boards for a connected account
+*Late::ConnectApi* | [**get_reddit_flairs**](docs/ConnectApi.md#get_reddit_flairs) | **GET** /v1/accounts/{accountId}/reddit-flairs | List available post flairs for a Reddit subreddit
 *Late::ConnectApi* | [**get_reddit_subreddits**](docs/ConnectApi.md#get_reddit_subreddits) | **GET** /v1/accounts/{accountId}/reddit-subreddits | List Reddit subreddits for a connected account
 *Late::ConnectApi* | [**get_telegram_connect_status**](docs/ConnectApi.md#get_telegram_connect_status) | **GET** /v1/connect/telegram | Generate Telegram access code
 *Late::ConnectApi* | [**handle_o_auth_callback**](docs/ConnectApi.md#handle_o_auth_callback) | **POST** /v1/connect/{platform} | Complete OAuth token exchange manually (for server-side flows)
@@ -366,6 +367,8 @@ Class | Method | HTTP request | Description
  - [Late::GetPostLogs200Response](docs/GetPostLogs200Response.md)
  - [Late::GetProfile200Response](docs/GetProfile200Response.md)
  - [Late::GetRedditFeed200Response](docs/GetRedditFeed200Response.md)
+ - [Late::GetRedditFlairs200Response](docs/GetRedditFlairs200Response.md)
+ - [Late::GetRedditFlairs200ResponseFlairsInner](docs/GetRedditFlairs200ResponseFlairsInner.md)
  - [Late::GetRedditSubreddits200Response](docs/GetRedditSubreddits200Response.md)
  - [Late::GetRedditSubreddits200ResponseSubredditsInner](docs/GetRedditSubreddits200ResponseSubredditsInner.md)
  - [Late::GetTelegramCommands200Response](docs/GetTelegramCommands200Response.md)

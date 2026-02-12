@@ -164,6 +164,8 @@ docs/GetPinterestBoards200ResponseBoardsInner.md
 docs/GetPostLogs200Response.md
 docs/GetProfile200Response.md
 docs/GetRedditFeed200Response.md
+docs/GetRedditFlairs200Response.md
+docs/GetRedditFlairs200ResponseFlairsInner.md
 docs/GetRedditSubreddits200Response.md
 docs/GetRedditSubreddits200ResponseSubredditsInner.md
 docs/GetTelegramCommands200Response.md
@@ -603,6 +605,8 @@ lib/late/models/get_pinterest_boards200_response_boards_inner.rb
 lib/late/models/get_post_logs200_response.rb
 lib/late/models/get_profile200_response.rb
 lib/late/models/get_reddit_feed200_response.rb
+lib/late/models/get_reddit_flairs200_response.rb
+lib/late/models/get_reddit_flairs200_response_flairs_inner.rb
 lib/late/models/get_reddit_subreddits200_response.rb
 lib/late/models/get_reddit_subreddits200_response_subreddits_inner.rb
 lib/late/models/get_telegram_commands200_response.rb
@@ -1022,6 +1026,8 @@ spec/models/get_pinterest_boards200_response_spec.rb
 spec/models/get_post_logs200_response_spec.rb
 spec/models/get_profile200_response_spec.rb
 spec/models/get_reddit_feed200_response_spec.rb
+spec/models/get_reddit_flairs200_response_flairs_inner_spec.rb
+spec/models/get_reddit_flairs200_response_spec.rb
 spec/models/get_reddit_subreddits200_response_spec.rb
 spec/models/get_reddit_subreddits200_response_subreddits_inner_spec.rb
 spec/models/get_telegram_commands200_response_data_inner_spec.rb
