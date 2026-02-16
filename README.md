@@ -184,6 +184,7 @@ Class | Method | HTTP request | Description
 *Late::PostsApi* | [**get_post**](docs/PostsApi.md#get_post) | **GET** /v1/posts/{postId} | Get a single post
 *Late::PostsApi* | [**list_posts**](docs/PostsApi.md#list_posts) | **GET** /v1/posts | List posts visible to the authenticated user
 *Late::PostsApi* | [**retry_post**](docs/PostsApi.md#retry_post) | **POST** /v1/posts/{postId}/retry | Retry publishing a failed or partial post
+*Late::PostsApi* | [**unpublish_post**](docs/PostsApi.md#unpublish_post) | **POST** /v1/posts/{postId}/unpublish | Delete a published post from a social media platform
 *Late::PostsApi* | [**update_post**](docs/PostsApi.md#update_post) | **PUT** /v1/posts/{postId} | Update a post
 *Late::ProfilesApi* | [**create_profile**](docs/ProfilesApi.md#create_profile) | **POST** /v1/profiles | Create a new profile
 *Late::ProfilesApi* | [**delete_profile**](docs/ProfilesApi.md#delete_profile) | **DELETE** /v1/profiles/{profileId} | Delete a profile (must have no connected accounts)
@@ -540,7 +541,6 @@ Class | Method | HTTP request | Description
  - [Late::SocialAccount](docs/SocialAccount.md)
  - [Late::SocialAccountProfileId](docs/SocialAccountProfileId.md)
  - [Late::TelegramPlatformData](docs/TelegramPlatformData.md)
- - [Late::TestWebhook200Response](docs/TestWebhook200Response.md)
  - [Late::TestWebhookRequest](docs/TestWebhookRequest.md)
  - [Late::ThreadsPlatformData](docs/ThreadsPlatformData.md)
  - [Late::TikTokPlatformData](docs/TikTokPlatformData.md)
@@ -550,6 +550,8 @@ Class | Method | HTTP request | Description
  - [Late::TwitterPlatformData](docs/TwitterPlatformData.md)
  - [Late::TwitterPlatformDataThreadItemsInner](docs/TwitterPlatformDataThreadItemsInner.md)
  - [Late::UnlikeInboxComment200Response](docs/UnlikeInboxComment200Response.md)
+ - [Late::UnpublishPost200Response](docs/UnpublishPost200Response.md)
+ - [Late::UnpublishPostRequest](docs/UnpublishPostRequest.md)
  - [Late::UpdateAccount200Response](docs/UpdateAccount200Response.md)
  - [Late::UpdateAccountGroup200Response](docs/UpdateAccountGroup200Response.md)
  - [Late::UpdateAccountGroupRequest](docs/UpdateAccountGroupRequest.md)

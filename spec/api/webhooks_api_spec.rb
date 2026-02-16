@@ -87,7 +87,7 @@ describe 'WebhooksApi' do
   # Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
   # @param test_webhook_request 
   # @param [Hash] opts the optional parameters
-  # @return [TestWebhook200Response]
+  # @return [UnpublishPost200Response]
   describe 'test_webhook test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -297,7 +297,7 @@ module Late
     # Send a test webhook to verify your endpoint is configured correctly. The test payload includes `event: \"webhook.test\"` to distinguish it from real events. 
     # @param test_webhook_request [TestWebhookRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [TestWebhook200Response]
+    # @return [UnpublishPost200Response]
     def test_webhook(test_webhook_request, opts = {})
       data, _status_code, _headers = test_webhook_with_http_info(test_webhook_request, opts)
       data
@@ -307,7 +307,7 @@ module Late
     # Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
     # @param test_webhook_request [TestWebhookRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(TestWebhook200Response, Integer, Hash)>] TestWebhook200Response data, response status code and response headers
+    # @return [Array<(UnpublishPost200Response, Integer, Hash)>] UnpublishPost200Response data, response status code and response headers
     def test_webhook_with_http_info(test_webhook_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksApi.test_webhook ...'
@@ -339,7 +339,7 @@ module Late
       post_body = opts[:debug_body] || @api_client.object_to_http_body(test_webhook_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'TestWebhook200Response'
+      return_type = opts[:debug_return_type] || 'UnpublishPost200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']

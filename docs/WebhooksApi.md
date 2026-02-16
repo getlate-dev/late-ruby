@@ -295,7 +295,7 @@ This endpoint does not need any parameter.
 
 ## test_webhook
 
-> <TestWebhook200Response> test_webhook(test_webhook_request)
+> <UnpublishPost200Response> test_webhook(test_webhook_request)
 
 Send test webhook
 
@@ -328,7 +328,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TestWebhook200Response>, Integer, Hash)> test_webhook_with_http_info(test_webhook_request)
+> <Array(<UnpublishPost200Response>, Integer, Hash)> test_webhook_with_http_info(test_webhook_request)
 
 ```ruby
 begin
@@ -336,7 +336,7 @@ begin
   data, status_code, headers = api_instance.test_webhook_with_http_info(test_webhook_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <TestWebhook200Response>
+  p data # => <UnpublishPost200Response>
 rescue Late::ApiError => e
   puts "Error when calling WebhooksApi->test_webhook_with_http_info: #{e}"
 end
@@ -350,7 +350,7 @@ end
 
 ### Return type
 
-[**TestWebhook200Response**](TestWebhook200Response.md)
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
 
 ### Authorization
 

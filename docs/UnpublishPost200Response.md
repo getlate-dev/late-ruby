@@ -1,4 +1,4 @@
-# Late::TestWebhook200Response
+# Late::UnpublishPost200Response
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'late'
 
-instance = Late::TestWebhook200Response.new(
+instance = Late::UnpublishPost200Response.new(
   success: null,
   message: null
 )
