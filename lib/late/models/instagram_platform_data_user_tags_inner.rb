@@ -24,12 +24,16 @@ module Late
     # Y coordinate position from top edge (0.0 = top, 0.5 = center, 1.0 = bottom)
     attr_accessor :y
 
+    # Zero-based index of the carousel item to tag. Defaults to 0 (first image) if omitted. Only relevant for carousel posts. Tags targeting video items or out-of-range indices are ignored. 
+    attr_accessor :media_index
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'username' => :'username',
         :'x' => :'x',
-        :'y' => :'y'
+        :'y' => :'y',
+        :'media_index' => :'mediaIndex'
       }
     end
 
@@ -48,7 +52,8 @@ module Late
       {
         :'username' => :'String',
         :'x' => :'Float',
-        :'y' => :'Float'
+        :'y' => :'Float',
+        :'media_index' => :'Integer'
       }
     end
 
@@ -91,6 +96,10 @@ module Late
       else
         self.y = nil
       end
+
+      if attributes.key?(:'media_index')
+        self.media_index = attributes[:'media_index']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -126,6 +135,10 @@ module Late
         invalid_properties.push('invalid value for "y", must be greater than or equal to 0.')
       end
 
+      if !@media_index.nil? && @media_index < 0
+        invalid_properties.push('invalid value for "media_index", must be greater than or equal to 0.')
+      end
+
       invalid_properties
     end
 
@@ -140,6 +153,7 @@ module Late
       return false if @y.nil?
       return false if @y > 1
       return false if @y < 0
+      return false if !@media_index.nil? && @media_index < 0
       true
     end
 
@@ -189,6 +203,20 @@ module Late
       @y = y
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] media_index Value to be assigned
+    def media_index=(media_index)
+      if media_index.nil?
+        fail ArgumentError, 'media_index cannot be nil'
+      end
+
+      if media_index < 0
+        fail ArgumentError, 'invalid value for "media_index", must be greater than or equal to 0.'
+      end
+
+      @media_index = media_index
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -196,7 +224,8 @@ module Late
       self.class == o.class &&
           username == o.username &&
           x == o.x &&
-          y == o.y
+          y == o.y &&
+          media_index == o.media_index
     end
 
     # @see the `==` method
@@ -208,7 +237,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [username, x, y].hash
+      [username, x, y, media_index].hash
     end
 
     # Builds the object from hash
