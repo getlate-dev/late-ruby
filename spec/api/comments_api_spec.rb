@@ -126,8 +126,8 @@ describe 'CommentsApi' do
 
   # unit tests for send_private_reply_to_comment
   # Send private reply to comment author
-  # Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram only  **Limitations:** - Instagram only allows ONE private reply per comment - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t) - Requires &#x60;instagram_business_manage_messages&#x60; permission (already included in Late&#39;s OAuth)  **Note:** This does not create a conversation thread until the user replies back. 
-  # @param post_id The Instagram media/post ID
+  # Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
+  # @param post_id The media/post ID (Instagram media ID or Facebook post ID)
   # @param comment_id The comment ID to send a private reply to
   # @param send_private_reply_to_comment_request 
   # @param [Hash] opts the optional parameters

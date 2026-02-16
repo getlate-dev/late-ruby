@@ -15,7 +15,7 @@ require 'time'
 
 module Late
   class SendPrivateReplyToCommentRequest < ApiModelBase
-    # The Instagram social account ID
+    # The social account ID (Instagram or Facebook)
     attr_accessor :account_id
 
     # The message text to send as a private DM

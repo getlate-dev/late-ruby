@@ -33,6 +33,12 @@ describe Late::GoogleBusinessPlatformData do
     end
   end
 
+  describe 'test attribute "language_code"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "call_to_action"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

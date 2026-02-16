@@ -14,10 +14,13 @@ require 'date'
 require 'time'
 
 module Late
-  # Google Business Profile post settings: - Posts support text content and a single image (no videos) - Images must be publicly accessible URLs - Call-to-action buttons drive user engagement - Posts appear on your Google Business Profile and in Google Search/Maps - Use locationId to post to multiple locations from the same account connection 
+  # Google Business Profile post settings: - Posts support text content and a single image (no videos) - Images must be publicly accessible URLs - Call-to-action buttons drive user engagement - Posts appear on your Google Business Profile and in Google Search/Maps - Use locationId to post to multiple locations from the same account connection - Language is auto-detected from content; override with languageCode if needed 
   class GoogleBusinessPlatformData < ApiModelBase
     # Target Google Business location ID for multi-location posting. Format: \"locations/123456789\" If omitted, uses the selected/default location on the connection. Use GET /api/v1/accounts/{id}/gmb-locations to list available locations. 
     attr_accessor :location_id
+
+    # BCP 47 language code for the post content (e.g., \"en\", \"de\", \"es\", \"fr\"). If omitted, the language is automatically detected from the post text. Setting this explicitly is recommended when auto-detection may not be accurate (e.g., very short posts, mixed-language content, or transliterated text). 
+    attr_accessor :language_code
 
     attr_accessor :call_to_action
 
@@ -25,6 +28,7 @@ module Late
     def self.attribute_map
       {
         :'location_id' => :'locationId',
+        :'language_code' => :'languageCode',
         :'call_to_action' => :'callToAction'
       }
     end
@@ -43,6 +47,7 @@ module Late
     def self.openapi_types
       {
         :'location_id' => :'String',
+        :'language_code' => :'String',
         :'call_to_action' => :'GoogleBusinessPlatformDataCallToAction'
       }
     end
@@ -73,6 +78,10 @@ module Late
         self.location_id = attributes[:'location_id']
       end
 
+      if attributes.key?(:'language_code')
+        self.language_code = attributes[:'language_code']
+      end
+
       if attributes.key?(:'call_to_action')
         self.call_to_action = attributes[:'call_to_action']
       end
@@ -99,6 +108,7 @@ module Late
       return true if self.equal?(o)
       self.class == o.class &&
           location_id == o.location_id &&
+          language_code == o.language_code &&
           call_to_action == o.call_to_action
     end
 
@@ -111,7 +121,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [location_id, call_to_action].hash
+      [location_id, language_code, call_to_action].hash
     end
 
     # Builds the object from hash
