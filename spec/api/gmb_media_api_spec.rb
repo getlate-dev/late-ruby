@@ -34,7 +34,7 @@ describe 'GMBMediaApi' do
 
   # unit tests for create_google_business_media
   # Upload photo
-  # Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: - &#x60;COVER&#x60; - Cover photo - &#x60;PROFILE&#x60; - Profile photo - &#x60;LOGO&#x60; - Business logo - &#x60;EXTERIOR&#x60; - Exterior shots - &#x60;INTERIOR&#x60; - Interior shots - &#x60;FOOD_AND_DRINK&#x60; - Food and drink photos - &#x60;MENU&#x60; - Menu photos - &#x60;PRODUCT&#x60; - Product photos - &#x60;TEAMS&#x60; - Team/staff photos - &#x60;ADDITIONAL&#x60; - Other photos 
+  # Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: COVER, PROFILE, LOGO, EXTERIOR, INTERIOR, FOOD_AND_DRINK, MENU, PRODUCT, TEAMS, ADDITIONAL. 
   # @param account_id 
   # @param create_google_business_media_request 
   # @param [Hash] opts the optional parameters

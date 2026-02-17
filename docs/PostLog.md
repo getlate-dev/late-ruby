@@ -11,7 +11,7 @@
 | **platform** | **String** |  | [optional] |
 | **account_id** | **String** |  | [optional] |
 | **account_username** | **String** |  | [optional] |
-| **action** | **String** | Type of action logged: - &#x60;publish&#x60; - Initial publish attempt - &#x60;retry&#x60; - Retry after failure - &#x60;media_upload&#x60; - Media upload step - &#x60;rate_limit_pause&#x60; - Account paused due to rate limits - &#x60;token_refresh&#x60; - Token was refreshed - &#x60;cancelled&#x60; - Post was cancelled  | [optional] |
+| **action** | **String** | Type of action logged: publish (initial attempt), retry (after failure), media_upload, rate_limit_pause, token_refresh, cancelled | [optional] |
 | **status** | **String** |  | [optional] |
 | **status_code** | **Integer** | HTTP status code from platform API | [optional] |
 | **endpoint** | **String** | Platform API endpoint called | [optional] |

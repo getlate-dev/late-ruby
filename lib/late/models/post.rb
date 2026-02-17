@@ -34,7 +34,7 @@ module Late
 
     attr_accessor :status
 
-    # YouTube tag constraints when targeting YouTube: - No count cap; duplicates removed. - Each tag must be ≤ 100 chars. - Combined characters across all tags ≤ 500. 
+    # YouTube constraints: each tag max 100 chars, combined max 500 chars, duplicates removed.
     attr_accessor :tags
 
     attr_accessor :hashtags

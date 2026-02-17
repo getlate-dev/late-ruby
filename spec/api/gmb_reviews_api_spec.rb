@@ -34,7 +34,7 @@ describe 'GMBReviewsApi' do
 
   # unit tests for get_google_business_reviews
   # Get reviews
-  # Fetches reviews for a connected Google Business Profile account.  Returns all reviews for the business location, including: - Reviewer information (name, profile photo) - Star rating (1-5) - Review comment/text - Business owner&#39;s reply (if any) - Review timestamps  Use pagination via &#x60;nextPageToken&#x60; to fetch all reviews for locations with many reviews. 
+  # Fetches reviews for a connected Google Business Profile account. Returns all reviews including reviewer info, star rating, comment text, owner reply, and timestamps. Use pagination via nextPageToken for locations with many reviews. 
   # @param account_id The Late account ID (from /v1/accounts)
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page_size Number of reviews to fetch per page (max 50)

@@ -59,7 +59,7 @@ describe 'QueueApi' do
 
   # unit tests for get_next_queue_slot
   # Get next available slot
-  # Returns the next available queue slot for preview/informational purposes.  **Important: To schedule a post to the queue, do NOT use this endpoint&#39;s response with &#x60;scheduledFor&#x60;.** That creates a manual post, not a queue post.  Instead, use &#x60;POST /v1/posts&#x60; with &#x60;queuedFromProfile&#x60; (and optionally &#x60;queueId&#x60;). The system will automatically assign the next available slot with proper locking to prevent race conditions.  This endpoint is useful for: - Showing users when their next post will go out before they commit - Debugging/verifying queue configuration - Building UI previews  If no queueId is specified, uses the profile&#39;s default queue. 
+  # Returns the next available queue slot for preview/informational purposes. Do NOT use this response with scheduledFor to schedule a post, as that creates a manual post, not a queue post. Instead, use POST /v1/posts with queuedFromProfile (and optionally queueId). Useful for showing users when their next post will go out, debugging queue configuration, or building UI previews.  If no queueId is specified, uses the profile&#39;s default queue. 
   # @param profile_id 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :queue_id Specific queue ID (optional, defaults to profile&#39;s default queue)
@@ -72,7 +72,7 @@ describe 'QueueApi' do
 
   # unit tests for list_queue_slots
   # List schedules
-  # Retrieve queue schedules for a profile. Each profile can have multiple queues. - Without &#x60;all&#x3D;true&#x60;: Returns the default queue (or specific queue if queueId provided) - With &#x60;all&#x3D;true&#x60;: Returns all queues for the profile 
+  # Retrieve queue schedules for a profile. Each profile can have multiple queues. Without all&#x3D;true, returns the default queue (or specific queue if queueId provided). With all&#x3D;true, returns all queues for the profile. 
   # @param profile_id Profile ID to get queues for
   # @param [Hash] opts the optional parameters
   # @option opts [String] :queue_id Specific queue ID to retrieve (optional)
@@ -98,7 +98,7 @@ describe 'QueueApi' do
 
   # unit tests for update_queue_slot
   # Update schedule
-  # Create a new queue or update an existing one. - Without queueId: Creates or updates the default queue - With queueId: Updates the specific queue - With setAsDefault&#x3D;true: Makes this queue the default for the profile 
+  # Create a new queue or update an existing one. Without queueId, creates/updates the default queue. With queueId, updates a specific queue. With setAsDefault&#x3D;true, makes this queue the default for the profile. 
   # @param update_queue_slot_request 
   # @param [Hash] opts the optional parameters
   # @return [UpdateQueueSlot200Response]

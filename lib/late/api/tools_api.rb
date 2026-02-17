@@ -19,8 +19,8 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Check Instagram hashtag bans
-    # Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Check IG hashtag bans
+    # Check if Instagram hashtags are banned, restricted, or safe to use.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param check_instagram_hashtags_request [CheckInstagramHashtagsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [CheckInstagramHashtags200Response]
@@ -29,8 +29,8 @@ module Late
       data
     end
 
-    # Check Instagram hashtag bans
-    # Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Check IG hashtag bans
+    # Check if Instagram hashtags are banned, restricted, or safe to use.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param check_instagram_hashtags_request [CheckInstagramHashtagsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(CheckInstagramHashtags200Response, Integer, Hash)>] CheckInstagramHashtags200Response data, response status code and response headers
@@ -88,7 +88,7 @@ module Late
     end
 
     # Download Bluesky media
-    # Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download videos from Bluesky posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] Bluesky post URL
     # @param [Hash] opts the optional parameters
     # @return [DownloadBlueskyMedia200Response]
@@ -98,7 +98,7 @@ module Late
     end
 
     # Download Bluesky media
-    # Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download videos from Bluesky posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] Bluesky post URL
     # @param [Hash] opts the optional parameters
     # @return [Array<(DownloadBlueskyMedia200Response, Integer, Hash)>] DownloadBlueskyMedia200Response data, response status code and response headers
@@ -152,7 +152,7 @@ module Late
     end
 
     # Download Facebook video
-    # Download videos and reels from Facebook.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download videos and reels from Facebook.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] Facebook video or reel URL
     # @param [Hash] opts the optional parameters
     # @return [DownloadFacebookVideo200Response]
@@ -162,7 +162,7 @@ module Late
     end
 
     # Download Facebook video
-    # Download videos and reels from Facebook.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download videos and reels from Facebook.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] Facebook video or reel URL
     # @param [Hash] opts the optional parameters
     # @return [Array<(DownloadFacebookVideo200Response, Integer, Hash)>] DownloadFacebookVideo200Response data, response status code and response headers
@@ -216,7 +216,7 @@ module Late
     end
 
     # Download Instagram media
-    # Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download Instagram reels, posts, or photos.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] Instagram reel or post URL
     # @param [Hash] opts the optional parameters
     # @return [DownloadInstagramMedia200Response]
@@ -226,7 +226,7 @@ module Late
     end
 
     # Download Instagram media
-    # Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download Instagram reels, posts, or photos.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] Instagram reel or post URL
     # @param [Hash] opts the optional parameters
     # @return [Array<(DownloadInstagramMedia200Response, Integer, Hash)>] DownloadInstagramMedia200Response data, response status code and response headers
@@ -280,7 +280,7 @@ module Late
     end
 
     # Download LinkedIn video
-    # Download videos from LinkedIn posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download videos from LinkedIn posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] LinkedIn post URL
     # @param [Hash] opts the optional parameters
     # @return [DownloadInstagramMedia200Response]
@@ -290,7 +290,7 @@ module Late
     end
 
     # Download LinkedIn video
-    # Download videos from LinkedIn posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download videos from LinkedIn posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] LinkedIn post URL
     # @param [Hash] opts the optional parameters
     # @return [Array<(DownloadInstagramMedia200Response, Integer, Hash)>] DownloadInstagramMedia200Response data, response status code and response headers
@@ -344,7 +344,7 @@ module Late
     end
 
     # Download TikTok video
-    # Download TikTok videos with or without watermark.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download TikTok videos with or without watermark.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] TikTok video URL or ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :action &#39;formats&#39; to list available formats (default to 'download')
@@ -356,7 +356,7 @@ module Late
     end
 
     # Download TikTok video
-    # Download TikTok videos with or without watermark.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download TikTok videos with or without watermark.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] TikTok video URL or ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :action &#39;formats&#39; to list available formats (default to 'download')
@@ -418,7 +418,7 @@ module Late
     end
 
     # Download Twitter/X media
-    # Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download videos from Twitter/X posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] Twitter/X post URL
     # @param [Hash] opts the optional parameters
     # @option opts [String] :action  (default to 'download')
@@ -430,7 +430,7 @@ module Late
     end
 
     # Download Twitter/X media
-    # Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download videos from Twitter/X posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] Twitter/X post URL
     # @param [Hash] opts the optional parameters
     # @option opts [String] :action  (default to 'download')
@@ -492,7 +492,7 @@ module Late
     end
 
     # Download YouTube video
-    # Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download YouTube videos or audio. Returns available formats or direct download URL.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] YouTube video URL or video ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :action Action to perform: &#39;download&#39; returns download URL, &#39;formats&#39; lists available formats (default to 'download')
@@ -506,7 +506,7 @@ module Late
     end
 
     # Download YouTube video
-    # Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Download YouTube videos or audio. Returns available formats or direct download URL.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] YouTube video URL or video ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :action Action to perform: &#39;download&#39; returns download URL, &#39;formats&#39; lists available formats (default to 'download')
@@ -580,7 +580,7 @@ module Late
     end
 
     # Get YouTube transcript
-    # Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Extract transcript/captions from a YouTube video.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] YouTube video URL or video ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :lang Language code for transcript (default to 'en')
@@ -591,7 +591,7 @@ module Late
     end
 
     # Get YouTube transcript
-    # Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+    # Extract transcript/captions from a YouTube video.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
     # @param url [String] YouTube video URL or video ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :lang Language code for transcript (default to 'en')

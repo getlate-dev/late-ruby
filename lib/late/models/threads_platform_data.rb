@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module Late
-  # Constraints: - Carousel posts support up to 10 images (no videos in carousels). - Single posts support one image or one video. - Videos must be H.264/AAC MP4 format, max 5 minutes duration. - Images must be JPEG or PNG, max 8 MB each. - threadItems creates a reply chain (Threads equivalent of Twitter threads). 
+  # Carousels support up to 10 images (no videos). Single posts support one image or video. Videos must be H.264/AAC MP4, max 5 min. Images must be JPEG/PNG, max 8 MB. threadItems creates a reply chain.
   class ThreadsPlatformData < ApiModelBase
     # Sequence of posts in a Threads thread (root then replies in order).
     attr_accessor :thread_items

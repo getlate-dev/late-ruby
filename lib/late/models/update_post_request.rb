@@ -19,7 +19,7 @@ module Late
 
     attr_accessor :scheduled_for
 
-    # Root-level TikTok settings applied to all TikTok platforms in the request. This is a convenience shorthand. Settings here are merged into each TikTok platform's platformSpecificData, with platform-specific settings taking precedence. 
+    # Root-level TikTok settings applied to all TikTok platforms. Merged into each platform's platformSpecificData, with platform-specific settings taking precedence.
     attr_accessor :tiktok_settings
 
     # Attribute mapping from ruby-style variable name to JSON key.

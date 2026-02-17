@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Delete Instagram ice breakers
+    # Delete IG ice breakers
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -28,7 +28,7 @@ module Late
       nil
     end
 
-    # Delete Instagram ice breakers
+    # Delete IG ice breakers
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -80,7 +80,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Delete Facebook persistent menu
+    # Delete FB persistent menu
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -89,7 +89,7 @@ module Late
       nil
     end
 
-    # Delete Facebook persistent menu
+    # Delete FB persistent menu
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -141,7 +141,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Delete Telegram bot commands
+    # Delete TG bot commands
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -150,7 +150,7 @@ module Late
       nil
     end
 
-    # Delete Telegram bot commands
+    # Delete TG bot commands
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -202,7 +202,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Get Instagram ice breakers
+    # Get IG ice breakers
     # Get the ice breaker configuration for an Instagram account.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
@@ -212,7 +212,7 @@ module Late
       data
     end
 
-    # Get Instagram ice breakers
+    # Get IG ice breakers
     # Get the ice breaker configuration for an Instagram account.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
@@ -265,7 +265,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Get Facebook persistent menu
+    # Get FB persistent menu
     # Get the persistent menu configuration for a Facebook Messenger account.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
@@ -275,7 +275,7 @@ module Late
       data
     end
 
-    # Get Facebook persistent menu
+    # Get FB persistent menu
     # Get the persistent menu configuration for a Facebook Messenger account.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
@@ -328,7 +328,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Get Telegram bot commands
+    # Get TG bot commands
     # Get the bot commands configuration for a Telegram account.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
@@ -338,7 +338,7 @@ module Late
       data
     end
 
-    # Get Telegram bot commands
+    # Get TG bot commands
     # Get the bot commands configuration for a Telegram account.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
@@ -391,7 +391,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Set Instagram ice breakers
+    # Set IG ice breakers
     # Set ice breakers for an Instagram account. Max 4 ice breakers, question max 80 chars.
     # @param account_id [String] 
     # @param set_instagram_ice_breakers_request [SetInstagramIceBreakersRequest] 
@@ -402,7 +402,7 @@ module Late
       nil
     end
 
-    # Set Instagram ice breakers
+    # Set IG ice breakers
     # Set ice breakers for an Instagram account. Max 4 ice breakers, question max 80 chars.
     # @param account_id [String] 
     # @param set_instagram_ice_breakers_request [SetInstagramIceBreakersRequest] 
@@ -465,7 +465,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Set Facebook persistent menu
+    # Set FB persistent menu
     # Set the persistent menu for a Facebook Messenger account. Max 3 top-level items, max 5 nested items.
     # @param account_id [String] 
     # @param set_messenger_menu_request [SetMessengerMenuRequest] 
@@ -476,7 +476,7 @@ module Late
       nil
     end
 
-    # Set Facebook persistent menu
+    # Set FB persistent menu
     # Set the persistent menu for a Facebook Messenger account. Max 3 top-level items, max 5 nested items.
     # @param account_id [String] 
     # @param set_messenger_menu_request [SetMessengerMenuRequest] 
@@ -539,7 +539,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Set Telegram bot commands
+    # Set TG bot commands
     # Set bot commands for a Telegram account.
     # @param account_id [String] 
     # @param set_telegram_commands_request [SetTelegramCommandsRequest] 
@@ -550,7 +550,7 @@ module Late
       nil
     end
 
-    # Set Telegram bot commands
+    # Set TG bot commands
     # Set bot commands for a Telegram account.
     # @param account_id [String] 
     # @param set_telegram_commands_request [SetTelegramCommandsRequest] 

@@ -218,7 +218,7 @@ module Late
     end
 
     # Get follower stats
-    # Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
+    # Returns follower count history and growth metrics for connected social accounts. Requires analytics add-on subscription. Follower counts are refreshed once per day. 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :account_ids Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts)
     # @option opts [String] :profile_id Filter by profile ID
@@ -232,7 +232,7 @@ module Late
     end
 
     # Get follower stats
-    # Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
+    # Returns follower count history and growth metrics for connected social accounts. Requires analytics add-on subscription. Follower counts are refreshed once per day. 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :account_ids Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts)
     # @option opts [String] :profile_id Filter by profile ID

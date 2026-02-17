@@ -42,13 +42,13 @@ module Late
     # Timestamp when the post was published to this platform
     attr_accessor :published_at
 
-    # Human-readable error message when status is 'failed'. Contains platform-specific error details explaining why the publish failed. Examples: - \"Instagram access token has expired. Please reconnect your account.\" - \"Post text exceeds the 500 character limit for Threads.\" - \"You do not have enough karma to post in this subreddit.\" - \"Video is too long for Reels. Facebook Reels must be 90 seconds or less.\" 
+    # Human-readable error message when status is failed. Contains platform-specific error details explaining why the publish failed.
     attr_accessor :error_message
 
-    # Error category for programmatic handling: - auth_expired: Token expired or revoked, account needs reconnection - user_content: Content doesn't meet platform requirements (too long, wrong format, etc.) - user_abuse: Rate limits, spam detection, excessive posting - account_issue: Account configuration problems (missing board, inactive account) - platform_rejected: Platform rules violated (banned, suspended, policy violation) - platform_error: Platform-side issues (5xx errors, maintenance) - system_error: Late infrastructure issues (timeouts, network errors) - unknown: Unclassified error 
+    # Error category for programmatic handling: auth_expired (token expired/revoked), user_content (wrong format/too long), user_abuse (rate limits/spam), account_issue (config problems), platform_rejected (policy violation), platform_error (5xx/maintenance), system_error (Late infra), unknown
     attr_accessor :error_category
 
-    # Who/what caused the error: - user: User action required (fix content, reconnect account) - platform: Platform-side issue (outage, API change) - system: Late system issue (rare) 
+    # Who caused the error: user (fix content/reconnect), platform (outage/API change), system (Late issue, rare)
     attr_accessor :error_source
 
     class EnumAttributeValidator

@@ -21,7 +21,7 @@ module Late
     end
     # Delete comment
     # Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
-    # @param post_id [String] The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL. 
+    # @param post_id [String] The post identifier. Accepts a Late post ID or a platform-specific post ID.  LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL. 
     # @param account_id [String] 
     # @param comment_id [String] 
     # @param [Hash] opts the optional parameters
@@ -33,7 +33,7 @@ module Late
 
     # Delete comment
     # Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
-    # @param post_id [String] The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL. 
+    # @param post_id [String] The post identifier. Accepts a Late post ID or a platform-specific post ID.  LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL. 
     # @param account_id [String] 
     # @param comment_id [String] 
     # @param [Hash] opts the optional parameters
@@ -98,7 +98,7 @@ module Late
 
     # Get post comments
     # Fetch comments for a specific post. Requires accountId query parameter.
-    # @param post_id [String] The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID).  **LinkedIn:** For your own posts, the full URN stored in Late (e.g., &#x60;urn:li:share:7429218977714745345&#x60;) is used automatically. For third-party posts, pass either the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as &#x60;urn:li:activity:&#x60;). Note: LinkedIn post URLs use activity IDs (&#x60;linkedin.com/feed/update/urn:li:activity:XXXX&#x60;). 
+    # @param post_id [String] The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). LinkedIn: for your own posts, the full URN stored in Late is used automatically. For third-party posts, pass the full activity URN or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as urn:li:activity:). 
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :subreddit (Reddit only) Subreddit name
@@ -113,7 +113,7 @@ module Late
 
     # Get post comments
     # Fetch comments for a specific post. Requires accountId query parameter.
-    # @param post_id [String] The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID).  **LinkedIn:** For your own posts, the full URN stored in Late (e.g., &#x60;urn:li:share:7429218977714745345&#x60;) is used automatically. For third-party posts, pass either the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as &#x60;urn:li:activity:&#x60;). Note: LinkedIn post URLs use activity IDs (&#x60;linkedin.com/feed/update/urn:li:activity:XXXX&#x60;). 
+    # @param post_id [String] The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). LinkedIn: for your own posts, the full URN stored in Late is used automatically. For third-party posts, pass the full activity URN or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as urn:li:activity:). 
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :subreddit (Reddit only) Subreddit name
@@ -267,7 +267,7 @@ module Late
     end
 
     # Like comment
-    # Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the `cid` (content identifier) is required in the request body. 
+    # Like or upvote a comment on a post. Supported platforms: Facebook, Twitter/X, Bluesky, Reddit. For Bluesky, the cid (content identifier) is required in the request body. 
     # @param post_id [String] 
     # @param comment_id [String] 
     # @param like_inbox_comment_request [LikeInboxCommentRequest] 
@@ -279,7 +279,7 @@ module Late
     end
 
     # Like comment
-    # Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
+    # Like or upvote a comment on a post. Supported platforms: Facebook, Twitter/X, Bluesky, Reddit. For Bluesky, the cid (content identifier) is required in the request body. 
     # @param post_id [String] 
     # @param comment_id [String] 
     # @param like_inbox_comment_request [LikeInboxCommentRequest] 
@@ -347,7 +347,7 @@ module Late
     end
 
     # List commented posts
-    # Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
+    # Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  Supported platforms: Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only). 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter by profile ID
     # @option opts [String] :platform Filter by platform
@@ -365,7 +365,7 @@ module Late
     end
 
     # List commented posts
-    # Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
+    # Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  Supported platforms: Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only). 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter by profile ID
     # @option opts [String] :platform Filter by platform
@@ -456,7 +456,7 @@ module Late
 
     # Reply to comment
     # Post a reply to a post or specific comment. Requires accountId in request body.
-    # @param post_id [String] The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL. 
+    # @param post_id [String] The post identifier. Accepts a Late post ID or a platform-specific post ID.  LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL. 
     # @param reply_to_inbox_post_request [ReplyToInboxPostRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ReplyToInboxPost200Response]
@@ -467,7 +467,7 @@ module Late
 
     # Reply to comment
     # Post a reply to a post or specific comment. Requires accountId in request body.
-    # @param post_id [String] The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL. 
+    # @param post_id [String] The post identifier. Accepts a Late post ID or a platform-specific post ID.  LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL. 
     # @param reply_to_inbox_post_request [ReplyToInboxPostRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ReplyToInboxPost200Response, Integer, Hash)>] ReplyToInboxPost200Response data, response status code and response headers
@@ -529,7 +529,7 @@ module Late
     end
 
     # Send private reply
-    # Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user's Inbox (if they follow you) or Message Requests (if they don't). Requires `instagram_business_manage_messages` permission. - Facebook: message opens a Messenger conversation with the commenter. Requires `pages_messaging` permission.  **Note:** Both permissions are already included in Late's OAuth flow. This does not create a conversation thread until the user replies back. 
+    # Send a private direct message to the author of a comment on your post. Supported platforms: Instagram, Facebook. Only one private reply per comment (platform restriction), must be sent within 7 days, only for comments on your own posts, text only. Instagram messages go to Inbox or Message Requests; Facebook opens a Messenger conversation. Both permissions are already included in Late's OAuth flow. 
     # @param post_id [String] The media/post ID (Instagram media ID or Facebook post ID)
     # @param comment_id [String] The comment ID to send a private reply to
     # @param send_private_reply_to_comment_request [SendPrivateReplyToCommentRequest] 
@@ -541,7 +541,7 @@ module Late
     end
 
     # Send private reply
-    # Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
+    # Send a private direct message to the author of a comment on your post. Supported platforms: Instagram, Facebook. Only one private reply per comment (platform restriction), must be sent within 7 days, only for comments on your own posts, text only. Instagram messages go to Inbox or Message Requests; Facebook opens a Messenger conversation. Both permissions are already included in Late&#39;s OAuth flow. 
     # @param post_id [String] The media/post ID (Instagram media ID or Facebook post ID)
     # @param comment_id [String] The comment ID to send a private reply to
     # @param send_private_reply_to_comment_request [SendPrivateReplyToCommentRequest] 
@@ -685,7 +685,7 @@ module Late
     end
 
     # Unlike comment
-    # Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the `likeUri` query parameter is required. 
+    # Remove a like from a comment. Supported platforms: Facebook, Twitter/X, Bluesky, Reddit. For Bluesky, the likeUri query parameter is required. 
     # @param post_id [String] 
     # @param comment_id [String] 
     # @param account_id [String] 
@@ -698,7 +698,7 @@ module Late
     end
 
     # Unlike comment
-    # Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
+    # Remove a like from a comment. Supported platforms: Facebook, Twitter/X, Bluesky, Reddit. For Bluesky, the likeUri query parameter is required. 
     # @param post_id [String] 
     # @param comment_id [String] 
     # @param account_id [String] 

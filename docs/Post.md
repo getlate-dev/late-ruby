@@ -13,7 +13,7 @@
 | **scheduled_for** | **Time** |  | [optional] |
 | **timezone** | **String** |  | [optional] |
 | **status** | **String** |  | [optional] |
-| **tags** | **Array&lt;String&gt;** | YouTube tag constraints when targeting YouTube: - No count cap; duplicates removed. - Each tag must be ≤ 100 chars. - Combined characters across all tags ≤ 500.  | [optional] |
+| **tags** | **Array&lt;String&gt;** | YouTube constraints: each tag max 100 chars, combined max 500 chars, duplicates removed. | [optional] |
 | **hashtags** | **Array&lt;String&gt;** |  | [optional] |
 | **mentions** | **Array&lt;String&gt;** |  | [optional] |
 | **visibility** | **String** |  | [optional] |

@@ -41,7 +41,7 @@ module Late
     def self.openapi_types
       {
         :'logs' => :'Array<ConnectionLog>',
-        :'pagination' => :'ListLogs200ResponsePagination'
+        :'pagination' => :'ListPostsLogs200ResponsePagination'
       }
     end
 

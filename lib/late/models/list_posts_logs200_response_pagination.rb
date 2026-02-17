@@ -14,16 +14,27 @@ require 'date'
 require 'time'
 
 module Late
-  class ListLogs200Response < ApiModelBase
-    attr_accessor :logs
+  class ListPostsLogs200ResponsePagination < ApiModelBase
+    # Total number of logs matching the query
+    attr_accessor :total
 
-    attr_accessor :pagination
+    attr_accessor :limit
+
+    attr_accessor :skip
+
+    # Total number of pages
+    attr_accessor :pages
+
+    attr_accessor :has_more
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'logs' => :'logs',
-        :'pagination' => :'pagination'
+        :'total' => :'total',
+        :'limit' => :'limit',
+        :'skip' => :'skip',
+        :'pages' => :'pages',
+        :'has_more' => :'hasMore'
       }
     end
 
@@ -40,8 +51,11 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'logs' => :'Array<PostLog>',
-        :'pagination' => :'ListLogs200ResponsePagination'
+        :'total' => :'Integer',
+        :'limit' => :'Integer',
+        :'skip' => :'Integer',
+        :'pages' => :'Integer',
+        :'has_more' => :'Boolean'
       }
     end
 
@@ -55,26 +69,36 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::ListLogs200Response` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::ListPostsLogs200ResponsePagination` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::ListLogs200Response`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::ListPostsLogs200ResponsePagination`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'logs')
-        if (value = attributes[:'logs']).is_a?(Array)
-          self.logs = value
-        end
+      if attributes.key?(:'total')
+        self.total = attributes[:'total']
       end
 
-      if attributes.key?(:'pagination')
-        self.pagination = attributes[:'pagination']
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
+      end
+
+      if attributes.key?(:'skip')
+        self.skip = attributes[:'skip']
+      end
+
+      if attributes.key?(:'pages')
+        self.pages = attributes[:'pages']
+      end
+
+      if attributes.key?(:'has_more')
+        self.has_more = attributes[:'has_more']
       end
     end
 
@@ -98,8 +122,11 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          logs == o.logs &&
-          pagination == o.pagination
+          total == o.total &&
+          limit == o.limit &&
+          skip == o.skip &&
+          pages == o.pages &&
+          has_more == o.has_more
     end
 
     # @see the `==` method
@@ -111,7 +138,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [logs, pagination].hash
+      [total, limit, skip, pages, has_more].hash
     end
 
     # Builds the object from hash

@@ -24,7 +24,7 @@ module Late
     # Y coordinate position from top edge (0.0 = top, 0.5 = center, 1.0 = bottom)
     attr_accessor :y
 
-    # Zero-based index of the carousel item to tag. Defaults to 0 (first image) if omitted. Only relevant for carousel posts. Tags targeting video items or out-of-range indices are ignored. 
+    # Zero-based index of the carousel item to tag. Defaults to 0. Tags on video items or out-of-range indices are ignored.
     attr_accessor :media_index
 
     # Attribute mapping from ruby-style variable name to JSON key.

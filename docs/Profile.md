@@ -10,7 +10,7 @@
 | **description** | **String** |  | [optional] |
 | **color** | **String** |  | [optional] |
 | **is_default** | **Boolean** |  | [optional] |
-| **is_over_limit** | **Boolean** | Only present when &#x60;includeOverLimit&#x3D;true&#x60; is used. Indicates if this profile exceeds the user&#39;s plan limit. Over-limit profiles cannot be used for posting but can be managed (disconnected accounts, deleted).  | [optional] |
+| **is_over_limit** | **Boolean** | Only present when includeOverLimit&#x3D;true is used. Indicates if this profile exceeds the user&#39;s plan limit. Over-limit profiles cannot be used for posting but can be managed (disconnected accounts, deleted).  | [optional] |
 | **created_at** | **Time** |  | [optional] |
 
 ## Example

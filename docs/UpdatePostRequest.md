@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **content** | **String** |  | [optional] |
 | **scheduled_for** | **Time** |  | [optional] |
-| **tiktok_settings** | [**TikTokPlatformData**](TikTokPlatformData.md) | Root-level TikTok settings applied to all TikTok platforms in the request. This is a convenience shorthand. Settings here are merged into each TikTok platform&#39;s platformSpecificData, with platform-specific settings taking precedence.  | [optional] |
+| **tiktok_settings** | [**TikTokPlatformData**](TikTokPlatformData.md) | Root-level TikTok settings applied to all TikTok platforms. Merged into each platform&#39;s platformSpecificData, with platform-specific settings taking precedence. | [optional] |
 
 ## Example
 

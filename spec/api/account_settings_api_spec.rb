@@ -33,7 +33,7 @@ describe 'AccountSettingsApi' do
   end
 
   # unit tests for delete_instagram_ice_breakers
-  # Delete Instagram ice breakers
+  # Delete IG ice breakers
   # @param account_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -44,7 +44,7 @@ describe 'AccountSettingsApi' do
   end
 
   # unit tests for delete_messenger_menu
-  # Delete Facebook persistent menu
+  # Delete FB persistent menu
   # @param account_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -55,7 +55,7 @@ describe 'AccountSettingsApi' do
   end
 
   # unit tests for delete_telegram_commands
-  # Delete Telegram bot commands
+  # Delete TG bot commands
   # @param account_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -66,7 +66,7 @@ describe 'AccountSettingsApi' do
   end
 
   # unit tests for get_instagram_ice_breakers
-  # Get Instagram ice breakers
+  # Get IG ice breakers
   # Get the ice breaker configuration for an Instagram account.
   # @param account_id 
   # @param [Hash] opts the optional parameters
@@ -78,7 +78,7 @@ describe 'AccountSettingsApi' do
   end
 
   # unit tests for get_messenger_menu
-  # Get Facebook persistent menu
+  # Get FB persistent menu
   # Get the persistent menu configuration for a Facebook Messenger account.
   # @param account_id 
   # @param [Hash] opts the optional parameters
@@ -90,7 +90,7 @@ describe 'AccountSettingsApi' do
   end
 
   # unit tests for get_telegram_commands
-  # Get Telegram bot commands
+  # Get TG bot commands
   # Get the bot commands configuration for a Telegram account.
   # @param account_id 
   # @param [Hash] opts the optional parameters
@@ -102,7 +102,7 @@ describe 'AccountSettingsApi' do
   end
 
   # unit tests for set_instagram_ice_breakers
-  # Set Instagram ice breakers
+  # Set IG ice breakers
   # Set ice breakers for an Instagram account. Max 4 ice breakers, question max 80 chars.
   # @param account_id 
   # @param set_instagram_ice_breakers_request 
@@ -115,7 +115,7 @@ describe 'AccountSettingsApi' do
   end
 
   # unit tests for set_messenger_menu
-  # Set Facebook persistent menu
+  # Set FB persistent menu
   # Set the persistent menu for a Facebook Messenger account. Max 3 top-level items, max 5 nested items.
   # @param account_id 
   # @param set_messenger_menu_request 
@@ -128,7 +128,7 @@ describe 'AccountSettingsApi' do
   end
 
   # unit tests for set_telegram_commands
-  # Set Telegram bot commands
+  # Set TG bot commands
   # Set bot commands for a Telegram account.
   # @param account_id 
   # @param set_telegram_commands_request 

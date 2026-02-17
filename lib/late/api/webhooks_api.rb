@@ -20,7 +20,7 @@ module Late
       @api_client = api_client
     end
     # Create webhook
-    # Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+    # Create a new webhook configuration. Maximum 10 webhooks per user.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
     # @param create_webhook_settings_request [CreateWebhookSettingsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [UpdateWebhookSettings200Response]
@@ -30,7 +30,7 @@ module Late
     end
 
     # Create webhook
-    # Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+    # Create a new webhook configuration. Maximum 10 webhooks per user.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
     # @param create_webhook_settings_request [CreateWebhookSettingsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(UpdateWebhookSettings200Response, Integer, Hash)>] UpdateWebhookSettings200Response data, response status code and response headers
@@ -294,7 +294,7 @@ module Late
     end
 
     # Send test webhook
-    # Send a test webhook to verify your endpoint is configured correctly. The test payload includes `event: \"webhook.test\"` to distinguish it from real events. 
+    # Send a test webhook to verify your endpoint is configured correctly. The test payload includes event: \"webhook.test\" to distinguish it from real events. 
     # @param test_webhook_request [TestWebhookRequest] 
     # @param [Hash] opts the optional parameters
     # @return [UnpublishPost200Response]
@@ -304,7 +304,7 @@ module Late
     end
 
     # Send test webhook
-    # Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
+    # Send a test webhook to verify your endpoint is configured correctly. The test payload includes event: \&quot;webhook.test\&quot; to distinguish it from real events. 
     # @param test_webhook_request [TestWebhookRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(UnpublishPost200Response, Integer, Hash)>] UnpublishPost200Response data, response status code and response headers
@@ -362,7 +362,7 @@ module Late
     end
 
     # Update webhook
-    # Update an existing webhook configuration. All fields except `_id` are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+    # Update an existing webhook configuration. All fields except _id are optional; only provided fields will be updated.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
     # @param update_webhook_settings_request [UpdateWebhookSettingsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [UpdateWebhookSettings200Response]
@@ -372,7 +372,7 @@ module Late
     end
 
     # Update webhook
-    # Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+    # Update an existing webhook configuration. All fields except _id are optional; only provided fields will be updated.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
     # @param update_webhook_settings_request [UpdateWebhookSettingsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(UpdateWebhookSettings200Response, Integer, Hash)>] UpdateWebhookSettings200Response data, response status code and response headers

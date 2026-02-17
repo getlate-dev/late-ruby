@@ -21,7 +21,7 @@ module Late
     # App password generated from Bluesky Settings > App Passwords
     attr_accessor :app_password
 
-    # Required state parameter formatted as `{userId}-{profileId}`. - `userId`: Your Late user ID (get from `GET /v1/users` → `currentUserId`) - `profileId`: The profile ID to connect the account to (get from `GET /v1/profiles`) 
+    # Required state parameter formatted as {userId}-{profileId}. userId is your Late user ID (from GET /v1/users, currentUserId field), profileId is the profile to connect the account to (from GET /v1/profiles). 
     attr_accessor :state
 
     # Optional URL to redirect to after successful connection

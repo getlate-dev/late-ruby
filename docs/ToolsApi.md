@@ -4,7 +4,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**check_instagram_hashtags**](ToolsApi.md#check_instagram_hashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check Instagram hashtag bans |
+| [**check_instagram_hashtags**](ToolsApi.md#check_instagram_hashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check IG hashtag bans |
 | [**download_bluesky_media**](ToolsApi.md#download_bluesky_media) | **GET** /v1/tools/bluesky/download | Download Bluesky media |
 | [**download_facebook_video**](ToolsApi.md#download_facebook_video) | **GET** /v1/tools/facebook/download | Download Facebook video |
 | [**download_instagram_media**](ToolsApi.md#download_instagram_media) | **GET** /v1/tools/instagram/download | Download Instagram media |
@@ -19,9 +19,9 @@ All URIs are relative to *https://getlate.dev/api*
 
 > <CheckInstagramHashtags200Response> check_instagram_hashtags(check_instagram_hashtags_request)
 
-Check Instagram hashtag bans
+Check IG hashtag bans
 
-Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Check if Instagram hashtags are banned, restricted, or safe to use.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Examples
 
@@ -38,7 +38,7 @@ api_instance = Late::ToolsApi.new
 check_instagram_hashtags_request = Late::CheckInstagramHashtagsRequest.new({hashtags: ["travel", "followforfollow", "fitness"]}) # CheckInstagramHashtagsRequest | 
 
 begin
-  # Check Instagram hashtag bans
+  # Check IG hashtag bans
   result = api_instance.check_instagram_hashtags(check_instagram_hashtags_request)
   p result
 rescue Late::ApiError => e
@@ -54,7 +54,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Check Instagram hashtag bans
+  # Check IG hashtag bans
   data, status_code, headers = api_instance.check_instagram_hashtags_with_http_info(check_instagram_hashtags_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -90,7 +90,7 @@ end
 
 Download Bluesky media
 
-Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download videos from Bluesky posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Examples
 
@@ -159,7 +159,7 @@ end
 
 Download Facebook video
 
-Download videos and reels from Facebook.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download videos and reels from Facebook.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Examples
 
@@ -228,7 +228,7 @@ end
 
 Download Instagram media
 
-Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download Instagram reels, posts, or photos.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Examples
 
@@ -297,7 +297,7 @@ end
 
 Download LinkedIn video
 
-Download videos from LinkedIn posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download videos from LinkedIn posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Examples
 
@@ -366,7 +366,7 @@ end
 
 Download TikTok video
 
-Download TikTok videos with or without watermark.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download TikTok videos with or without watermark.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Examples
 
@@ -441,7 +441,7 @@ end
 
 Download Twitter/X media
 
-Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download videos from Twitter/X posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Examples
 
@@ -516,7 +516,7 @@ end
 
 Download YouTube video
 
-Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download YouTube videos or audio. Returns available formats or direct download URL.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Examples
 
@@ -595,7 +595,7 @@ end
 
 Get YouTube transcript
 
-Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Extract transcript/captions from a YouTube video.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Examples
 

@@ -208,9 +208,9 @@ module Late
     end
 
     # List profiles
-    # Returns profiles within the user's plan limit. Profiles are sorted by creation date (oldest first). Use `includeOverLimit=true` to include profiles that exceed the plan limit (for management/deletion purposes). 
+    # Returns profiles within the user's plan limit, sorted by creation date (oldest first). Use includeOverLimit=true to include profiles that exceed the plan limit (for management/deletion purposes). 
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :include_over_limit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have &#x60;isOverLimit: true&#x60; in the response. Useful for managing/deleting profiles after a plan downgrade.  (default to false)
+    # @option opts [Boolean] :include_over_limit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  (default to false)
     # @return [ProfilesListResponse]
     def list_profiles(opts = {})
       data, _status_code, _headers = list_profiles_with_http_info(opts)
@@ -218,9 +218,9 @@ module Late
     end
 
     # List profiles
-    # Returns profiles within the user&#39;s plan limit. Profiles are sorted by creation date (oldest first). Use &#x60;includeOverLimit&#x3D;true&#x60; to include profiles that exceed the plan limit (for management/deletion purposes). 
+    # Returns profiles within the user&#39;s plan limit, sorted by creation date (oldest first). Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit (for management/deletion purposes). 
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :include_over_limit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have &#x60;isOverLimit: true&#x60; in the response. Useful for managing/deleting profiles after a plan downgrade.  (default to false)
+    # @option opts [Boolean] :include_over_limit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  (default to false)
     # @return [Array<(ProfilesListResponse, Integer, Hash)>] ProfilesListResponse data, response status code and response headers
     def list_profiles_with_http_info(opts = {})
       if @api_client.config.debugging

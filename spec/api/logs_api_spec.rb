@@ -32,18 +32,6 @@ describe 'LogsApi' do
     end
   end
 
-  # unit tests for get_log
-  # Get log entry
-  # Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
-  # @param log_id The log entry ID
-  # @param [Hash] opts the optional parameters
-  # @return [GetLog200Response]
-  describe 'get_log test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for get_post_logs
   # Get post logs
   # Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
@@ -59,7 +47,7 @@ describe 'LogsApi' do
 
   # unit tests for list_connection_logs
   # List connection logs
-  # Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
+  # Retrieve connection event logs showing account connection and disconnection history. Event types: connect_success, connect_failed, disconnect, reconnect_success, reconnect_failed. Logs are automatically deleted after 7 days. 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :platform Filter by platform
   # @option opts [String] :event_type Filter by event type
@@ -74,26 +62,9 @@ describe 'LogsApi' do
     end
   end
 
-  # unit tests for list_logs
-  # List publishing logs (deprecated)
-  # **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :status Filter by log status
-  # @option opts [String] :platform Filter by platform
-  # @option opts [String] :action Filter by action type
-  # @option opts [Integer] :days Number of days to look back (max 7)
-  # @option opts [Integer] :limit Maximum number of logs to return (max 100)
-  # @option opts [Integer] :skip Number of logs to skip (for pagination)
-  # @return [ListLogs200Response]
-  describe 'list_logs test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for list_posts_logs
   # List publishing logs
-  # Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
+  # Retrieve publishing logs for all posts with detailed information about each publishing attempt. Filter by status, platform, or action. Logs are automatically deleted after 7 days. 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :status Filter by log status
   # @option opts [String] :platform Filter by platform
@@ -101,7 +72,7 @@ describe 'LogsApi' do
   # @option opts [Integer] :days Number of days to look back (max 7)
   # @option opts [Integer] :limit Maximum number of logs to return (max 100)
   # @option opts [Integer] :skip Number of logs to skip (for pagination)
-  # @return [ListLogs200Response]
+  # @return [ListPostsLogs200Response]
   describe 'list_posts_logs test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

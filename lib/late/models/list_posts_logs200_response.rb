@@ -14,13 +14,16 @@ require 'date'
 require 'time'
 
 module Late
-  class GetLog200Response < ApiModelBase
-    attr_accessor :log
+  class ListPostsLogs200Response < ApiModelBase
+    attr_accessor :logs
+
+    attr_accessor :pagination
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'log' => :'log'
+        :'logs' => :'logs',
+        :'pagination' => :'pagination'
       }
     end
 
@@ -37,7 +40,8 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'log' => :'PostLogDetail'
+        :'logs' => :'Array<PostLog>',
+        :'pagination' => :'ListPostsLogs200ResponsePagination'
       }
     end
 
@@ -51,20 +55,26 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::GetLog200Response` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::ListPostsLogs200Response` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::GetLog200Response`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::ListPostsLogs200Response`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'log')
-        self.log = attributes[:'log']
+      if attributes.key?(:'logs')
+        if (value = attributes[:'logs']).is_a?(Array)
+          self.logs = value
+        end
+      end
+
+      if attributes.key?(:'pagination')
+        self.pagination = attributes[:'pagination']
       end
     end
 
@@ -88,7 +98,8 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          log == o.log
+          logs == o.logs &&
+          pagination == o.pagination
     end
 
     # @see the `==` method
@@ -100,7 +111,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [log].hash
+      [logs, pagination].hash
     end
 
     # Builds the object from hash

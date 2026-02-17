@@ -1,4 +1,4 @@
-# Late::ListLogs200ResponsePagination
+# Late::ListPostsLogs200ResponsePagination
 
 ## Properties
 
@@ -15,7 +15,7 @@
 ```ruby
 require 'late'
 
-instance = Late::ListLogs200ResponsePagination.new(
+instance = Late::ListPostsLogs200ResponsePagination.new(
   total: null,
   limit: null,
   skip: null,

@@ -9,7 +9,7 @@
 | **profile_id** | **String** |  | [optional] |
 | **account_id** | **String** | The social account ID (present on successful connections and disconnects) | [optional] |
 | **platform** | **String** |  | [optional] |
-| **event_type** | **String** | Type of connection event: - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected successfully - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  | [optional] |
+| **event_type** | **String** | Type of connection event: connect_success, connect_failed, disconnect, reconnect_success, reconnect_failed | [optional] |
 | **connection_method** | **String** | How the connection was initiated | [optional] |
 | **error** | [**ConnectionLogError**](ConnectionLogError.md) |  | [optional] |
 | **success** | [**ConnectionLogSuccess**](ConnectionLogSuccess.md) |  | [optional] |

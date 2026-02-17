@@ -74,7 +74,7 @@ describe 'MessagesApi' do
 
   # unit tests for list_inbox_conversations
   # List conversations
-  # Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
+  # Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated. Supported platforms: Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram. 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :profile_id Filter by profile ID
   # @option opts [String] :platform Filter by platform
@@ -92,7 +92,7 @@ describe 'MessagesApi' do
 
   # unit tests for send_inbox_message
   # Send message
-  # Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky/Reddit: Not supported  **Interactive messages:** Supports quick replies, buttons, templates, and reply markup. Feature availability varies by platform (Instagram, Facebook, Telegram). Unsupported fields are silently ignored. 
+  # Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags. Attachments: Telegram (images, videos, docs up to 50MB), Facebook (images, videos, audio, files), Instagram (images, videos, audio via URL), Twitter/X (images, videos). Not supported on Bluesky/Reddit. Interactive messages (quick replies, buttons, templates, reply markup) vary by platform. Unsupported fields are silently ignored. 
   # @param conversation_id The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID.
   # @param send_inbox_message_request 
   # @param [Hash] opts the optional parameters

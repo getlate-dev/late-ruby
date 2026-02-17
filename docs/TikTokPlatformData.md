@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **draft** | **Boolean** | When true, Late sends the post to the TikTok Creator Inbox as a draft instead of publishing it immediately. When omitted or false, TikTok uses direct posting (live publish) as usual.  | [optional] |
+| **draft** | **Boolean** | When true, sends the post to the TikTok Creator Inbox as a draft instead of publishing immediately. | [optional] |
 | **privacy_level** | **String** | One of the values returned by the TikTok creator info API for the account | [optional] |
 | **allow_comment** | **Boolean** | Allow comments on the post | [optional] |
 | **allow_duet** | **Boolean** | Allow duets (required for video posts) | [optional] |
@@ -19,7 +19,7 @@
 | **photo_cover_index** | **Integer** | Optional for photo carousels. Index of image to use as cover, 0-based (defaults to 0/first image). | [optional] |
 | **auto_add_music** | **Boolean** | When true, TikTok may add recommended music (photos only) | [optional] |
 | **video_made_with_ai** | **Boolean** | Set true to disclose AI-generated content | [optional] |
-| **description** | **String** | Optional long-form description for photo posts (max 4000 chars). Recommended for photo posts when content exceeds 90 characters, as photo titles are automatically truncated to 90 chars (after stripping hashtags/URLs).  | [optional] |
+| **description** | **String** | Optional long-form description for photo posts (max 4000 chars). Recommended when content exceeds 90 chars, as photo titles are auto-truncated. | [optional] |
 
 ## Example
 

@@ -86,7 +86,7 @@ end
 
 List reviews
 
-Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options.  **Supported platforms:** Facebook, Google Business 
+Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options. Supported platforms: Facebook, Google Business. 
 
 ### Examples
 

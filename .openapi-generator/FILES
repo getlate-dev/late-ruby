@@ -152,7 +152,6 @@ docs/GetLinkedInPostAnalytics200Response.md
 docs/GetLinkedInPostAnalytics200ResponseAnalytics.md
 docs/GetLinkedInPostAnalytics400Response.md
 docs/GetLinkedInPostAnalytics403Response.md
-docs/GetLog200Response.md
 docs/GetMediaPresignedUrl200Response.md
 docs/GetMediaPresignedUrlRequest.md
 docs/GetMessengerMenu200Response.md
@@ -235,10 +234,10 @@ docs/ListInboxReviews200ResponseDataInnerReviewer.md
 docs/ListInboxReviews200ResponseSummary.md
 docs/ListLinkedInOrganizations200Response.md
 docs/ListLinkedInOrganizations200ResponseOrganizationsInner.md
-docs/ListLogs200Response.md
-docs/ListLogs200ResponsePagination.md
 docs/ListPinterestBoardsForSelection200Response.md
 docs/ListPinterestBoardsForSelection200ResponseBoardsInner.md
+docs/ListPostsLogs200Response.md
+docs/ListPostsLogs200ResponsePagination.md
 docs/ListQueueSlots200Response.md
 docs/ListQueueSlots200ResponseOneOf.md
 docs/ListQueueSlots200ResponseOneOf1.md
@@ -266,9 +265,6 @@ docs/PostCreateResponse.md
 docs/PostDeleteResponse.md
 docs/PostGetResponse.md
 docs/PostLog.md
-docs/PostLogDetail.md
-docs/PostLogDetailAllOfAccountId.md
-docs/PostLogDetailAllOfPostId.md
 docs/PostLogPostId.md
 docs/PostLogPostIdOneOf.md
 docs/PostLogRequest.md
@@ -349,7 +345,6 @@ docs/TelegramPlatformData.md
 docs/TestWebhookRequest.md
 docs/ThreadsPlatformData.md
 docs/TikTokPlatformData.md
-docs/TikTokSettings.md
 docs/ToolsApi.md
 docs/TranscriptResponse.md
 docs/TranscriptSegment.md
@@ -594,7 +589,6 @@ lib/late/models/get_linked_in_post_analytics200_response.rb
 lib/late/models/get_linked_in_post_analytics200_response_analytics.rb
 lib/late/models/get_linked_in_post_analytics400_response.rb
 lib/late/models/get_linked_in_post_analytics403_response.rb
-lib/late/models/get_log200_response.rb
 lib/late/models/get_media_presigned_url200_response.rb
 lib/late/models/get_media_presigned_url_request.rb
 lib/late/models/get_messenger_menu200_response.rb
@@ -675,10 +669,10 @@ lib/late/models/list_inbox_reviews200_response_data_inner_reviewer.rb
 lib/late/models/list_inbox_reviews200_response_summary.rb
 lib/late/models/list_linked_in_organizations200_response.rb
 lib/late/models/list_linked_in_organizations200_response_organizations_inner.rb
-lib/late/models/list_logs200_response.rb
-lib/late/models/list_logs200_response_pagination.rb
 lib/late/models/list_pinterest_boards_for_selection200_response.rb
 lib/late/models/list_pinterest_boards_for_selection200_response_boards_inner.rb
+lib/late/models/list_posts_logs200_response.rb
+lib/late/models/list_posts_logs200_response_pagination.rb
 lib/late/models/list_queue_slots200_response.rb
 lib/late/models/list_queue_slots200_response_one_of.rb
 lib/late/models/list_queue_slots200_response_one_of1.rb
@@ -703,9 +697,6 @@ lib/late/models/post_create_response.rb
 lib/late/models/post_delete_response.rb
 lib/late/models/post_get_response.rb
 lib/late/models/post_log.rb
-lib/late/models/post_log_detail.rb
-lib/late/models/post_log_detail_all_of_account_id.rb
-lib/late/models/post_log_detail_all_of_post_id.rb
 lib/late/models/post_log_post_id.rb
 lib/late/models/post_log_post_id_one_of.rb
 lib/late/models/post_log_request.rb
@@ -781,7 +772,6 @@ lib/late/models/telegram_platform_data.rb
 lib/late/models/test_webhook_request.rb
 lib/late/models/threads_platform_data.rb
 lib/late/models/tik_tok_platform_data.rb
-lib/late/models/tik_tok_settings.rb
 lib/late/models/transcript_response.rb
 lib/late/models/transcript_segment.rb
 lib/late/models/twitter_platform_data.rb
@@ -1016,7 +1006,6 @@ spec/models/get_linked_in_post_analytics200_response_analytics_spec.rb
 spec/models/get_linked_in_post_analytics200_response_spec.rb
 spec/models/get_linked_in_post_analytics400_response_spec.rb
 spec/models/get_linked_in_post_analytics403_response_spec.rb
-spec/models/get_log200_response_spec.rb
 spec/models/get_media_presigned_url200_response_spec.rb
 spec/models/get_media_presigned_url_request_spec.rb
 spec/models/get_messenger_menu200_response_spec.rb
@@ -1097,10 +1086,10 @@ spec/models/list_inbox_reviews200_response_spec.rb
 spec/models/list_inbox_reviews200_response_summary_spec.rb
 spec/models/list_linked_in_organizations200_response_organizations_inner_spec.rb
 spec/models/list_linked_in_organizations200_response_spec.rb
-spec/models/list_logs200_response_pagination_spec.rb
-spec/models/list_logs200_response_spec.rb
 spec/models/list_pinterest_boards_for_selection200_response_boards_inner_spec.rb
 spec/models/list_pinterest_boards_for_selection200_response_spec.rb
+spec/models/list_posts_logs200_response_pagination_spec.rb
+spec/models/list_posts_logs200_response_spec.rb
 spec/models/list_queue_slots200_response_one_of1_spec.rb
 spec/models/list_queue_slots200_response_one_of_spec.rb
 spec/models/list_queue_slots200_response_spec.rb
@@ -1123,9 +1112,6 @@ spec/models/post_analytics_spec.rb
 spec/models/post_create_response_spec.rb
 spec/models/post_delete_response_spec.rb
 spec/models/post_get_response_spec.rb
-spec/models/post_log_detail_all_of_account_id_spec.rb
-spec/models/post_log_detail_all_of_post_id_spec.rb
-spec/models/post_log_detail_spec.rb
 spec/models/post_log_post_id_one_of_spec.rb
 spec/models/post_log_post_id_spec.rb
 spec/models/post_log_request_spec.rb
@@ -1203,7 +1189,6 @@ spec/models/telegram_platform_data_spec.rb
 spec/models/test_webhook_request_spec.rb
 spec/models/threads_platform_data_spec.rb
 spec/models/tik_tok_platform_data_spec.rb
-spec/models/tik_tok_settings_spec.rb
 spec/models/transcript_response_spec.rb
 spec/models/transcript_segment_spec.rb
 spec/models/twitter_platform_data_spec.rb

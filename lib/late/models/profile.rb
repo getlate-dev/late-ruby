@@ -27,7 +27,7 @@ module Late
 
     attr_accessor :is_default
 
-    # Only present when `includeOverLimit=true` is used. Indicates if this profile exceeds the user's plan limit. Over-limit profiles cannot be used for posting but can be managed (disconnected accounts, deleted). 
+    # Only present when includeOverLimit=true is used. Indicates if this profile exceeds the user's plan limit. Over-limit profiles cannot be used for posting but can be managed (disconnected accounts, deleted). 
     attr_accessor :is_over_limit
 
     attr_accessor :created_at

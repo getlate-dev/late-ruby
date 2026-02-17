@@ -94,15 +94,15 @@ Class | Method | HTTP request | Description
 *Late::AccountGroupsApi* | [**delete_account_group**](docs/AccountGroupsApi.md#delete_account_group) | **DELETE** /v1/account-groups/{groupId} | Delete group
 *Late::AccountGroupsApi* | [**list_account_groups**](docs/AccountGroupsApi.md#list_account_groups) | **GET** /v1/account-groups | List groups
 *Late::AccountGroupsApi* | [**update_account_group**](docs/AccountGroupsApi.md#update_account_group) | **PUT** /v1/account-groups/{groupId} | Update group
-*Late::AccountSettingsApi* | [**delete_instagram_ice_breakers**](docs/AccountSettingsApi.md#delete_instagram_ice_breakers) | **DELETE** /v1/accounts/{accountId}/instagram-ice-breakers | Delete Instagram ice breakers
-*Late::AccountSettingsApi* | [**delete_messenger_menu**](docs/AccountSettingsApi.md#delete_messenger_menu) | **DELETE** /v1/accounts/{accountId}/messenger-menu | Delete Facebook persistent menu
-*Late::AccountSettingsApi* | [**delete_telegram_commands**](docs/AccountSettingsApi.md#delete_telegram_commands) | **DELETE** /v1/accounts/{accountId}/telegram-commands | Delete Telegram bot commands
-*Late::AccountSettingsApi* | [**get_instagram_ice_breakers**](docs/AccountSettingsApi.md#get_instagram_ice_breakers) | **GET** /v1/accounts/{accountId}/instagram-ice-breakers | Get Instagram ice breakers
-*Late::AccountSettingsApi* | [**get_messenger_menu**](docs/AccountSettingsApi.md#get_messenger_menu) | **GET** /v1/accounts/{accountId}/messenger-menu | Get Facebook persistent menu
-*Late::AccountSettingsApi* | [**get_telegram_commands**](docs/AccountSettingsApi.md#get_telegram_commands) | **GET** /v1/accounts/{accountId}/telegram-commands | Get Telegram bot commands
-*Late::AccountSettingsApi* | [**set_instagram_ice_breakers**](docs/AccountSettingsApi.md#set_instagram_ice_breakers) | **PUT** /v1/accounts/{accountId}/instagram-ice-breakers | Set Instagram ice breakers
-*Late::AccountSettingsApi* | [**set_messenger_menu**](docs/AccountSettingsApi.md#set_messenger_menu) | **PUT** /v1/accounts/{accountId}/messenger-menu | Set Facebook persistent menu
-*Late::AccountSettingsApi* | [**set_telegram_commands**](docs/AccountSettingsApi.md#set_telegram_commands) | **PUT** /v1/accounts/{accountId}/telegram-commands | Set Telegram bot commands
+*Late::AccountSettingsApi* | [**delete_instagram_ice_breakers**](docs/AccountSettingsApi.md#delete_instagram_ice_breakers) | **DELETE** /v1/accounts/{accountId}/instagram-ice-breakers | Delete IG ice breakers
+*Late::AccountSettingsApi* | [**delete_messenger_menu**](docs/AccountSettingsApi.md#delete_messenger_menu) | **DELETE** /v1/accounts/{accountId}/messenger-menu | Delete FB persistent menu
+*Late::AccountSettingsApi* | [**delete_telegram_commands**](docs/AccountSettingsApi.md#delete_telegram_commands) | **DELETE** /v1/accounts/{accountId}/telegram-commands | Delete TG bot commands
+*Late::AccountSettingsApi* | [**get_instagram_ice_breakers**](docs/AccountSettingsApi.md#get_instagram_ice_breakers) | **GET** /v1/accounts/{accountId}/instagram-ice-breakers | Get IG ice breakers
+*Late::AccountSettingsApi* | [**get_messenger_menu**](docs/AccountSettingsApi.md#get_messenger_menu) | **GET** /v1/accounts/{accountId}/messenger-menu | Get FB persistent menu
+*Late::AccountSettingsApi* | [**get_telegram_commands**](docs/AccountSettingsApi.md#get_telegram_commands) | **GET** /v1/accounts/{accountId}/telegram-commands | Get TG bot commands
+*Late::AccountSettingsApi* | [**set_instagram_ice_breakers**](docs/AccountSettingsApi.md#set_instagram_ice_breakers) | **PUT** /v1/accounts/{accountId}/instagram-ice-breakers | Set IG ice breakers
+*Late::AccountSettingsApi* | [**set_messenger_menu**](docs/AccountSettingsApi.md#set_messenger_menu) | **PUT** /v1/accounts/{accountId}/messenger-menu | Set FB persistent menu
+*Late::AccountSettingsApi* | [**set_telegram_commands**](docs/AccountSettingsApi.md#set_telegram_commands) | **PUT** /v1/accounts/{accountId}/telegram-commands | Set TG bot commands
 *Late::AccountsApi* | [**delete_account**](docs/AccountsApi.md#delete_account) | **DELETE** /v1/accounts/{accountId} | Disconnect account
 *Late::AccountsApi* | [**get_account_health**](docs/AccountsApi.md#get_account_health) | **GET** /v1/accounts/{accountId}/health | Check account health
 *Late::AccountsApi* | [**get_all_accounts_health**](docs/AccountsApi.md#get_all_accounts_health) | **GET** /v1/accounts/health | Check accounts health
@@ -127,7 +127,7 @@ Class | Method | HTTP request | Description
 *Late::ConnectApi* | [**connect_bluesky_credentials**](docs/ConnectApi.md#connect_bluesky_credentials) | **POST** /v1/connect/bluesky/credentials | Connect Bluesky account
 *Late::ConnectApi* | [**get_connect_url**](docs/ConnectApi.md#get_connect_url) | **GET** /v1/connect/{platform} | Get OAuth connect URL
 *Late::ConnectApi* | [**get_facebook_pages**](docs/ConnectApi.md#get_facebook_pages) | **GET** /v1/accounts/{accountId}/facebook-page | List Facebook pages
-*Late::ConnectApi* | [**get_gmb_locations**](docs/ConnectApi.md#get_gmb_locations) | **GET** /v1/accounts/{accountId}/gmb-locations | List Google Business locations
+*Late::ConnectApi* | [**get_gmb_locations**](docs/ConnectApi.md#get_gmb_locations) | **GET** /v1/accounts/{accountId}/gmb-locations | List GBP locations
 *Late::ConnectApi* | [**get_linked_in_organizations**](docs/ConnectApi.md#get_linked_in_organizations) | **GET** /v1/accounts/{accountId}/linkedin-organizations | List LinkedIn orgs
 *Late::ConnectApi* | [**get_pending_o_auth_data**](docs/ConnectApi.md#get_pending_o_auth_data) | **GET** /v1/connect/pending-data | Get pending OAuth data
 *Late::ConnectApi* | [**get_pinterest_boards**](docs/ConnectApi.md#get_pinterest_boards) | **GET** /v1/accounts/{accountId}/pinterest-boards | List Pinterest boards
@@ -137,17 +137,17 @@ Class | Method | HTTP request | Description
 *Late::ConnectApi* | [**handle_o_auth_callback**](docs/ConnectApi.md#handle_o_auth_callback) | **POST** /v1/connect/{platform} | Complete OAuth callback
 *Late::ConnectApi* | [**initiate_telegram_connect**](docs/ConnectApi.md#initiate_telegram_connect) | **POST** /v1/connect/telegram | Connect Telegram directly
 *Late::ConnectApi* | [**list_facebook_pages**](docs/ConnectApi.md#list_facebook_pages) | **GET** /v1/connect/facebook/select-page | List Facebook pages
-*Late::ConnectApi* | [**list_google_business_locations**](docs/ConnectApi.md#list_google_business_locations) | **GET** /v1/connect/googlebusiness/locations | List Google Business locations
+*Late::ConnectApi* | [**list_google_business_locations**](docs/ConnectApi.md#list_google_business_locations) | **GET** /v1/connect/googlebusiness/locations | List GBP locations
 *Late::ConnectApi* | [**list_linked_in_organizations**](docs/ConnectApi.md#list_linked_in_organizations) | **GET** /v1/connect/linkedin/organizations | List LinkedIn orgs
 *Late::ConnectApi* | [**list_pinterest_boards_for_selection**](docs/ConnectApi.md#list_pinterest_boards_for_selection) | **GET** /v1/connect/pinterest/select-board | List Pinterest boards
 *Late::ConnectApi* | [**list_snapchat_profiles**](docs/ConnectApi.md#list_snapchat_profiles) | **GET** /v1/connect/snapchat/select-profile | List Snapchat profiles
 *Late::ConnectApi* | [**select_facebook_page**](docs/ConnectApi.md#select_facebook_page) | **POST** /v1/connect/facebook/select-page | Select Facebook page
-*Late::ConnectApi* | [**select_google_business_location**](docs/ConnectApi.md#select_google_business_location) | **POST** /v1/connect/googlebusiness/select-location | Select Google Business location
+*Late::ConnectApi* | [**select_google_business_location**](docs/ConnectApi.md#select_google_business_location) | **POST** /v1/connect/googlebusiness/select-location | Select GBP location
 *Late::ConnectApi* | [**select_linked_in_organization**](docs/ConnectApi.md#select_linked_in_organization) | **POST** /v1/connect/linkedin/select-organization | Select LinkedIn org
 *Late::ConnectApi* | [**select_pinterest_board**](docs/ConnectApi.md#select_pinterest_board) | **POST** /v1/connect/pinterest/select-board | Select Pinterest board
 *Late::ConnectApi* | [**select_snapchat_profile**](docs/ConnectApi.md#select_snapchat_profile) | **POST** /v1/connect/snapchat/select-profile | Select Snapchat profile
 *Late::ConnectApi* | [**update_facebook_page**](docs/ConnectApi.md#update_facebook_page) | **PUT** /v1/accounts/{accountId}/facebook-page | Update Facebook page
-*Late::ConnectApi* | [**update_gmb_location**](docs/ConnectApi.md#update_gmb_location) | **PUT** /v1/accounts/{accountId}/gmb-locations | Update Google Business location
+*Late::ConnectApi* | [**update_gmb_location**](docs/ConnectApi.md#update_gmb_location) | **PUT** /v1/accounts/{accountId}/gmb-locations | Update GBP location
 *Late::ConnectApi* | [**update_linked_in_organization**](docs/ConnectApi.md#update_linked_in_organization) | **PUT** /v1/accounts/{accountId}/linkedin-organization | Switch LinkedIn account type
 *Late::ConnectApi* | [**update_pinterest_boards**](docs/ConnectApi.md#update_pinterest_boards) | **PUT** /v1/accounts/{accountId}/pinterest-boards | Set default Pinterest board
 *Late::ConnectApi* | [**update_reddit_subreddits**](docs/ConnectApi.md#update_reddit_subreddits) | **PUT** /v1/accounts/{accountId}/reddit-subreddits | Set default subreddit
@@ -166,10 +166,8 @@ Class | Method | HTTP request | Description
 *Late::GMBReviewsApi* | [**get_google_business_reviews**](docs/GMBReviewsApi.md#get_google_business_reviews) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get reviews
 *Late::InvitesApi* | [**create_invite_token**](docs/InvitesApi.md#create_invite_token) | **POST** /v1/invite/tokens | Create invite token
 *Late::LinkedInMentionsApi* | [**get_linked_in_mentions**](docs/LinkedInMentionsApi.md#get_linked_in_mentions) | **GET** /v1/accounts/{accountId}/linkedin-mentions | Resolve LinkedIn mention
-*Late::LogsApi* | [**get_log**](docs/LogsApi.md#get_log) | **GET** /v1/logs/{logId} | Get log entry
 *Late::LogsApi* | [**get_post_logs**](docs/LogsApi.md#get_post_logs) | **GET** /v1/posts/{postId}/logs | Get post logs
 *Late::LogsApi* | [**list_connection_logs**](docs/LogsApi.md#list_connection_logs) | **GET** /v1/connections/logs | List connection logs
-*Late::LogsApi* | [**list_logs**](docs/LogsApi.md#list_logs) | **GET** /v1/logs | List publishing logs (deprecated)
 *Late::LogsApi* | [**list_posts_logs**](docs/LogsApi.md#list_posts_logs) | **GET** /v1/posts/logs | List publishing logs
 *Late::MediaApi* | [**get_media_presigned_url**](docs/MediaApi.md#get_media_presigned_url) | **POST** /v1/media/presign | Get presigned upload URL
 *Late::MessagesApi* | [**edit_inbox_message**](docs/MessagesApi.md#edit_inbox_message) | **PATCH** /v1/inbox/conversations/{conversationId}/messages/{messageId} | Edit message
@@ -202,7 +200,7 @@ Class | Method | HTTP request | Description
 *Late::ReviewsApi* | [**delete_inbox_review_reply**](docs/ReviewsApi.md#delete_inbox_review_reply) | **DELETE** /v1/inbox/reviews/{reviewId}/reply | Delete review reply
 *Late::ReviewsApi* | [**list_inbox_reviews**](docs/ReviewsApi.md#list_inbox_reviews) | **GET** /v1/inbox/reviews | List reviews
 *Late::ReviewsApi* | [**reply_to_inbox_review**](docs/ReviewsApi.md#reply_to_inbox_review) | **POST** /v1/inbox/reviews/{reviewId}/reply | Reply to review
-*Late::ToolsApi* | [**check_instagram_hashtags**](docs/ToolsApi.md#check_instagram_hashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check Instagram hashtag bans
+*Late::ToolsApi* | [**check_instagram_hashtags**](docs/ToolsApi.md#check_instagram_hashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check IG hashtag bans
 *Late::ToolsApi* | [**download_bluesky_media**](docs/ToolsApi.md#download_bluesky_media) | **GET** /v1/tools/bluesky/download | Download Bluesky media
 *Late::ToolsApi* | [**download_facebook_video**](docs/ToolsApi.md#download_facebook_video) | **GET** /v1/tools/facebook/download | Download Facebook video
 *Late::ToolsApi* | [**download_instagram_media**](docs/ToolsApi.md#download_instagram_media) | **GET** /v1/tools/instagram/download | Download Instagram media
@@ -357,7 +355,6 @@ Class | Method | HTTP request | Description
  - [Late::GetLinkedInPostAnalytics200ResponseAnalytics](docs/GetLinkedInPostAnalytics200ResponseAnalytics.md)
  - [Late::GetLinkedInPostAnalytics400Response](docs/GetLinkedInPostAnalytics400Response.md)
  - [Late::GetLinkedInPostAnalytics403Response](docs/GetLinkedInPostAnalytics403Response.md)
- - [Late::GetLog200Response](docs/GetLog200Response.md)
  - [Late::GetMediaPresignedUrl200Response](docs/GetMediaPresignedUrl200Response.md)
  - [Late::GetMediaPresignedUrlRequest](docs/GetMediaPresignedUrlRequest.md)
  - [Late::GetMessengerMenu200Response](docs/GetMessengerMenu200Response.md)
@@ -438,10 +435,10 @@ Class | Method | HTTP request | Description
  - [Late::ListInboxReviews200ResponseSummary](docs/ListInboxReviews200ResponseSummary.md)
  - [Late::ListLinkedInOrganizations200Response](docs/ListLinkedInOrganizations200Response.md)
  - [Late::ListLinkedInOrganizations200ResponseOrganizationsInner](docs/ListLinkedInOrganizations200ResponseOrganizationsInner.md)
- - [Late::ListLogs200Response](docs/ListLogs200Response.md)
- - [Late::ListLogs200ResponsePagination](docs/ListLogs200ResponsePagination.md)
  - [Late::ListPinterestBoardsForSelection200Response](docs/ListPinterestBoardsForSelection200Response.md)
  - [Late::ListPinterestBoardsForSelection200ResponseBoardsInner](docs/ListPinterestBoardsForSelection200ResponseBoardsInner.md)
+ - [Late::ListPostsLogs200Response](docs/ListPostsLogs200Response.md)
+ - [Late::ListPostsLogs200ResponsePagination](docs/ListPostsLogs200ResponsePagination.md)
  - [Late::ListQueueSlots200Response](docs/ListQueueSlots200Response.md)
  - [Late::ListQueueSlots200ResponseOneOf](docs/ListQueueSlots200ResponseOneOf.md)
  - [Late::ListQueueSlots200ResponseOneOf1](docs/ListQueueSlots200ResponseOneOf1.md)
@@ -466,9 +463,6 @@ Class | Method | HTTP request | Description
  - [Late::PostDeleteResponse](docs/PostDeleteResponse.md)
  - [Late::PostGetResponse](docs/PostGetResponse.md)
  - [Late::PostLog](docs/PostLog.md)
- - [Late::PostLogDetail](docs/PostLogDetail.md)
- - [Late::PostLogDetailAllOfAccountId](docs/PostLogDetailAllOfAccountId.md)
- - [Late::PostLogDetailAllOfPostId](docs/PostLogDetailAllOfPostId.md)
  - [Late::PostLogPostId](docs/PostLogPostId.md)
  - [Late::PostLogPostIdOneOf](docs/PostLogPostIdOneOf.md)
  - [Late::PostLogRequest](docs/PostLogRequest.md)
@@ -544,7 +538,6 @@ Class | Method | HTTP request | Description
  - [Late::TestWebhookRequest](docs/TestWebhookRequest.md)
  - [Late::ThreadsPlatformData](docs/ThreadsPlatformData.md)
  - [Late::TikTokPlatformData](docs/TikTokPlatformData.md)
- - [Late::TikTokSettings](docs/TikTokSettings.md)
  - [Late::TranscriptResponse](docs/TranscriptResponse.md)
  - [Late::TranscriptSegment](docs/TranscriptSegment.md)
  - [Late::TwitterPlatformData](docs/TwitterPlatformData.md)

@@ -14,24 +14,24 @@ require 'date'
 require 'time'
 
 module Late
-  # YouTube video upload settings: - Videos ≤ 3 minutes are automatically detected as YouTube Shorts - Videos > 3 minutes become regular YouTube videos - Custom thumbnails supported for regular videos (via mediaItem.thumbnail) - Custom thumbnails NOT supported for Shorts via API - Scheduled videos are uploaded immediately as the specified visibility and published at scheduled time - Visibility defaults to \"public\" if not specified - madeForKids defaults to false (not child-directed) - Set containsSyntheticMedia: true if your video contains AI-generated content 
+  # Videos up to 3 min are auto-detected as Shorts, longer as regular videos. Custom thumbnails supported for regular videos only (via mediaItem.thumbnail). Scheduled videos are uploaded immediately with the specified visibility. madeForKids defaults to false.
   class YouTubePlatformData < ApiModelBase
     # Video title. Defaults to first line of content or \"Untitled Video\". Must be ≤ 100 characters.
     attr_accessor :title
 
-    # Video visibility setting: - public: Anyone can search for and watch (default) - unlisted: Only people with the link can watch - private: Only you and people you specifically share with can watch 
+    # Video visibility: public (default, anyone can watch), unlisted (link only), private (invite only)
     attr_accessor :visibility
 
-    # COPPA compliance: Audience designation for the video. - true: Video is made for kids (child-directed content) - false: Video is NOT made for kids (default)  This field maps to YouTube's `selfDeclaredMadeForKids` setting. Videos marked as made for kids have restricted features (no comments, no notifications, limited ad targeting).  IMPORTANT: If not specified, defaults to false. YouTube requires this to be explicitly set, otherwise the video may be blocked from views until configured in YouTube Studio. 
+    # COPPA compliance flag. Set true for child-directed content (restricts comments, notifications, ad targeting). Defaults to false. YouTube may block views if not explicitly set.
     attr_accessor :made_for_kids
 
     # Optional first comment to post immediately after video upload. Up to 10,000 characters (YouTube's comment limit).
     attr_accessor :first_comment
 
-    # AI-generated content disclosure flag. Set to true if your video contains AI-generated or synthetic content that could be mistaken for real people, places, or events. This helps viewers understand when realistic content has been created or altered using AI. YouTube may add a label to videos when this is set. Added to YouTube Data API in October 2024. 
+    # AI-generated content disclosure. Set true if the video contains synthetic content that could be mistaken for real. YouTube may add a label.
     attr_accessor :contains_synthetic_media
 
-    # YouTube video category ID. Defaults to '22' (People & Blogs). Common categories: 1 (Film & Animation), 2 (Autos & Vehicles), 10 (Music), 15 (Pets & Animals), 17 (Sports), 20 (Gaming), 22 (People & Blogs), 23 (Comedy), 24 (Entertainment), 25 (News & Politics), 26 (Howto & Style), 27 (Education), 28 (Science & Technology). 
+    # YouTube video category ID. Defaults to 22 (People & Blogs). Common: 1 (Film), 2 (Autos), 10 (Music), 15 (Pets), 17 (Sports), 20 (Gaming), 23 (Comedy), 24 (Entertainment), 25 (News), 26 (Howto), 27 (Education), 28 (Science & Tech).
     attr_accessor :category_id
 
     class EnumAttributeValidator

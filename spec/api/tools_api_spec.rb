@@ -33,8 +33,8 @@ describe 'ToolsApi' do
   end
 
   # unit tests for check_instagram_hashtags
-  # Check Instagram hashtag bans
-  # Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+  # Check IG hashtag bans
+  # Check if Instagram hashtags are banned, restricted, or safe to use.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
   # @param check_instagram_hashtags_request 
   # @param [Hash] opts the optional parameters
   # @return [CheckInstagramHashtags200Response]
@@ -46,7 +46,7 @@ describe 'ToolsApi' do
 
   # unit tests for download_bluesky_media
   # Download Bluesky media
-  # Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+  # Download videos from Bluesky posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
   # @param url Bluesky post URL
   # @param [Hash] opts the optional parameters
   # @return [DownloadBlueskyMedia200Response]
@@ -58,7 +58,7 @@ describe 'ToolsApi' do
 
   # unit tests for download_facebook_video
   # Download Facebook video
-  # Download videos and reels from Facebook.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+  # Download videos and reels from Facebook.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
   # @param url Facebook video or reel URL
   # @param [Hash] opts the optional parameters
   # @return [DownloadFacebookVideo200Response]
@@ -70,7 +70,7 @@ describe 'ToolsApi' do
 
   # unit tests for download_instagram_media
   # Download Instagram media
-  # Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+  # Download Instagram reels, posts, or photos.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
   # @param url Instagram reel or post URL
   # @param [Hash] opts the optional parameters
   # @return [DownloadInstagramMedia200Response]
@@ -82,7 +82,7 @@ describe 'ToolsApi' do
 
   # unit tests for download_linked_in_video
   # Download LinkedIn video
-  # Download videos from LinkedIn posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+  # Download videos from LinkedIn posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
   # @param url LinkedIn post URL
   # @param [Hash] opts the optional parameters
   # @return [DownloadInstagramMedia200Response]
@@ -94,7 +94,7 @@ describe 'ToolsApi' do
 
   # unit tests for download_tik_tok_video
   # Download TikTok video
-  # Download TikTok videos with or without watermark.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+  # Download TikTok videos with or without watermark.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
   # @param url TikTok video URL or ID
   # @param [Hash] opts the optional parameters
   # @option opts [String] :action &#39;formats&#39; to list available formats
@@ -108,7 +108,7 @@ describe 'ToolsApi' do
 
   # unit tests for download_twitter_media
   # Download Twitter/X media
-  # Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+  # Download videos from Twitter/X posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
   # @param url Twitter/X post URL
   # @param [Hash] opts the optional parameters
   # @option opts [String] :action 
@@ -122,7 +122,7 @@ describe 'ToolsApi' do
 
   # unit tests for download_you_tube_video
   # Download YouTube video
-  # Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+  # Download YouTube videos or audio. Returns available formats or direct download URL.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
   # @param url YouTube video URL or video ID
   # @param [Hash] opts the optional parameters
   # @option opts [String] :action Action to perform: &#39;download&#39; returns download URL, &#39;formats&#39; lists available formats
@@ -138,7 +138,7 @@ describe 'ToolsApi' do
 
   # unit tests for get_you_tube_transcript
   # Get YouTube transcript
-  # Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+  # Extract transcript/captions from a YouTube video.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
   # @param url YouTube video URL or video ID
   # @param [Hash] opts the optional parameters
   # @option opts [String] :lang Language code for transcript

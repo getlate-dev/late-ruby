@@ -17,7 +17,7 @@ module Late
   class CreatePostRequest < ApiModelBase
     attr_accessor :title
 
-    # Post caption/text content. Optional when media is attached (images, videos, etc.). Required for text-only posts. Can also be omitted if all platforms have customContent set. 
+    # Post caption/text. Optional when media is attached or all platforms have customContent. Required for text-only posts.
     attr_accessor :content
 
     attr_accessor :media_items
@@ -32,7 +32,7 @@ module Late
 
     attr_accessor :timezone
 
-    # Tags/keywords for the post. YouTube-specific constraints: - No count limit; duplicates are automatically removed - Each tag must be ≤ 100 characters - Combined total across all tags ≤ 500 characters (YouTube's limit) 
+    # Tags/keywords. YouTube constraints: each tag max 100 chars, combined max 500 chars, duplicates auto-removed.
     attr_accessor :tags
 
     attr_accessor :hashtags
@@ -43,10 +43,10 @@ module Late
 
     attr_accessor :metadata
 
-    # Root-level TikTok settings applied to all TikTok platforms in the request. This is a convenience shorthand. Settings here are merged into each TikTok platform's platformSpecificData, with platform-specific settings taking precedence. 
+    # Root-level TikTok settings applied to all TikTok platforms. Merged into each platform's platformSpecificData, with platform-specific settings taking precedence.
     attr_accessor :tiktok_settings
 
-    # Profile ID to schedule via queue.  When provided (without `scheduledFor`), the post will be automatically assigned to the next available slot from the profile's queue. The system uses distributed locking to prevent race conditions when multiple posts are scheduled concurrently. Do not call `/v1/queue/next-slot` and then use that time in `scheduledFor`. That bypasses the queue system and can cause duplicate slot assignments. 
+    # Profile ID to schedule via queue. When provided without scheduledFor, the post is auto-assigned to the next available slot. Do not call /v1/queue/next-slot and use that time in scheduledFor, as that bypasses queue locking.
     attr_accessor :queued_from_profile
 
     # Specific queue ID to use when scheduling via queue. Only used when queuedFromProfile is also provided. If omitted, uses the profile's default queue. 

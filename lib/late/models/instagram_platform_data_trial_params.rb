@@ -14,9 +14,9 @@ require 'date'
 require 'time'
 
 module Late
-  # Trial Reels configuration. Trial reels are only shared to non-followers initially. They can later be \"graduated\" (converted to regular reels visible to followers) either manually in the Instagram app or automatically based on performance. Only applies to Reels (video posts). 
+  # Trial Reels configuration. Trial reels are shared to non-followers first and can later be graduated to regular reels manually or automatically based on performance. Only applies to Reels.
   class InstagramPlatformDataTrialParams < ApiModelBase
-    # The graduation strategy specifies when a trial reel becomes a regular reel: - MANUAL: The trial reel can only be manually graduated from the native Instagram app. - SS_PERFORMANCE: The trial reel will be automatically graduated if it performs well with non-followers. 
+    # MANUAL (graduate from Instagram app) or SS_PERFORMANCE (auto-graduate if performs well with non-followers)
     attr_accessor :graduation_strategy
 
     class EnumAttributeValidator

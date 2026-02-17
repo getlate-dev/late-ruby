@@ -67,9 +67,9 @@ describe 'ProfilesApi' do
 
   # unit tests for list_profiles
   # List profiles
-  # Returns profiles within the user&#39;s plan limit. Profiles are sorted by creation date (oldest first). Use &#x60;includeOverLimit&#x3D;true&#x60; to include profiles that exceed the plan limit (for management/deletion purposes). 
+  # Returns profiles within the user&#39;s plan limit, sorted by creation date (oldest first). Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit (for management/deletion purposes). 
   # @param [Hash] opts the optional parameters
-  # @option opts [Boolean] :include_over_limit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have &#x60;isOverLimit: true&#x60; in the response. Useful for managing/deleting profiles after a plan downgrade. 
+  # @option opts [Boolean] :include_over_limit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade. 
   # @return [ProfilesListResponse]
   describe 'list_profiles test' do
     it 'should work' do
