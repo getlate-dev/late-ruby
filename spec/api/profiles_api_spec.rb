@@ -34,6 +34,7 @@ describe 'ProfilesApi' do
 
   # unit tests for create_profile
   # Create profile
+  # Creates a new profile with a name, optional description, and color.
   # @param create_profile_request 
   # @param [Hash] opts the optional parameters
   # @return [ProfileCreateResponse]
@@ -45,6 +46,7 @@ describe 'ProfilesApi' do
 
   # unit tests for delete_profile
   # Delete profile
+  # Permanently deletes a profile by ID.
   # @param profile_id 
   # @param [Hash] opts the optional parameters
   # @return [DeleteAccountGroup200Response]
@@ -56,6 +58,7 @@ describe 'ProfilesApi' do
 
   # unit tests for get_profile
   # Get profile
+  # Returns a single profile by ID, including its name, color, and default status.
   # @param profile_id 
   # @param [Hash] opts the optional parameters
   # @return [GetProfile200Response]
@@ -67,9 +70,9 @@ describe 'ProfilesApi' do
 
   # unit tests for list_profiles
   # List profiles
-  # Returns profiles within the user&#39;s plan limit, sorted by creation date (oldest first). Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit (for management/deletion purposes). 
+  # Returns profiles sorted by creation date. Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit.
   # @param [Hash] opts the optional parameters
-  # @option opts [Boolean] :include_over_limit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade. 
+  # @option opts [Boolean] :include_over_limit When true, includes over-limit profiles (marked with isOverLimit: true).
   # @return [ProfilesListResponse]
   describe 'list_profiles test' do
     it 'should work' do
@@ -79,6 +82,7 @@ describe 'ProfilesApi' do
 
   # unit tests for update_profile
   # Update profile
+  # Updates a profile&#39;s name, description, color, or default status.
   # @param profile_id 
   # @param update_profile_request 
   # @param [Hash] opts the optional parameters

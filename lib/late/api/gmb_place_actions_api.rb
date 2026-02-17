@@ -94,6 +94,7 @@ module Late
     end
 
     # Delete action link
+    # Deletes a place action link (e.g. booking or ordering URL) from a GBP location.
     # @param account_id [String] 
     # @param name [String] The resource name of the place action link (e.g. locations/123/placeActionLinks/456)
     # @param [Hash] opts the optional parameters
@@ -104,6 +105,7 @@ module Late
     end
 
     # Delete action link
+    # Deletes a place action link (e.g. booking or ordering URL) from a GBP location.
     # @param account_id [String] 
     # @param name [String] The resource name of the place action link (e.g. locations/123/placeActionLinks/456)
     # @param [Hash] opts the optional parameters

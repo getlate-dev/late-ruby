@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **chat_id** | **String** | The Telegram chat ID. Can be: - Numeric ID (e.g., \&quot;-1001234567890\&quot;) - Username with @ prefix (e.g., \&quot;@mychannel\&quot;)  |  |
+| **chat_id** | **String** | The Telegram chat ID. Numeric ID (e.g. \&quot;-1001234567890\&quot;) or username with @ prefix (e.g. \&quot;@mychannel\&quot;). |  |
 | **profile_id** | **String** | The profile ID to connect the account to |  |
 
 ## Example

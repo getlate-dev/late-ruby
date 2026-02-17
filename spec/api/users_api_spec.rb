@@ -34,6 +34,7 @@ describe 'UsersApi' do
 
   # unit tests for get_user
   # Get user
+  # Returns a single user&#39;s details by ID, including name, email, and role.
   # @param user_id 
   # @param [Hash] opts the optional parameters
   # @return [GetUser200Response]
@@ -45,6 +46,7 @@ describe 'UsersApi' do
 
   # unit tests for list_users
   # List users
+  # Returns all users in the workspace including roles and profile access. Also returns the currentUserId of the caller.
   # @param [Hash] opts the optional parameters
   # @return [ListUsers200Response]
   describe 'list_users test' do

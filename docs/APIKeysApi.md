@@ -15,6 +15,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Create key
 
+Creates a new API key with an optional expiry. The full key value is only returned once in the response.
+
 ### Examples
 
 ```ruby
@@ -82,6 +84,8 @@ end
 
 Delete key
 
+Permanently revokes and deletes an API key.
+
 ### Examples
 
 ```ruby
@@ -148,6 +152,8 @@ end
 > <ListApiKeys200Response> list_api_keys
 
 List keys
+
+Returns all API keys for the authenticated user. Keys are returned with a preview only, not the full key value.
 
 ### Examples
 

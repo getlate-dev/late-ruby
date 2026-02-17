@@ -94,6 +94,7 @@ module Late
     end
 
     # Delete photo
+    # Deletes a photo or media item from a GBP location.
     # @param account_id [String] 
     # @param media_id [String] The media item ID to delete
     # @param [Hash] opts the optional parameters
@@ -104,6 +105,7 @@ module Late
     end
 
     # Delete photo
+    # Deletes a photo or media item from a GBP location.
     # @param account_id [String] 
     # @param media_id [String] The media item ID to delete
     # @param [Hash] opts the optional parameters

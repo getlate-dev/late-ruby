@@ -20,6 +20,7 @@ module Late
       @api_client = api_client
     end
     # Create group
+    # Creates a new account group with a name and a list of social account IDs.
     # @param create_account_group_request [CreateAccountGroupRequest] 
     # @param [Hash] opts the optional parameters
     # @return [CreateAccountGroup201Response]
@@ -29,6 +30,7 @@ module Late
     end
 
     # Create group
+    # Creates a new account group with a name and a list of social account IDs.
     # @param create_account_group_request [CreateAccountGroupRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(CreateAccountGroup201Response, Integer, Hash)>] CreateAccountGroup201Response data, response status code and response headers
@@ -86,6 +88,7 @@ module Late
     end
 
     # Delete group
+    # Permanently deletes an account group. The accounts themselves are not affected.
     # @param group_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DeleteAccountGroup200Response]
@@ -95,6 +98,7 @@ module Late
     end
 
     # Delete group
+    # Permanently deletes an account group. The accounts themselves are not affected.
     # @param group_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeleteAccountGroup200Response, Integer, Hash)>] DeleteAccountGroup200Response data, response status code and response headers
@@ -147,6 +151,7 @@ module Late
     end
 
     # List groups
+    # Returns all account groups for the authenticated user, including group names and associated account IDs.
     # @param [Hash] opts the optional parameters
     # @return [ListAccountGroups200Response]
     def list_account_groups(opts = {})
@@ -155,6 +160,7 @@ module Late
     end
 
     # List groups
+    # Returns all account groups for the authenticated user, including group names and associated account IDs.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ListAccountGroups200Response, Integer, Hash)>] ListAccountGroups200Response data, response status code and response headers
     def list_account_groups_with_http_info(opts = {})
@@ -202,6 +208,7 @@ module Late
     end
 
     # Update group
+    # Updates the name or account list of an existing group. You can rename the group, change its accounts, or both.
     # @param group_id [String] 
     # @param update_account_group_request [UpdateAccountGroupRequest] 
     # @param [Hash] opts the optional parameters
@@ -212,6 +219,7 @@ module Late
     end
 
     # Update group
+    # Updates the name or account list of an existing group. You can rename the group, change its accounts, or both.
     # @param group_id [String] 
     # @param update_account_group_request [UpdateAccountGroupRequest] 
     # @param [Hash] opts the optional parameters

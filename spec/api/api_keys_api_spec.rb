@@ -34,6 +34,7 @@ describe 'APIKeysApi' do
 
   # unit tests for create_api_key
   # Create key
+  # Creates a new API key with an optional expiry. The full key value is only returned once in the response.
   # @param create_api_key_request 
   # @param [Hash] opts the optional parameters
   # @return [CreateApiKey201Response]
@@ -45,6 +46,7 @@ describe 'APIKeysApi' do
 
   # unit tests for delete_api_key
   # Delete key
+  # Permanently revokes and deletes an API key.
   # @param key_id 
   # @param [Hash] opts the optional parameters
   # @return [DeleteAccountGroup200Response]
@@ -56,6 +58,7 @@ describe 'APIKeysApi' do
 
   # unit tests for list_api_keys
   # List keys
+  # Returns all API keys for the authenticated user. Keys are returned with a preview only, not the full key value.
   # @param [Hash] opts the optional parameters
   # @return [ListApiKeys200Response]
   describe 'list_api_keys test' do

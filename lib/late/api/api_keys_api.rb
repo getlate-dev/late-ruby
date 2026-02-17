@@ -20,6 +20,7 @@ module Late
       @api_client = api_client
     end
     # Create key
+    # Creates a new API key with an optional expiry. The full key value is only returned once in the response.
     # @param create_api_key_request [CreateApiKeyRequest] 
     # @param [Hash] opts the optional parameters
     # @return [CreateApiKey201Response]
@@ -29,6 +30,7 @@ module Late
     end
 
     # Create key
+    # Creates a new API key with an optional expiry. The full key value is only returned once in the response.
     # @param create_api_key_request [CreateApiKeyRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(CreateApiKey201Response, Integer, Hash)>] CreateApiKey201Response data, response status code and response headers
@@ -86,6 +88,7 @@ module Late
     end
 
     # Delete key
+    # Permanently revokes and deletes an API key.
     # @param key_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DeleteAccountGroup200Response]
@@ -95,6 +98,7 @@ module Late
     end
 
     # Delete key
+    # Permanently revokes and deletes an API key.
     # @param key_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeleteAccountGroup200Response, Integer, Hash)>] DeleteAccountGroup200Response data, response status code and response headers
@@ -147,6 +151,7 @@ module Late
     end
 
     # List keys
+    # Returns all API keys for the authenticated user. Keys are returned with a preview only, not the full key value.
     # @param [Hash] opts the optional parameters
     # @return [ListApiKeys200Response]
     def list_api_keys(opts = {})
@@ -155,6 +160,7 @@ module Late
     end
 
     # List keys
+    # Returns all API keys for the authenticated user. Keys are returned with a preview only, not the full key value.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ListApiKeys200Response, Integer, Hash)>] ListApiKeys200Response data, response status code and response headers
     def list_api_keys_with_http_info(opts = {})

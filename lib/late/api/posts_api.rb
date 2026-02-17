@@ -20,6 +20,7 @@ module Late
       @api_client = api_client
     end
     # Bulk upload from CSV
+    # Create multiple posts by uploading a CSV file. Use dryRun=true to validate without creating posts.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :dry_run  (default to false)
     # @option opts [File] :file 
@@ -30,6 +31,7 @@ module Late
     end
 
     # Bulk upload from CSV
+    # Create multiple posts by uploading a CSV file. Use dryRun&#x3D;true to validate without creating posts.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :dry_run  (default to false)
     # @option opts [File] :file 
@@ -86,7 +88,7 @@ module Late
     end
 
     # Create post
-    # Immediate posts (publishNow: true) include platformPostUrl in the response. Scheduled posts: fetch via GET /v1/posts/{postId} after publish time. content is optional when media is attached, all platforms have customContent, or posting to YouTube only. Text-only posts require content. Stories ignore captions. Platform constraints: YouTube requires video. Instagram/TikTok require media (TikTok cannot mix videos and images). Instagram carousels up to 10 items, Threads up to 10 images. Facebook Stories need single image/video with contentType story. LinkedIn up to 20 images or single PDF. Pinterest single image/video with boardId. Bluesky up to 4 images. Snapchat single image/video. 
+    # Create and optionally publish a post. Immediate posts (publishNow: true) include platformPostUrl in the response. Content is optional when media is attached or all platforms have customContent. See each platform's schema for media constraints. 
     # @param create_post_request [CreatePostRequest] 
     # @param [Hash] opts the optional parameters
     # @return [PostCreateResponse]
@@ -96,7 +98,7 @@ module Late
     end
 
     # Create post
-    # Immediate posts (publishNow: true) include platformPostUrl in the response. Scheduled posts: fetch via GET /v1/posts/{postId} after publish time. content is optional when media is attached, all platforms have customContent, or posting to YouTube only. Text-only posts require content. Stories ignore captions. Platform constraints: YouTube requires video. Instagram/TikTok require media (TikTok cannot mix videos and images). Instagram carousels up to 10 items, Threads up to 10 images. Facebook Stories need single image/video with contentType story. LinkedIn up to 20 images or single PDF. Pinterest single image/video with boardId. Bluesky up to 4 images. Snapchat single image/video. 
+    # Create and optionally publish a post. Immediate posts (publishNow: true) include platformPostUrl in the response. Content is optional when media is attached or all platforms have customContent. See each platform&#39;s schema for media constraints. 
     # @param create_post_request [CreatePostRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PostCreateResponse, Integer, Hash)>] PostCreateResponse data, response status code and response headers
@@ -154,7 +156,7 @@ module Late
     end
 
     # Delete post
-    # Delete a draft or scheduled post from Late. Only posts that have not been published can be deleted. To remove a published post from a social media platform, use the [Unpublish endpoint](#tag/Posts/operation/unpublishPost) instead. When deleting a scheduled or draft post that consumed upload quota, the quota will be automatically refunded. 
+    # Delete a draft or scheduled post from Late. Published posts cannot be deleted; use the Unpublish endpoint instead. Upload quota is automatically refunded.
     # @param post_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [PostDeleteResponse]
@@ -164,7 +166,7 @@ module Late
     end
 
     # Delete post
-    # Delete a draft or scheduled post from Late. Only posts that have not been published can be deleted. To remove a published post from a social media platform, use the [Unpublish endpoint](#tag/Posts/operation/unpublishPost) instead. When deleting a scheduled or draft post that consumed upload quota, the quota will be automatically refunded. 
+    # Delete a draft or scheduled post from Late. Published posts cannot be deleted; use the Unpublish endpoint instead. Upload quota is automatically refunded.
     # @param post_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PostDeleteResponse, Integer, Hash)>] PostDeleteResponse data, response status code and response headers
@@ -280,7 +282,7 @@ module Late
     end
 
     # List posts
-    # For published posts, each platform entry includes platformPostUrl with the public URL. Use status=published to fetch only published posts with their URLs.  Platform notes: YouTube posts always include at least one video. Instagram/TikTok posts always include media (drafts may omit media). TikTok does not mix photos and videos in the same post. 
+    # Returns a paginated list of posts. Published posts include platformPostUrl with the public URL on each platform.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number (1-based) (default to 1)
     # @option opts [Integer] :limit Page size (default to 10)
@@ -298,7 +300,7 @@ module Late
     end
 
     # List posts
-    # For published posts, each platform entry includes platformPostUrl with the public URL. Use status&#x3D;published to fetch only published posts with their URLs.  Platform notes: YouTube posts always include at least one video. Instagram/TikTok posts always include media (drafts may omit media). TikTok does not mix photos and videos in the same post. 
+    # Returns a paginated list of posts. Published posts include platformPostUrl with the public URL on each platform.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number (1-based) (default to 1)
     # @option opts [Integer] :limit Page size (default to 10)
@@ -380,6 +382,7 @@ module Late
     end
 
     # Retry failed post
+    # Immediately retries publishing a failed post. Returns the updated post with its new status.
     # @param post_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [PostRetryResponse]
@@ -389,6 +392,7 @@ module Late
     end
 
     # Retry failed post
+    # Immediately retries publishing a failed post. Returns the updated post with its new status.
     # @param post_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PostRetryResponse, Integer, Hash)>] PostRetryResponse data, response status code and response headers
@@ -441,7 +445,7 @@ module Late
     end
 
     # Unpublish post
-    # Deletes a published post from the specified platform. The post record in Late is kept but its platform status is updated to cancelled. Supported: Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram. Not supported: Instagram, TikTok, Snapchat (must be deleted manually). Threaded posts (Twitter, Threads, Bluesky) delete all items in the thread. Telegram messages older than 48h may fail to delete. YouTube deletion is permanent. 
+    # Deletes a published post from the specified platform. The post record in Late is kept but its status is updated to cancelled. Not supported on Instagram, TikTok, or Snapchat. Threaded posts delete all items. YouTube deletion is permanent. 
     # @param post_id [String] 
     # @param unpublish_post_request [UnpublishPostRequest] 
     # @param [Hash] opts the optional parameters
@@ -452,7 +456,7 @@ module Late
     end
 
     # Unpublish post
-    # Deletes a published post from the specified platform. The post record in Late is kept but its platform status is updated to cancelled. Supported: Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram. Not supported: Instagram, TikTok, Snapchat (must be deleted manually). Threaded posts (Twitter, Threads, Bluesky) delete all items in the thread. Telegram messages older than 48h may fail to delete. YouTube deletion is permanent. 
+    # Deletes a published post from the specified platform. The post record in Late is kept but its status is updated to cancelled. Not supported on Instagram, TikTok, or Snapchat. Threaded posts delete all items. YouTube deletion is permanent. 
     # @param post_id [String] 
     # @param unpublish_post_request [UnpublishPostRequest] 
     # @param [Hash] opts the optional parameters

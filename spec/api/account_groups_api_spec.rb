@@ -34,6 +34,7 @@ describe 'AccountGroupsApi' do
 
   # unit tests for create_account_group
   # Create group
+  # Creates a new account group with a name and a list of social account IDs.
   # @param create_account_group_request 
   # @param [Hash] opts the optional parameters
   # @return [CreateAccountGroup201Response]
@@ -45,6 +46,7 @@ describe 'AccountGroupsApi' do
 
   # unit tests for delete_account_group
   # Delete group
+  # Permanently deletes an account group. The accounts themselves are not affected.
   # @param group_id 
   # @param [Hash] opts the optional parameters
   # @return [DeleteAccountGroup200Response]
@@ -56,6 +58,7 @@ describe 'AccountGroupsApi' do
 
   # unit tests for list_account_groups
   # List groups
+  # Returns all account groups for the authenticated user, including group names and associated account IDs.
   # @param [Hash] opts the optional parameters
   # @return [ListAccountGroups200Response]
   describe 'list_account_groups test' do
@@ -66,6 +69,7 @@ describe 'AccountGroupsApi' do
 
   # unit tests for update_account_group
   # Update group
+  # Updates the name or account list of an existing group. You can rename the group, change its accounts, or both.
   # @param group_id 
   # @param update_account_group_request 
   # @param [Hash] opts the optional parameters

@@ -14,7 +14,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get food menus
 
-Fetches food menus for a connected Google Business Profile location. Returns the full menu structure including sections, items with pricing, dietary info, allergens, and variants. Only available for locations with food menu support (restaurants, cafes, etc.). 
+Returns food menus for a GBP location including sections, items, pricing, and dietary info. Only for locations with food menu support.
 
 ### Examples
 
@@ -83,7 +83,7 @@ end
 
 Update food menus
 
-Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use updateMask for partial updates (e.g. \"menus\" to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
+Updates food menus for a GBP location. Send the full menus array. Use updateMask for partial updates.
 
 ### Examples
 

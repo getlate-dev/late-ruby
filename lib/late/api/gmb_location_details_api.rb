@@ -20,10 +20,10 @@ module Late
       @api_client = api_client
     end
     # Get location details
-    # Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the readMask query parameter to request specific fields. 
+    # Returns detailed GBP location info (hours, description, phone, website, categories). Use readMask to request specific fields.
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :read_mask Comma-separated fields to return. Defaults to common fields. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours 
+    # @option opts [String] :read_mask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours.
     # @return [GetGoogleBusinessLocationDetails200Response]
     def get_google_business_location_details(account_id, opts = {})
       data, _status_code, _headers = get_google_business_location_details_with_http_info(account_id, opts)
@@ -31,10 +31,10 @@ module Late
     end
 
     # Get location details
-    # Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the readMask query parameter to request specific fields. 
+    # Returns detailed GBP location info (hours, description, phone, website, categories). Use readMask to request specific fields.
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :read_mask Comma-separated fields to return. Defaults to common fields. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours 
+    # @option opts [String] :read_mask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours.
     # @return [Array<(GetGoogleBusinessLocationDetails200Response, Integer, Hash)>] GetGoogleBusinessLocationDetails200Response data, response status code and response headers
     def get_google_business_location_details_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
@@ -86,7 +86,7 @@ module Late
     end
 
     # Update location details
-    # Updates location details such as opening hours, special hours, business description, phone, and website. The updateMask field is required and specifies which fields to update. Common masks: regularHours, specialHours, profile.description, websiteUri, phoneNumbers. Combine with commas (e.g. regularHours,specialHours). 
+    # Updates GBP location details (hours, description, phone, website). The updateMask field is required and specifies which fields to update.
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param update_google_business_location_details_request [UpdateGoogleBusinessLocationDetailsRequest] 
     # @param [Hash] opts the optional parameters
@@ -97,7 +97,7 @@ module Late
     end
 
     # Update location details
-    # Updates location details such as opening hours, special hours, business description, phone, and website. The updateMask field is required and specifies which fields to update. Common masks: regularHours, specialHours, profile.description, websiteUri, phoneNumbers. Combine with commas (e.g. regularHours,specialHours). 
+    # Updates GBP location details (hours, description, phone, website). The updateMask field is required and specifies which fields to update.
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param update_google_business_location_details_request [UpdateGoogleBusinessLocationDetailsRequest] 
     # @param [Hash] opts the optional parameters

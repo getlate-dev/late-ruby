@@ -20,6 +20,7 @@ module Late
       @api_client = api_client
     end
     # Delete IG ice breakers
+    # Removes the ice breaker questions from an Instagram account's Messenger experience.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -29,6 +30,7 @@ module Late
     end
 
     # Delete IG ice breakers
+    # Removes the ice breaker questions from an Instagram account&#39;s Messenger experience.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -81,6 +83,7 @@ module Late
     end
 
     # Delete FB persistent menu
+    # Removes the persistent menu from Facebook Messenger conversations for this account.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -90,6 +93,7 @@ module Late
     end
 
     # Delete FB persistent menu
+    # Removes the persistent menu from Facebook Messenger conversations for this account.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -142,6 +146,7 @@ module Late
     end
 
     # Delete TG bot commands
+    # Clears all bot commands configured for a Telegram bot account.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -151,6 +156,7 @@ module Late
     end
 
     # Delete TG bot commands
+    # Clears all bot commands configured for a Telegram bot account.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers

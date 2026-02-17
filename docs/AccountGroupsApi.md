@@ -16,6 +16,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Create group
 
+Creates a new account group with a name and a list of social account IDs.
+
 ### Examples
 
 ```ruby
@@ -82,6 +84,8 @@ end
 > <DeleteAccountGroup200Response> delete_account_group(group_id)
 
 Delete group
+
+Permanently deletes an account group. The accounts themselves are not affected.
 
 ### Examples
 
@@ -150,6 +154,8 @@ end
 
 List groups
 
+Returns all account groups for the authenticated user, including group names and associated account IDs.
+
 ### Examples
 
 ```ruby
@@ -213,6 +219,8 @@ This endpoint does not need any parameter.
 > <UpdateAccountGroup200Response> update_account_group(group_id, update_account_group_request)
 
 Update group
+
+Updates the name or account list of an existing group. You can rename the group, change its accounts, or both.
 
 ### Examples
 

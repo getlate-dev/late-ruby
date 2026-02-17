@@ -34,7 +34,7 @@ describe 'GMBFoodMenusApi' do
 
   # unit tests for get_google_business_food_menus
   # Get food menus
-  # Fetches food menus for a connected Google Business Profile location. Returns the full menu structure including sections, items with pricing, dietary info, allergens, and variants. Only available for locations with food menu support (restaurants, cafes, etc.). 
+  # Returns food menus for a GBP location including sections, items, pricing, and dietary info. Only for locations with food menu support.
   # @param account_id The Late account ID (from /v1/accounts)
   # @param [Hash] opts the optional parameters
   # @return [GetGoogleBusinessFoodMenus200Response]
@@ -46,7 +46,7 @@ describe 'GMBFoodMenusApi' do
 
   # unit tests for update_google_business_food_menus
   # Update food menus
-  # Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use updateMask for partial updates (e.g. \&quot;menus\&quot; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
+  # Updates food menus for a GBP location. Send the full menus array. Use updateMask for partial updates.
   # @param account_id The Late account ID (from /v1/accounts)
   # @param update_google_business_food_menus_request 
   # @param [Hash] opts the optional parameters

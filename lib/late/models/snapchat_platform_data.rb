@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module Late
-  # Requires a Public Profile. Media required for all content types (single item only, auto-encrypted). Content types: story (ephemeral 24h, no caption), saved_story (permanent, title max 45 chars), spotlight (video, description max 160 chars). Images max 20 MB (JPEG/PNG), videos max 500 MB (MP4, 5-60s, min 540x960px). 
+  # Requires a Public Profile. Single media item only. Content types: story (ephemeral 24h), saved_story (permanent, title max 45 chars), spotlight (video, max 160 chars).
   class SnapchatPlatformData < ApiModelBase
     # Content type: story (ephemeral 24h, default), saved_story (permanent on Public Profile), spotlight (video feed)
     attr_accessor :content_type

@@ -34,6 +34,7 @@ describe 'UsageApi' do
 
   # unit tests for get_usage_stats
   # Get plan and usage stats
+  # Returns the current plan name, billing period, plan limits, and usage counts.
   # @param [Hash] opts the optional parameters
   # @return [UsageStats]
   describe 'get_usage_stats test' do

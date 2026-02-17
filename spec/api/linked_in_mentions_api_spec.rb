@@ -34,11 +34,11 @@ describe 'LinkedInMentionsApi' do
 
   # unit tests for get_linked_in_mentions
   # Resolve LinkedIn mention
-  # Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Supports person mentions (linkedin.com/in/username or just username) and org mentions (linkedin.com/company/name or company/name). Person mentions require admin access to at least one LinkedIn Organization. Org mentions work with any account. For person mentions to be clickable, provide the displayName parameter matching the exact name on their profile. Org names are fetched automatically. Use the returned mentionFormat directly in post content. 
+  # Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Person mentions require org admin access. Use the returned mentionFormat in post content.
   # @param account_id The LinkedIn account ID
-  # @param url LinkedIn profile URL, company URL, or vanity name. Person examples: miquelpalet, linkedin.com/in/miquelpalet. Organization examples: company/microsoft, linkedin.com/company/microsoft. 
+  # @param url LinkedIn profile URL, company URL, or vanity name.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :display_name The exact display name as shown on LinkedIn. Required for person mentions (for clickable mentions; if not provided, a name is derived from the vanity URL which may not match). Optional for organization mentions (company name is auto-retrieved from LinkedIn). 
+  # @option opts [String] :display_name Exact display name as shown on LinkedIn. Required for person mentions to be clickable. Optional for org mentions.
   # @return [GetLinkedInMentions200Response]
   describe 'get_linked_in_mentions test' do
     it 'should work' do

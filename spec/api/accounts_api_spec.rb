@@ -34,6 +34,7 @@ describe 'AccountsApi' do
 
   # unit tests for delete_account
   # Disconnect account
+  # Disconnects and removes a connected social account.
   # @param account_id 
   # @param [Hash] opts the optional parameters
   # @return [DeleteAccountGroup200Response]
@@ -45,7 +46,7 @@ describe 'AccountsApi' do
 
   # unit tests for get_account_health
   # Check account health
-  # Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
+  # Returns detailed health info for a specific account including token status, permissions, and recommendations.
   # @param account_id The account ID to check
   # @param [Hash] opts the optional parameters
   # @return [GetAccountHealth200Response]
@@ -57,7 +58,7 @@ describe 'AccountsApi' do
 
   # unit tests for get_all_accounts_health
   # Check accounts health
-  # Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
+  # Returns health status of all connected accounts including token validity, permissions, and issues needing attention.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :profile_id Filter by profile ID
   # @option opts [String] :platform Filter by platform
@@ -87,10 +88,10 @@ describe 'AccountsApi' do
 
   # unit tests for list_accounts
   # List accounts
-  # Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
+  # Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :profile_id Filter accounts by profile ID
-  # @option opts [Boolean] :include_over_limit When true, includes accounts from profiles that exceed the user&#39;s plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted. 
+  # @option opts [Boolean] :include_over_limit When true, includes accounts from over-limit profiles.
   # @return [ListAccounts200Response]
   describe 'list_accounts test' do
     it 'should work' do
@@ -100,6 +101,7 @@ describe 'AccountsApi' do
 
   # unit tests for update_account
   # Update account
+  # Updates a connected social account&#39;s display name or username override.
   # @param account_id 
   # @param update_account_request 
   # @param [Hash] opts the optional parameters

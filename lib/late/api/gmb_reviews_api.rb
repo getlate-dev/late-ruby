@@ -20,7 +20,7 @@ module Late
       @api_client = api_client
     end
     # Get reviews
-    # Fetches reviews for a connected Google Business Profile account. Returns all reviews including reviewer info, star rating, comment text, owner reply, and timestamps. Use pagination via nextPageToken for locations with many reviews. 
+    # Returns reviews for a GBP account including ratings, comments, and owner replies. Use nextPageToken for pagination.
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page_size Number of reviews to fetch per page (max 50) (default to 50)
@@ -32,7 +32,7 @@ module Late
     end
 
     # Get reviews
-    # Fetches reviews for a connected Google Business Profile account. Returns all reviews including reviewer info, star rating, comment text, owner reply, and timestamps. Use pagination via nextPageToken for locations with many reviews. 
+    # Returns reviews for a GBP account including ratings, comments, and owner replies. Use nextPageToken for pagination.
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page_size Number of reviews to fetch per page (max 50) (default to 50)

@@ -34,6 +34,7 @@ describe 'RedditSearchApi' do
 
   # unit tests for get_reddit_feed
   # Get subreddit feed
+  # Fetch posts from a subreddit feed. Supports sorting, time filtering, and cursor-based pagination.
   # @param account_id 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :subreddit 
@@ -50,6 +51,7 @@ describe 'RedditSearchApi' do
 
   # unit tests for search_reddit
   # Search posts
+  # Search Reddit posts using a connected account. Optionally scope to a specific subreddit.
   # @param account_id 
   # @param q 
   # @param [Hash] opts the optional parameters

@@ -36,7 +36,7 @@ module Late
     # The native post ID on the platform (populated after successful publish)
     attr_accessor :platform_post_id
 
-    # Public URL of the published post on the platform. Populated after successful publish. For immediate posts (publishNow=true),  this is included in the response. For scheduled posts, fetch the post  via GET /v1/posts/{postId} after the scheduled time. 
+    # Public URL of the published post. Included in the response for immediate posts; for scheduled posts, fetch via GET /v1/posts/{postId} after publish time.
     attr_accessor :platform_post_url
 
     # Timestamp when the post was published to this platform

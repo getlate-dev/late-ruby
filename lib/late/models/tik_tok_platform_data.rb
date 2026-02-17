@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module Late
-  # Photo carousels up to 35 images. Video titles up to 2200 chars; photo titles auto-truncated to 90 chars (use description field for longer text up to 4000 chars). privacyLevel must match creator_info options. allowDuet/allowStitch required for videos. contentPreviewConfirmed and expressConsentGiven must be true. Both camelCase and snake_case accepted.
+  # Photo carousels up to 35 images. Video titles up to 2200 chars, photo titles truncated to 90 chars. privacyLevel must match creator_info options. Both camelCase and snake_case accepted.
   class TikTokPlatformData < ApiModelBase
     # When true, sends the post to the TikTok Creator Inbox as a draft instead of publishing immediately.
     attr_accessor :draft

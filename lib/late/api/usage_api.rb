@@ -20,6 +20,7 @@ module Late
       @api_client = api_client
     end
     # Get plan and usage stats
+    # Returns the current plan name, billing period, plan limits, and usage counts.
     # @param [Hash] opts the optional parameters
     # @return [UsageStats]
     def get_usage_stats(opts = {})
@@ -28,6 +29,7 @@ module Late
     end
 
     # Get plan and usage stats
+    # Returns the current plan name, billing period, plan limits, and usage counts.
     # @param [Hash] opts the optional parameters
     # @return [Array<(UsageStats, Integer, Hash)>] UsageStats data, response status code and response headers
     def get_usage_stats_with_http_info(opts = {})

@@ -14,6 +14,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get subreddit feed
 
+Fetch posts from a subreddit feed. Supports sorting, time filtering, and cursor-based pagination.
+
 ### Examples
 
 ```ruby
@@ -92,6 +94,8 @@ end
 > <SearchReddit200Response> search_reddit(account_id, q, opts)
 
 Search posts
+
+Search Reddit posts using a connected account. Optionally scope to a specific subreddit.
 
 ### Examples
 

@@ -59,7 +59,7 @@ describe 'QueueApi' do
 
   # unit tests for get_next_queue_slot
   # Get next available slot
-  # Returns the next available queue slot for preview/informational purposes. Do NOT use this response with scheduledFor to schedule a post, as that creates a manual post, not a queue post. Instead, use POST /v1/posts with queuedFromProfile (and optionally queueId). Useful for showing users when their next post will go out, debugging queue configuration, or building UI previews.  If no queueId is specified, uses the profile&#39;s default queue. 
+  # Returns the next available queue slot for preview purposes. To create a queue post, use POST /v1/posts with queuedFromProfile instead of scheduledFor.
   # @param profile_id 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :queue_id Specific queue ID (optional, defaults to profile&#39;s default queue)
@@ -72,7 +72,7 @@ describe 'QueueApi' do
 
   # unit tests for list_queue_slots
   # List schedules
-  # Retrieve queue schedules for a profile. Each profile can have multiple queues. Without all&#x3D;true, returns the default queue (or specific queue if queueId provided). With all&#x3D;true, returns all queues for the profile. 
+  # Returns queue schedules for a profile. Use all&#x3D;true for all queues, or queueId for a specific one. Defaults to the default queue.
   # @param profile_id Profile ID to get queues for
   # @param [Hash] opts the optional parameters
   # @option opts [String] :queue_id Specific queue ID to retrieve (optional)
@@ -86,6 +86,7 @@ describe 'QueueApi' do
 
   # unit tests for preview_queue
   # Preview upcoming slots
+  # Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
   # @param profile_id 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :count 

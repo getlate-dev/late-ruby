@@ -20,6 +20,7 @@ module Late
       @api_client = api_client
     end
     # Get user
+    # Returns a single user's details by ID, including name, email, and role.
     # @param user_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [GetUser200Response]
@@ -29,6 +30,7 @@ module Late
     end
 
     # Get user
+    # Returns a single user&#39;s details by ID, including name, email, and role.
     # @param user_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetUser200Response, Integer, Hash)>] GetUser200Response data, response status code and response headers
@@ -81,6 +83,7 @@ module Late
     end
 
     # List users
+    # Returns all users in the workspace including roles and profile access. Also returns the currentUserId of the caller.
     # @param [Hash] opts the optional parameters
     # @return [ListUsers200Response]
     def list_users(opts = {})
@@ -89,6 +92,7 @@ module Late
     end
 
     # List users
+    # Returns all users in the workspace including roles and profile access. Also returns the currentUserId of the caller.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ListUsers200Response, Integer, Hash)>] ListUsers200Response data, response status code and response headers
     def list_users_with_http_info(opts = {})

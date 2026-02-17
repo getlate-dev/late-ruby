@@ -34,6 +34,7 @@ describe 'AccountSettingsApi' do
 
   # unit tests for delete_instagram_ice_breakers
   # Delete IG ice breakers
+  # Removes the ice breaker questions from an Instagram account&#39;s Messenger experience.
   # @param account_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -45,6 +46,7 @@ describe 'AccountSettingsApi' do
 
   # unit tests for delete_messenger_menu
   # Delete FB persistent menu
+  # Removes the persistent menu from Facebook Messenger conversations for this account.
   # @param account_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -56,6 +58,7 @@ describe 'AccountSettingsApi' do
 
   # unit tests for delete_telegram_commands
   # Delete TG bot commands
+  # Clears all bot commands configured for a Telegram bot account.
   # @param account_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]

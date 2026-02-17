@@ -14,9 +14,9 @@ require 'date'
 require 'time'
 
 module Late
-  # Posts are either link (with URL/media) or self (text-only). If media is provided, the first item URL is used as the link; use forceSelf to override. Subreddit defaults to the account's configured one. Images over 20 MB are auto-compressed. Some subreddits require a flair; if missing, the first available flair is used as fallback.
+  # Posts are either link (with URL/media) or self (text-only). Use forceSelf to override. Subreddit defaults to the account's configured one. Some subreddits require a flair.
   class RedditPlatformData < ApiModelBase
-    # Target subreddit name (without \"r/\" prefix). Overrides the default subreddit configured on the account connection. Use GET /api/v1/accounts/{id}/reddit-subreddits to list available subreddits. 
+    # Target subreddit name (without \"r/\" prefix). Overrides the default. Use GET /v1/accounts/{id}/reddit-subreddits to list options.
     attr_accessor :subreddit
 
     # Post title. Defaults to the first line of content, truncated to 300 characters.
@@ -28,7 +28,7 @@ module Late
     # When true, creates a text/self post even when a URL or media is provided.
     attr_accessor :force_self
 
-    # Flair ID for the post. Required by some subreddits. Use GET /api/v1/accounts/{id}/reddit-flairs?subreddit=name to list available flairs. 
+    # Flair ID for the post. Required by some subreddits. Use GET /v1/accounts/{id}/reddit-flairs?subreddit=name to list flairs.
     attr_accessor :flair_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

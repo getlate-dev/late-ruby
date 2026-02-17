@@ -17,7 +17,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get post analytics
 
-Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. This endpoint returns External Post IDs by default. The postId parameter accepts both Late Post IDs and External Post IDs, auto-resolving Late IDs to External Post analytics. Use latePostId in responses to link back to your original post, or platformPostUrl as a stable identifier. isExternal indicates post origin (true = synced from platform). For follower stats, use /v1/accounts/follower-stats. LinkedIn personal accounts: per-post analytics only for Late-published posts. Telegram: not available. Data is cached and refreshed at most once per hour. 
+Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
 
 ### Examples
 
@@ -185,7 +185,7 @@ end
 
 Get LinkedIn aggregate stats
 
-Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Required scope: r_member_postAnalytics (missing scope returns 403). Aggregation: TOTAL (default, lifetime totals) or DAILY (time series). Use startDate/endDate to filter. MEMBERS_REACHED is not available with DAILY aggregation. 
+Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.
 
 ### Examples
 
@@ -201,10 +201,10 @@ end
 api_instance = Late::AnalyticsApi.new
 account_id = 'account_id_example' # String | The ID of the LinkedIn personal account
 opts = {
-  aggregation: 'TOTAL', # String | Type of aggregation: TOTAL (default, returns single totals) or DAILY (returns daily breakdown). Note: MEMBERS_REACHED is not available with DAILY aggregation. 
-  start_date: Date.parse('2024-01-01'), # Date | Start date for analytics data in YYYY-MM-DD format. If provided without endDate, endDate defaults to today. If omitted entirely, returns lifetime analytics. 
-  end_date: Date.parse('2024-01-31'), # Date | End date for analytics data in YYYY-MM-DD format (exclusive). If provided without startDate, startDate defaults to 30 days before endDate. 
-  metrics: 'IMPRESSION,REACTION,COMMENT' # String | Comma-separated list of metrics to fetch. If omitted, fetches all available metrics. Valid values: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE 
+  aggregation: 'TOTAL', # String | TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY.
+  start_date: Date.parse('2024-01-01'), # Date | Start date (YYYY-MM-DD). If omitted, returns lifetime analytics.
+  end_date: Date.parse('2024-01-31'), # Date | End date (YYYY-MM-DD, exclusive). Defaults to today if omitted.
+  metrics: 'IMPRESSION,REACTION,COMMENT' # String | Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all.
 }
 
 begin
@@ -239,10 +239,10 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **account_id** | **String** | The ID of the LinkedIn personal account |  |
-| **aggregation** | **String** | Type of aggregation: TOTAL (default, returns single totals) or DAILY (returns daily breakdown). Note: MEMBERS_REACHED is not available with DAILY aggregation.  | [optional][default to &#39;TOTAL&#39;] |
-| **start_date** | **Date** | Start date for analytics data in YYYY-MM-DD format. If provided without endDate, endDate defaults to today. If omitted entirely, returns lifetime analytics.  | [optional] |
-| **end_date** | **Date** | End date for analytics data in YYYY-MM-DD format (exclusive). If provided without startDate, startDate defaults to 30 days before endDate.  | [optional] |
-| **metrics** | **String** | Comma-separated list of metrics to fetch. If omitted, fetches all available metrics. Valid values: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE  | [optional] |
+| **aggregation** | **String** | TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY. | [optional][default to &#39;TOTAL&#39;] |
+| **start_date** | **Date** | Start date (YYYY-MM-DD). If omitted, returns lifetime analytics. | [optional] |
+| **end_date** | **Date** | End date (YYYY-MM-DD, exclusive). Defaults to today if omitted. | [optional] |
+| **metrics** | **String** | Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all. | [optional] |
 
 ### Return type
 
@@ -264,7 +264,7 @@ end
 
 Get LinkedIn post stats
 
-Returns analytics for a specific LinkedIn post using its URN. Works for both personal and organization accounts. Useful for fetching analytics of posts not published through Late. Personal accounts require r_member_postAnalytics scope and return impressions, reach, likes, comments, shares, and video views (clicks not available). Organization accounts require r_organization_social scope and additionally return clicks and engagement rate. 
+Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts.
 
 ### Examples
 
@@ -335,7 +335,7 @@ end
 
 Get YouTube daily views
 
-Returns historical daily view counts for a specific YouTube video. Uses YouTube Analytics API v2 to fetch daily breakdowns including views, watch time, and subscriber changes.  Requires the yt-analytics.readonly OAuth scope. Existing YouTube accounts may need to re-authorize. If the scope is missing, the response includes a reauthorizeUrl. Data has a 2-3 day delay; endDate is automatically capped to 3 days ago. Maximum 90 days of historical data. Defaults to last 30 days. 
+Returns daily view counts for a YouTube video including views, watch time, and subscriber changes. Requires yt-analytics.readonly scope (re-authorization may be needed). Data has a 2-3 day delay. Max 90 days, defaults to last 30 days. 
 
 ### Examples
 

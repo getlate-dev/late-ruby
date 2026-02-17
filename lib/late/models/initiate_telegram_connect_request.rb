@@ -15,7 +15,7 @@ require 'time'
 
 module Late
   class InitiateTelegramConnectRequest < ApiModelBase
-    # The Telegram chat ID. Can be: - Numeric ID (e.g., \"-1001234567890\") - Username with @ prefix (e.g., \"@mychannel\") 
+    # The Telegram chat ID. Numeric ID (e.g. \"-1001234567890\") or username with @ prefix (e.g. \"@mychannel\").
     attr_accessor :chat_id
 
     # The profile ID to connect the account to

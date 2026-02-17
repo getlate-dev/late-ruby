@@ -17,6 +17,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Create profile
 
+Creates a new profile with a name, optional description, and color.
+
 ### Examples
 
 ```ruby
@@ -83,6 +85,8 @@ end
 > <DeleteAccountGroup200Response> delete_profile(profile_id)
 
 Delete profile
+
+Permanently deletes a profile by ID.
 
 ### Examples
 
@@ -151,6 +155,8 @@ end
 
 Get profile
 
+Returns a single profile by ID, including its name, color, and default status.
+
 ### Examples
 
 ```ruby
@@ -218,7 +224,7 @@ end
 
 List profiles
 
-Returns profiles within the user's plan limit, sorted by creation date (oldest first). Use includeOverLimit=true to include profiles that exceed the plan limit (for management/deletion purposes). 
+Returns profiles sorted by creation date. Use includeOverLimit=true to include profiles that exceed the plan limit.
 
 ### Examples
 
@@ -233,7 +239,7 @@ end
 
 api_instance = Late::ProfilesApi.new
 opts = {
-  include_over_limit: true # Boolean | When true, includes profiles that exceed the user's plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade. 
+  include_over_limit: true # Boolean | When true, includes over-limit profiles (marked with isOverLimit: true).
 }
 
 begin
@@ -267,7 +273,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **include_over_limit** | **Boolean** | When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  | [optional][default to false] |
+| **include_over_limit** | **Boolean** | When true, includes over-limit profiles (marked with isOverLimit: true). | [optional][default to false] |
 
 ### Return type
 
@@ -288,6 +294,8 @@ end
 > <UpdateProfile200Response> update_profile(profile_id, update_profile_request)
 
 Update profile
+
+Updates a profile's name, description, color, or default status.
 
 ### Examples
 

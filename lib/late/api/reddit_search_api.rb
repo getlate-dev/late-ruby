@@ -20,6 +20,7 @@ module Late
       @api_client = api_client
     end
     # Get subreddit feed
+    # Fetch posts from a subreddit feed. Supports sorting, time filtering, and cursor-based pagination.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :subreddit 
@@ -34,6 +35,7 @@ module Late
     end
 
     # Get subreddit feed
+    # Fetch posts from a subreddit feed. Supports sorting, time filtering, and cursor-based pagination.
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :subreddit 
@@ -109,6 +111,7 @@ module Late
     end
 
     # Search posts
+    # Search Reddit posts using a connected account. Optionally scope to a specific subreddit.
     # @param account_id [String] 
     # @param q [String] 
     # @param [Hash] opts the optional parameters
@@ -124,6 +127,7 @@ module Late
     end
 
     # Search posts
+    # Search Reddit posts using a connected account. Optionally scope to a specific subreddit.
     # @param account_id [String] 
     # @param q [String] 
     # @param [Hash] opts the optional parameters

@@ -86,6 +86,8 @@ end
 
 Delete photo
 
+Deletes a photo or media item from a GBP location.
+
 ### Examples
 
 ```ruby

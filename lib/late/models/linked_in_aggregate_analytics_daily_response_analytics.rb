@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module Late
-  # Daily breakdown of each metric. Each metric contains an array of date/count pairs. Note: 'reach' (MEMBERS_REACHED) is not available with DAILY aggregation per LinkedIn API limitations. 
+  # Daily breakdown of each metric as date/count pairs. Reach not available with DAILY aggregation.
   class LinkedInAggregateAnalyticsDailyResponseAnalytics < ApiModelBase
     attr_accessor :impressions
 

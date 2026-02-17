@@ -18,6 +18,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Disconnect account
 
+Disconnects and removes a connected social account.
+
 ### Examples
 
 ```ruby
@@ -85,7 +87,7 @@ end
 
 Check account health
 
-Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
+Returns detailed health info for a specific account including token status, permissions, and recommendations.
 
 ### Examples
 
@@ -154,7 +156,7 @@ end
 
 Check accounts health
 
-Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
+Returns health status of all connected accounts including token validity, permissions, and issues needing attention.
 
 ### Examples
 
@@ -308,7 +310,7 @@ end
 
 List accounts
 
-Returns list of connected social accounts. By default, only returns accounts from profiles within the user's plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
+Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
 
 ### Examples
 
@@ -324,7 +326,7 @@ end
 api_instance = Late::AccountsApi.new
 opts = {
   profile_id: 'profile_id_example', # String | Filter accounts by profile ID
-  include_over_limit: true # Boolean | When true, includes accounts from profiles that exceed the user's plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted. 
+  include_over_limit: true # Boolean | When true, includes accounts from over-limit profiles.
 }
 
 begin
@@ -359,7 +361,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **profile_id** | **String** | Filter accounts by profile ID | [optional] |
-| **include_over_limit** | **Boolean** | When true, includes accounts from profiles that exceed the user&#39;s plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted.  | [optional][default to false] |
+| **include_over_limit** | **Boolean** | When true, includes accounts from over-limit profiles. | [optional][default to false] |
 
 ### Return type
 
@@ -380,6 +382,8 @@ end
 > <UpdateAccount200Response> update_account(account_id, update_account_request)
 
 Update account
+
+Updates a connected social account's display name or username override.
 
 ### Examples
 

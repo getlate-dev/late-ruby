@@ -14,6 +14,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get user
 
+Returns a single user's details by ID, including name, email, and role.
+
 ### Examples
 
 ```ruby
@@ -80,6 +82,8 @@ end
 > <ListUsers200Response> list_users
 
 List users
+
+Returns all users in the workspace including roles and profile access. Also returns the currentUserId of the caller.
 
 ### Examples
 

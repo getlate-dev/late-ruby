@@ -20,6 +20,7 @@ module Late
       @api_client = api_client
     end
     # Create profile
+    # Creates a new profile with a name, optional description, and color.
     # @param create_profile_request [CreateProfileRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ProfileCreateResponse]
@@ -29,6 +30,7 @@ module Late
     end
 
     # Create profile
+    # Creates a new profile with a name, optional description, and color.
     # @param create_profile_request [CreateProfileRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ProfileCreateResponse, Integer, Hash)>] ProfileCreateResponse data, response status code and response headers
@@ -86,6 +88,7 @@ module Late
     end
 
     # Delete profile
+    # Permanently deletes a profile by ID.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DeleteAccountGroup200Response]
@@ -95,6 +98,7 @@ module Late
     end
 
     # Delete profile
+    # Permanently deletes a profile by ID.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeleteAccountGroup200Response, Integer, Hash)>] DeleteAccountGroup200Response data, response status code and response headers
@@ -147,6 +151,7 @@ module Late
     end
 
     # Get profile
+    # Returns a single profile by ID, including its name, color, and default status.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [GetProfile200Response]
@@ -156,6 +161,7 @@ module Late
     end
 
     # Get profile
+    # Returns a single profile by ID, including its name, color, and default status.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetProfile200Response, Integer, Hash)>] GetProfile200Response data, response status code and response headers
@@ -208,9 +214,9 @@ module Late
     end
 
     # List profiles
-    # Returns profiles within the user's plan limit, sorted by creation date (oldest first). Use includeOverLimit=true to include profiles that exceed the plan limit (for management/deletion purposes). 
+    # Returns profiles sorted by creation date. Use includeOverLimit=true to include profiles that exceed the plan limit.
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :include_over_limit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  (default to false)
+    # @option opts [Boolean] :include_over_limit When true, includes over-limit profiles (marked with isOverLimit: true). (default to false)
     # @return [ProfilesListResponse]
     def list_profiles(opts = {})
       data, _status_code, _headers = list_profiles_with_http_info(opts)
@@ -218,9 +224,9 @@ module Late
     end
 
     # List profiles
-    # Returns profiles within the user&#39;s plan limit, sorted by creation date (oldest first). Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit (for management/deletion purposes). 
+    # Returns profiles sorted by creation date. Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit.
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :include_over_limit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  (default to false)
+    # @option opts [Boolean] :include_over_limit When true, includes over-limit profiles (marked with isOverLimit: true). (default to false)
     # @return [Array<(ProfilesListResponse, Integer, Hash)>] ProfilesListResponse data, response status code and response headers
     def list_profiles_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -268,6 +274,7 @@ module Late
     end
 
     # Update profile
+    # Updates a profile's name, description, color, or default status.
     # @param profile_id [String] 
     # @param update_profile_request [UpdateProfileRequest] 
     # @param [Hash] opts the optional parameters
@@ -278,6 +285,7 @@ module Late
     end
 
     # Update profile
+    # Updates a profile&#39;s name, description, color, or default status.
     # @param profile_id [String] 
     # @param update_profile_request [UpdateProfileRequest] 
     # @param [Hash] opts the optional parameters
