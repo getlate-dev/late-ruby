@@ -33,7 +33,7 @@ describe 'UsageApi' do
   end
 
   # unit tests for get_usage_stats
-  # Get plan and usage stats for current account
+  # Get plan and usage stats
   # @param [Hash] opts the optional parameters
   # @return [UsageStats]
   describe 'get_usage_stats test' do

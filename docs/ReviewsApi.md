@@ -4,16 +4,16 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**delete_inbox_review_reply**](ReviewsApi.md#delete_inbox_review_reply) | **DELETE** /v1/inbox/reviews/{reviewId}/reply | Delete a review reply |
-| [**list_inbox_reviews**](ReviewsApi.md#list_inbox_reviews) | **GET** /v1/inbox/reviews | List reviews across all accounts |
-| [**reply_to_inbox_review**](ReviewsApi.md#reply_to_inbox_review) | **POST** /v1/inbox/reviews/{reviewId}/reply | Reply to a review |
+| [**delete_inbox_review_reply**](ReviewsApi.md#delete_inbox_review_reply) | **DELETE** /v1/inbox/reviews/{reviewId}/reply | Delete review reply |
+| [**list_inbox_reviews**](ReviewsApi.md#list_inbox_reviews) | **GET** /v1/inbox/reviews | List reviews |
+| [**reply_to_inbox_review**](ReviewsApi.md#reply_to_inbox_review) | **POST** /v1/inbox/reviews/{reviewId}/reply | Reply to review |
 
 
 ## delete_inbox_review_reply
 
 > <DeleteInboxReviewReply200Response> delete_inbox_review_reply(review_id, delete_inbox_review_reply_request)
 
-Delete a review reply
+Delete review reply
 
 Delete a reply to a review (Google Business only). Requires accountId in request body.
 
@@ -33,7 +33,7 @@ review_id = 'review_id_example' # String |
 delete_inbox_review_reply_request = Late::DeleteInboxReviewReplyRequest.new({account_id: 'account_id_example'}) # DeleteInboxReviewReplyRequest | 
 
 begin
-  # Delete a review reply
+  # Delete review reply
   result = api_instance.delete_inbox_review_reply(review_id, delete_inbox_review_reply_request)
   p result
 rescue Late::ApiError => e
@@ -49,7 +49,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Delete a review reply
+  # Delete review reply
   data, status_code, headers = api_instance.delete_inbox_review_reply_with_http_info(review_id, delete_inbox_review_reply_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -84,7 +84,7 @@ end
 
 > <ListInboxReviews200Response> list_inbox_reviews(opts)
 
-List reviews across all accounts
+List reviews
 
 Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options.  **Supported platforms:** Facebook, Google Business 
 
@@ -114,7 +114,7 @@ opts = {
 }
 
 begin
-  # List reviews across all accounts
+  # List reviews
   result = api_instance.list_inbox_reviews(opts)
   p result
 rescue Late::ApiError => e
@@ -130,7 +130,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List reviews across all accounts
+  # List reviews
   data, status_code, headers = api_instance.list_inbox_reviews_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -173,7 +173,7 @@ end
 
 > <ReplyToInboxReview200Response> reply_to_inbox_review(review_id, reply_to_inbox_review_request)
 
-Reply to a review
+Reply to review
 
 Post a reply to a review. Requires accountId in request body.
 
@@ -193,7 +193,7 @@ review_id = 'review_id_example' # String | Review ID (URL-encoded for Google Bus
 reply_to_inbox_review_request = Late::ReplyToInboxReviewRequest.new({account_id: 'account_id_example', message: 'message_example'}) # ReplyToInboxReviewRequest | 
 
 begin
-  # Reply to a review
+  # Reply to review
   result = api_instance.reply_to_inbox_review(review_id, reply_to_inbox_review_request)
   p result
 rescue Late::ApiError => e
@@ -209,7 +209,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Reply to a review
+  # Reply to review
   data, status_code, headers = api_instance.reply_to_inbox_review_with_http_info(review_id, reply_to_inbox_review_request)
   p status_code # => 2xx
   p headers # => { ... }

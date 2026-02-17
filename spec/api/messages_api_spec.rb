@@ -33,7 +33,7 @@ describe 'MessagesApi' do
   end
 
   # unit tests for edit_inbox_message
-  # Edit a message (Telegram only)
+  # Edit message
   # Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
   # @param conversation_id The conversation ID
   # @param message_id The Telegram message ID to edit
@@ -47,7 +47,7 @@ describe 'MessagesApi' do
   end
 
   # unit tests for get_inbox_conversation
-  # Get conversation details
+  # Get conversation
   # Retrieve details and metadata for a specific conversation. Requires accountId query parameter.
   # @param conversation_id The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID.
   # @param account_id The social account ID
@@ -60,7 +60,7 @@ describe 'MessagesApi' do
   end
 
   # unit tests for get_inbox_conversation_messages
-  # Get messages in a conversation
+  # List messages
   # Fetch messages for a specific conversation. Requires accountId query parameter.
   # @param conversation_id The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID.
   # @param account_id Social account ID
@@ -73,7 +73,7 @@ describe 'MessagesApi' do
   end
 
   # unit tests for list_inbox_conversations
-  # List conversations across all accounts
+  # List conversations
   # Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :profile_id Filter by profile ID
@@ -91,8 +91,8 @@ describe 'MessagesApi' do
   end
 
   # unit tests for send_inbox_message
-  # Send a message
-  # Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
+  # Send message
+  # Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky/Reddit: Not supported  **Interactive messages:** Supports quick replies, buttons, templates, and reply markup. Feature availability varies by platform (Instagram, Facebook, Telegram). Unsupported fields are silently ignored. 
   # @param conversation_id The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID.
   # @param send_inbox_message_request 
   # @param [Hash] opts the optional parameters

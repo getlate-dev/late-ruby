@@ -33,7 +33,7 @@ describe 'ProfilesApi' do
   end
 
   # unit tests for create_profile
-  # Create a new profile
+  # Create profile
   # @param create_profile_request 
   # @param [Hash] opts the optional parameters
   # @return [ProfileCreateResponse]
@@ -44,7 +44,7 @@ describe 'ProfilesApi' do
   end
 
   # unit tests for delete_profile
-  # Delete a profile (must have no connected accounts)
+  # Delete profile
   # @param profile_id 
   # @param [Hash] opts the optional parameters
   # @return [DeleteAccountGroup200Response]
@@ -55,7 +55,7 @@ describe 'ProfilesApi' do
   end
 
   # unit tests for get_profile
-  # Get a profile by id
+  # Get profile
   # @param profile_id 
   # @param [Hash] opts the optional parameters
   # @return [GetProfile200Response]
@@ -66,7 +66,7 @@ describe 'ProfilesApi' do
   end
 
   # unit tests for list_profiles
-  # List profiles visible to the authenticated user
+  # List profiles
   # Returns profiles within the user&#39;s plan limit. Profiles are sorted by creation date (oldest first). Use &#x60;includeOverLimit&#x3D;true&#x60; to include profiles that exceed the plan limit (for management/deletion purposes). 
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :include_over_limit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have &#x60;isOverLimit: true&#x60; in the response. Useful for managing/deleting profiles after a plan downgrade. 
@@ -78,7 +78,7 @@ describe 'ProfilesApi' do
   end
 
   # unit tests for update_profile
-  # Update a profile
+  # Update profile
   # @param profile_id 
   # @param update_profile_request 
   # @param [Hash] opts the optional parameters

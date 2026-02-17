@@ -4,15 +4,15 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_google_business_food_menus**](GMBFoodMenusApi.md#get_google_business_food_menus) | **GET** /v1/accounts/{accountId}/gmb-food-menus | Get Google Business Profile food menus |
-| [**update_google_business_food_menus**](GMBFoodMenusApi.md#update_google_business_food_menus) | **PUT** /v1/accounts/{accountId}/gmb-food-menus | Update Google Business Profile food menus |
+| [**get_google_business_food_menus**](GMBFoodMenusApi.md#get_google_business_food_menus) | **GET** /v1/accounts/{accountId}/gmb-food-menus | Get food menus |
+| [**update_google_business_food_menus**](GMBFoodMenusApi.md#update_google_business_food_menus) | **PUT** /v1/accounts/{accountId}/gmb-food-menus | Update food menus |
 
 
 ## get_google_business_food_menus
 
 > <GetGoogleBusinessFoodMenus200Response> get_google_business_food_menus(account_id)
 
-Get Google Business Profile food menus
+Get food menus
 
 Fetches food menus for a connected Google Business Profile location.  Returns the full menu structure including: - Menu names and descriptions - Sections (e.g. Appetizers, Entrees, Drinks) - Items with labels, pricing, dietary info, and allergens - Item options/variants  Only available for locations with food menu support (restaurants, cafes, etc.). 
 
@@ -31,7 +31,7 @@ api_instance = Late::GMBFoodMenusApi.new
 account_id = 'account_id_example' # String | The Late account ID (from /v1/accounts)
 
 begin
-  # Get Google Business Profile food menus
+  # Get food menus
   result = api_instance.get_google_business_food_menus(account_id)
   p result
 rescue Late::ApiError => e
@@ -47,7 +47,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get Google Business Profile food menus
+  # Get food menus
   data, status_code, headers = api_instance.get_google_business_food_menus_with_http_info(account_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -81,7 +81,7 @@ end
 
 > <UpdateGoogleBusinessFoodMenus200Response> update_google_business_food_menus(account_id, update_google_business_food_menus_request)
 
-Update Google Business Profile food menus
+Update food menus
 
 Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use `updateMask` for partial updates (e.g. `\"menus\"` to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
 
@@ -101,7 +101,7 @@ account_id = 'account_id_example' # String | The Late account ID (from /v1/accou
 update_google_business_food_menus_request = Late::UpdateGoogleBusinessFoodMenusRequest.new({menus: [Late::FoodMenu.new({labels: [Late::FoodMenuLabel.new({display_name: 'display_name_example'})]})]}) # UpdateGoogleBusinessFoodMenusRequest | 
 
 begin
-  # Update Google Business Profile food menus
+  # Update food menus
   result = api_instance.update_google_business_food_menus(account_id, update_google_business_food_menus_request)
   p result
 rescue Late::ApiError => e
@@ -117,7 +117,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Update Google Business Profile food menus
+  # Update food menus
   data, status_code, headers = api_instance.update_google_business_food_menus_with_http_info(account_id, update_google_business_food_menus_request)
   p status_code # => 2xx
   p headers # => { ... }

@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Disconnect a social account
+    # Disconnect account
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DeleteAccountGroup200Response]
@@ -28,7 +28,7 @@ module Late
       data
     end
 
-    # Disconnect a social account
+    # Disconnect account
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeleteAccountGroup200Response, Integer, Hash)>] DeleteAccountGroup200Response data, response status code and response headers
@@ -80,7 +80,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Check health of a specific account
+    # Check account health
     # Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
     # @param account_id [String] The account ID to check
     # @param [Hash] opts the optional parameters
@@ -90,7 +90,7 @@ module Late
       data
     end
 
-    # Check health of a specific account
+    # Check account health
     # Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
     # @param account_id [String] The account ID to check
     # @param [Hash] opts the optional parameters
@@ -143,7 +143,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Check health of all connected accounts
+    # Check accounts health
     # Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter by profile ID
@@ -155,7 +155,7 @@ module Late
       data
     end
 
-    # Check health of all connected accounts
+    # Check accounts health
     # Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter by profile ID
@@ -217,7 +217,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Get follower stats and growth metrics
+    # Get follower stats
     # Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :account_ids Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts)
@@ -231,7 +231,7 @@ module Late
       data
     end
 
-    # Get follower stats and growth metrics
+    # Get follower stats
     # Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :account_ids Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts)
@@ -293,7 +293,7 @@ module Late
       return data, status_code, headers
     end
 
-    # List connected social accounts
+    # List accounts
     # Returns list of connected social accounts. By default, only returns accounts from profiles within the user's plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter accounts by profile ID
@@ -304,7 +304,7 @@ module Late
       data
     end
 
-    # List connected social accounts
+    # List accounts
     # Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter accounts by profile ID
@@ -356,7 +356,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Update a social account
+    # Update account
     # @param account_id [String] 
     # @param update_account_request [UpdateAccountRequest] 
     # @param [Hash] opts the optional parameters
@@ -366,7 +366,7 @@ module Late
       data
     end
 
-    # Update a social account
+    # Update account
     # @param account_id [String] 
     # @param update_account_request [UpdateAccountRequest] 
     # @param [Hash] opts the optional parameters

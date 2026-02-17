@@ -33,7 +33,7 @@ describe 'InvitesApi' do
   end
 
   # unit tests for create_invite_token
-  # Create a team member invite token
+  # Create invite token
   # Generate a secure invite link to grant team members access to your profiles. Invites expire after 7 days and are single-use. 
   # @param create_invite_token_request 
   # @param [Hash] opts the optional parameters

@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Create a new webhook
+    # Create webhook
     # Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
     # @param create_webhook_settings_request [CreateWebhookSettingsRequest] 
     # @param [Hash] opts the optional parameters
@@ -29,7 +29,7 @@ module Late
       data
     end
 
-    # Create a new webhook
+    # Create webhook
     # Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
     # @param create_webhook_settings_request [CreateWebhookSettingsRequest] 
     # @param [Hash] opts the optional parameters
@@ -87,7 +87,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Delete a webhook
+    # Delete webhook
     # Permanently delete a webhook configuration.
     # @param id [String] Webhook ID to delete
     # @param [Hash] opts the optional parameters
@@ -97,7 +97,7 @@ module Late
       data
     end
 
-    # Delete a webhook
+    # Delete webhook
     # Permanently delete a webhook configuration.
     # @param id [String] Webhook ID to delete
     # @param [Hash] opts the optional parameters
@@ -151,7 +151,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Get webhook delivery logs
+    # Get delivery logs
     # Retrieve webhook delivery history. Logs are automatically deleted after 7 days. 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Maximum number of logs to return (max 100) (default to 50)
@@ -164,7 +164,7 @@ module Late
       data
     end
 
-    # Get webhook delivery logs
+    # Get delivery logs
     # Retrieve webhook delivery history. Logs are automatically deleted after 7 days. 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Maximum number of logs to return (max 100) (default to 50)
@@ -236,7 +236,7 @@ module Late
       return data, status_code, headers
     end
 
-    # List all webhooks
+    # List webhooks
     # Retrieve all configured webhooks for the authenticated user. Supports up to 10 webhooks per user.
     # @param [Hash] opts the optional parameters
     # @return [GetWebhookSettings200Response]
@@ -245,7 +245,7 @@ module Late
       data
     end
 
-    # List all webhooks
+    # List webhooks
     # Retrieve all configured webhooks for the authenticated user. Supports up to 10 webhooks per user.
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetWebhookSettings200Response, Integer, Hash)>] GetWebhookSettings200Response data, response status code and response headers
@@ -361,7 +361,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Update a webhook
+    # Update webhook
     # Update an existing webhook configuration. All fields except `_id` are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
     # @param update_webhook_settings_request [UpdateWebhookSettingsRequest] 
     # @param [Hash] opts the optional parameters
@@ -371,7 +371,7 @@ module Late
       data
     end
 
-    # Update a webhook
+    # Update webhook
     # Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
     # @param update_webhook_settings_request [UpdateWebhookSettingsRequest] 
     # @param [Hash] opts the optional parameters

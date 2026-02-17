@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Create a new profile
+    # Create profile
     # @param create_profile_request [CreateProfileRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ProfileCreateResponse]
@@ -28,7 +28,7 @@ module Late
       data
     end
 
-    # Create a new profile
+    # Create profile
     # @param create_profile_request [CreateProfileRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ProfileCreateResponse, Integer, Hash)>] ProfileCreateResponse data, response status code and response headers
@@ -85,7 +85,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Delete a profile (must have no connected accounts)
+    # Delete profile
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DeleteAccountGroup200Response]
@@ -94,7 +94,7 @@ module Late
       data
     end
 
-    # Delete a profile (must have no connected accounts)
+    # Delete profile
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeleteAccountGroup200Response, Integer, Hash)>] DeleteAccountGroup200Response data, response status code and response headers
@@ -146,7 +146,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Get a profile by id
+    # Get profile
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [GetProfile200Response]
@@ -155,7 +155,7 @@ module Late
       data
     end
 
-    # Get a profile by id
+    # Get profile
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetProfile200Response, Integer, Hash)>] GetProfile200Response data, response status code and response headers
@@ -207,7 +207,7 @@ module Late
       return data, status_code, headers
     end
 
-    # List profiles visible to the authenticated user
+    # List profiles
     # Returns profiles within the user's plan limit. Profiles are sorted by creation date (oldest first). Use `includeOverLimit=true` to include profiles that exceed the plan limit (for management/deletion purposes). 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_over_limit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have &#x60;isOverLimit: true&#x60; in the response. Useful for managing/deleting profiles after a plan downgrade.  (default to false)
@@ -217,7 +217,7 @@ module Late
       data
     end
 
-    # List profiles visible to the authenticated user
+    # List profiles
     # Returns profiles within the user&#39;s plan limit. Profiles are sorted by creation date (oldest first). Use &#x60;includeOverLimit&#x3D;true&#x60; to include profiles that exceed the plan limit (for management/deletion purposes). 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_over_limit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have &#x60;isOverLimit: true&#x60; in the response. Useful for managing/deleting profiles after a plan downgrade.  (default to false)
@@ -267,7 +267,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Update a profile
+    # Update profile
     # @param profile_id [String] 
     # @param update_profile_request [UpdateProfileRequest] 
     # @param [Hash] opts the optional parameters
@@ -277,7 +277,7 @@ module Late
       data
     end
 
-    # Update a profile
+    # Update profile
     # @param profile_id [String] 
     # @param update_profile_request [UpdateProfileRequest] 
     # @param [Hash] opts the optional parameters

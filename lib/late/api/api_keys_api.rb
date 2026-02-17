@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Create a new API key
+    # Create key
     # @param create_api_key_request [CreateApiKeyRequest] 
     # @param [Hash] opts the optional parameters
     # @return [CreateApiKey201Response]
@@ -28,7 +28,7 @@ module Late
       data
     end
 
-    # Create a new API key
+    # Create key
     # @param create_api_key_request [CreateApiKeyRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(CreateApiKey201Response, Integer, Hash)>] CreateApiKey201Response data, response status code and response headers
@@ -85,7 +85,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Delete an API key
+    # Delete key
     # @param key_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DeleteAccountGroup200Response]
@@ -94,7 +94,7 @@ module Late
       data
     end
 
-    # Delete an API key
+    # Delete key
     # @param key_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeleteAccountGroup200Response, Integer, Hash)>] DeleteAccountGroup200Response data, response status code and response headers
@@ -146,7 +146,7 @@ module Late
       return data, status_code, headers
     end
 
-    # List API keys for the current user
+    # List keys
     # @param [Hash] opts the optional parameters
     # @return [ListApiKeys200Response]
     def list_api_keys(opts = {})
@@ -154,7 +154,7 @@ module Late
       data
     end
 
-    # List API keys for the current user
+    # List keys
     # @param [Hash] opts the optional parameters
     # @return [Array<(ListApiKeys200Response, Integer, Hash)>] ListApiKeys200Response data, response status code and response headers
     def list_api_keys_with_http_info(opts = {})

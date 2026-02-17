@@ -4,14 +4,14 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_google_business_reviews**](GMBReviewsApi.md#get_google_business_reviews) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get Google Business Profile reviews |
+| [**get_google_business_reviews**](GMBReviewsApi.md#get_google_business_reviews) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get reviews |
 
 
 ## get_google_business_reviews
 
 > <GetGoogleBusinessReviews200Response> get_google_business_reviews(account_id, opts)
 
-Get Google Business Profile reviews
+Get reviews
 
 Fetches reviews for a connected Google Business Profile account.  Returns all reviews for the business location, including: - Reviewer information (name, profile photo) - Star rating (1-5) - Review comment/text - Business owner's reply (if any) - Review timestamps  Use pagination via `nextPageToken` to fetch all reviews for locations with many reviews. 
 
@@ -34,7 +34,7 @@ opts = {
 }
 
 begin
-  # Get Google Business Profile reviews
+  # Get reviews
   result = api_instance.get_google_business_reviews(account_id, opts)
   p result
 rescue Late::ApiError => e
@@ -50,7 +50,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get Google Business Profile reviews
+  # Get reviews
   data, status_code, headers = api_instance.get_google_business_reviews_with_http_info(account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }

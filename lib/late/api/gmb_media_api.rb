@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Upload a photo to Google Business Profile
+    # Upload photo
     # Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: - `COVER` - Cover photo - `PROFILE` - Profile photo - `LOGO` - Business logo - `EXTERIOR` - Exterior shots - `INTERIOR` - Interior shots - `FOOD_AND_DRINK` - Food and drink photos - `MENU` - Menu photos - `PRODUCT` - Product photos - `TEAMS` - Team/staff photos - `ADDITIONAL` - Other photos 
     # @param account_id [String] 
     # @param create_google_business_media_request [CreateGoogleBusinessMediaRequest] 
@@ -30,7 +30,7 @@ module Late
       data
     end
 
-    # Upload a photo to Google Business Profile
+    # Upload photo
     # Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: - &#x60;COVER&#x60; - Cover photo - &#x60;PROFILE&#x60; - Profile photo - &#x60;LOGO&#x60; - Business logo - &#x60;EXTERIOR&#x60; - Exterior shots - &#x60;INTERIOR&#x60; - Interior shots - &#x60;FOOD_AND_DRINK&#x60; - Food and drink photos - &#x60;MENU&#x60; - Menu photos - &#x60;PRODUCT&#x60; - Product photos - &#x60;TEAMS&#x60; - Team/staff photos - &#x60;ADDITIONAL&#x60; - Other photos 
     # @param account_id [String] 
     # @param create_google_business_media_request [CreateGoogleBusinessMediaRequest] 
@@ -93,7 +93,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Delete a photo from Google Business Profile
+    # Delete photo
     # @param account_id [String] 
     # @param media_id [String] The media item ID to delete
     # @param [Hash] opts the optional parameters
@@ -103,7 +103,7 @@ module Late
       data
     end
 
-    # Delete a photo from Google Business Profile
+    # Delete photo
     # @param account_id [String] 
     # @param media_id [String] The media item ID to delete
     # @param [Hash] opts the optional parameters
@@ -161,7 +161,7 @@ module Late
       return data, status_code, headers
     end
 
-    # List Google Business Profile media (photos)
+    # List media
     # Lists media items (photos) for a Google Business Profile location. Returns photo URLs, descriptions, categories, and metadata. 
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
@@ -173,7 +173,7 @@ module Late
       data
     end
 
-    # List Google Business Profile media (photos)
+    # List media
     # Lists media items (photos) for a Google Business Profile location. Returns photo URLs, descriptions, categories, and metadata. 
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters

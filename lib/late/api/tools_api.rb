@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Check Instagram hashtags for bans
+    # Check Instagram hashtag bans
     # Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
     # @param check_instagram_hashtags_request [CheckInstagramHashtagsRequest] 
     # @param [Hash] opts the optional parameters
@@ -29,7 +29,7 @@ module Late
       data
     end
 
-    # Check Instagram hashtags for bans
+    # Check Instagram hashtag bans
     # Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
     # @param check_instagram_hashtags_request [CheckInstagramHashtagsRequest] 
     # @param [Hash] opts the optional parameters
@@ -87,7 +87,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Download Bluesky video
+    # Download Bluesky media
     # Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
     # @param url [String] Bluesky post URL
     # @param [Hash] opts the optional parameters
@@ -97,7 +97,7 @@ module Late
       data
     end
 
-    # Download Bluesky video
+    # Download Bluesky media
     # Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
     # @param url [String] Bluesky post URL
     # @param [Hash] opts the optional parameters
@@ -215,7 +215,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Download Instagram reel or post
+    # Download Instagram media
     # Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
     # @param url [String] Instagram reel or post URL
     # @param [Hash] opts the optional parameters
@@ -225,7 +225,7 @@ module Late
       data
     end
 
-    # Download Instagram reel or post
+    # Download Instagram media
     # Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
     # @param url [String] Instagram reel or post URL
     # @param [Hash] opts the optional parameters
@@ -417,7 +417,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Download Twitter/X video
+    # Download Twitter/X media
     # Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
     # @param url [String] Twitter/X post URL
     # @param [Hash] opts the optional parameters
@@ -429,7 +429,7 @@ module Late
       data
     end
 
-    # Download Twitter/X video
+    # Download Twitter/X media
     # Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
     # @param url [String] Twitter/X post URL
     # @param [Hash] opts the optional parameters
@@ -491,7 +491,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Download YouTube video or audio
+    # Download YouTube video
     # Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
     # @param url [String] YouTube video URL or video ID
     # @param [Hash] opts the optional parameters
@@ -505,7 +505,7 @@ module Late
       data
     end
 
-    # Download YouTube video or audio
+    # Download YouTube video
     # Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
     # @param url [String] YouTube video URL or video ID
     # @param [Hash] opts the optional parameters
@@ -579,7 +579,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Get YouTube video transcript
+    # Get YouTube transcript
     # Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
     # @param url [String] YouTube video URL or video ID
     # @param [Hash] opts the optional parameters
@@ -590,7 +590,7 @@ module Late
       data
     end
 
-    # Get YouTube video transcript
+    # Get YouTube transcript
     # Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
     # @param url [String] YouTube video URL or video ID
     # @param [Hash] opts the optional parameters

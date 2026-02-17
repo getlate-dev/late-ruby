@@ -33,7 +33,7 @@ describe 'QueueApi' do
   end
 
   # unit tests for create_queue_slot
-  # Create a new queue for a profile
+  # Create schedule
   # Create an additional queue for a profile. The first queue created becomes the default. Subsequent queues are non-default unless explicitly set. 
   # @param create_queue_slot_request 
   # @param [Hash] opts the optional parameters
@@ -45,7 +45,7 @@ describe 'QueueApi' do
   end
 
   # unit tests for delete_queue_slot
-  # Delete a queue schedule
+  # Delete schedule
   # Delete a queue from a profile. Requires queueId to specify which queue to delete. If deleting the default queue, another queue will be promoted to default. 
   # @param profile_id 
   # @param queue_id Queue ID to delete
@@ -58,7 +58,7 @@ describe 'QueueApi' do
   end
 
   # unit tests for get_next_queue_slot
-  # Preview the next available queue slot (informational only)
+  # Get next available slot
   # Returns the next available queue slot for preview/informational purposes.  **Important: To schedule a post to the queue, do NOT use this endpoint&#39;s response with &#x60;scheduledFor&#x60;.** That creates a manual post, not a queue post.  Instead, use &#x60;POST /v1/posts&#x60; with &#x60;queuedFromProfile&#x60; (and optionally &#x60;queueId&#x60;). The system will automatically assign the next available slot with proper locking to prevent race conditions.  This endpoint is useful for: - Showing users when their next post will go out before they commit - Debugging/verifying queue configuration - Building UI previews  If no queueId is specified, uses the profile&#39;s default queue. 
   # @param profile_id 
   # @param [Hash] opts the optional parameters
@@ -71,7 +71,7 @@ describe 'QueueApi' do
   end
 
   # unit tests for list_queue_slots
-  # Get queue schedules for a profile
+  # List schedules
   # Retrieve queue schedules for a profile. Each profile can have multiple queues. - Without &#x60;all&#x3D;true&#x60;: Returns the default queue (or specific queue if queueId provided) - With &#x60;all&#x3D;true&#x60;: Returns all queues for the profile 
   # @param profile_id Profile ID to get queues for
   # @param [Hash] opts the optional parameters
@@ -85,7 +85,7 @@ describe 'QueueApi' do
   end
 
   # unit tests for preview_queue
-  # Preview upcoming queue slots for a profile
+  # Preview upcoming slots
   # @param profile_id 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :count 
@@ -97,7 +97,7 @@ describe 'QueueApi' do
   end
 
   # unit tests for update_queue_slot
-  # Create or update a queue schedule
+  # Update schedule
   # Create a new queue or update an existing one. - Without queueId: Creates or updates the default queue - With queueId: Updates the specific queue - With setAsDefault&#x3D;true: Makes this queue the default for the profile 
   # @param update_queue_slot_request 
   # @param [Hash] opts the optional parameters

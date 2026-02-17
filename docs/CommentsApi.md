@@ -4,22 +4,22 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**delete_inbox_comment**](CommentsApi.md#delete_inbox_comment) | **DELETE** /v1/inbox/comments/{postId} | Delete a comment |
-| [**get_inbox_post_comments**](CommentsApi.md#get_inbox_post_comments) | **GET** /v1/inbox/comments/{postId} | Get comments for a post |
-| [**hide_inbox_comment**](CommentsApi.md#hide_inbox_comment) | **POST** /v1/inbox/comments/{postId}/{commentId}/hide | Hide a comment |
-| [**like_inbox_comment**](CommentsApi.md#like_inbox_comment) | **POST** /v1/inbox/comments/{postId}/{commentId}/like | Like a comment |
-| [**list_inbox_comments**](CommentsApi.md#list_inbox_comments) | **GET** /v1/inbox/comments | List posts with comments across all accounts |
-| [**reply_to_inbox_post**](CommentsApi.md#reply_to_inbox_post) | **POST** /v1/inbox/comments/{postId} | Reply to a post or comment |
-| [**send_private_reply_to_comment**](CommentsApi.md#send_private_reply_to_comment) | **POST** /v1/inbox/comments/{postId}/{commentId}/private-reply | Send private reply to comment author |
-| [**unhide_inbox_comment**](CommentsApi.md#unhide_inbox_comment) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/hide | Unhide a comment |
-| [**unlike_inbox_comment**](CommentsApi.md#unlike_inbox_comment) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/like | Unlike a comment |
+| [**delete_inbox_comment**](CommentsApi.md#delete_inbox_comment) | **DELETE** /v1/inbox/comments/{postId} | Delete comment |
+| [**get_inbox_post_comments**](CommentsApi.md#get_inbox_post_comments) | **GET** /v1/inbox/comments/{postId} | Get post comments |
+| [**hide_inbox_comment**](CommentsApi.md#hide_inbox_comment) | **POST** /v1/inbox/comments/{postId}/{commentId}/hide | Hide comment |
+| [**like_inbox_comment**](CommentsApi.md#like_inbox_comment) | **POST** /v1/inbox/comments/{postId}/{commentId}/like | Like comment |
+| [**list_inbox_comments**](CommentsApi.md#list_inbox_comments) | **GET** /v1/inbox/comments | List commented posts |
+| [**reply_to_inbox_post**](CommentsApi.md#reply_to_inbox_post) | **POST** /v1/inbox/comments/{postId} | Reply to comment |
+| [**send_private_reply_to_comment**](CommentsApi.md#send_private_reply_to_comment) | **POST** /v1/inbox/comments/{postId}/{commentId}/private-reply | Send private reply |
+| [**unhide_inbox_comment**](CommentsApi.md#unhide_inbox_comment) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/hide | Unhide comment |
+| [**unlike_inbox_comment**](CommentsApi.md#unlike_inbox_comment) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/like | Unlike comment |
 
 
 ## delete_inbox_comment
 
 > <DeleteInboxComment200Response> delete_inbox_comment(post_id, account_id, comment_id)
 
-Delete a comment
+Delete comment
 
 Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
 
@@ -40,7 +40,7 @@ account_id = 'account_id_example' # String |
 comment_id = 'comment_id_example' # String | 
 
 begin
-  # Delete a comment
+  # Delete comment
   result = api_instance.delete_inbox_comment(post_id, account_id, comment_id)
   p result
 rescue Late::ApiError => e
@@ -56,7 +56,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Delete a comment
+  # Delete comment
   data, status_code, headers = api_instance.delete_inbox_comment_with_http_info(post_id, account_id, comment_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -92,7 +92,7 @@ end
 
 > <GetInboxPostComments200Response> get_inbox_post_comments(post_id, account_id, opts)
 
-Get comments for a post
+Get post comments
 
 Fetch comments for a specific post. Requires accountId query parameter.
 
@@ -118,7 +118,7 @@ opts = {
 }
 
 begin
-  # Get comments for a post
+  # Get post comments
   result = api_instance.get_inbox_post_comments(post_id, account_id, opts)
   p result
 rescue Late::ApiError => e
@@ -134,7 +134,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get comments for a post
+  # Get post comments
   data, status_code, headers = api_instance.get_inbox_post_comments_with_http_info(post_id, account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -173,7 +173,7 @@ end
 
 > <HideInboxComment200Response> hide_inbox_comment(post_id, comment_id, hide_inbox_comment_request)
 
-Hide a comment
+Hide comment
 
 Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden comments are only visible to the commenter and page admin. 
 
@@ -194,7 +194,7 @@ comment_id = 'comment_id_example' # String |
 hide_inbox_comment_request = Late::HideInboxCommentRequest.new({account_id: 'account_id_example'}) # HideInboxCommentRequest | 
 
 begin
-  # Hide a comment
+  # Hide comment
   result = api_instance.hide_inbox_comment(post_id, comment_id, hide_inbox_comment_request)
   p result
 rescue Late::ApiError => e
@@ -210,7 +210,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Hide a comment
+  # Hide comment
   data, status_code, headers = api_instance.hide_inbox_comment_with_http_info(post_id, comment_id, hide_inbox_comment_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -246,7 +246,7 @@ end
 
 > <LikeInboxComment200Response> like_inbox_comment(post_id, comment_id, like_inbox_comment_request)
 
-Like a comment
+Like comment
 
 Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the `cid` (content identifier) is required in the request body. 
 
@@ -267,7 +267,7 @@ comment_id = 'comment_id_example' # String |
 like_inbox_comment_request = Late::LikeInboxCommentRequest.new({account_id: 'account_id_example'}) # LikeInboxCommentRequest | 
 
 begin
-  # Like a comment
+  # Like comment
   result = api_instance.like_inbox_comment(post_id, comment_id, like_inbox_comment_request)
   p result
 rescue Late::ApiError => e
@@ -283,7 +283,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Like a comment
+  # Like comment
   data, status_code, headers = api_instance.like_inbox_comment_with_http_info(post_id, comment_id, like_inbox_comment_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -319,7 +319,7 @@ end
 
 > <ListInboxComments200Response> list_inbox_comments(opts)
 
-List posts with comments across all accounts
+List commented posts
 
 Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
 
@@ -348,7 +348,7 @@ opts = {
 }
 
 begin
-  # List posts with comments across all accounts
+  # List commented posts
   result = api_instance.list_inbox_comments(opts)
   p result
 rescue Late::ApiError => e
@@ -364,7 +364,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List posts with comments across all accounts
+  # List commented posts
   data, status_code, headers = api_instance.list_inbox_comments_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -406,7 +406,7 @@ end
 
 > <ReplyToInboxPost200Response> reply_to_inbox_post(post_id, reply_to_inbox_post_request)
 
-Reply to a post or comment
+Reply to comment
 
 Post a reply to a post or specific comment. Requires accountId in request body.
 
@@ -426,7 +426,7 @@ post_id = 'post_id_example' # String | The post identifier. Accepts a Late post 
 reply_to_inbox_post_request = Late::ReplyToInboxPostRequest.new({account_id: 'account_id_example', message: 'message_example'}) # ReplyToInboxPostRequest | 
 
 begin
-  # Reply to a post or comment
+  # Reply to comment
   result = api_instance.reply_to_inbox_post(post_id, reply_to_inbox_post_request)
   p result
 rescue Late::ApiError => e
@@ -442,7 +442,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Reply to a post or comment
+  # Reply to comment
   data, status_code, headers = api_instance.reply_to_inbox_post_with_http_info(post_id, reply_to_inbox_post_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -477,7 +477,7 @@ end
 
 > <SendPrivateReplyToComment200Response> send_private_reply_to_comment(post_id, comment_id, send_private_reply_to_comment_request)
 
-Send private reply to comment author
+Send private reply
 
 Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user's Inbox (if they follow you) or Message Requests (if they don't). Requires `instagram_business_manage_messages` permission. - Facebook: message opens a Messenger conversation with the commenter. Requires `pages_messaging` permission.  **Note:** Both permissions are already included in Late's OAuth flow. This does not create a conversation thread until the user replies back. 
 
@@ -498,7 +498,7 @@ comment_id = 'comment_id_example' # String | The comment ID to send a private re
 send_private_reply_to_comment_request = Late::SendPrivateReplyToCommentRequest.new({account_id: 'account_id_example', message: 'message_example'}) # SendPrivateReplyToCommentRequest | 
 
 begin
-  # Send private reply to comment author
+  # Send private reply
   result = api_instance.send_private_reply_to_comment(post_id, comment_id, send_private_reply_to_comment_request)
   p result
 rescue Late::ApiError => e
@@ -514,7 +514,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Send private reply to comment author
+  # Send private reply
   data, status_code, headers = api_instance.send_private_reply_to_comment_with_http_info(post_id, comment_id, send_private_reply_to_comment_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -550,7 +550,7 @@ end
 
 > <HideInboxComment200Response> unhide_inbox_comment(post_id, comment_id, account_id)
 
-Unhide a comment
+Unhide comment
 
 Unhide a previously hidden comment. Supported by Facebook, Instagram, and Threads. 
 
@@ -571,7 +571,7 @@ comment_id = 'comment_id_example' # String |
 account_id = 'account_id_example' # String | 
 
 begin
-  # Unhide a comment
+  # Unhide comment
   result = api_instance.unhide_inbox_comment(post_id, comment_id, account_id)
   p result
 rescue Late::ApiError => e
@@ -587,7 +587,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Unhide a comment
+  # Unhide comment
   data, status_code, headers = api_instance.unhide_inbox_comment_with_http_info(post_id, comment_id, account_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -623,7 +623,7 @@ end
 
 > <UnlikeInboxComment200Response> unlike_inbox_comment(post_id, comment_id, account_id, opts)
 
-Unlike a comment
+Unlike comment
 
 Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the `likeUri` query parameter is required. 
 
@@ -647,7 +647,7 @@ opts = {
 }
 
 begin
-  # Unlike a comment
+  # Unlike comment
   result = api_instance.unlike_inbox_comment(post_id, comment_id, account_id, opts)
   p result
 rescue Late::ApiError => e
@@ -663,7 +663,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Unlike a comment
+  # Unlike comment
   data, status_code, headers = api_instance.unlike_inbox_comment_with_http_info(post_id, comment_id, account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }

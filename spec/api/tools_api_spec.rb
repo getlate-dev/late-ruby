@@ -33,7 +33,7 @@ describe 'ToolsApi' do
   end
 
   # unit tests for check_instagram_hashtags
-  # Check Instagram hashtags for bans
+  # Check Instagram hashtag bans
   # Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
   # @param check_instagram_hashtags_request 
   # @param [Hash] opts the optional parameters
@@ -45,7 +45,7 @@ describe 'ToolsApi' do
   end
 
   # unit tests for download_bluesky_media
-  # Download Bluesky video
+  # Download Bluesky media
   # Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
   # @param url Bluesky post URL
   # @param [Hash] opts the optional parameters
@@ -69,7 +69,7 @@ describe 'ToolsApi' do
   end
 
   # unit tests for download_instagram_media
-  # Download Instagram reel or post
+  # Download Instagram media
   # Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
   # @param url Instagram reel or post URL
   # @param [Hash] opts the optional parameters
@@ -107,7 +107,7 @@ describe 'ToolsApi' do
   end
 
   # unit tests for download_twitter_media
-  # Download Twitter/X video
+  # Download Twitter/X media
   # Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
   # @param url Twitter/X post URL
   # @param [Hash] opts the optional parameters
@@ -121,7 +121,7 @@ describe 'ToolsApi' do
   end
 
   # unit tests for download_you_tube_video
-  # Download YouTube video or audio
+  # Download YouTube video
   # Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
   # @param url YouTube video URL or video ID
   # @param [Hash] opts the optional parameters
@@ -137,7 +137,7 @@ describe 'ToolsApi' do
   end
 
   # unit tests for get_you_tube_transcript
-  # Get YouTube video transcript
+  # Get YouTube transcript
   # Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
   # @param url YouTube video URL or video ID
   # @param [Hash] opts the optional parameters

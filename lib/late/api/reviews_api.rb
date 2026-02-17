@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Delete a review reply
+    # Delete review reply
     # Delete a reply to a review (Google Business only). Requires accountId in request body.
     # @param review_id [String] 
     # @param delete_inbox_review_reply_request [DeleteInboxReviewReplyRequest] 
@@ -30,7 +30,7 @@ module Late
       data
     end
 
-    # Delete a review reply
+    # Delete review reply
     # Delete a reply to a review (Google Business only). Requires accountId in request body.
     # @param review_id [String] 
     # @param delete_inbox_review_reply_request [DeleteInboxReviewReplyRequest] 
@@ -93,7 +93,7 @@ module Late
       return data, status_code, headers
     end
 
-    # List reviews across all accounts
+    # List reviews
     # Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options.  **Supported platforms:** Facebook, Google Business 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id 
@@ -112,7 +112,7 @@ module Late
       data
     end
 
-    # List reviews across all accounts
+    # List reviews
     # Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options.  **Supported platforms:** Facebook, Google Business 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id 
@@ -216,7 +216,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Reply to a review
+    # Reply to review
     # Post a reply to a review. Requires accountId in request body.
     # @param review_id [String] Review ID (URL-encoded for Google Business)
     # @param reply_to_inbox_review_request [ReplyToInboxReviewRequest] 
@@ -227,7 +227,7 @@ module Late
       data
     end
 
-    # Reply to a review
+    # Reply to review
     # Post a reply to a review. Requires accountId in request body.
     # @param review_id [String] Review ID (URL-encoded for Google Business)
     # @param reply_to_inbox_review_request [ReplyToInboxReviewRequest] 

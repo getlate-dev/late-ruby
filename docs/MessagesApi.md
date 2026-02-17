@@ -4,11 +4,11 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**edit_inbox_message**](MessagesApi.md#edit_inbox_message) | **PATCH** /v1/inbox/conversations/{conversationId}/messages/{messageId} | Edit a message (Telegram only) |
-| [**get_inbox_conversation**](MessagesApi.md#get_inbox_conversation) | **GET** /v1/inbox/conversations/{conversationId} | Get conversation details |
-| [**get_inbox_conversation_messages**](MessagesApi.md#get_inbox_conversation_messages) | **GET** /v1/inbox/conversations/{conversationId}/messages | Get messages in a conversation |
-| [**list_inbox_conversations**](MessagesApi.md#list_inbox_conversations) | **GET** /v1/inbox/conversations | List conversations across all accounts |
-| [**send_inbox_message**](MessagesApi.md#send_inbox_message) | **POST** /v1/inbox/conversations/{conversationId}/messages | Send a message |
+| [**edit_inbox_message**](MessagesApi.md#edit_inbox_message) | **PATCH** /v1/inbox/conversations/{conversationId}/messages/{messageId} | Edit message |
+| [**get_inbox_conversation**](MessagesApi.md#get_inbox_conversation) | **GET** /v1/inbox/conversations/{conversationId} | Get conversation |
+| [**get_inbox_conversation_messages**](MessagesApi.md#get_inbox_conversation_messages) | **GET** /v1/inbox/conversations/{conversationId}/messages | List messages |
+| [**list_inbox_conversations**](MessagesApi.md#list_inbox_conversations) | **GET** /v1/inbox/conversations | List conversations |
+| [**send_inbox_message**](MessagesApi.md#send_inbox_message) | **POST** /v1/inbox/conversations/{conversationId}/messages | Send message |
 | [**update_inbox_conversation**](MessagesApi.md#update_inbox_conversation) | **PUT** /v1/inbox/conversations/{conversationId} | Update conversation status |
 
 
@@ -16,7 +16,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > <EditInboxMessage200Response> edit_inbox_message(conversation_id, message_id, edit_inbox_message_request)
 
-Edit a message (Telegram only)
+Edit message
 
 Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
 
@@ -37,7 +37,7 @@ message_id = 'message_id_example' # String | The Telegram message ID to edit
 edit_inbox_message_request = Late::EditInboxMessageRequest.new({account_id: 'account_id_example'}) # EditInboxMessageRequest | 
 
 begin
-  # Edit a message (Telegram only)
+  # Edit message
   result = api_instance.edit_inbox_message(conversation_id, message_id, edit_inbox_message_request)
   p result
 rescue Late::ApiError => e
@@ -53,7 +53,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Edit a message (Telegram only)
+  # Edit message
   data, status_code, headers = api_instance.edit_inbox_message_with_http_info(conversation_id, message_id, edit_inbox_message_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -89,7 +89,7 @@ end
 
 > <GetInboxConversation200Response> get_inbox_conversation(conversation_id, account_id)
 
-Get conversation details
+Get conversation
 
 Retrieve details and metadata for a specific conversation. Requires accountId query parameter.
 
@@ -109,7 +109,7 @@ conversation_id = 'conversation_id_example' # String | The conversation ID (id f
 account_id = 'account_id_example' # String | The social account ID
 
 begin
-  # Get conversation details
+  # Get conversation
   result = api_instance.get_inbox_conversation(conversation_id, account_id)
   p result
 rescue Late::ApiError => e
@@ -125,7 +125,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get conversation details
+  # Get conversation
   data, status_code, headers = api_instance.get_inbox_conversation_with_http_info(conversation_id, account_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -160,7 +160,7 @@ end
 
 > <GetInboxConversationMessages200Response> get_inbox_conversation_messages(conversation_id, account_id)
 
-Get messages in a conversation
+List messages
 
 Fetch messages for a specific conversation. Requires accountId query parameter.
 
@@ -180,7 +180,7 @@ conversation_id = 'conversation_id_example' # String | The conversation ID (id f
 account_id = 'account_id_example' # String | Social account ID
 
 begin
-  # Get messages in a conversation
+  # List messages
   result = api_instance.get_inbox_conversation_messages(conversation_id, account_id)
   p result
 rescue Late::ApiError => e
@@ -196,7 +196,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get messages in a conversation
+  # List messages
   data, status_code, headers = api_instance.get_inbox_conversation_messages_with_http_info(conversation_id, account_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -231,7 +231,7 @@ end
 
 > <ListInboxConversations200Response> list_inbox_conversations(opts)
 
-List conversations across all accounts
+List conversations
 
 Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
 
@@ -258,7 +258,7 @@ opts = {
 }
 
 begin
-  # List conversations across all accounts
+  # List conversations
   result = api_instance.list_inbox_conversations(opts)
   p result
 rescue Late::ApiError => e
@@ -274,7 +274,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List conversations across all accounts
+  # List conversations
   data, status_code, headers = api_instance.list_inbox_conversations_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -314,9 +314,9 @@ end
 
 > <SendInboxMessage200Response> send_inbox_message(conversation_id, send_inbox_message_request)
 
-Send a message
+Send message
 
-Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
+Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky/Reddit: Not supported  **Interactive messages:** Supports quick replies, buttons, templates, and reply markup. Feature availability varies by platform (Instagram, Facebook, Telegram). Unsupported fields are silently ignored. 
 
 ### Examples
 
@@ -334,7 +334,7 @@ conversation_id = 'conversation_id_example' # String | The conversation ID (id f
 send_inbox_message_request = Late::SendInboxMessageRequest.new({account_id: 'account_id_example'}) # SendInboxMessageRequest | 
 
 begin
-  # Send a message
+  # Send message
   result = api_instance.send_inbox_message(conversation_id, send_inbox_message_request)
   p result
 rescue Late::ApiError => e
@@ -350,7 +350,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Send a message
+  # Send message
   data, status_code, headers = api_instance.send_inbox_message_with_http_info(conversation_id, send_inbox_message_request)
   p status_code # => 2xx
   p headers # => { ... }

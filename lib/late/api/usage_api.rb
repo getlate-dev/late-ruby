@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get plan and usage stats for current account
+    # Get plan and usage stats
     # @param [Hash] opts the optional parameters
     # @return [UsageStats]
     def get_usage_stats(opts = {})
@@ -27,7 +27,7 @@ module Late
       data
     end
 
-    # Get plan and usage stats for current account
+    # Get plan and usage stats
     # @param [Hash] opts the optional parameters
     # @return [Array<(UsageStats, Integer, Hash)>] UsageStats data, response status code and response headers
     def get_usage_stats_with_http_info(opts = {})

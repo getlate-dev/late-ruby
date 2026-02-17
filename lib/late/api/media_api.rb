@@ -19,8 +19,8 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get a presigned URL for direct file upload (up to 5GB)
-    # Get a presigned URL to upload files directly to cloud storage. This is the recommended method for uploading files of any size, especially files larger than ~4MB.  **How it works:** 1. Call this endpoint with the filename and content type 2. Receive an `uploadUrl` (presigned) and `publicUrl` 3. PUT your file directly to the `uploadUrl` 4. Use the `publicUrl` in your posts  **Benefits:** - Supports files up to 5GB - Files upload directly to storage (faster, no server bottleneck) - No 413 errors from server body size limits  **Example:** ```javascript // Step 1: Get presigned URL const response = await fetch('https://getlate.dev/api/v1/media/presign', {   method: 'POST',   headers: {     'Authorization': 'Bearer YOUR_API_KEY',     'Content-Type': 'application/json'   },   body: JSON.stringify({     filename: 'my-video.mp4',     contentType: 'video/mp4'   }) }); const { uploadUrl, publicUrl } = await response.json();  // Step 2: Upload file directly to storage await fetch(uploadUrl, {   method: 'PUT',   body: file,   headers: { 'Content-Type': 'video/mp4' } });  // Step 3: Use publicUrl when creating your post // The publicUrl is ready to use immediately after upload completes ``` 
+    # Get presigned upload URL
+    # Get a presigned URL to upload files directly to cloud storage. Supports files up to 5GB.  **How it works:** 1. Call this endpoint with the filename and content type 2. Receive an `uploadUrl` (presigned) and `publicUrl` 3. PUT your file directly to the `uploadUrl` 4. Use the `publicUrl` in your posts 
     # @param get_media_presigned_url_request [GetMediaPresignedUrlRequest] 
     # @param [Hash] opts the optional parameters
     # @return [GetMediaPresignedUrl200Response]
@@ -29,8 +29,8 @@ module Late
       data
     end
 
-    # Get a presigned URL for direct file upload (up to 5GB)
-    # Get a presigned URL to upload files directly to cloud storage. This is the recommended method for uploading files of any size, especially files larger than ~4MB.  **How it works:** 1. Call this endpoint with the filename and content type 2. Receive an &#x60;uploadUrl&#x60; (presigned) and &#x60;publicUrl&#x60; 3. PUT your file directly to the &#x60;uploadUrl&#x60; 4. Use the &#x60;publicUrl&#x60; in your posts  **Benefits:** - Supports files up to 5GB - Files upload directly to storage (faster, no server bottleneck) - No 413 errors from server body size limits  **Example:** &#x60;&#x60;&#x60;javascript // Step 1: Get presigned URL const response &#x3D; await fetch(&#39;https://getlate.dev/api/v1/media/presign&#39;, {   method: &#39;POST&#39;,   headers: {     &#39;Authorization&#39;: &#39;Bearer YOUR_API_KEY&#39;,     &#39;Content-Type&#39;: &#39;application/json&#39;   },   body: JSON.stringify({     filename: &#39;my-video.mp4&#39;,     contentType: &#39;video/mp4&#39;   }) }); const { uploadUrl, publicUrl } &#x3D; await response.json();  // Step 2: Upload file directly to storage await fetch(uploadUrl, {   method: &#39;PUT&#39;,   body: file,   headers: { &#39;Content-Type&#39;: &#39;video/mp4&#39; } });  // Step 3: Use publicUrl when creating your post // The publicUrl is ready to use immediately after upload completes &#x60;&#x60;&#x60; 
+    # Get presigned upload URL
+    # Get a presigned URL to upload files directly to cloud storage. Supports files up to 5GB.  **How it works:** 1. Call this endpoint with the filename and content type 2. Receive an &#x60;uploadUrl&#x60; (presigned) and &#x60;publicUrl&#x60; 3. PUT your file directly to the &#x60;uploadUrl&#x60; 4. Use the &#x60;publicUrl&#x60; in your posts 
     # @param get_media_presigned_url_request [GetMediaPresignedUrlRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetMediaPresignedUrl200Response, Integer, Hash)>] GetMediaPresignedUrl200Response data, response status code and response headers

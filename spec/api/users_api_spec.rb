@@ -33,7 +33,7 @@ describe 'UsersApi' do
   end
 
   # unit tests for get_user
-  # Get user by id (self or invited)
+  # Get user
   # @param user_id 
   # @param [Hash] opts the optional parameters
   # @return [GetUser200Response]
@@ -44,7 +44,7 @@ describe 'UsersApi' do
   end
 
   # unit tests for list_users
-  # List team users (root + invited)
+  # List users
   # @param [Hash] opts the optional parameters
   # @return [ListUsers200Response]
   describe 'list_users test' do

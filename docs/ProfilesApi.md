@@ -4,18 +4,18 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_profile**](ProfilesApi.md#create_profile) | **POST** /v1/profiles | Create a new profile |
-| [**delete_profile**](ProfilesApi.md#delete_profile) | **DELETE** /v1/profiles/{profileId} | Delete a profile (must have no connected accounts) |
-| [**get_profile**](ProfilesApi.md#get_profile) | **GET** /v1/profiles/{profileId} | Get a profile by id |
-| [**list_profiles**](ProfilesApi.md#list_profiles) | **GET** /v1/profiles | List profiles visible to the authenticated user |
-| [**update_profile**](ProfilesApi.md#update_profile) | **PUT** /v1/profiles/{profileId} | Update a profile |
+| [**create_profile**](ProfilesApi.md#create_profile) | **POST** /v1/profiles | Create profile |
+| [**delete_profile**](ProfilesApi.md#delete_profile) | **DELETE** /v1/profiles/{profileId} | Delete profile |
+| [**get_profile**](ProfilesApi.md#get_profile) | **GET** /v1/profiles/{profileId} | Get profile |
+| [**list_profiles**](ProfilesApi.md#list_profiles) | **GET** /v1/profiles | List profiles |
+| [**update_profile**](ProfilesApi.md#update_profile) | **PUT** /v1/profiles/{profileId} | Update profile |
 
 
 ## create_profile
 
 > <ProfileCreateResponse> create_profile(create_profile_request)
 
-Create a new profile
+Create profile
 
 ### Examples
 
@@ -32,7 +32,7 @@ api_instance = Late::ProfilesApi.new
 create_profile_request = Late::CreateProfileRequest.new({name: 'name_example'}) # CreateProfileRequest | 
 
 begin
-  # Create a new profile
+  # Create profile
   result = api_instance.create_profile(create_profile_request)
   p result
 rescue Late::ApiError => e
@@ -48,7 +48,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create a new profile
+  # Create profile
   data, status_code, headers = api_instance.create_profile_with_http_info(create_profile_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -82,7 +82,7 @@ end
 
 > <DeleteAccountGroup200Response> delete_profile(profile_id)
 
-Delete a profile (must have no connected accounts)
+Delete profile
 
 ### Examples
 
@@ -99,7 +99,7 @@ api_instance = Late::ProfilesApi.new
 profile_id = 'profile_id_example' # String | 
 
 begin
-  # Delete a profile (must have no connected accounts)
+  # Delete profile
   result = api_instance.delete_profile(profile_id)
   p result
 rescue Late::ApiError => e
@@ -115,7 +115,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Delete a profile (must have no connected accounts)
+  # Delete profile
   data, status_code, headers = api_instance.delete_profile_with_http_info(profile_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -149,7 +149,7 @@ end
 
 > <GetProfile200Response> get_profile(profile_id)
 
-Get a profile by id
+Get profile
 
 ### Examples
 
@@ -166,7 +166,7 @@ api_instance = Late::ProfilesApi.new
 profile_id = 'profile_id_example' # String | 
 
 begin
-  # Get a profile by id
+  # Get profile
   result = api_instance.get_profile(profile_id)
   p result
 rescue Late::ApiError => e
@@ -182,7 +182,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get a profile by id
+  # Get profile
   data, status_code, headers = api_instance.get_profile_with_http_info(profile_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -216,7 +216,7 @@ end
 
 > <ProfilesListResponse> list_profiles(opts)
 
-List profiles visible to the authenticated user
+List profiles
 
 Returns profiles within the user's plan limit. Profiles are sorted by creation date (oldest first). Use `includeOverLimit=true` to include profiles that exceed the plan limit (for management/deletion purposes). 
 
@@ -237,7 +237,7 @@ opts = {
 }
 
 begin
-  # List profiles visible to the authenticated user
+  # List profiles
   result = api_instance.list_profiles(opts)
   p result
 rescue Late::ApiError => e
@@ -253,7 +253,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List profiles visible to the authenticated user
+  # List profiles
   data, status_code, headers = api_instance.list_profiles_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -287,7 +287,7 @@ end
 
 > <UpdateProfile200Response> update_profile(profile_id, update_profile_request)
 
-Update a profile
+Update profile
 
 ### Examples
 
@@ -305,7 +305,7 @@ profile_id = 'profile_id_example' # String |
 update_profile_request = Late::UpdateProfileRequest.new # UpdateProfileRequest | 
 
 begin
-  # Update a profile
+  # Update profile
   result = api_instance.update_profile(profile_id, update_profile_request)
   p result
 rescue Late::ApiError => e
@@ -321,7 +321,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Update a profile
+  # Update profile
   data, status_code, headers = api_instance.update_profile_with_http_info(profile_id, update_profile_request)
   p status_code # => 2xx
   p headers # => { ... }

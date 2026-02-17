@@ -33,7 +33,7 @@ describe 'ReviewsApi' do
   end
 
   # unit tests for delete_inbox_review_reply
-  # Delete a review reply
+  # Delete review reply
   # Delete a reply to a review (Google Business only). Requires accountId in request body.
   # @param review_id 
   # @param delete_inbox_review_reply_request 
@@ -46,7 +46,7 @@ describe 'ReviewsApi' do
   end
 
   # unit tests for list_inbox_reviews
-  # List reviews across all accounts
+  # List reviews
   # Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options.  **Supported platforms:** Facebook, Google Business 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :profile_id 
@@ -67,7 +67,7 @@ describe 'ReviewsApi' do
   end
 
   # unit tests for reply_to_inbox_review
-  # Reply to a review
+  # Reply to review
   # Post a reply to a review. Requires accountId in request body.
   # @param review_id Review ID (URL-encoded for Google Business)
   # @param reply_to_inbox_review_request 

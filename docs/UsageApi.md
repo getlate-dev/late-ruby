@@ -4,14 +4,14 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_usage_stats**](UsageApi.md#get_usage_stats) | **GET** /v1/usage-stats | Get plan and usage stats for current account |
+| [**get_usage_stats**](UsageApi.md#get_usage_stats) | **GET** /v1/usage-stats | Get plan and usage stats |
 
 
 ## get_usage_stats
 
 > <UsageStats> get_usage_stats
 
-Get plan and usage stats for current account
+Get plan and usage stats
 
 ### Examples
 
@@ -27,7 +27,7 @@ end
 api_instance = Late::UsageApi.new
 
 begin
-  # Get plan and usage stats for current account
+  # Get plan and usage stats
   result = api_instance.get_usage_stats
   p result
 rescue Late::ApiError => e
@@ -43,7 +43,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get plan and usage stats for current account
+  # Get plan and usage stats
   data, status_code, headers = api_instance.get_usage_stats_with_http_info
   p status_code # => 2xx
   p headers # => { ... }

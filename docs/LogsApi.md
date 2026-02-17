@@ -4,18 +4,18 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_log**](LogsApi.md#get_log) | **GET** /v1/logs/{logId} | Get a single log entry |
-| [**get_post_logs**](LogsApi.md#get_post_logs) | **GET** /v1/posts/{postId}/logs | Get logs for a specific post |
-| [**list_connection_logs**](LogsApi.md#list_connection_logs) | **GET** /v1/connections/logs | Get connection logs |
-| [**list_logs**](LogsApi.md#list_logs) | **GET** /v1/logs | Get publishing logs (deprecated) |
-| [**list_posts_logs**](LogsApi.md#list_posts_logs) | **GET** /v1/posts/logs | Get publishing logs |
+| [**get_log**](LogsApi.md#get_log) | **GET** /v1/logs/{logId} | Get log entry |
+| [**get_post_logs**](LogsApi.md#get_post_logs) | **GET** /v1/posts/{postId}/logs | Get post logs |
+| [**list_connection_logs**](LogsApi.md#list_connection_logs) | **GET** /v1/connections/logs | List connection logs |
+| [**list_logs**](LogsApi.md#list_logs) | **GET** /v1/logs | List publishing logs (deprecated) |
+| [**list_posts_logs**](LogsApi.md#list_posts_logs) | **GET** /v1/posts/logs | List publishing logs |
 
 
 ## get_log
 
 > <GetLog200Response> get_log(log_id)
 
-Get a single log entry
+Get log entry
 
 Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
 
@@ -34,7 +34,7 @@ api_instance = Late::LogsApi.new
 log_id = 'log_id_example' # String | The log entry ID
 
 begin
-  # Get a single log entry
+  # Get log entry
   result = api_instance.get_log(log_id)
   p result
 rescue Late::ApiError => e
@@ -50,7 +50,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get a single log entry
+  # Get log entry
   data, status_code, headers = api_instance.get_log_with_http_info(log_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -84,7 +84,7 @@ end
 
 > <GetPostLogs200Response> get_post_logs(post_id, opts)
 
-Get logs for a specific post
+Get post logs
 
 Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
 
@@ -106,7 +106,7 @@ opts = {
 }
 
 begin
-  # Get logs for a specific post
+  # Get post logs
   result = api_instance.get_post_logs(post_id, opts)
   p result
 rescue Late::ApiError => e
@@ -122,7 +122,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get logs for a specific post
+  # Get post logs
   data, status_code, headers = api_instance.get_post_logs_with_http_info(post_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -157,7 +157,7 @@ end
 
 > <ListConnectionLogs200Response> list_connection_logs(opts)
 
-Get connection logs
+List connection logs
 
 Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - `connect_success` - New account connected successfully - `connect_failed` - Connection attempt failed - `disconnect` - Account was disconnected - `reconnect_success` - Existing account reconnected - `reconnect_failed` - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
 
@@ -183,7 +183,7 @@ opts = {
 }
 
 begin
-  # Get connection logs
+  # List connection logs
   result = api_instance.list_connection_logs(opts)
   p result
 rescue Late::ApiError => e
@@ -199,7 +199,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get connection logs
+  # List connection logs
   data, status_code, headers = api_instance.list_connection_logs_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -238,7 +238,7 @@ end
 
 > <ListLogs200Response> list_logs(opts)
 
-Get publishing logs (deprecated)
+List publishing logs (deprecated)
 
 **Deprecated:** Use `/v1/posts/logs` instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
 
@@ -264,7 +264,7 @@ opts = {
 }
 
 begin
-  # Get publishing logs (deprecated)
+  # List publishing logs (deprecated)
   result = api_instance.list_logs(opts)
   p result
 rescue Late::ApiError => e
@@ -280,7 +280,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get publishing logs (deprecated)
+  # List publishing logs (deprecated)
   data, status_code, headers = api_instance.list_logs_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -319,7 +319,7 @@ end
 
 > <ListLogs200Response> list_posts_logs(opts)
 
-Get publishing logs
+List publishing logs
 
 Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
 
@@ -345,7 +345,7 @@ opts = {
 }
 
 begin
-  # Get publishing logs
+  # List publishing logs
   result = api_instance.list_posts_logs(opts)
   p result
 rescue Late::ApiError => e
@@ -361,7 +361,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get publishing logs
+  # List publishing logs
   data, status_code, headers = api_instance.list_posts_logs_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }

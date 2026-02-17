@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get Google Business Profile location attributes
+    # Get attributes
     # Fetches location attributes such as amenities, services, and accessibility features.  Common attributes for restaurants include: - Dining options: has_dine_in, has_takeout, has_delivery - Amenities: has_outdoor_seating, has_wifi, has_parking - Accessibility: has_wheelchair_accessible_entrance - Payments: pay_credit_card_types_accepted  Available attributes vary by business category. 
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
@@ -29,7 +29,7 @@ module Late
       data
     end
 
-    # Get Google Business Profile location attributes
+    # Get attributes
     # Fetches location attributes such as amenities, services, and accessibility features.  Common attributes for restaurants include: - Dining options: has_dine_in, has_takeout, has_delivery - Amenities: has_outdoor_seating, has_wifi, has_parking - Accessibility: has_wheelchair_accessible_entrance - Payments: pay_credit_card_types_accepted  Available attributes vary by business category. 
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
@@ -82,7 +82,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Update Google Business Profile location attributes
+    # Update attributes
     # Updates location attributes (amenities, services, etc.).  The `attributeMask` specifies which attributes to update (comma-separated). 
     # @param account_id [String] 
     # @param update_google_business_attributes_request [UpdateGoogleBusinessAttributesRequest] 
@@ -93,7 +93,7 @@ module Late
       data
     end
 
-    # Update Google Business Profile location attributes
+    # Update attributes
     # Updates location attributes (amenities, services, etc.).  The &#x60;attributeMask&#x60; specifies which attributes to update (comma-separated). 
     # @param account_id [String] 
     # @param update_google_business_attributes_request [UpdateGoogleBusinessAttributesRequest] 

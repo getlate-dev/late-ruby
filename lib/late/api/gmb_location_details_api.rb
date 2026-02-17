@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get Google Business Profile location details
+    # Get location details
     # Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the `readMask` query parameter to request specific fields. 
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param [Hash] opts the optional parameters
@@ -30,7 +30,7 @@ module Late
       data
     end
 
-    # Get Google Business Profile location details
+    # Get location details
     # Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the &#x60;readMask&#x60; query parameter to request specific fields. 
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param [Hash] opts the optional parameters
@@ -85,7 +85,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Update Google Business Profile location details
+    # Update location details
     # Updates location details such as opening hours, special hours, business description, phone, and website.  The `updateMask` field is required and specifies which fields to update.  Common update masks: - `regularHours` - Update opening hours - `specialHours` - Update holiday/special hours - `profile.description` - Update business description - `websiteUri` - Update website URL - `phoneNumbers` - Update phone numbers - `regularHours,specialHours` - Update both at once 
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param update_google_business_location_details_request [UpdateGoogleBusinessLocationDetailsRequest] 
@@ -96,7 +96,7 @@ module Late
       data
     end
 
-    # Update Google Business Profile location details
+    # Update location details
     # Updates location details such as opening hours, special hours, business description, phone, and website.  The &#x60;updateMask&#x60; field is required and specifies which fields to update.  Common update masks: - &#x60;regularHours&#x60; - Update opening hours - &#x60;specialHours&#x60; - Update holiday/special hours - &#x60;profile.description&#x60; - Update business description - &#x60;websiteUri&#x60; - Update website URL - &#x60;phoneNumbers&#x60; - Update phone numbers - &#x60;regularHours,specialHours&#x60; - Update both at once 
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param update_google_business_location_details_request [UpdateGoogleBusinessLocationDetailsRequest] 

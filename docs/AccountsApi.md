@@ -4,19 +4,19 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**delete_account**](AccountsApi.md#delete_account) | **DELETE** /v1/accounts/{accountId} | Disconnect a social account |
-| [**get_account_health**](AccountsApi.md#get_account_health) | **GET** /v1/accounts/{accountId}/health | Check health of a specific account |
-| [**get_all_accounts_health**](AccountsApi.md#get_all_accounts_health) | **GET** /v1/accounts/health | Check health of all connected accounts |
-| [**get_follower_stats**](AccountsApi.md#get_follower_stats) | **GET** /v1/accounts/follower-stats | Get follower stats and growth metrics |
-| [**list_accounts**](AccountsApi.md#list_accounts) | **GET** /v1/accounts | List connected social accounts |
-| [**update_account**](AccountsApi.md#update_account) | **PUT** /v1/accounts/{accountId} | Update a social account |
+| [**delete_account**](AccountsApi.md#delete_account) | **DELETE** /v1/accounts/{accountId} | Disconnect account |
+| [**get_account_health**](AccountsApi.md#get_account_health) | **GET** /v1/accounts/{accountId}/health | Check account health |
+| [**get_all_accounts_health**](AccountsApi.md#get_all_accounts_health) | **GET** /v1/accounts/health | Check accounts health |
+| [**get_follower_stats**](AccountsApi.md#get_follower_stats) | **GET** /v1/accounts/follower-stats | Get follower stats |
+| [**list_accounts**](AccountsApi.md#list_accounts) | **GET** /v1/accounts | List accounts |
+| [**update_account**](AccountsApi.md#update_account) | **PUT** /v1/accounts/{accountId} | Update account |
 
 
 ## delete_account
 
 > <DeleteAccountGroup200Response> delete_account(account_id)
 
-Disconnect a social account
+Disconnect account
 
 ### Examples
 
@@ -33,7 +33,7 @@ api_instance = Late::AccountsApi.new
 account_id = 'account_id_example' # String | 
 
 begin
-  # Disconnect a social account
+  # Disconnect account
   result = api_instance.delete_account(account_id)
   p result
 rescue Late::ApiError => e
@@ -49,7 +49,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Disconnect a social account
+  # Disconnect account
   data, status_code, headers = api_instance.delete_account_with_http_info(account_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -83,7 +83,7 @@ end
 
 > <GetAccountHealth200Response> get_account_health(account_id)
 
-Check health of a specific account
+Check account health
 
 Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
 
@@ -102,7 +102,7 @@ api_instance = Late::AccountsApi.new
 account_id = 'account_id_example' # String | The account ID to check
 
 begin
-  # Check health of a specific account
+  # Check account health
   result = api_instance.get_account_health(account_id)
   p result
 rescue Late::ApiError => e
@@ -118,7 +118,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Check health of a specific account
+  # Check account health
   data, status_code, headers = api_instance.get_account_health_with_http_info(account_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -152,7 +152,7 @@ end
 
 > <GetAllAccountsHealth200Response> get_all_accounts_health(opts)
 
-Check health of all connected accounts
+Check accounts health
 
 Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
 
@@ -175,7 +175,7 @@ opts = {
 }
 
 begin
-  # Check health of all connected accounts
+  # Check accounts health
   result = api_instance.get_all_accounts_health(opts)
   p result
 rescue Late::ApiError => e
@@ -191,7 +191,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Check health of all connected accounts
+  # Check accounts health
   data, status_code, headers = api_instance.get_all_accounts_health_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -227,7 +227,7 @@ end
 
 > <GetFollowerStats200Response> get_follower_stats(opts)
 
-Get follower stats and growth metrics
+Get follower stats
 
 Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
 
@@ -252,7 +252,7 @@ opts = {
 }
 
 begin
-  # Get follower stats and growth metrics
+  # Get follower stats
   result = api_instance.get_follower_stats(opts)
   p result
 rescue Late::ApiError => e
@@ -268,7 +268,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get follower stats and growth metrics
+  # Get follower stats
   data, status_code, headers = api_instance.get_follower_stats_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -306,7 +306,7 @@ end
 
 > <ListAccounts200Response> list_accounts(opts)
 
-List connected social accounts
+List accounts
 
 Returns list of connected social accounts. By default, only returns accounts from profiles within the user's plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
 
@@ -328,7 +328,7 @@ opts = {
 }
 
 begin
-  # List connected social accounts
+  # List accounts
   result = api_instance.list_accounts(opts)
   p result
 rescue Late::ApiError => e
@@ -344,7 +344,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List connected social accounts
+  # List accounts
   data, status_code, headers = api_instance.list_accounts_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -379,7 +379,7 @@ end
 
 > <UpdateAccount200Response> update_account(account_id, update_account_request)
 
-Update a social account
+Update account
 
 ### Examples
 
@@ -397,7 +397,7 @@ account_id = 'account_id_example' # String |
 update_account_request = Late::UpdateAccountRequest.new # UpdateAccountRequest | 
 
 begin
-  # Update a social account
+  # Update account
   result = api_instance.update_account(account_id, update_account_request)
   p result
 rescue Late::ApiError => e
@@ -413,7 +413,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Update a social account
+  # Update account
   data, status_code, headers = api_instance.update_account_with_http_info(account_id, update_account_request)
   p status_code # => 2xx
   p headers # => { ... }

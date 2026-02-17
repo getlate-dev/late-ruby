@@ -33,7 +33,7 @@ describe 'CommentsApi' do
   end
 
   # unit tests for delete_inbox_comment
-  # Delete a comment
+  # Delete comment
   # Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
   # @param post_id The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL. 
   # @param account_id 
@@ -47,7 +47,7 @@ describe 'CommentsApi' do
   end
 
   # unit tests for get_inbox_post_comments
-  # Get comments for a post
+  # Get post comments
   # Fetch comments for a specific post. Requires accountId query parameter.
   # @param post_id The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID).  **LinkedIn:** For your own posts, the full URN stored in Late (e.g., &#x60;urn:li:share:7429218977714745345&#x60;) is used automatically. For third-party posts, pass either the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as &#x60;urn:li:activity:&#x60;). Note: LinkedIn post URLs use activity IDs (&#x60;linkedin.com/feed/update/urn:li:activity:XXXX&#x60;). 
   # @param account_id 
@@ -64,7 +64,7 @@ describe 'CommentsApi' do
   end
 
   # unit tests for hide_inbox_comment
-  # Hide a comment
+  # Hide comment
   # Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden comments are only visible to the commenter and page admin. 
   # @param post_id 
   # @param comment_id 
@@ -78,7 +78,7 @@ describe 'CommentsApi' do
   end
 
   # unit tests for like_inbox_comment
-  # Like a comment
+  # Like comment
   # Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
   # @param post_id 
   # @param comment_id 
@@ -92,7 +92,7 @@ describe 'CommentsApi' do
   end
 
   # unit tests for list_inbox_comments
-  # List posts with comments across all accounts
+  # List commented posts
   # Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :profile_id Filter by profile ID
@@ -112,7 +112,7 @@ describe 'CommentsApi' do
   end
 
   # unit tests for reply_to_inbox_post
-  # Reply to a post or comment
+  # Reply to comment
   # Post a reply to a post or specific comment. Requires accountId in request body.
   # @param post_id The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL. 
   # @param reply_to_inbox_post_request 
@@ -125,7 +125,7 @@ describe 'CommentsApi' do
   end
 
   # unit tests for send_private_reply_to_comment
-  # Send private reply to comment author
+  # Send private reply
   # Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
   # @param post_id The media/post ID (Instagram media ID or Facebook post ID)
   # @param comment_id The comment ID to send a private reply to
@@ -139,7 +139,7 @@ describe 'CommentsApi' do
   end
 
   # unit tests for unhide_inbox_comment
-  # Unhide a comment
+  # Unhide comment
   # Unhide a previously hidden comment. Supported by Facebook, Instagram, and Threads. 
   # @param post_id 
   # @param comment_id 
@@ -153,7 +153,7 @@ describe 'CommentsApi' do
   end
 
   # unit tests for unlike_inbox_comment
-  # Unlike a comment
+  # Unlike comment
   # Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
   # @param post_id 
   # @param comment_id 

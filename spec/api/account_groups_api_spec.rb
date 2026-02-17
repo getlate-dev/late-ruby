@@ -33,7 +33,7 @@ describe 'AccountGroupsApi' do
   end
 
   # unit tests for create_account_group
-  # Create a new account group
+  # Create group
   # @param create_account_group_request 
   # @param [Hash] opts the optional parameters
   # @return [CreateAccountGroup201Response]
@@ -44,7 +44,7 @@ describe 'AccountGroupsApi' do
   end
 
   # unit tests for delete_account_group
-  # Delete an account group
+  # Delete group
   # @param group_id 
   # @param [Hash] opts the optional parameters
   # @return [DeleteAccountGroup200Response]
@@ -55,7 +55,7 @@ describe 'AccountGroupsApi' do
   end
 
   # unit tests for list_account_groups
-  # List account groups for the authenticated user
+  # List groups
   # @param [Hash] opts the optional parameters
   # @return [ListAccountGroups200Response]
   describe 'list_account_groups test' do
@@ -65,7 +65,7 @@ describe 'AccountGroupsApi' do
   end
 
   # unit tests for update_account_group
-  # Update an account group
+  # Update group
   # @param group_id 
   # @param update_account_group_request 
   # @param [Hash] opts the optional parameters

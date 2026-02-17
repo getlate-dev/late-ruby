@@ -33,7 +33,7 @@ describe 'RedditSearchApi' do
   end
 
   # unit tests for get_reddit_feed
-  # Fetch subreddit feed via a connected account
+  # Get subreddit feed
   # @param account_id 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :subreddit 
@@ -49,7 +49,7 @@ describe 'RedditSearchApi' do
   end
 
   # unit tests for search_reddit
-  # Search Reddit posts via a connected account
+  # Search posts
   # @param account_id 
   # @param q 
   # @param [Hash] opts the optional parameters

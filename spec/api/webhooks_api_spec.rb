@@ -33,7 +33,7 @@ describe 'WebhooksApi' do
   end
 
   # unit tests for create_webhook_settings
-  # Create a new webhook
+  # Create webhook
   # Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
   # @param create_webhook_settings_request 
   # @param [Hash] opts the optional parameters
@@ -45,7 +45,7 @@ describe 'WebhooksApi' do
   end
 
   # unit tests for delete_webhook_settings
-  # Delete a webhook
+  # Delete webhook
   # Permanently delete a webhook configuration.
   # @param id Webhook ID to delete
   # @param [Hash] opts the optional parameters
@@ -57,7 +57,7 @@ describe 'WebhooksApi' do
   end
 
   # unit tests for get_webhook_logs
-  # Get webhook delivery logs
+  # Get delivery logs
   # Retrieve webhook delivery history. Logs are automatically deleted after 7 days. 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Maximum number of logs to return (max 100)
@@ -72,7 +72,7 @@ describe 'WebhooksApi' do
   end
 
   # unit tests for get_webhook_settings
-  # List all webhooks
+  # List webhooks
   # Retrieve all configured webhooks for the authenticated user. Supports up to 10 webhooks per user.
   # @param [Hash] opts the optional parameters
   # @return [GetWebhookSettings200Response]
@@ -95,7 +95,7 @@ describe 'WebhooksApi' do
   end
 
   # unit tests for update_webhook_settings
-  # Update a webhook
+  # Update webhook
   # Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
   # @param update_webhook_settings_request 
   # @param [Hash] opts the optional parameters

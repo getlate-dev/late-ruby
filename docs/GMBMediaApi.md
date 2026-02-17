@@ -4,16 +4,16 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_google_business_media**](GMBMediaApi.md#create_google_business_media) | **POST** /v1/accounts/{accountId}/gmb-media | Upload a photo to Google Business Profile |
-| [**delete_google_business_media**](GMBMediaApi.md#delete_google_business_media) | **DELETE** /v1/accounts/{accountId}/gmb-media | Delete a photo from Google Business Profile |
-| [**list_google_business_media**](GMBMediaApi.md#list_google_business_media) | **GET** /v1/accounts/{accountId}/gmb-media | List Google Business Profile media (photos) |
+| [**create_google_business_media**](GMBMediaApi.md#create_google_business_media) | **POST** /v1/accounts/{accountId}/gmb-media | Upload photo |
+| [**delete_google_business_media**](GMBMediaApi.md#delete_google_business_media) | **DELETE** /v1/accounts/{accountId}/gmb-media | Delete photo |
+| [**list_google_business_media**](GMBMediaApi.md#list_google_business_media) | **GET** /v1/accounts/{accountId}/gmb-media | List media |
 
 
 ## create_google_business_media
 
 > <CreateGoogleBusinessMedia200Response> create_google_business_media(account_id, create_google_business_media_request)
 
-Upload a photo to Google Business Profile
+Upload photo
 
 Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: - `COVER` - Cover photo - `PROFILE` - Profile photo - `LOGO` - Business logo - `EXTERIOR` - Exterior shots - `INTERIOR` - Interior shots - `FOOD_AND_DRINK` - Food and drink photos - `MENU` - Menu photos - `PRODUCT` - Product photos - `TEAMS` - Team/staff photos - `ADDITIONAL` - Other photos 
 
@@ -33,7 +33,7 @@ account_id = 'account_id_example' # String |
 create_google_business_media_request = Late::CreateGoogleBusinessMediaRequest.new({source_url: 'source_url_example'}) # CreateGoogleBusinessMediaRequest | 
 
 begin
-  # Upload a photo to Google Business Profile
+  # Upload photo
   result = api_instance.create_google_business_media(account_id, create_google_business_media_request)
   p result
 rescue Late::ApiError => e
@@ -49,7 +49,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Upload a photo to Google Business Profile
+  # Upload photo
   data, status_code, headers = api_instance.create_google_business_media_with_http_info(account_id, create_google_business_media_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -84,7 +84,7 @@ end
 
 > <DeleteGoogleBusinessMedia200Response> delete_google_business_media(account_id, media_id)
 
-Delete a photo from Google Business Profile
+Delete photo
 
 ### Examples
 
@@ -102,7 +102,7 @@ account_id = 'account_id_example' # String |
 media_id = 'media_id_example' # String | The media item ID to delete
 
 begin
-  # Delete a photo from Google Business Profile
+  # Delete photo
   result = api_instance.delete_google_business_media(account_id, media_id)
   p result
 rescue Late::ApiError => e
@@ -118,7 +118,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Delete a photo from Google Business Profile
+  # Delete photo
   data, status_code, headers = api_instance.delete_google_business_media_with_http_info(account_id, media_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -153,7 +153,7 @@ end
 
 > <ListGoogleBusinessMedia200Response> list_google_business_media(account_id, opts)
 
-List Google Business Profile media (photos)
+List media
 
 Lists media items (photos) for a Google Business Profile location. Returns photo URLs, descriptions, categories, and metadata. 
 
@@ -176,7 +176,7 @@ opts = {
 }
 
 begin
-  # List Google Business Profile media (photos)
+  # List media
   result = api_instance.list_google_business_media(account_id, opts)
   p result
 rescue Late::ApiError => e
@@ -192,7 +192,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List Google Business Profile media (photos)
+  # List media
   data, status_code, headers = api_instance.list_google_business_media_with_http_info(account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }

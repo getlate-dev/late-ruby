@@ -4,15 +4,15 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_google_business_attributes**](GMBAttributesApi.md#get_google_business_attributes) | **GET** /v1/accounts/{accountId}/gmb-attributes | Get Google Business Profile location attributes |
-| [**update_google_business_attributes**](GMBAttributesApi.md#update_google_business_attributes) | **PUT** /v1/accounts/{accountId}/gmb-attributes | Update Google Business Profile location attributes |
+| [**get_google_business_attributes**](GMBAttributesApi.md#get_google_business_attributes) | **GET** /v1/accounts/{accountId}/gmb-attributes | Get attributes |
+| [**update_google_business_attributes**](GMBAttributesApi.md#update_google_business_attributes) | **PUT** /v1/accounts/{accountId}/gmb-attributes | Update attributes |
 
 
 ## get_google_business_attributes
 
 > <GetGoogleBusinessAttributes200Response> get_google_business_attributes(account_id)
 
-Get Google Business Profile location attributes
+Get attributes
 
 Fetches location attributes such as amenities, services, and accessibility features.  Common attributes for restaurants include: - Dining options: has_dine_in, has_takeout, has_delivery - Amenities: has_outdoor_seating, has_wifi, has_parking - Accessibility: has_wheelchair_accessible_entrance - Payments: pay_credit_card_types_accepted  Available attributes vary by business category. 
 
@@ -31,7 +31,7 @@ api_instance = Late::GMBAttributesApi.new
 account_id = 'account_id_example' # String | 
 
 begin
-  # Get Google Business Profile location attributes
+  # Get attributes
   result = api_instance.get_google_business_attributes(account_id)
   p result
 rescue Late::ApiError => e
@@ -47,7 +47,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get Google Business Profile location attributes
+  # Get attributes
   data, status_code, headers = api_instance.get_google_business_attributes_with_http_info(account_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -81,7 +81,7 @@ end
 
 > <UpdateGoogleBusinessAttributes200Response> update_google_business_attributes(account_id, update_google_business_attributes_request)
 
-Update Google Business Profile location attributes
+Update attributes
 
 Updates location attributes (amenities, services, etc.).  The `attributeMask` specifies which attributes to update (comma-separated). 
 
@@ -101,7 +101,7 @@ account_id = 'account_id_example' # String |
 update_google_business_attributes_request = Late::UpdateGoogleBusinessAttributesRequest.new({attributes: [Late::UpdateGoogleBusinessAttributesRequestAttributesInner.new], attribute_mask: 'attribute_mask_example'}) # UpdateGoogleBusinessAttributesRequest | 
 
 begin
-  # Update Google Business Profile location attributes
+  # Update attributes
   result = api_instance.update_google_business_attributes(account_id, update_google_business_attributes_request)
   p result
 rescue Late::ApiError => e
@@ -117,7 +117,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Update Google Business Profile location attributes
+  # Update attributes
   data, status_code, headers = api_instance.update_google_business_attributes_with_http_info(account_id, update_google_business_attributes_request)
   p status_code # => 2xx
   p headers # => { ... }

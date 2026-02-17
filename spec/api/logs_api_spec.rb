@@ -33,7 +33,7 @@ describe 'LogsApi' do
   end
 
   # unit tests for get_log
-  # Get a single log entry
+  # Get log entry
   # Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
   # @param log_id The log entry ID
   # @param [Hash] opts the optional parameters
@@ -45,7 +45,7 @@ describe 'LogsApi' do
   end
 
   # unit tests for get_post_logs
-  # Get logs for a specific post
+  # Get post logs
   # Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
   # @param post_id The post ID
   # @param [Hash] opts the optional parameters
@@ -58,7 +58,7 @@ describe 'LogsApi' do
   end
 
   # unit tests for list_connection_logs
-  # Get connection logs
+  # List connection logs
   # Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :platform Filter by platform
@@ -75,7 +75,7 @@ describe 'LogsApi' do
   end
 
   # unit tests for list_logs
-  # Get publishing logs (deprecated)
+  # List publishing logs (deprecated)
   # **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :status Filter by log status
@@ -92,7 +92,7 @@ describe 'LogsApi' do
   end
 
   # unit tests for list_posts_logs
-  # Get publishing logs
+  # List publishing logs
   # Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :status Filter by log status

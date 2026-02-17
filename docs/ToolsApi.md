@@ -4,22 +4,22 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**check_instagram_hashtags**](ToolsApi.md#check_instagram_hashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check Instagram hashtags for bans |
-| [**download_bluesky_media**](ToolsApi.md#download_bluesky_media) | **GET** /v1/tools/bluesky/download | Download Bluesky video |
+| [**check_instagram_hashtags**](ToolsApi.md#check_instagram_hashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check Instagram hashtag bans |
+| [**download_bluesky_media**](ToolsApi.md#download_bluesky_media) | **GET** /v1/tools/bluesky/download | Download Bluesky media |
 | [**download_facebook_video**](ToolsApi.md#download_facebook_video) | **GET** /v1/tools/facebook/download | Download Facebook video |
-| [**download_instagram_media**](ToolsApi.md#download_instagram_media) | **GET** /v1/tools/instagram/download | Download Instagram reel or post |
+| [**download_instagram_media**](ToolsApi.md#download_instagram_media) | **GET** /v1/tools/instagram/download | Download Instagram media |
 | [**download_linked_in_video**](ToolsApi.md#download_linked_in_video) | **GET** /v1/tools/linkedin/download | Download LinkedIn video |
 | [**download_tik_tok_video**](ToolsApi.md#download_tik_tok_video) | **GET** /v1/tools/tiktok/download | Download TikTok video |
-| [**download_twitter_media**](ToolsApi.md#download_twitter_media) | **GET** /v1/tools/twitter/download | Download Twitter/X video |
-| [**download_you_tube_video**](ToolsApi.md#download_you_tube_video) | **GET** /v1/tools/youtube/download | Download YouTube video or audio |
-| [**get_you_tube_transcript**](ToolsApi.md#get_you_tube_transcript) | **GET** /v1/tools/youtube/transcript | Get YouTube video transcript |
+| [**download_twitter_media**](ToolsApi.md#download_twitter_media) | **GET** /v1/tools/twitter/download | Download Twitter/X media |
+| [**download_you_tube_video**](ToolsApi.md#download_you_tube_video) | **GET** /v1/tools/youtube/download | Download YouTube video |
+| [**get_you_tube_transcript**](ToolsApi.md#get_you_tube_transcript) | **GET** /v1/tools/youtube/transcript | Get YouTube transcript |
 
 
 ## check_instagram_hashtags
 
 > <CheckInstagramHashtags200Response> check_instagram_hashtags(check_instagram_hashtags_request)
 
-Check Instagram hashtags for bans
+Check Instagram hashtag bans
 
 Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -38,7 +38,7 @@ api_instance = Late::ToolsApi.new
 check_instagram_hashtags_request = Late::CheckInstagramHashtagsRequest.new({hashtags: ["travel", "followforfollow", "fitness"]}) # CheckInstagramHashtagsRequest | 
 
 begin
-  # Check Instagram hashtags for bans
+  # Check Instagram hashtag bans
   result = api_instance.check_instagram_hashtags(check_instagram_hashtags_request)
   p result
 rescue Late::ApiError => e
@@ -54,7 +54,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Check Instagram hashtags for bans
+  # Check Instagram hashtag bans
   data, status_code, headers = api_instance.check_instagram_hashtags_with_http_info(check_instagram_hashtags_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -88,7 +88,7 @@ end
 
 > <DownloadBlueskyMedia200Response> download_bluesky_media(url)
 
-Download Bluesky video
+Download Bluesky media
 
 Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -107,7 +107,7 @@ api_instance = Late::ToolsApi.new
 url = 'https://bsky.app/profile/user.bsky.social/post/abc123' # String | Bluesky post URL
 
 begin
-  # Download Bluesky video
+  # Download Bluesky media
   result = api_instance.download_bluesky_media(url)
   p result
 rescue Late::ApiError => e
@@ -123,7 +123,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Download Bluesky video
+  # Download Bluesky media
   data, status_code, headers = api_instance.download_bluesky_media_with_http_info(url)
   p status_code # => 2xx
   p headers # => { ... }
@@ -226,7 +226,7 @@ end
 
 > <DownloadInstagramMedia200Response> download_instagram_media(url)
 
-Download Instagram reel or post
+Download Instagram media
 
 Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -245,7 +245,7 @@ api_instance = Late::ToolsApi.new
 url = 'https://www.instagram.com/reel/ABC123/' # String | Instagram reel or post URL
 
 begin
-  # Download Instagram reel or post
+  # Download Instagram media
   result = api_instance.download_instagram_media(url)
   p result
 rescue Late::ApiError => e
@@ -261,7 +261,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Download Instagram reel or post
+  # Download Instagram media
   data, status_code, headers = api_instance.download_instagram_media_with_http_info(url)
   p status_code # => 2xx
   p headers # => { ... }
@@ -439,7 +439,7 @@ end
 
 > <DownloadInstagramMedia200Response> download_twitter_media(url, opts)
 
-Download Twitter/X video
+Download Twitter/X media
 
 Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -462,7 +462,7 @@ opts = {
 }
 
 begin
-  # Download Twitter/X video
+  # Download Twitter/X media
   result = api_instance.download_twitter_media(url, opts)
   p result
 rescue Late::ApiError => e
@@ -478,7 +478,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Download Twitter/X video
+  # Download Twitter/X media
   data, status_code, headers = api_instance.download_twitter_media_with_http_info(url, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -514,7 +514,7 @@ end
 
 > <DownloadYouTubeVideo200Response> download_you_tube_video(url, opts)
 
-Download YouTube video or audio
+Download YouTube video
 
 Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -539,7 +539,7 @@ opts = {
 }
 
 begin
-  # Download YouTube video or audio
+  # Download YouTube video
   result = api_instance.download_you_tube_video(url, opts)
   p result
 rescue Late::ApiError => e
@@ -555,7 +555,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Download YouTube video or audio
+  # Download YouTube video
   data, status_code, headers = api_instance.download_you_tube_video_with_http_info(url, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -593,7 +593,7 @@ end
 
 > <GetYouTubeTranscript200Response> get_you_tube_transcript(url, opts)
 
-Get YouTube video transcript
+Get YouTube transcript
 
 Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -615,7 +615,7 @@ opts = {
 }
 
 begin
-  # Get YouTube video transcript
+  # Get YouTube transcript
   result = api_instance.get_you_tube_transcript(url, opts)
   p result
 rescue Late::ApiError => e
@@ -631,7 +631,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get YouTube video transcript
+  # Get YouTube transcript
   data, status_code, headers = api_instance.get_you_tube_transcript_with_http_info(url, opts)
   p status_code # => 2xx
   p headers # => { ... }

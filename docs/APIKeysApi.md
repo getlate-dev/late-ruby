@@ -4,16 +4,16 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_api_key**](APIKeysApi.md#create_api_key) | **POST** /v1/api-keys | Create a new API key |
-| [**delete_api_key**](APIKeysApi.md#delete_api_key) | **DELETE** /v1/api-keys/{keyId} | Delete an API key |
-| [**list_api_keys**](APIKeysApi.md#list_api_keys) | **GET** /v1/api-keys | List API keys for the current user |
+| [**create_api_key**](APIKeysApi.md#create_api_key) | **POST** /v1/api-keys | Create key |
+| [**delete_api_key**](APIKeysApi.md#delete_api_key) | **DELETE** /v1/api-keys/{keyId} | Delete key |
+| [**list_api_keys**](APIKeysApi.md#list_api_keys) | **GET** /v1/api-keys | List keys |
 
 
 ## create_api_key
 
 > <CreateApiKey201Response> create_api_key(create_api_key_request)
 
-Create a new API key
+Create key
 
 ### Examples
 
@@ -30,7 +30,7 @@ api_instance = Late::APIKeysApi.new
 create_api_key_request = Late::CreateApiKeyRequest.new({name: 'name_example'}) # CreateApiKeyRequest | 
 
 begin
-  # Create a new API key
+  # Create key
   result = api_instance.create_api_key(create_api_key_request)
   p result
 rescue Late::ApiError => e
@@ -46,7 +46,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create a new API key
+  # Create key
   data, status_code, headers = api_instance.create_api_key_with_http_info(create_api_key_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -80,7 +80,7 @@ end
 
 > <DeleteAccountGroup200Response> delete_api_key(key_id)
 
-Delete an API key
+Delete key
 
 ### Examples
 
@@ -97,7 +97,7 @@ api_instance = Late::APIKeysApi.new
 key_id = 'key_id_example' # String | 
 
 begin
-  # Delete an API key
+  # Delete key
   result = api_instance.delete_api_key(key_id)
   p result
 rescue Late::ApiError => e
@@ -113,7 +113,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Delete an API key
+  # Delete key
   data, status_code, headers = api_instance.delete_api_key_with_http_info(key_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -147,7 +147,7 @@ end
 
 > <ListApiKeys200Response> list_api_keys
 
-List API keys for the current user
+List keys
 
 ### Examples
 
@@ -163,7 +163,7 @@ end
 api_instance = Late::APIKeysApi.new
 
 begin
-  # List API keys for the current user
+  # List keys
   result = api_instance.list_api_keys
   p result
 rescue Late::ApiError => e
@@ -179,7 +179,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List API keys for the current user
+  # List keys
   data, status_code, headers = api_instance.list_api_keys_with_http_info
   p status_code # => 2xx
   p headers # => { ... }

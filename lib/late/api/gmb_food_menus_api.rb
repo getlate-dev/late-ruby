@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get Google Business Profile food menus
+    # Get food menus
     # Fetches food menus for a connected Google Business Profile location.  Returns the full menu structure including: - Menu names and descriptions - Sections (e.g. Appetizers, Entrees, Drinks) - Items with labels, pricing, dietary info, and allergens - Item options/variants  Only available for locations with food menu support (restaurants, cafes, etc.). 
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param [Hash] opts the optional parameters
@@ -29,7 +29,7 @@ module Late
       data
     end
 
-    # Get Google Business Profile food menus
+    # Get food menus
     # Fetches food menus for a connected Google Business Profile location.  Returns the full menu structure including: - Menu names and descriptions - Sections (e.g. Appetizers, Entrees, Drinks) - Items with labels, pricing, dietary info, and allergens - Item options/variants  Only available for locations with food menu support (restaurants, cafes, etc.). 
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param [Hash] opts the optional parameters
@@ -82,7 +82,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Update Google Business Profile food menus
+    # Update food menus
     # Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use `updateMask` for partial updates (e.g. `\"menus\"` to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param update_google_business_food_menus_request [UpdateGoogleBusinessFoodMenusRequest] 
@@ -93,7 +93,7 @@ module Late
       data
     end
 
-    # Update Google Business Profile food menus
+    # Update food menus
     # Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use &#x60;updateMask&#x60; for partial updates (e.g. &#x60;\&quot;menus\&quot;&#x60; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
     # @param account_id [String] The Late account ID (from /v1/accounts)
     # @param update_google_business_food_menus_request [UpdateGoogleBusinessFoodMenusRequest] 

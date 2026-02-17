@@ -4,19 +4,19 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_queue_slot**](QueueApi.md#create_queue_slot) | **POST** /v1/queue/slots | Create a new queue for a profile |
-| [**delete_queue_slot**](QueueApi.md#delete_queue_slot) | **DELETE** /v1/queue/slots | Delete a queue schedule |
-| [**get_next_queue_slot**](QueueApi.md#get_next_queue_slot) | **GET** /v1/queue/next-slot | Preview the next available queue slot (informational only) |
-| [**list_queue_slots**](QueueApi.md#list_queue_slots) | **GET** /v1/queue/slots | Get queue schedules for a profile |
-| [**preview_queue**](QueueApi.md#preview_queue) | **GET** /v1/queue/preview | Preview upcoming queue slots for a profile |
-| [**update_queue_slot**](QueueApi.md#update_queue_slot) | **PUT** /v1/queue/slots | Create or update a queue schedule |
+| [**create_queue_slot**](QueueApi.md#create_queue_slot) | **POST** /v1/queue/slots | Create schedule |
+| [**delete_queue_slot**](QueueApi.md#delete_queue_slot) | **DELETE** /v1/queue/slots | Delete schedule |
+| [**get_next_queue_slot**](QueueApi.md#get_next_queue_slot) | **GET** /v1/queue/next-slot | Get next available slot |
+| [**list_queue_slots**](QueueApi.md#list_queue_slots) | **GET** /v1/queue/slots | List schedules |
+| [**preview_queue**](QueueApi.md#preview_queue) | **GET** /v1/queue/preview | Preview upcoming slots |
+| [**update_queue_slot**](QueueApi.md#update_queue_slot) | **PUT** /v1/queue/slots | Update schedule |
 
 
 ## create_queue_slot
 
 > <CreateQueueSlot201Response> create_queue_slot(create_queue_slot_request)
 
-Create a new queue for a profile
+Create schedule
 
 Create an additional queue for a profile. The first queue created becomes the default. Subsequent queues are non-default unless explicitly set. 
 
@@ -35,7 +35,7 @@ api_instance = Late::QueueApi.new
 create_queue_slot_request = Late::CreateQueueSlotRequest.new({profile_id: 'profile_id_example', name: 'name_example', timezone: 'timezone_example', slots: [Late::QueueSlot.new]}) # CreateQueueSlotRequest | 
 
 begin
-  # Create a new queue for a profile
+  # Create schedule
   result = api_instance.create_queue_slot(create_queue_slot_request)
   p result
 rescue Late::ApiError => e
@@ -51,7 +51,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create a new queue for a profile
+  # Create schedule
   data, status_code, headers = api_instance.create_queue_slot_with_http_info(create_queue_slot_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -85,7 +85,7 @@ end
 
 > <DeleteQueueSlot200Response> delete_queue_slot(profile_id, queue_id)
 
-Delete a queue schedule
+Delete schedule
 
 Delete a queue from a profile. Requires queueId to specify which queue to delete. If deleting the default queue, another queue will be promoted to default. 
 
@@ -105,7 +105,7 @@ profile_id = 'profile_id_example' # String |
 queue_id = 'queue_id_example' # String | Queue ID to delete
 
 begin
-  # Delete a queue schedule
+  # Delete schedule
   result = api_instance.delete_queue_slot(profile_id, queue_id)
   p result
 rescue Late::ApiError => e
@@ -121,7 +121,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Delete a queue schedule
+  # Delete schedule
   data, status_code, headers = api_instance.delete_queue_slot_with_http_info(profile_id, queue_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -156,7 +156,7 @@ end
 
 > <GetNextQueueSlot200Response> get_next_queue_slot(profile_id, opts)
 
-Preview the next available queue slot (informational only)
+Get next available slot
 
 Returns the next available queue slot for preview/informational purposes.  **Important: To schedule a post to the queue, do NOT use this endpoint's response with `scheduledFor`.** That creates a manual post, not a queue post.  Instead, use `POST /v1/posts` with `queuedFromProfile` (and optionally `queueId`). The system will automatically assign the next available slot with proper locking to prevent race conditions.  This endpoint is useful for: - Showing users when their next post will go out before they commit - Debugging/verifying queue configuration - Building UI previews  If no queueId is specified, uses the profile's default queue. 
 
@@ -178,7 +178,7 @@ opts = {
 }
 
 begin
-  # Preview the next available queue slot (informational only)
+  # Get next available slot
   result = api_instance.get_next_queue_slot(profile_id, opts)
   p result
 rescue Late::ApiError => e
@@ -194,7 +194,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Preview the next available queue slot (informational only)
+  # Get next available slot
   data, status_code, headers = api_instance.get_next_queue_slot_with_http_info(profile_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -229,7 +229,7 @@ end
 
 > <ListQueueSlots200Response> list_queue_slots(profile_id, opts)
 
-Get queue schedules for a profile
+List schedules
 
 Retrieve queue schedules for a profile. Each profile can have multiple queues. - Without `all=true`: Returns the default queue (or specific queue if queueId provided) - With `all=true`: Returns all queues for the profile 
 
@@ -252,7 +252,7 @@ opts = {
 }
 
 begin
-  # Get queue schedules for a profile
+  # List schedules
   result = api_instance.list_queue_slots(profile_id, opts)
   p result
 rescue Late::ApiError => e
@@ -268,7 +268,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get queue schedules for a profile
+  # List schedules
   data, status_code, headers = api_instance.list_queue_slots_with_http_info(profile_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -304,7 +304,7 @@ end
 
 > <PreviewQueue200Response> preview_queue(profile_id, opts)
 
-Preview upcoming queue slots for a profile
+Preview upcoming slots
 
 ### Examples
 
@@ -324,7 +324,7 @@ opts = {
 }
 
 begin
-  # Preview upcoming queue slots for a profile
+  # Preview upcoming slots
   result = api_instance.preview_queue(profile_id, opts)
   p result
 rescue Late::ApiError => e
@@ -340,7 +340,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Preview upcoming queue slots for a profile
+  # Preview upcoming slots
   data, status_code, headers = api_instance.preview_queue_with_http_info(profile_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -375,7 +375,7 @@ end
 
 > <UpdateQueueSlot200Response> update_queue_slot(update_queue_slot_request)
 
-Create or update a queue schedule
+Update schedule
 
 Create a new queue or update an existing one. - Without queueId: Creates or updates the default queue - With queueId: Updates the specific queue - With setAsDefault=true: Makes this queue the default for the profile 
 
@@ -394,7 +394,7 @@ api_instance = Late::QueueApi.new
 update_queue_slot_request = Late::UpdateQueueSlotRequest.new({profile_id: 'profile_id_example', timezone: 'timezone_example', slots: [Late::QueueSlot.new]}) # UpdateQueueSlotRequest | 
 
 begin
-  # Create or update a queue schedule
+  # Update schedule
   result = api_instance.update_queue_slot(update_queue_slot_request)
   p result
 rescue Late::ApiError => e
@@ -410,7 +410,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create or update a queue schedule
+  # Update schedule
   data, status_code, headers = api_instance.update_queue_slot_with_http_info(update_queue_slot_request)
   p status_code # => 2xx
   p headers # => { ... }

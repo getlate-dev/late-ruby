@@ -33,7 +33,7 @@ describe 'GMBMediaApi' do
   end
 
   # unit tests for create_google_business_media
-  # Upload a photo to Google Business Profile
+  # Upload photo
   # Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: - &#x60;COVER&#x60; - Cover photo - &#x60;PROFILE&#x60; - Profile photo - &#x60;LOGO&#x60; - Business logo - &#x60;EXTERIOR&#x60; - Exterior shots - &#x60;INTERIOR&#x60; - Interior shots - &#x60;FOOD_AND_DRINK&#x60; - Food and drink photos - &#x60;MENU&#x60; - Menu photos - &#x60;PRODUCT&#x60; - Product photos - &#x60;TEAMS&#x60; - Team/staff photos - &#x60;ADDITIONAL&#x60; - Other photos 
   # @param account_id 
   # @param create_google_business_media_request 
@@ -46,7 +46,7 @@ describe 'GMBMediaApi' do
   end
 
   # unit tests for delete_google_business_media
-  # Delete a photo from Google Business Profile
+  # Delete photo
   # @param account_id 
   # @param media_id The media item ID to delete
   # @param [Hash] opts the optional parameters
@@ -58,7 +58,7 @@ describe 'GMBMediaApi' do
   end
 
   # unit tests for list_google_business_media
-  # List Google Business Profile media (photos)
+  # List media
   # Lists media items (photos) for a Google Business Profile location. Returns photo URLs, descriptions, categories, and metadata. 
   # @param account_id 
   # @param [Hash] opts the optional parameters

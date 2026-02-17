@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Create a new account group
+    # Create group
     # @param create_account_group_request [CreateAccountGroupRequest] 
     # @param [Hash] opts the optional parameters
     # @return [CreateAccountGroup201Response]
@@ -28,7 +28,7 @@ module Late
       data
     end
 
-    # Create a new account group
+    # Create group
     # @param create_account_group_request [CreateAccountGroupRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(CreateAccountGroup201Response, Integer, Hash)>] CreateAccountGroup201Response data, response status code and response headers
@@ -85,7 +85,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Delete an account group
+    # Delete group
     # @param group_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DeleteAccountGroup200Response]
@@ -94,7 +94,7 @@ module Late
       data
     end
 
-    # Delete an account group
+    # Delete group
     # @param group_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeleteAccountGroup200Response, Integer, Hash)>] DeleteAccountGroup200Response data, response status code and response headers
@@ -146,7 +146,7 @@ module Late
       return data, status_code, headers
     end
 
-    # List account groups for the authenticated user
+    # List groups
     # @param [Hash] opts the optional parameters
     # @return [ListAccountGroups200Response]
     def list_account_groups(opts = {})
@@ -154,7 +154,7 @@ module Late
       data
     end
 
-    # List account groups for the authenticated user
+    # List groups
     # @param [Hash] opts the optional parameters
     # @return [Array<(ListAccountGroups200Response, Integer, Hash)>] ListAccountGroups200Response data, response status code and response headers
     def list_account_groups_with_http_info(opts = {})
@@ -201,7 +201,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Update an account group
+    # Update group
     # @param group_id [String] 
     # @param update_account_group_request [UpdateAccountGroupRequest] 
     # @param [Hash] opts the optional parameters
@@ -211,7 +211,7 @@ module Late
       data
     end
 
-    # Update an account group
+    # Update group
     # @param group_id [String] 
     # @param update_account_group_request [UpdateAccountGroupRequest] 
     # @param [Hash] opts the optional parameters

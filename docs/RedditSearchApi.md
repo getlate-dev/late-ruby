@@ -4,15 +4,15 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_reddit_feed**](RedditSearchApi.md#get_reddit_feed) | **GET** /v1/reddit/feed | Fetch subreddit feed via a connected account |
-| [**search_reddit**](RedditSearchApi.md#search_reddit) | **GET** /v1/reddit/search | Search Reddit posts via a connected account |
+| [**get_reddit_feed**](RedditSearchApi.md#get_reddit_feed) | **GET** /v1/reddit/feed | Get subreddit feed |
+| [**search_reddit**](RedditSearchApi.md#search_reddit) | **GET** /v1/reddit/search | Search posts |
 
 
 ## get_reddit_feed
 
 > <GetRedditFeed200Response> get_reddit_feed(account_id, opts)
 
-Fetch subreddit feed via a connected account
+Get subreddit feed
 
 ### Examples
 
@@ -36,7 +36,7 @@ opts = {
 }
 
 begin
-  # Fetch subreddit feed via a connected account
+  # Get subreddit feed
   result = api_instance.get_reddit_feed(account_id, opts)
   p result
 rescue Late::ApiError => e
@@ -52,7 +52,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Fetch subreddit feed via a connected account
+  # Get subreddit feed
   data, status_code, headers = api_instance.get_reddit_feed_with_http_info(account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -91,7 +91,7 @@ end
 
 > <SearchReddit200Response> search_reddit(account_id, q, opts)
 
-Search Reddit posts via a connected account
+Search posts
 
 ### Examples
 
@@ -116,7 +116,7 @@ opts = {
 }
 
 begin
-  # Search Reddit posts via a connected account
+  # Search posts
   result = api_instance.search_reddit(account_id, q, opts)
   p result
 rescue Late::ApiError => e
@@ -132,7 +132,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Search Reddit posts via a connected account
+  # Search posts
   data, status_code, headers = api_instance.search_reddit_with_http_info(account_id, q, opts)
   p status_code # => 2xx
   p headers # => { ... }

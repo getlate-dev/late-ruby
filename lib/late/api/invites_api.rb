@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Create a team member invite token
+    # Create invite token
     # Generate a secure invite link to grant team members access to your profiles. Invites expire after 7 days and are single-use. 
     # @param create_invite_token_request [CreateInviteTokenRequest] 
     # @param [Hash] opts the optional parameters
@@ -29,7 +29,7 @@ module Late
       data
     end
 
-    # Create a team member invite token
+    # Create invite token
     # Generate a secure invite link to grant team members access to your profiles. Invites expire after 7 days and are single-use. 
     # @param create_invite_token_request [CreateInviteTokenRequest] 
     # @param [Hash] opts the optional parameters

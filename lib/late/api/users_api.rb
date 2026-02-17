@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get user by id (self or invited)
+    # Get user
     # @param user_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [GetUser200Response]
@@ -28,7 +28,7 @@ module Late
       data
     end
 
-    # Get user by id (self or invited)
+    # Get user
     # @param user_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetUser200Response, Integer, Hash)>] GetUser200Response data, response status code and response headers
@@ -80,7 +80,7 @@ module Late
       return data, status_code, headers
     end
 
-    # List team users (root + invited)
+    # List users
     # @param [Hash] opts the optional parameters
     # @return [ListUsers200Response]
     def list_users(opts = {})
@@ -88,7 +88,7 @@ module Late
       data
     end
 
-    # List team users (root + invited)
+    # List users
     # @param [Hash] opts the optional parameters
     # @return [Array<(ListUsers200Response, Integer, Hash)>] ListUsers200Response data, response status code and response headers
     def list_users_with_http_info(opts = {})

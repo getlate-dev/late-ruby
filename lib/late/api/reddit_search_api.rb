@@ -19,7 +19,7 @@ module Late
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Fetch subreddit feed via a connected account
+    # Get subreddit feed
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :subreddit 
@@ -33,7 +33,7 @@ module Late
       data
     end
 
-    # Fetch subreddit feed via a connected account
+    # Get subreddit feed
     # @param account_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :subreddit 
@@ -108,7 +108,7 @@ module Late
       return data, status_code, headers
     end
 
-    # Search Reddit posts via a connected account
+    # Search posts
     # @param account_id [String] 
     # @param q [String] 
     # @param [Hash] opts the optional parameters
@@ -123,7 +123,7 @@ module Late
       data
     end
 
-    # Search Reddit posts via a connected account
+    # Search posts
     # @param account_id [String] 
     # @param q [String] 
     # @param [Hash] opts the optional parameters

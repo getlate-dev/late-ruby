@@ -4,15 +4,15 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_google_business_location_details**](GMBLocationDetailsApi.md#get_google_business_location_details) | **GET** /v1/accounts/{accountId}/gmb-location-details | Get Google Business Profile location details |
-| [**update_google_business_location_details**](GMBLocationDetailsApi.md#update_google_business_location_details) | **PUT** /v1/accounts/{accountId}/gmb-location-details | Update Google Business Profile location details |
+| [**get_google_business_location_details**](GMBLocationDetailsApi.md#get_google_business_location_details) | **GET** /v1/accounts/{accountId}/gmb-location-details | Get location details |
+| [**update_google_business_location_details**](GMBLocationDetailsApi.md#update_google_business_location_details) | **PUT** /v1/accounts/{accountId}/gmb-location-details | Update location details |
 
 
 ## get_google_business_location_details
 
 > <GetGoogleBusinessLocationDetails200Response> get_google_business_location_details(account_id, opts)
 
-Get Google Business Profile location details
+Get location details
 
 Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the `readMask` query parameter to request specific fields. 
 
@@ -34,7 +34,7 @@ opts = {
 }
 
 begin
-  # Get Google Business Profile location details
+  # Get location details
   result = api_instance.get_google_business_location_details(account_id, opts)
   p result
 rescue Late::ApiError => e
@@ -50,7 +50,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get Google Business Profile location details
+  # Get location details
   data, status_code, headers = api_instance.get_google_business_location_details_with_http_info(account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -85,7 +85,7 @@ end
 
 > <UpdateGoogleBusinessLocationDetails200Response> update_google_business_location_details(account_id, update_google_business_location_details_request)
 
-Update Google Business Profile location details
+Update location details
 
 Updates location details such as opening hours, special hours, business description, phone, and website.  The `updateMask` field is required and specifies which fields to update.  Common update masks: - `regularHours` - Update opening hours - `specialHours` - Update holiday/special hours - `profile.description` - Update business description - `websiteUri` - Update website URL - `phoneNumbers` - Update phone numbers - `regularHours,specialHours` - Update both at once 
 
@@ -105,7 +105,7 @@ account_id = 'account_id_example' # String | The Late account ID (from /v1/accou
 update_google_business_location_details_request = Late::UpdateGoogleBusinessLocationDetailsRequest.new({update_mask: 'update_mask_example'}) # UpdateGoogleBusinessLocationDetailsRequest | 
 
 begin
-  # Update Google Business Profile location details
+  # Update location details
   result = api_instance.update_google_business_location_details(account_id, update_google_business_location_details_request)
   p result
 rescue Late::ApiError => e
@@ -121,7 +121,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Update Google Business Profile location details
+  # Update location details
   data, status_code, headers = api_instance.update_google_business_location_details_with_http_info(account_id, update_google_business_location_details_request)
   p status_code # => 2xx
   p headers # => { ... }
