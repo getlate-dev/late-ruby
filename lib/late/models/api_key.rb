@@ -28,6 +28,37 @@ module Late
     # Returned only once, on creation
     attr_accessor :key
 
+    # 'full' grants access to all profiles, 'profiles' restricts to specific profiles
+    attr_accessor :scope
+
+    # Profiles this key can access (populated with name and color). Only present when scope is 'profiles'.
+    attr_accessor :profile_ids
+
+    # 'read-write' allows all operations, 'read' restricts to GET requests only
+    attr_accessor :permission
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -36,7 +67,10 @@ module Late
         :'key_preview' => :'keyPreview',
         :'expires_at' => :'expiresAt',
         :'created_at' => :'createdAt',
-        :'key' => :'key'
+        :'key' => :'key',
+        :'scope' => :'scope',
+        :'profile_ids' => :'profileIds',
+        :'permission' => :'permission'
       }
     end
 
@@ -58,7 +92,10 @@ module Late
         :'key_preview' => :'String',
         :'expires_at' => :'Time',
         :'created_at' => :'Time',
-        :'key' => :'String'
+        :'key' => :'String',
+        :'scope' => :'String',
+        :'profile_ids' => :'Array<ApiKeyProfileIdsInner>',
+        :'permission' => :'String'
       }
     end
 
@@ -107,6 +144,24 @@ module Late
       if attributes.key?(:'key')
         self.key = attributes[:'key']
       end
+
+      if attributes.key?(:'scope')
+        self.scope = attributes[:'scope']
+      else
+        self.scope = 'full'
+      end
+
+      if attributes.key?(:'profile_ids')
+        if (value = attributes[:'profile_ids']).is_a?(Array)
+          self.profile_ids = value
+        end
+      end
+
+      if attributes.key?(:'permission')
+        self.permission = attributes[:'permission']
+      else
+        self.permission = 'read-write'
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -121,7 +176,31 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      scope_validator = EnumAttributeValidator.new('String', ["full", "profiles"])
+      return false unless scope_validator.valid?(@scope)
+      permission_validator = EnumAttributeValidator.new('String', ["read-write", "read"])
+      return false unless permission_validator.valid?(@permission)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] scope Object to be assigned
+    def scope=(scope)
+      validator = EnumAttributeValidator.new('String', ["full", "profiles"])
+      unless validator.valid?(scope)
+        fail ArgumentError, "invalid value for \"scope\", must be one of #{validator.allowable_values}."
+      end
+      @scope = scope
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] permission Object to be assigned
+    def permission=(permission)
+      validator = EnumAttributeValidator.new('String', ["read-write", "read"])
+      unless validator.valid?(permission)
+        fail ArgumentError, "invalid value for \"permission\", must be one of #{validator.allowable_values}."
+      end
+      @permission = permission
     end
 
     # Checks equality by comparing each attribute.
@@ -134,7 +213,10 @@ module Late
           key_preview == o.key_preview &&
           expires_at == o.expires_at &&
           created_at == o.created_at &&
-          key == o.key
+          key == o.key &&
+          scope == o.scope &&
+          profile_ids == o.profile_ids &&
+          permission == o.permission
     end
 
     # @see the `==` method
@@ -146,7 +228,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, key_preview, expires_at, created_at, key].hash
+      [id, name, key_preview, expires_at, created_at, key, scope, profile_ids, permission].hash
     end
 
     # Builds the object from hash

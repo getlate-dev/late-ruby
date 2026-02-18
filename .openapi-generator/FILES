@@ -19,6 +19,7 @@ docs/AnalyticsListResponsePostsInner.md
 docs/AnalyticsOverview.md
 docs/AnalyticsSinglePostResponse.md
 docs/ApiKey.md
+docs/ApiKeyProfileIdsInner.md
 docs/BlueskyPlatformData.md
 docs/BulkUploadPosts200Response.md
 docs/BulkUploadPosts200ResponseErrorsInner.md
@@ -464,6 +465,7 @@ lib/late/models/analytics_list_response_posts_inner.rb
 lib/late/models/analytics_overview.rb
 lib/late/models/analytics_single_post_response.rb
 lib/late/models/api_key.rb
+lib/late/models/api_key_profile_ids_inner.rb
 lib/late/models/bluesky_platform_data.rb
 lib/late/models/bulk_upload_posts200_response.rb
 lib/late/models/bulk_upload_posts200_response_errors_inner.rb
@@ -880,6 +882,7 @@ spec/models/analytics_list_response_posts_inner_spec.rb
 spec/models/analytics_list_response_spec.rb
 spec/models/analytics_overview_spec.rb
 spec/models/analytics_single_post_response_spec.rb
+spec/models/api_key_profile_ids_inner_spec.rb
 spec/models/api_key_spec.rb
 spec/models/bluesky_platform_data_spec.rb
 spec/models/bulk_upload_posts200_response_errors_inner_spec.rb

@@ -14,51 +14,19 @@ require 'date'
 require 'time'
 
 module Late
-  class CreateApiKeyRequest < ApiModelBase
+  class ApiKeyProfileIdsInner < ApiModelBase
+    attr_accessor :_id
+
     attr_accessor :name
 
-    # Days until expiry
-    attr_accessor :expires_in
-
-    # 'full' grants access to all profiles (default), 'profiles' restricts to specific profiles
-    attr_accessor :scope
-
-    # Profile IDs this key can access. Required when scope is 'profiles'.
-    attr_accessor :profile_ids
-
-    # 'read-write' allows all operations (default), 'read' restricts to GET requests only
-    attr_accessor :permission
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :color
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'_id' => :'_id',
         :'name' => :'name',
-        :'expires_in' => :'expiresIn',
-        :'scope' => :'scope',
-        :'profile_ids' => :'profileIds',
-        :'permission' => :'permission'
+        :'color' => :'color'
       }
     end
 
@@ -75,11 +43,9 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'_id' => :'String',
         :'name' => :'String',
-        :'expires_in' => :'Integer',
-        :'scope' => :'String',
-        :'profile_ids' => :'Array<String>',
-        :'permission' => :'String'
+        :'color' => :'String'
       }
     end
 
@@ -93,44 +59,28 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::CreateApiKeyRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::ApiKeyProfileIdsInner` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::CreateApiKeyRequest`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::ApiKeyProfileIdsInner`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'_id')
+        self._id = attributes[:'_id']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      else
-        self.name = nil
       end
 
-      if attributes.key?(:'expires_in')
-        self.expires_in = attributes[:'expires_in']
-      end
-
-      if attributes.key?(:'scope')
-        self.scope = attributes[:'scope']
-      else
-        self.scope = 'full'
-      end
-
-      if attributes.key?(:'profile_ids')
-        if (value = attributes[:'profile_ids']).is_a?(Array)
-          self.profile_ids = value
-        end
-      end
-
-      if attributes.key?(:'permission')
-        self.permission = attributes[:'permission']
-      else
-        self.permission = 'read-write'
+      if attributes.key?(:'color')
+        self.color = attributes[:'color']
       end
     end
 
@@ -139,10 +89,6 @@ module Late
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -150,42 +96,7 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @name.nil?
-      scope_validator = EnumAttributeValidator.new('String', ["full", "profiles"])
-      return false unless scope_validator.valid?(@scope)
-      permission_validator = EnumAttributeValidator.new('String', ["read-write", "read"])
-      return false unless permission_validator.valid?(@permission)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] scope Object to be assigned
-    def scope=(scope)
-      validator = EnumAttributeValidator.new('String', ["full", "profiles"])
-      unless validator.valid?(scope)
-        fail ArgumentError, "invalid value for \"scope\", must be one of #{validator.allowable_values}."
-      end
-      @scope = scope
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] permission Object to be assigned
-    def permission=(permission)
-      validator = EnumAttributeValidator.new('String', ["read-write", "read"])
-      unless validator.valid?(permission)
-        fail ArgumentError, "invalid value for \"permission\", must be one of #{validator.allowable_values}."
-      end
-      @permission = permission
     end
 
     # Checks equality by comparing each attribute.
@@ -193,11 +104,9 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          _id == o._id &&
           name == o.name &&
-          expires_in == o.expires_in &&
-          scope == o.scope &&
-          profile_ids == o.profile_ids &&
-          permission == o.permission
+          color == o.color
     end
 
     # @see the `==` method
@@ -209,7 +118,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, expires_in, scope, profile_ids, permission].hash
+      [_id, name, color].hash
     end
 
     # Builds the object from hash
