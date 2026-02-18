@@ -14,12 +14,15 @@ require 'date'
 require 'time'
 
 module Late
-  # Up to 10 images for feed posts, cannot mix videos and images. Stories require single image or video (ephemeral 24h, no captions). Use pageId for multi-page posting.
+  # Feed posts support up to 10 images (no mixed video+image). Stories require single media (24h, no captions). Reels require single vertical video (9:16, 3-60s).
   class FacebookPlatformData < ApiModelBase
-    # Set to 'story' to publish as a Facebook Page Story (24-hour ephemeral content). Requires media.
+    # Set to 'story' for Page Stories (24h ephemeral) or 'reel' for Reels (short vertical video). Defaults to feed post if omitted.
     attr_accessor :content_type
 
-    # Optional first comment to post immediately after publishing (feed posts only, not stories)
+    # Reel title (only for contentType=reel). Separate from the caption/content field.
+    attr_accessor :title
+
+    # Optional first comment to post immediately after publishing (feed posts only, not stories or reels)
     attr_accessor :first_comment
 
     # Target Facebook Page ID for multi-page posting. If omitted, uses the default page. Use GET /v1/accounts/{id}/facebook-page to list pages.
@@ -51,6 +54,7 @@ module Late
     def self.attribute_map
       {
         :'content_type' => :'contentType',
+        :'title' => :'title',
         :'first_comment' => :'firstComment',
         :'page_id' => :'pageId'
       }
@@ -70,6 +74,7 @@ module Late
     def self.openapi_types
       {
         :'content_type' => :'String',
+        :'title' => :'String',
         :'first_comment' => :'String',
         :'page_id' => :'String'
       }
@@ -101,6 +106,10 @@ module Late
         self.content_type = attributes[:'content_type']
       end
 
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
+      end
+
       if attributes.key?(:'first_comment')
         self.first_comment = attributes[:'first_comment']
       end
@@ -122,7 +131,7 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      content_type_validator = EnumAttributeValidator.new('String', ["story"])
+      content_type_validator = EnumAttributeValidator.new('String', ["story", "reel"])
       return false unless content_type_validator.valid?(@content_type)
       true
     end
@@ -130,7 +139,7 @@ module Late
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] content_type Object to be assigned
     def content_type=(content_type)
-      validator = EnumAttributeValidator.new('String', ["story"])
+      validator = EnumAttributeValidator.new('String', ["story", "reel"])
       unless validator.valid?(content_type)
         fail ArgumentError, "invalid value for \"content_type\", must be one of #{validator.allowable_values}."
       end
@@ -143,6 +152,7 @@ module Late
       return true if self.equal?(o)
       self.class == o.class &&
           content_type == o.content_type &&
+          title == o.title &&
           first_comment == o.first_comment &&
           page_id == o.page_id
     end
@@ -156,7 +166,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [content_type, first_comment, page_id].hash
+      [content_type, title, first_comment, page_id].hash
     end
 
     # Builds the object from hash
