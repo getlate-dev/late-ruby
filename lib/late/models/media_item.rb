@@ -20,6 +20,9 @@ module Late
 
     attr_accessor :url
 
+    # Optional title for the media item. Used as the document title for LinkedIn PDF/carousel posts. If omitted, falls back to the post title, then the filename.
+    attr_accessor :title
+
     attr_accessor :filename
 
     # Optional file size in bytes
@@ -64,6 +67,7 @@ module Late
       {
         :'type' => :'type',
         :'url' => :'url',
+        :'title' => :'title',
         :'filename' => :'filename',
         :'size' => :'size',
         :'mime_type' => :'mimeType',
@@ -88,6 +92,7 @@ module Late
       {
         :'type' => :'String',
         :'url' => :'String',
+        :'title' => :'String',
         :'filename' => :'String',
         :'size' => :'Integer',
         :'mime_type' => :'String',
@@ -125,6 +130,10 @@ module Late
 
       if attributes.key?(:'url')
         self.url = attributes[:'url']
+      end
+
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
 
       if attributes.key?(:'filename')
@@ -186,6 +195,7 @@ module Late
       self.class == o.class &&
           type == o.type &&
           url == o.url &&
+          title == o.title &&
           filename == o.filename &&
           size == o.size &&
           mime_type == o.mime_type &&
@@ -203,7 +213,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, url, filename, size, mime_type, thumbnail, instagram_thumbnail, tiktok_processed].hash
+      [type, url, title, filename, size, mime_type, thumbnail, instagram_thumbnail, tiktok_processed].hash
     end
 
     # Builds the object from hash

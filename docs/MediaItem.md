@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **type** | **String** |  | [optional] |
 | **url** | **String** |  | [optional] |
+| **title** | **String** | Optional title for the media item. Used as the document title for LinkedIn PDF/carousel posts. If omitted, falls back to the post title, then the filename. | [optional] |
 | **filename** | **String** |  | [optional] |
 | **size** | **Integer** | Optional file size in bytes | [optional] |
 | **mime_type** | **String** | Optional MIME type (e.g. image/jpeg, video/mp4) | [optional] |
@@ -21,6 +22,7 @@ require 'late'
 instance = Late::MediaItem.new(
   type: null,
   url: null,
+  title: null,
   filename: null,
   size: null,
   mime_type: null,

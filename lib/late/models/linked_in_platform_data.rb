@@ -16,6 +16,9 @@ require 'time'
 module Late
   # Up to 20 images, no multi-video. Single PDF supported (max 100MB). Link previews auto-generated when no media attached. Use organizationUrn for multi-org posting.
   class LinkedInPlatformData < ApiModelBase
+    # Title displayed on LinkedIn document (PDF/carousel) posts. Required by LinkedIn for document posts. If omitted, falls back to the media item title, then the filename.
+    attr_accessor :document_title
+
     # Target LinkedIn Organization URN (e.g. \"urn:li:organization:123456789\"). If omitted, uses the default org. Use GET /v1/accounts/{id}/linkedin-organizations to list orgs.
     attr_accessor :organization_urn
 
@@ -28,6 +31,7 @@ module Late
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'document_title' => :'documentTitle',
         :'organization_urn' => :'organizationUrn',
         :'first_comment' => :'firstComment',
         :'disable_link_preview' => :'disableLinkPreview'
@@ -47,6 +51,7 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'document_title' => :'String',
         :'organization_urn' => :'String',
         :'first_comment' => :'String',
         :'disable_link_preview' => :'Boolean'
@@ -74,6 +79,10 @@ module Late
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'document_title')
+        self.document_title = attributes[:'document_title']
+      end
 
       if attributes.key?(:'organization_urn')
         self.organization_urn = attributes[:'organization_urn']
@@ -108,6 +117,7 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          document_title == o.document_title &&
           organization_urn == o.organization_urn &&
           first_comment == o.first_comment &&
           disable_link_preview == o.disable_link_preview
@@ -122,7 +132,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [organization_urn, first_comment, disable_link_preview].hash
+      [document_title, organization_urn, first_comment, disable_link_preview].hash
     end
 
     # Builds the object from hash
