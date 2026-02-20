@@ -20,7 +20,7 @@ module Late
       @api_client = api_client
     end
     # Delete comment
-    # Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
+    # Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, and LinkedIn. Requires accountId and commentId query parameters. 
     # @param post_id [String] Late post ID or platform-specific post ID. LinkedIn third-party posts accept full activity URN or numeric ID.
     # @param account_id [String] 
     # @param comment_id [String] 
@@ -32,7 +32,7 @@ module Late
     end
 
     # Delete comment
-    # Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
+    # Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, and LinkedIn. Requires accountId and commentId query parameters. 
     # @param post_id [String] Late post ID or platform-specific post ID. LinkedIn third-party posts accept full activity URN or numeric ID.
     # @param account_id [String] 
     # @param comment_id [String] 
@@ -381,7 +381,7 @@ module Late
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CommentsApi.list_inbox_comments ...'
       end
-      allowable_values = ["facebook", "instagram", "twitter", "bluesky", "threads", "youtube", "linkedin", "reddit", "tiktok"]
+      allowable_values = ["facebook", "instagram", "twitter", "bluesky", "threads", "youtube", "linkedin", "reddit"]
       if @api_client.config.client_side_validation && opts[:'platform'] && !allowable_values.include?(opts[:'platform'])
         fail ArgumentError, "invalid value for \"platform\", must be one of #{allowable_values}"
       end

@@ -34,7 +34,7 @@ describe 'CommentsApi' do
 
   # unit tests for delete_inbox_comment
   # Delete comment
-  # Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
+  # Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, and LinkedIn. Requires accountId and commentId query parameters. 
   # @param post_id Late post ID or platform-specific post ID. LinkedIn third-party posts accept full activity URN or numeric ID.
   # @param account_id 
   # @param comment_id 
