@@ -188,7 +188,7 @@ module Late
       if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
         fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
       end
-      allowable_values = ["post.scheduled", "post.published", "post.failed", "post.partial", "account.connected", "account.disconnected", "message.received", "webhook.test"]
+      allowable_values = ["post.scheduled", "post.published", "post.failed", "post.partial", "account.connected", "account.disconnected", "message.received", "comment.received", "webhook.test"]
       if @api_client.config.client_side_validation && opts[:'event'] && !allowable_values.include?(opts[:'event'])
         fail ArgumentError, "invalid value for \"event\", must be one of #{allowable_values}"
       end

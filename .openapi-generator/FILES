@@ -404,6 +404,11 @@ docs/WebhookPayloadAccountConnected.md
 docs/WebhookPayloadAccountConnectedAccount.md
 docs/WebhookPayloadAccountDisconnected.md
 docs/WebhookPayloadAccountDisconnectedAccount.md
+docs/WebhookPayloadComment.md
+docs/WebhookPayloadCommentAccount.md
+docs/WebhookPayloadCommentComment.md
+docs/WebhookPayloadCommentCommentAuthor.md
+docs/WebhookPayloadCommentPost.md
 docs/WebhookPayloadMessage.md
 docs/WebhookPayloadMessageAccount.md
 docs/WebhookPayloadMessageConversation.md
@@ -829,6 +834,11 @@ lib/late/models/webhook_payload_account_connected.rb
 lib/late/models/webhook_payload_account_connected_account.rb
 lib/late/models/webhook_payload_account_disconnected.rb
 lib/late/models/webhook_payload_account_disconnected_account.rb
+lib/late/models/webhook_payload_comment.rb
+lib/late/models/webhook_payload_comment_account.rb
+lib/late/models/webhook_payload_comment_comment.rb
+lib/late/models/webhook_payload_comment_comment_author.rb
+lib/late/models/webhook_payload_comment_post.rb
 lib/late/models/webhook_payload_message.rb
 lib/late/models/webhook_payload_message_account.rb
 lib/late/models/webhook_payload_message_conversation.rb
@@ -1246,6 +1256,11 @@ spec/models/webhook_payload_account_connected_account_spec.rb
 spec/models/webhook_payload_account_connected_spec.rb
 spec/models/webhook_payload_account_disconnected_account_spec.rb
 spec/models/webhook_payload_account_disconnected_spec.rb
+spec/models/webhook_payload_comment_account_spec.rb
+spec/models/webhook_payload_comment_comment_author_spec.rb
+spec/models/webhook_payload_comment_comment_spec.rb
+spec/models/webhook_payload_comment_post_spec.rb
+spec/models/webhook_payload_comment_spec.rb
 spec/models/webhook_payload_message_account_spec.rb
 spec/models/webhook_payload_message_conversation_spec.rb
 spec/models/webhook_payload_message_message_attachments_inner_spec.rb

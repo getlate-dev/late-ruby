@@ -180,7 +180,7 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      platform_validator = EnumAttributeValidator.new('String', ["instagram", "facebook", "telegram"])
+      platform_validator = EnumAttributeValidator.new('String', ["instagram", "facebook", "telegram", "bluesky", "reddit"])
       return false unless platform_validator.valid?(@platform)
       direction_validator = EnumAttributeValidator.new('String', ["incoming"])
       return false unless direction_validator.valid?(@direction)
@@ -190,7 +190,7 @@ module Late
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] platform Object to be assigned
     def platform=(platform)
-      validator = EnumAttributeValidator.new('String', ["instagram", "facebook", "telegram"])
+      validator = EnumAttributeValidator.new('String', ["instagram", "facebook", "telegram", "bluesky", "reddit"])
       unless validator.valid?(platform)
         fail ArgumentError, "invalid value for \"platform\", must be one of #{validator.allowable_values}."
       end

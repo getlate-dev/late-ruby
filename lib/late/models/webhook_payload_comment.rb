@@ -14,41 +14,17 @@ require 'date'
 require 'time'
 
 module Late
-  # Webhook delivery log entry
-  class WebhookLog < ApiModelBase
-    attr_accessor :_id
-
-    # ID of the webhook that was triggered
-    attr_accessor :webhook_id
-
-    # Name of the webhook that was triggered
-    attr_accessor :webhook_name
-
+  # Webhook payload for comment received events (Instagram, Facebook, Twitter/X, YouTube, LinkedIn, Bluesky, Reddit)
+  class WebhookPayloadComment < ApiModelBase
     attr_accessor :event
 
-    attr_accessor :url
+    attr_accessor :comment
 
-    attr_accessor :status
+    attr_accessor :post
 
-    # HTTP status code from webhook endpoint
-    attr_accessor :status_code
+    attr_accessor :account
 
-    # Payload sent to webhook endpoint
-    attr_accessor :request_payload
-
-    # Response body from webhook endpoint (truncated to 10KB)
-    attr_accessor :response_body
-
-    # Error message if delivery failed
-    attr_accessor :error_message
-
-    # Delivery attempt number (max 3 retries)
-    attr_accessor :attempt_number
-
-    # Response time in milliseconds
-    attr_accessor :response_time
-
-    attr_accessor :created_at
+    attr_accessor :timestamp
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -75,19 +51,11 @@ module Late
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'_id' => :'_id',
-        :'webhook_id' => :'webhookId',
-        :'webhook_name' => :'webhookName',
         :'event' => :'event',
-        :'url' => :'url',
-        :'status' => :'status',
-        :'status_code' => :'statusCode',
-        :'request_payload' => :'requestPayload',
-        :'response_body' => :'responseBody',
-        :'error_message' => :'errorMessage',
-        :'attempt_number' => :'attemptNumber',
-        :'response_time' => :'responseTime',
-        :'created_at' => :'createdAt'
+        :'comment' => :'comment',
+        :'post' => :'post',
+        :'account' => :'account',
+        :'timestamp' => :'timestamp'
       }
     end
 
@@ -104,19 +72,11 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'_id' => :'String',
-        :'webhook_id' => :'String',
-        :'webhook_name' => :'String',
         :'event' => :'String',
-        :'url' => :'String',
-        :'status' => :'String',
-        :'status_code' => :'Integer',
-        :'request_payload' => :'Object',
-        :'response_body' => :'String',
-        :'error_message' => :'String',
-        :'attempt_number' => :'Integer',
-        :'response_time' => :'Integer',
-        :'created_at' => :'Time'
+        :'comment' => :'WebhookPayloadCommentComment',
+        :'post' => :'WebhookPayloadCommentPost',
+        :'account' => :'WebhookPayloadCommentAccount',
+        :'timestamp' => :'Time'
       }
     end
 
@@ -130,68 +90,36 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookLog` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookPayloadComment` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookLog`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookPayloadComment`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'_id')
-        self._id = attributes[:'_id']
-      end
-
-      if attributes.key?(:'webhook_id')
-        self.webhook_id = attributes[:'webhook_id']
-      end
-
-      if attributes.key?(:'webhook_name')
-        self.webhook_name = attributes[:'webhook_name']
-      end
 
       if attributes.key?(:'event')
         self.event = attributes[:'event']
       end
 
-      if attributes.key?(:'url')
-        self.url = attributes[:'url']
+      if attributes.key?(:'comment')
+        self.comment = attributes[:'comment']
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'post')
+        self.post = attributes[:'post']
       end
 
-      if attributes.key?(:'status_code')
-        self.status_code = attributes[:'status_code']
+      if attributes.key?(:'account')
+        self.account = attributes[:'account']
       end
 
-      if attributes.key?(:'request_payload')
-        self.request_payload = attributes[:'request_payload']
-      end
-
-      if attributes.key?(:'response_body')
-        self.response_body = attributes[:'response_body']
-      end
-
-      if attributes.key?(:'error_message')
-        self.error_message = attributes[:'error_message']
-      end
-
-      if attributes.key?(:'attempt_number')
-        self.attempt_number = attributes[:'attempt_number']
-      end
-
-      if attributes.key?(:'response_time')
-        self.response_time = attributes[:'response_time']
-      end
-
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
+      if attributes.key?(:'timestamp')
+        self.timestamp = attributes[:'timestamp']
       end
     end
 
@@ -207,31 +135,19 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      event_validator = EnumAttributeValidator.new('String', ["post.scheduled", "post.published", "post.failed", "post.partial", "account.connected", "account.disconnected", "message.received", "comment.received", "webhook.test"])
+      event_validator = EnumAttributeValidator.new('String', ["comment.received"])
       return false unless event_validator.valid?(@event)
-      status_validator = EnumAttributeValidator.new('String', ["success", "failed"])
-      return false unless status_validator.valid?(@status)
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] event Object to be assigned
     def event=(event)
-      validator = EnumAttributeValidator.new('String', ["post.scheduled", "post.published", "post.failed", "post.partial", "account.connected", "account.disconnected", "message.received", "comment.received", "webhook.test"])
+      validator = EnumAttributeValidator.new('String', ["comment.received"])
       unless validator.valid?(event)
         fail ArgumentError, "invalid value for \"event\", must be one of #{validator.allowable_values}."
       end
       @event = event
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] status Object to be assigned
-    def status=(status)
-      validator = EnumAttributeValidator.new('String', ["success", "failed"])
-      unless validator.valid?(status)
-        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
-      end
-      @status = status
     end
 
     # Checks equality by comparing each attribute.
@@ -239,19 +155,11 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          _id == o._id &&
-          webhook_id == o.webhook_id &&
-          webhook_name == o.webhook_name &&
           event == o.event &&
-          url == o.url &&
-          status == o.status &&
-          status_code == o.status_code &&
-          request_payload == o.request_payload &&
-          response_body == o.response_body &&
-          error_message == o.error_message &&
-          attempt_number == o.attempt_number &&
-          response_time == o.response_time &&
-          created_at == o.created_at
+          comment == o.comment &&
+          post == o.post &&
+          account == o.account &&
+          timestamp == o.timestamp
     end
 
     # @see the `==` method
@@ -263,7 +171,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_id, webhook_id, webhook_name, event, url, status, status_code, request_payload, response_body, error_message, attempt_number, response_time, created_at].hash
+      [event, comment, post, account, timestamp].hash
     end
 
     # Builds the object from hash

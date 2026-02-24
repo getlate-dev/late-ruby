@@ -14,51 +14,18 @@ require 'date'
 require 'time'
 
 module Late
-  # Webhook payload for message received events (DMs from Instagram, Facebook, Telegram, Bluesky, Reddit)
-  class WebhookPayloadMessage < ApiModelBase
-    attr_accessor :event
+  class WebhookPayloadCommentPost < ApiModelBase
+    # Internal post ID
+    attr_accessor :id
 
-    attr_accessor :message
-
-    attr_accessor :conversation
-
-    attr_accessor :account
-
-    attr_accessor :metadata
-
-    attr_accessor :timestamp
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # Platform's post ID
+    attr_accessor :platform_post_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'event' => :'event',
-        :'message' => :'message',
-        :'conversation' => :'conversation',
-        :'account' => :'account',
-        :'metadata' => :'metadata',
-        :'timestamp' => :'timestamp'
+        :'id' => :'id',
+        :'platform_post_id' => :'platformPostId'
       }
     end
 
@@ -75,12 +42,8 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'event' => :'String',
-        :'message' => :'WebhookPayloadMessageMessage',
-        :'conversation' => :'WebhookPayloadMessageConversation',
-        :'account' => :'WebhookPayloadMessageAccount',
-        :'metadata' => :'WebhookPayloadMessageMetadata',
-        :'timestamp' => :'Time'
+        :'id' => :'String',
+        :'platform_post_id' => :'String'
       }
     end
 
@@ -94,40 +57,24 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookPayloadMessage` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::WebhookPayloadCommentPost` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookPayloadMessage`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::WebhookPayloadCommentPost`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'event')
-        self.event = attributes[:'event']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'conversation')
-        self.conversation = attributes[:'conversation']
-      end
-
-      if attributes.key?(:'account')
-        self.account = attributes[:'account']
-      end
-
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
-      end
-
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
+      if attributes.key?(:'platform_post_id')
+        self.platform_post_id = attributes[:'platform_post_id']
       end
     end
 
@@ -143,19 +90,7 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      event_validator = EnumAttributeValidator.new('String', ["message.received"])
-      return false unless event_validator.valid?(@event)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] event Object to be assigned
-    def event=(event)
-      validator = EnumAttributeValidator.new('String', ["message.received"])
-      unless validator.valid?(event)
-        fail ArgumentError, "invalid value for \"event\", must be one of #{validator.allowable_values}."
-      end
-      @event = event
     end
 
     # Checks equality by comparing each attribute.
@@ -163,12 +98,8 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          event == o.event &&
-          message == o.message &&
-          conversation == o.conversation &&
-          account == o.account &&
-          metadata == o.metadata &&
-          timestamp == o.timestamp
+          id == o.id &&
+          platform_post_id == o.platform_post_id
     end
 
     # @see the `==` method
@@ -180,7 +111,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event, message, conversation, account, metadata, timestamp].hash
+      [id, platform_post_id].hash
     end
 
     # Builds the object from hash
