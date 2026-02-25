@@ -15,12 +15,38 @@ require 'time'
 
 module Late
   class TwitterPlatformData < ApiModelBase
+    # Controls who can reply to the tweet. \"following\" allows only people you follow, \"mentionedUsers\" allows only mentioned users, \"subscribers\" allows only subscribers. Omit for default (everyone can reply). For threads, applies to the first tweet only.
+    attr_accessor :reply_settings
+
     # Sequence of tweets in a thread. First item is the root tweet.
     attr_accessor :thread_items
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'reply_settings' => :'replySettings',
         :'thread_items' => :'threadItems'
       }
     end
@@ -38,6 +64,7 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'reply_settings' => :'String',
         :'thread_items' => :'Array<TwitterPlatformDataThreadItemsInner>'
       }
     end
@@ -64,6 +91,10 @@ module Late
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'reply_settings')
+        self.reply_settings = attributes[:'reply_settings']
+      end
+
       if attributes.key?(:'thread_items')
         if (value = attributes[:'thread_items']).is_a?(Array)
           self.thread_items = value
@@ -83,7 +114,19 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      reply_settings_validator = EnumAttributeValidator.new('String', ["following", "mentionedUsers", "subscribers"])
+      return false unless reply_settings_validator.valid?(@reply_settings)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] reply_settings Object to be assigned
+    def reply_settings=(reply_settings)
+      validator = EnumAttributeValidator.new('String', ["following", "mentionedUsers", "subscribers"])
+      unless validator.valid?(reply_settings)
+        fail ArgumentError, "invalid value for \"reply_settings\", must be one of #{validator.allowable_values}."
+      end
+      @reply_settings = reply_settings
     end
 
     # Checks equality by comparing each attribute.
@@ -91,6 +134,7 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          reply_settings == o.reply_settings &&
           thread_items == o.thread_items
     end
 
@@ -103,7 +147,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [thread_items].hash
+      [reply_settings, thread_items].hash
     end
 
     # Builds the object from hash

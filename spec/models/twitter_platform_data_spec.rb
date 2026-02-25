@@ -27,6 +27,16 @@ describe Late::TwitterPlatformData do
     end
   end
 
+  describe 'test attribute "reply_settings"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["following", "mentionedUsers", "subscribers"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.reply_settings = value }.not_to raise_error
+      # end
+    end
+  end
+
   describe 'test attribute "thread_items"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
