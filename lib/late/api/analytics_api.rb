@@ -130,6 +130,201 @@ module Late
       return data, status_code, headers
     end
 
+    # Get best times to post
+    # Returns the best times to post based on historical engagement data. Groups all published posts by day of week and hour (UTC), calculating average engagement per slot. Use this to auto-schedule posts at optimal times. Requires the Analytics add-on. 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
+    # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @return [GetBestTimeToPost200Response]
+    def get_best_time_to_post(opts = {})
+      data, _status_code, _headers = get_best_time_to_post_with_http_info(opts)
+      data
+    end
+
+    # Get best times to post
+    # Returns the best times to post based on historical engagement data. Groups all published posts by day of week and hour (UTC), calculating average engagement per slot. Use this to auto-schedule posts at optimal times. Requires the Analytics add-on. 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
+    # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @return [Array<(GetBestTimeToPost200Response, Integer, Hash)>] GetBestTimeToPost200Response data, response status code and response headers
+    def get_best_time_to_post_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AnalyticsApi.get_best_time_to_post ...'
+      end
+      # resource path
+      local_var_path = '/v1/analytics/best-time'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
+      query_params[:'profileId'] = opts[:'profile_id'] if !opts[:'profile_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetBestTimeToPost200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"AnalyticsApi.get_best_time_to_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AnalyticsApi#get_best_time_to_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get content performance decay
+    # Returns how engagement accumulates over time after a post is published. Each bucket shows what percentage of the post's total engagement had been reached by that time window. Useful for understanding content lifespan (e.g. \"posts reach 78% of total engagement within 24 hours\"). Requires the Analytics add-on. 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
+    # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @return [GetContentDecay200Response]
+    def get_content_decay(opts = {})
+      data, _status_code, _headers = get_content_decay_with_http_info(opts)
+      data
+    end
+
+    # Get content performance decay
+    # Returns how engagement accumulates over time after a post is published. Each bucket shows what percentage of the post&#39;s total engagement had been reached by that time window. Useful for understanding content lifespan (e.g. \&quot;posts reach 78% of total engagement within 24 hours\&quot;). Requires the Analytics add-on. 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
+    # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @return [Array<(GetContentDecay200Response, Integer, Hash)>] GetContentDecay200Response data, response status code and response headers
+    def get_content_decay_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AnalyticsApi.get_content_decay ...'
+      end
+      # resource path
+      local_var_path = '/v1/analytics/content-decay'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
+      query_params[:'profileId'] = opts[:'profile_id'] if !opts[:'profile_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetContentDecay200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"AnalyticsApi.get_content_decay",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AnalyticsApi#get_content_decay\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get daily aggregated metrics
+    # Returns daily aggregated analytics metrics and a per-platform breakdown. Each day includes post count, platform distribution, and summed metrics (impressions, reach, likes, comments, shares, saves, clicks, views). Defaults to the last 180 days. Requires the Analytics add-on. 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
+    # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @option opts [Time] :from_date Inclusive start date (ISO 8601). Defaults to 180 days ago.
+    # @option opts [Time] :to_date Inclusive end date (ISO 8601). Defaults to now.
+    # @return [GetDailyMetrics200Response]
+    def get_daily_metrics(opts = {})
+      data, _status_code, _headers = get_daily_metrics_with_http_info(opts)
+      data
+    end
+
+    # Get daily aggregated metrics
+    # Returns daily aggregated analytics metrics and a per-platform breakdown. Each day includes post count, platform distribution, and summed metrics (impressions, reach, likes, comments, shares, saves, clicks, views). Defaults to the last 180 days. Requires the Analytics add-on. 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
+    # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @option opts [Time] :from_date Inclusive start date (ISO 8601). Defaults to 180 days ago.
+    # @option opts [Time] :to_date Inclusive end date (ISO 8601). Defaults to now.
+    # @return [Array<(GetDailyMetrics200Response, Integer, Hash)>] GetDailyMetrics200Response data, response status code and response headers
+    def get_daily_metrics_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AnalyticsApi.get_daily_metrics ...'
+      end
+      # resource path
+      local_var_path = '/v1/analytics/daily-metrics'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
+      query_params[:'profileId'] = opts[:'profile_id'] if !opts[:'profile_id'].nil?
+      query_params[:'fromDate'] = opts[:'from_date'] if !opts[:'from_date'].nil?
+      query_params[:'toDate'] = opts[:'to_date'] if !opts[:'to_date'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetDailyMetrics200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"AnalyticsApi.get_daily_metrics",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AnalyticsApi#get_daily_metrics\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get follower stats
     # Returns follower count history and growth metrics for connected social accounts. Requires analytics add-on subscription. Follower counts are refreshed once per day. 
     # @param [Hash] opts the optional parameters
@@ -351,6 +546,69 @@ module Late
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AnalyticsApi#get_linked_in_post_analytics\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get posting frequency vs engagement
+    # Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
+    # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @return [GetPostingFrequency200Response]
+    def get_posting_frequency(opts = {})
+      data, _status_code, _headers = get_posting_frequency_with_http_info(opts)
+      data
+    end
+
+    # Get posting frequency vs engagement
+    # Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
+    # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @return [Array<(GetPostingFrequency200Response, Integer, Hash)>] GetPostingFrequency200Response data, response status code and response headers
+    def get_posting_frequency_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AnalyticsApi.get_posting_frequency ...'
+      end
+      # resource path
+      local_var_path = '/v1/analytics/posting-frequency'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
+      query_params[:'profileId'] = opts[:'profile_id'] if !opts[:'profile_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetPostingFrequency200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"AnalyticsApi.get_posting_frequency",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AnalyticsApi#get_posting_frequency\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

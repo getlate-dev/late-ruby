@@ -110,9 +110,13 @@ Class | Method | HTTP request | Description
 *Late::AccountsApi* | [**list_accounts**](docs/AccountsApi.md#list_accounts) | **GET** /v1/accounts | List accounts
 *Late::AccountsApi* | [**update_account**](docs/AccountsApi.md#update_account) | **PUT** /v1/accounts/{accountId} | Update account
 *Late::AnalyticsApi* | [**get_analytics**](docs/AnalyticsApi.md#get_analytics) | **GET** /v1/analytics | Get post analytics
+*Late::AnalyticsApi* | [**get_best_time_to_post**](docs/AnalyticsApi.md#get_best_time_to_post) | **GET** /v1/analytics/best-time | Get best times to post
+*Late::AnalyticsApi* | [**get_content_decay**](docs/AnalyticsApi.md#get_content_decay) | **GET** /v1/analytics/content-decay | Get content performance decay
+*Late::AnalyticsApi* | [**get_daily_metrics**](docs/AnalyticsApi.md#get_daily_metrics) | **GET** /v1/analytics/daily-metrics | Get daily aggregated metrics
 *Late::AnalyticsApi* | [**get_follower_stats**](docs/AnalyticsApi.md#get_follower_stats) | **GET** /v1/accounts/follower-stats | Get follower stats
 *Late::AnalyticsApi* | [**get_linked_in_aggregate_analytics**](docs/AnalyticsApi.md#get_linked_in_aggregate_analytics) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats
 *Late::AnalyticsApi* | [**get_linked_in_post_analytics**](docs/AnalyticsApi.md#get_linked_in_post_analytics) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats
+*Late::AnalyticsApi* | [**get_posting_frequency**](docs/AnalyticsApi.md#get_posting_frequency) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement
 *Late::AnalyticsApi* | [**get_you_tube_daily_views**](docs/AnalyticsApi.md#get_you_tube_daily_views) | **GET** /v1/analytics/youtube/daily-views | Get YouTube daily views
 *Late::CommentsApi* | [**delete_inbox_comment**](docs/CommentsApi.md#delete_inbox_comment) | **DELETE** /v1/inbox/comments/{postId} | Delete comment
 *Late::CommentsApi* | [**get_inbox_post_comments**](docs/CommentsApi.md#get_inbox_post_comments) | **GET** /v1/inbox/comments/{postId} | Get post comments
@@ -312,7 +316,16 @@ Class | Method | HTTP request | Description
  - [Late::GetAllAccountsHealth200ResponseSummary](docs/GetAllAccountsHealth200ResponseSummary.md)
  - [Late::GetAnalytics200Response](docs/GetAnalytics200Response.md)
  - [Late::GetAnalytics402Response](docs/GetAnalytics402Response.md)
+ - [Late::GetBestTimeToPost200Response](docs/GetBestTimeToPost200Response.md)
+ - [Late::GetBestTimeToPost200ResponseSlotsInner](docs/GetBestTimeToPost200ResponseSlotsInner.md)
+ - [Late::GetBestTimeToPost403Response](docs/GetBestTimeToPost403Response.md)
  - [Late::GetConnectUrl200Response](docs/GetConnectUrl200Response.md)
+ - [Late::GetContentDecay200Response](docs/GetContentDecay200Response.md)
+ - [Late::GetContentDecay200ResponseBucketsInner](docs/GetContentDecay200ResponseBucketsInner.md)
+ - [Late::GetDailyMetrics200Response](docs/GetDailyMetrics200Response.md)
+ - [Late::GetDailyMetrics200ResponseDailyDataInner](docs/GetDailyMetrics200ResponseDailyDataInner.md)
+ - [Late::GetDailyMetrics200ResponseDailyDataInnerMetrics](docs/GetDailyMetrics200ResponseDailyDataInnerMetrics.md)
+ - [Late::GetDailyMetrics200ResponsePlatformBreakdownInner](docs/GetDailyMetrics200ResponsePlatformBreakdownInner.md)
  - [Late::GetFacebookPages200Response](docs/GetFacebookPages200Response.md)
  - [Late::GetFacebookPages200ResponsePagesInner](docs/GetFacebookPages200ResponsePagesInner.md)
  - [Late::GetFollowerStats200Response](docs/GetFollowerStats200Response.md)
@@ -365,6 +378,8 @@ Class | Method | HTTP request | Description
  - [Late::GetPinterestBoards200Response](docs/GetPinterestBoards200Response.md)
  - [Late::GetPinterestBoards200ResponseBoardsInner](docs/GetPinterestBoards200ResponseBoardsInner.md)
  - [Late::GetPostLogs200Response](docs/GetPostLogs200Response.md)
+ - [Late::GetPostingFrequency200Response](docs/GetPostingFrequency200Response.md)
+ - [Late::GetPostingFrequency200ResponseFrequencyInner](docs/GetPostingFrequency200ResponseFrequencyInner.md)
  - [Late::GetProfile200Response](docs/GetProfile200Response.md)
  - [Late::GetRedditFeed200Response](docs/GetRedditFeed200Response.md)
  - [Late::GetRedditFlairs200Response](docs/GetRedditFlairs200Response.md)

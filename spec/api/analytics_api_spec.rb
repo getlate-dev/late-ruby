@@ -53,6 +53,47 @@ describe 'AnalyticsApi' do
     end
   end
 
+  # unit tests for get_best_time_to_post
+  # Get best times to post
+  # Returns the best times to post based on historical engagement data. Groups all published posts by day of week and hour (UTC), calculating average engagement per slot. Use this to auto-schedule posts at optimal times. Requires the Analytics add-on. 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
+  # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+  # @return [GetBestTimeToPost200Response]
+  describe 'get_best_time_to_post test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_content_decay
+  # Get content performance decay
+  # Returns how engagement accumulates over time after a post is published. Each bucket shows what percentage of the post&#39;s total engagement had been reached by that time window. Useful for understanding content lifespan (e.g. \&quot;posts reach 78% of total engagement within 24 hours\&quot;). Requires the Analytics add-on. 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
+  # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+  # @return [GetContentDecay200Response]
+  describe 'get_content_decay test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_daily_metrics
+  # Get daily aggregated metrics
+  # Returns daily aggregated analytics metrics and a per-platform breakdown. Each day includes post count, platform distribution, and summed metrics (impressions, reach, likes, comments, shares, saves, clicks, views). Defaults to the last 180 days. Requires the Analytics add-on. 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
+  # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+  # @option opts [Time] :from_date Inclusive start date (ISO 8601). Defaults to 180 days ago.
+  # @option opts [Time] :to_date Inclusive end date (ISO 8601). Defaults to now.
+  # @return [GetDailyMetrics200Response]
+  describe 'get_daily_metrics test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_follower_stats
   # Get follower stats
   # Returns follower count history and growth metrics for connected social accounts. Requires analytics add-on subscription. Follower counts are refreshed once per day. 
@@ -93,6 +134,19 @@ describe 'AnalyticsApi' do
   # @param [Hash] opts the optional parameters
   # @return [GetLinkedInPostAnalytics200Response]
   describe 'get_linked_in_post_analytics test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_posting_frequency
+  # Get posting frequency vs engagement
+  # Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
+  # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+  # @return [GetPostingFrequency200Response]
+  describe 'get_posting_frequency test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -5,9 +5,13 @@ All URIs are relative to *https://getlate.dev/api*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**get_analytics**](AnalyticsApi.md#get_analytics) | **GET** /v1/analytics | Get post analytics |
+| [**get_best_time_to_post**](AnalyticsApi.md#get_best_time_to_post) | **GET** /v1/analytics/best-time | Get best times to post |
+| [**get_content_decay**](AnalyticsApi.md#get_content_decay) | **GET** /v1/analytics/content-decay | Get content performance decay |
+| [**get_daily_metrics**](AnalyticsApi.md#get_daily_metrics) | **GET** /v1/analytics/daily-metrics | Get daily aggregated metrics |
 | [**get_follower_stats**](AnalyticsApi.md#get_follower_stats) | **GET** /v1/accounts/follower-stats | Get follower stats |
 | [**get_linked_in_aggregate_analytics**](AnalyticsApi.md#get_linked_in_aggregate_analytics) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats |
 | [**get_linked_in_post_analytics**](AnalyticsApi.md#get_linked_in_post_analytics) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats |
+| [**get_posting_frequency**](AnalyticsApi.md#get_posting_frequency) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement |
 | [**get_you_tube_daily_views**](AnalyticsApi.md#get_you_tube_daily_views) | **GET** /v1/analytics/youtube/daily-views | Get YouTube daily views |
 
 
@@ -89,6 +93,229 @@ end
 ### Return type
 
 [**GetAnalytics200Response**](GetAnalytics200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_best_time_to_post
+
+> <GetBestTimeToPost200Response> get_best_time_to_post(opts)
+
+Get best times to post
+
+Returns the best times to post based on historical engagement data. Groups all published posts by day of week and hour (UTC), calculating average engagement per slot. Use this to auto-schedule posts at optimal times. Requires the Analytics add-on. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::AnalyticsApi.new
+opts = {
+  platform: 'platform_example', # String | Filter by platform (e.g. \"instagram\", \"tiktok\"). Omit for all platforms.
+  profile_id: 'profile_id_example' # String | Filter by profile ID. Omit for all profiles.
+}
+
+begin
+  # Get best times to post
+  result = api_instance.get_best_time_to_post(opts)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_best_time_to_post: #{e}"
+end
+```
+
+#### Using the get_best_time_to_post_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetBestTimeToPost200Response>, Integer, Hash)> get_best_time_to_post_with_http_info(opts)
+
+```ruby
+begin
+  # Get best times to post
+  data, status_code, headers = api_instance.get_best_time_to_post_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetBestTimeToPost200Response>
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_best_time_to_post_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **platform** | **String** | Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. | [optional] |
+| **profile_id** | **String** | Filter by profile ID. Omit for all profiles. | [optional] |
+
+### Return type
+
+[**GetBestTimeToPost200Response**](GetBestTimeToPost200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_content_decay
+
+> <GetContentDecay200Response> get_content_decay(opts)
+
+Get content performance decay
+
+Returns how engagement accumulates over time after a post is published. Each bucket shows what percentage of the post's total engagement had been reached by that time window. Useful for understanding content lifespan (e.g. \"posts reach 78% of total engagement within 24 hours\"). Requires the Analytics add-on. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::AnalyticsApi.new
+opts = {
+  platform: 'platform_example', # String | Filter by platform (e.g. \"instagram\", \"tiktok\"). Omit for all platforms.
+  profile_id: 'profile_id_example' # String | Filter by profile ID. Omit for all profiles.
+}
+
+begin
+  # Get content performance decay
+  result = api_instance.get_content_decay(opts)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_content_decay: #{e}"
+end
+```
+
+#### Using the get_content_decay_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetContentDecay200Response>, Integer, Hash)> get_content_decay_with_http_info(opts)
+
+```ruby
+begin
+  # Get content performance decay
+  data, status_code, headers = api_instance.get_content_decay_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetContentDecay200Response>
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_content_decay_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **platform** | **String** | Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. | [optional] |
+| **profile_id** | **String** | Filter by profile ID. Omit for all profiles. | [optional] |
+
+### Return type
+
+[**GetContentDecay200Response**](GetContentDecay200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_daily_metrics
+
+> <GetDailyMetrics200Response> get_daily_metrics(opts)
+
+Get daily aggregated metrics
+
+Returns daily aggregated analytics metrics and a per-platform breakdown. Each day includes post count, platform distribution, and summed metrics (impressions, reach, likes, comments, shares, saves, clicks, views). Defaults to the last 180 days. Requires the Analytics add-on. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::AnalyticsApi.new
+opts = {
+  platform: 'platform_example', # String | Filter by platform (e.g. \"instagram\", \"tiktok\"). Omit for all platforms.
+  profile_id: 'profile_id_example', # String | Filter by profile ID. Omit for all profiles.
+  from_date: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Inclusive start date (ISO 8601). Defaults to 180 days ago.
+  to_date: Time.parse('2013-10-20T19:20:30+01:00') # Time | Inclusive end date (ISO 8601). Defaults to now.
+}
+
+begin
+  # Get daily aggregated metrics
+  result = api_instance.get_daily_metrics(opts)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_daily_metrics: #{e}"
+end
+```
+
+#### Using the get_daily_metrics_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetDailyMetrics200Response>, Integer, Hash)> get_daily_metrics_with_http_info(opts)
+
+```ruby
+begin
+  # Get daily aggregated metrics
+  data, status_code, headers = api_instance.get_daily_metrics_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetDailyMetrics200Response>
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_daily_metrics_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **platform** | **String** | Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. | [optional] |
+| **profile_id** | **String** | Filter by profile ID. Omit for all profiles. | [optional] |
+| **from_date** | **Time** | Inclusive start date (ISO 8601). Defaults to 180 days ago. | [optional] |
+| **to_date** | **Time** | Inclusive end date (ISO 8601). Defaults to now. | [optional] |
+
+### Return type
+
+[**GetDailyMetrics200Response**](GetDailyMetrics200Response.md)
 
 ### Authorization
 
@@ -318,6 +545,79 @@ end
 ### Return type
 
 [**GetLinkedInPostAnalytics200Response**](GetLinkedInPostAnalytics200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_posting_frequency
+
+> <GetPostingFrequency200Response> get_posting_frequency(opts)
+
+Get posting frequency vs engagement
+
+Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::AnalyticsApi.new
+opts = {
+  platform: 'platform_example', # String | Filter by platform (e.g. \"instagram\", \"tiktok\"). Omit for all platforms.
+  profile_id: 'profile_id_example' # String | Filter by profile ID. Omit for all profiles.
+}
+
+begin
+  # Get posting frequency vs engagement
+  result = api_instance.get_posting_frequency(opts)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_posting_frequency: #{e}"
+end
+```
+
+#### Using the get_posting_frequency_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetPostingFrequency200Response>, Integer, Hash)> get_posting_frequency_with_http_info(opts)
+
+```ruby
+begin
+  # Get posting frequency vs engagement
+  data, status_code, headers = api_instance.get_posting_frequency_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetPostingFrequency200Response>
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_posting_frequency_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **platform** | **String** | Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. | [optional] |
+| **profile_id** | **String** | Filter by profile ID. Omit for all profiles. | [optional] |
+
+### Return type
+
+[**GetPostingFrequency200Response**](GetPostingFrequency200Response.md)
 
 ### Authorization
 
