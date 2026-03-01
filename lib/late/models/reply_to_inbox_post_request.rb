@@ -22,9 +22,6 @@ module Late
     # Reply to specific comment (optional)
     attr_accessor :comment_id
 
-    # (Reddit only) Subreddit name for replies
-    attr_accessor :subreddit
-
     # (Bluesky only) Parent content identifier
     attr_accessor :parent_cid
 
@@ -40,7 +37,6 @@ module Late
         :'account_id' => :'accountId',
         :'message' => :'message',
         :'comment_id' => :'commentId',
-        :'subreddit' => :'subreddit',
         :'parent_cid' => :'parentCid',
         :'root_uri' => :'rootUri',
         :'root_cid' => :'rootCid'
@@ -63,7 +59,6 @@ module Late
         :'account_id' => :'String',
         :'message' => :'String',
         :'comment_id' => :'String',
-        :'subreddit' => :'String',
         :'parent_cid' => :'String',
         :'root_uri' => :'String',
         :'root_cid' => :'String'
@@ -106,10 +101,6 @@ module Late
 
       if attributes.key?(:'comment_id')
         self.comment_id = attributes[:'comment_id']
-      end
-
-      if attributes.key?(:'subreddit')
-        self.subreddit = attributes[:'subreddit']
       end
 
       if attributes.key?(:'parent_cid')
@@ -178,7 +169,6 @@ module Late
           account_id == o.account_id &&
           message == o.message &&
           comment_id == o.comment_id &&
-          subreddit == o.subreddit &&
           parent_cid == o.parent_cid &&
           root_uri == o.root_uri &&
           root_cid == o.root_cid
@@ -193,7 +183,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, message, comment_id, subreddit, parent_cid, root_uri, root_cid].hash
+      [account_id, message, comment_id, parent_cid, root_uri, root_cid].hash
     end
 
     # Builds the object from hash
