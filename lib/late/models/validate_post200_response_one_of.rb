@@ -22,28 +22,6 @@ module Late
 
     attr_accessor :warnings
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -121,19 +99,7 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      valid_validator = EnumAttributeValidator.new('Boolean', ["true"])
-      return false unless valid_validator.valid?(@valid)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] valid Object to be assigned
-    def valid=(valid)
-      validator = EnumAttributeValidator.new('Boolean', ["true"])
-      unless validator.valid?(valid)
-        fail ArgumentError, "invalid value for \"valid\", must be one of #{validator.allowable_values}."
-      end
-      @valid = valid
     end
 
     # Checks equality by comparing each attribute.

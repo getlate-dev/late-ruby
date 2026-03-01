@@ -30,10 +30,6 @@ describe Late::ValidatePost200ResponseOneOf1 do
   describe 'test attribute "valid"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Boolean', ["false"])
-      # validator.allowable_values.each do |value|
-      #   expect { instance.valid = value }.not_to raise_error
-      # end
     end
   end
 
