@@ -56,6 +56,12 @@ jobs:
             --git-user-id=getlate-dev \
             --git-repo-id=late-ruby
 
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Run tests
+        run: bundle exec rake spec
+
       - name: Check for changes
         id: changes
         run: |
