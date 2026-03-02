@@ -126,7 +126,8 @@ end
 api_instance = Late::AnalyticsApi.new
 opts = {
   platform: 'platform_example', # String | Filter by platform (e.g. \"instagram\", \"tiktok\"). Omit for all platforms.
-  profile_id: 'profile_id_example' # String | Filter by profile ID. Omit for all profiles.
+  profile_id: 'profile_id_example', # String | Filter by profile ID. Omit for all profiles.
+  source: 'all' # String | Filter by post origin. \"late\" for posts published via Late, \"external\" for posts imported from platforms.
 }
 
 begin
@@ -162,6 +163,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **platform** | **String** | Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. | [optional] |
 | **profile_id** | **String** | Filter by profile ID. Omit for all profiles. | [optional] |
+| **source** | **String** | Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. | [optional][default to &#39;all&#39;] |
 
 ### Return type
 
@@ -199,7 +201,8 @@ end
 api_instance = Late::AnalyticsApi.new
 opts = {
   platform: 'platform_example', # String | Filter by platform (e.g. \"instagram\", \"tiktok\"). Omit for all platforms.
-  profile_id: 'profile_id_example' # String | Filter by profile ID. Omit for all profiles.
+  profile_id: 'profile_id_example', # String | Filter by profile ID. Omit for all profiles.
+  source: 'all' # String | Filter by post origin. \"late\" for posts published via Late, \"external\" for posts imported from platforms.
 }
 
 begin
@@ -235,6 +238,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **platform** | **String** | Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. | [optional] |
 | **profile_id** | **String** | Filter by profile ID. Omit for all profiles. | [optional] |
+| **source** | **String** | Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. | [optional][default to &#39;all&#39;] |
 
 ### Return type
 
@@ -274,7 +278,8 @@ opts = {
   platform: 'platform_example', # String | Filter by platform (e.g. \"instagram\", \"tiktok\"). Omit for all platforms.
   profile_id: 'profile_id_example', # String | Filter by profile ID. Omit for all profiles.
   from_date: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Inclusive start date (ISO 8601). Defaults to 180 days ago.
-  to_date: Time.parse('2013-10-20T19:20:30+01:00') # Time | Inclusive end date (ISO 8601). Defaults to now.
+  to_date: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Inclusive end date (ISO 8601). Defaults to now.
+  source: 'all' # String | Filter by post origin. \"late\" for posts published via Late, \"external\" for posts imported from platforms.
 }
 
 begin
@@ -312,6 +317,7 @@ end
 | **profile_id** | **String** | Filter by profile ID. Omit for all profiles. | [optional] |
 | **from_date** | **Time** | Inclusive start date (ISO 8601). Defaults to 180 days ago. | [optional] |
 | **to_date** | **Time** | Inclusive end date (ISO 8601). Defaults to now. | [optional] |
+| **source** | **String** | Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. | [optional][default to &#39;all&#39;] |
 
 ### Return type
 
@@ -578,7 +584,8 @@ end
 api_instance = Late::AnalyticsApi.new
 opts = {
   platform: 'platform_example', # String | Filter by platform (e.g. \"instagram\", \"tiktok\"). Omit for all platforms.
-  profile_id: 'profile_id_example' # String | Filter by profile ID. Omit for all profiles.
+  profile_id: 'profile_id_example', # String | Filter by profile ID. Omit for all profiles.
+  source: 'all' # String | Filter by post origin. \"late\" for posts published via Late, \"external\" for posts imported from platforms.
 }
 
 begin
@@ -614,6 +621,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **platform** | **String** | Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. | [optional] |
 | **profile_id** | **String** | Filter by profile ID. Omit for all profiles. | [optional] |
+| **source** | **String** | Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. | [optional][default to &#39;all&#39;] |
 
 ### Return type
 

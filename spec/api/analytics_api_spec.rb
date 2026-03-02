@@ -59,6 +59,7 @@ describe 'AnalyticsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
   # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+  # @option opts [String] :source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms.
   # @return [GetBestTimeToPost200Response]
   describe 'get_best_time_to_post test' do
     it 'should work' do
@@ -72,6 +73,7 @@ describe 'AnalyticsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
   # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+  # @option opts [String] :source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms.
   # @return [GetContentDecay200Response]
   describe 'get_content_decay test' do
     it 'should work' do
@@ -87,6 +89,7 @@ describe 'AnalyticsApi' do
   # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
   # @option opts [Time] :from_date Inclusive start date (ISO 8601). Defaults to 180 days ago.
   # @option opts [Time] :to_date Inclusive end date (ISO 8601). Defaults to now.
+  # @option opts [String] :source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms.
   # @return [GetDailyMetrics200Response]
   describe 'get_daily_metrics test' do
     it 'should work' do
@@ -145,6 +148,7 @@ describe 'AnalyticsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
   # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+  # @option opts [String] :source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms.
   # @return [GetPostingFrequency200Response]
   describe 'get_posting_frequency test' do
     it 'should work' do

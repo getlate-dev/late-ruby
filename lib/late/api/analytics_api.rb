@@ -135,6 +135,7 @@ module Late
     # @param [Hash] opts the optional parameters
     # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
     # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @option opts [String] :source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (default to 'all')
     # @return [GetBestTimeToPost200Response]
     def get_best_time_to_post(opts = {})
       data, _status_code, _headers = get_best_time_to_post_with_http_info(opts)
@@ -146,10 +147,15 @@ module Late
     # @param [Hash] opts the optional parameters
     # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
     # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @option opts [String] :source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (default to 'all')
     # @return [Array<(GetBestTimeToPost200Response, Integer, Hash)>] GetBestTimeToPost200Response data, response status code and response headers
     def get_best_time_to_post_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AnalyticsApi.get_best_time_to_post ...'
+      end
+      allowable_values = ["all", "late", "external"]
+      if @api_client.config.client_side_validation && opts[:'source'] && !allowable_values.include?(opts[:'source'])
+        fail ArgumentError, "invalid value for \"source\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/v1/analytics/best-time'
@@ -158,6 +164,7 @@ module Late
       query_params = opts[:query_params] || {}
       query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
       query_params[:'profileId'] = opts[:'profile_id'] if !opts[:'profile_id'].nil?
+      query_params[:'source'] = opts[:'source'] if !opts[:'source'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -198,6 +205,7 @@ module Late
     # @param [Hash] opts the optional parameters
     # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
     # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @option opts [String] :source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (default to 'all')
     # @return [GetContentDecay200Response]
     def get_content_decay(opts = {})
       data, _status_code, _headers = get_content_decay_with_http_info(opts)
@@ -209,10 +217,15 @@ module Late
     # @param [Hash] opts the optional parameters
     # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
     # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @option opts [String] :source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (default to 'all')
     # @return [Array<(GetContentDecay200Response, Integer, Hash)>] GetContentDecay200Response data, response status code and response headers
     def get_content_decay_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AnalyticsApi.get_content_decay ...'
+      end
+      allowable_values = ["all", "late", "external"]
+      if @api_client.config.client_side_validation && opts[:'source'] && !allowable_values.include?(opts[:'source'])
+        fail ArgumentError, "invalid value for \"source\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/v1/analytics/content-decay'
@@ -221,6 +234,7 @@ module Late
       query_params = opts[:query_params] || {}
       query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
       query_params[:'profileId'] = opts[:'profile_id'] if !opts[:'profile_id'].nil?
+      query_params[:'source'] = opts[:'source'] if !opts[:'source'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -263,6 +277,7 @@ module Late
     # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
     # @option opts [Time] :from_date Inclusive start date (ISO 8601). Defaults to 180 days ago.
     # @option opts [Time] :to_date Inclusive end date (ISO 8601). Defaults to now.
+    # @option opts [String] :source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (default to 'all')
     # @return [GetDailyMetrics200Response]
     def get_daily_metrics(opts = {})
       data, _status_code, _headers = get_daily_metrics_with_http_info(opts)
@@ -276,10 +291,15 @@ module Late
     # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
     # @option opts [Time] :from_date Inclusive start date (ISO 8601). Defaults to 180 days ago.
     # @option opts [Time] :to_date Inclusive end date (ISO 8601). Defaults to now.
+    # @option opts [String] :source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (default to 'all')
     # @return [Array<(GetDailyMetrics200Response, Integer, Hash)>] GetDailyMetrics200Response data, response status code and response headers
     def get_daily_metrics_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AnalyticsApi.get_daily_metrics ...'
+      end
+      allowable_values = ["all", "late", "external"]
+      if @api_client.config.client_side_validation && opts[:'source'] && !allowable_values.include?(opts[:'source'])
+        fail ArgumentError, "invalid value for \"source\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/v1/analytics/daily-metrics'
@@ -290,6 +310,7 @@ module Late
       query_params[:'profileId'] = opts[:'profile_id'] if !opts[:'profile_id'].nil?
       query_params[:'fromDate'] = opts[:'from_date'] if !opts[:'from_date'].nil?
       query_params[:'toDate'] = opts[:'to_date'] if !opts[:'to_date'].nil?
+      query_params[:'source'] = opts[:'source'] if !opts[:'source'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -555,6 +576,7 @@ module Late
     # @param [Hash] opts the optional parameters
     # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
     # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @option opts [String] :source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (default to 'all')
     # @return [GetPostingFrequency200Response]
     def get_posting_frequency(opts = {})
       data, _status_code, _headers = get_posting_frequency_with_http_info(opts)
@@ -566,10 +588,15 @@ module Late
     # @param [Hash] opts the optional parameters
     # @option opts [String] :platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms.
     # @option opts [String] :profile_id Filter by profile ID. Omit for all profiles.
+    # @option opts [String] :source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (default to 'all')
     # @return [Array<(GetPostingFrequency200Response, Integer, Hash)>] GetPostingFrequency200Response data, response status code and response headers
     def get_posting_frequency_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AnalyticsApi.get_posting_frequency ...'
+      end
+      allowable_values = ["all", "late", "external"]
+      if @api_client.config.client_side_validation && opts[:'source'] && !allowable_values.include?(opts[:'source'])
+        fail ArgumentError, "invalid value for \"source\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/v1/analytics/posting-frequency'
@@ -578,6 +605,7 @@ module Late
       query_params = opts[:query_params] || {}
       query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
       query_params[:'profileId'] = opts[:'profile_id'] if !opts[:'profile_id'].nil?
+      query_params[:'source'] = opts[:'source'] if !opts[:'source'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

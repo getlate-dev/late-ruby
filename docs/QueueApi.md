@@ -322,6 +322,7 @@ end
 api_instance = Late::QueueApi.new
 profile_id = 'profile_id_example' # String | 
 opts = {
+  queue_id: 'queue_id_example', # String | Filter by specific queue ID. Omit to use the default queue.
   count: 56 # Integer | 
 }
 
@@ -357,6 +358,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **profile_id** | **String** |  |  |
+| **queue_id** | **String** | Filter by specific queue ID. Omit to use the default queue. | [optional] |
 | **count** | **Integer** |  | [optional][default to 20] |
 
 ### Return type

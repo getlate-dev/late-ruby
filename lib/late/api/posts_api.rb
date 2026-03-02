@@ -293,6 +293,8 @@ module Late
     # @option opts [Date] :date_from 
     # @option opts [Date] :date_to 
     # @option opts [Boolean] :include_hidden  (default to false)
+    # @option opts [String] :search Search posts by text content.
+    # @option opts [String] :sort_by Sort order for results. (default to 'scheduled-desc')
     # @return [PostsListResponse]
     def list_posts(opts = {})
       data, _status_code, _headers = list_posts_with_http_info(opts)
@@ -311,6 +313,8 @@ module Late
     # @option opts [Date] :date_from 
     # @option opts [Date] :date_to 
     # @option opts [Boolean] :include_hidden  (default to false)
+    # @option opts [String] :search Search posts by text content.
+    # @option opts [String] :sort_by Sort order for results. (default to 'scheduled-desc')
     # @return [Array<(PostsListResponse, Integer, Hash)>] PostsListResponse data, response status code and response headers
     def list_posts_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -332,6 +336,10 @@ module Late
       if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
         fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
       end
+      allowable_values = ["scheduled-desc", "scheduled-asc", "created-desc", "created-asc", "status", "platform"]
+      if @api_client.config.client_side_validation && opts[:'sort_by'] && !allowable_values.include?(opts[:'sort_by'])
+        fail ArgumentError, "invalid value for \"sort_by\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/v1/posts'
 
@@ -346,6 +354,8 @@ module Late
       query_params[:'dateFrom'] = opts[:'date_from'] if !opts[:'date_from'].nil?
       query_params[:'dateTo'] = opts[:'date_to'] if !opts[:'date_to'].nil?
       query_params[:'includeHidden'] = opts[:'include_hidden'] if !opts[:'include_hidden'].nil?
+      query_params[:'search'] = opts[:'search'] if !opts[:'search'].nil?
+      query_params[:'sortBy'] = opts[:'sort_by'] if !opts[:'sort_by'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

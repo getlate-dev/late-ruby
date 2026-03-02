@@ -326,6 +326,7 @@ end
 api_instance = Late::AccountsApi.new
 opts = {
   profile_id: 'profile_id_example', # String | Filter accounts by profile ID
+  platform: 'platform_example', # String | Filter accounts by platform (e.g. \"instagram\", \"twitter\").
   include_over_limit: true # Boolean | When true, includes accounts from over-limit profiles.
 }
 
@@ -361,6 +362,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **profile_id** | **String** | Filter accounts by profile ID | [optional] |
+| **platform** | **String** | Filter accounts by platform (e.g. \&quot;instagram\&quot;, \&quot;twitter\&quot;). | [optional] |
 | **include_over_limit** | **Boolean** | When true, includes accounts from over-limit profiles. | [optional][default to false] |
 
 ### Return type

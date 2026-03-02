@@ -303,6 +303,7 @@ module Late
     # Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :queue_id Filter by specific queue ID. Omit to use the default queue.
     # @option opts [Integer] :count  (default to 20)
     # @return [PreviewQueue200Response]
     def preview_queue(profile_id, opts = {})
@@ -314,6 +315,7 @@ module Late
     # Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :queue_id Filter by specific queue ID. Omit to use the default queue.
     # @option opts [Integer] :count  (default to 20)
     # @return [Array<(PreviewQueue200Response, Integer, Hash)>] PreviewQueue200Response data, response status code and response headers
     def preview_queue_with_http_info(profile_id, opts = {})
@@ -338,6 +340,7 @@ module Late
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'profileId'] = profile_id
+      query_params[:'queueId'] = opts[:'queue_id'] if !opts[:'queue_id'].nil?
       query_params[:'count'] = opts[:'count'] if !opts[:'count'].nil?
 
       # header parameters

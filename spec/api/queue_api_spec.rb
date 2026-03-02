@@ -89,6 +89,7 @@ describe 'QueueApi' do
   # Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
   # @param profile_id 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :queue_id Filter by specific queue ID. Omit to use the default queue.
   # @option opts [Integer] :count 
   # @return [PreviewQueue200Response]
   describe 'preview_queue test' do

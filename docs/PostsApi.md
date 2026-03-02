@@ -323,7 +323,9 @@ opts = {
   created_by: 'created_by_example', # String | 
   date_from: Date.parse('2013-10-20'), # Date | 
   date_to: Date.parse('2013-10-20'), # Date | 
-  include_hidden: true # Boolean | 
+  include_hidden: true, # Boolean | 
+  search: 'search_example', # String | Search posts by text content.
+  sort_by: 'scheduled-desc' # String | Sort order for results.
 }
 
 begin
@@ -366,6 +368,8 @@ end
 | **date_from** | **Date** |  | [optional] |
 | **date_to** | **Date** |  | [optional] |
 | **include_hidden** | **Boolean** |  | [optional][default to false] |
+| **search** | **String** | Search posts by text content. | [optional] |
+| **sort_by** | **String** | Sort order for results. | [optional][default to &#39;scheduled-desc&#39;] |
 
 ### Return type
 

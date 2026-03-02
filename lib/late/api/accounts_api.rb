@@ -299,6 +299,7 @@ module Late
     # Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter accounts by profile ID
+    # @option opts [String] :platform Filter accounts by platform (e.g. \&quot;instagram\&quot;, \&quot;twitter\&quot;).
     # @option opts [Boolean] :include_over_limit When true, includes accounts from over-limit profiles. (default to false)
     # @return [ListAccounts200Response]
     def list_accounts(opts = {})
@@ -310,6 +311,7 @@ module Late
     # Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter accounts by profile ID
+    # @option opts [String] :platform Filter accounts by platform (e.g. \&quot;instagram\&quot;, \&quot;twitter\&quot;).
     # @option opts [Boolean] :include_over_limit When true, includes accounts from over-limit profiles. (default to false)
     # @return [Array<(ListAccounts200Response, Integer, Hash)>] ListAccounts200Response data, response status code and response headers
     def list_accounts_with_http_info(opts = {})
@@ -322,6 +324,7 @@ module Late
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'profileId'] = opts[:'profile_id'] if !opts[:'profile_id'].nil?
+      query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
       query_params[:'includeOverLimit'] = opts[:'include_over_limit'] if !opts[:'include_over_limit'].nil?
 
       # header parameters

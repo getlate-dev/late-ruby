@@ -209,6 +209,7 @@ module Late
     # @option opts [Integer] :days Number of days to look back (max 7) (default to 7)
     # @option opts [Integer] :limit Maximum number of logs to return (max 100) (default to 50)
     # @option opts [Integer] :skip Number of logs to skip (for pagination) (default to 0)
+    # @option opts [String] :search Search through log entries by text content.
     # @return [ListPostsLogs200Response]
     def list_posts_logs(opts = {})
       data, _status_code, _headers = list_posts_logs_with_http_info(opts)
@@ -224,6 +225,7 @@ module Late
     # @option opts [Integer] :days Number of days to look back (max 7) (default to 7)
     # @option opts [Integer] :limit Maximum number of logs to return (max 100) (default to 50)
     # @option opts [Integer] :skip Number of logs to skip (for pagination) (default to 0)
+    # @option opts [String] :search Search through log entries by text content.
     # @return [Array<(ListPostsLogs200Response, Integer, Hash)>] ListPostsLogs200Response data, response status code and response headers
     def list_posts_logs_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -272,6 +274,7 @@ module Late
       query_params[:'days'] = opts[:'days'] if !opts[:'days'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'search'] = opts[:'search'] if !opts[:'search'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

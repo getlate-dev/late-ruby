@@ -195,7 +195,8 @@ api_instance = Late::ConnectApi.new
 platform = 'facebook' # String | Social media platform to connect
 profile_id = 'profile_id_example' # String | Your Late profile ID (get from /v1/profiles)
 opts = {
-  redirect_url: 'redirect_url_example' # String | Your custom redirect URL after connection completes. Standard mode appends ?connected={platform}&profileId=X&username=Y. Headless mode appends OAuth data params.
+  redirect_url: 'redirect_url_example', # String | Your custom redirect URL after connection completes. Standard mode appends ?connected={platform}&profileId=X&username=Y. Headless mode appends OAuth data params.
+  headless: true # Boolean | When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late's default account selection UI. Use this to build a custom connect experience.
 }
 
 begin
@@ -232,6 +233,7 @@ end
 | **platform** | **String** | Social media platform to connect |  |
 | **profile_id** | **String** | Your Late profile ID (get from /v1/profiles) |  |
 | **redirect_url** | **String** | Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. | [optional] |
+| **headless** | **Boolean** | When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. | [optional][default to false] |
 
 ### Return type
 

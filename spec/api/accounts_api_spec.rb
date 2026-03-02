@@ -91,6 +91,7 @@ describe 'AccountsApi' do
   # Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :profile_id Filter accounts by profile ID
+  # @option opts [String] :platform Filter accounts by platform (e.g. \&quot;instagram\&quot;, \&quot;twitter\&quot;).
   # @option opts [Boolean] :include_over_limit When true, includes accounts from over-limit profiles.
   # @return [ListAccounts200Response]
   describe 'list_accounts test' do

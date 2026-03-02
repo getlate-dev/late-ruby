@@ -157,6 +157,7 @@ module Late
     # @param profile_id [String] Your Late profile ID (get from /v1/profiles)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :redirect_url Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params.
+    # @option opts [Boolean] :headless When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. (default to false)
     # @return [GetConnectUrl200Response]
     def get_connect_url(platform, profile_id, opts = {})
       data, _status_code, _headers = get_connect_url_with_http_info(platform, profile_id, opts)
@@ -169,6 +170,7 @@ module Late
     # @param profile_id [String] Your Late profile ID (get from /v1/profiles)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :redirect_url Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params.
+    # @option opts [Boolean] :headless When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. (default to false)
     # @return [Array<(GetConnectUrl200Response, Integer, Hash)>] GetConnectUrl200Response data, response status code and response headers
     def get_connect_url_with_http_info(platform, profile_id, opts = {})
       if @api_client.config.debugging
@@ -194,6 +196,7 @@ module Late
       query_params = opts[:query_params] || {}
       query_params[:'profileId'] = profile_id
       query_params[:'redirect_url'] = opts[:'redirect_url'] if !opts[:'redirect_url'].nil?
+      query_params[:'headless'] = opts[:'headless'] if !opts[:'headless'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

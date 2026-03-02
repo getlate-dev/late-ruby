@@ -189,7 +189,8 @@ opts = {
   action: 'publish', # String | Filter by action type
   days: 56, # Integer | Number of days to look back (max 7)
   limit: 56, # Integer | Maximum number of logs to return (max 100)
-  skip: 56 # Integer | Number of logs to skip (for pagination)
+  skip: 56, # Integer | Number of logs to skip (for pagination)
+  search: 'search_example' # String | Search through log entries by text content.
 }
 
 begin
@@ -229,6 +230,7 @@ end
 | **days** | **Integer** | Number of days to look back (max 7) | [optional][default to 7] |
 | **limit** | **Integer** | Maximum number of logs to return (max 100) | [optional][default to 50] |
 | **skip** | **Integer** | Number of logs to skip (for pagination) | [optional][default to 0] |
+| **search** | **String** | Search through log entries by text content. | [optional] |
 
 ### Return type
 

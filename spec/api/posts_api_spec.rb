@@ -94,6 +94,8 @@ describe 'PostsApi' do
   # @option opts [Date] :date_from 
   # @option opts [Date] :date_to 
   # @option opts [Boolean] :include_hidden 
+  # @option opts [String] :search Search posts by text content.
+  # @option opts [String] :sort_by Sort order for results.
   # @return [PostsListResponse]
   describe 'list_posts test' do
     it 'should work' do

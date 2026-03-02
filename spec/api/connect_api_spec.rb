@@ -63,6 +63,7 @@ describe 'ConnectApi' do
   # @param profile_id Your Late profile ID (get from /v1/profiles)
   # @param [Hash] opts the optional parameters
   # @option opts [String] :redirect_url Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params.
+  # @option opts [Boolean] :headless When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience.
   # @return [GetConnectUrl200Response]
   describe 'get_connect_url test' do
     it 'should work' do

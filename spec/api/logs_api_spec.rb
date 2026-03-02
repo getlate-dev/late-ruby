@@ -72,6 +72,7 @@ describe 'LogsApi' do
   # @option opts [Integer] :days Number of days to look back (max 7)
   # @option opts [Integer] :limit Maximum number of logs to return (max 100)
   # @option opts [Integer] :skip Number of logs to skip (for pagination)
+  # @option opts [String] :search Search through log entries by text content.
   # @return [ListPostsLogs200Response]
   describe 'list_posts_logs test' do
     it 'should work' do
