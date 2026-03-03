@@ -571,6 +571,76 @@ module Late
       return data, status_code, headers
     end
 
+    # Get post analytics timeline
+    # Returns a daily timeline of analytics metrics for a specific post, showing how impressions, likes, and other metrics evolved day-by-day since publishing. Each row represents one day of data per platform. For multi-platform Late posts, returns separate rows for each platform. Requires the Analytics add-on. 
+    # @param post_id [String] The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID. 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :from_date Start of date range (ISO 8601). Defaults to 90 days ago.
+    # @option opts [Time] :to_date End of date range (ISO 8601). Defaults to now.
+    # @return [GetPostTimeline200Response]
+    def get_post_timeline(post_id, opts = {})
+      data, _status_code, _headers = get_post_timeline_with_http_info(post_id, opts)
+      data
+    end
+
+    # Get post analytics timeline
+    # Returns a daily timeline of analytics metrics for a specific post, showing how impressions, likes, and other metrics evolved day-by-day since publishing. Each row represents one day of data per platform. For multi-platform Late posts, returns separate rows for each platform. Requires the Analytics add-on. 
+    # @param post_id [String] The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID. 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :from_date Start of date range (ISO 8601). Defaults to 90 days ago.
+    # @option opts [Time] :to_date End of date range (ISO 8601). Defaults to now.
+    # @return [Array<(GetPostTimeline200Response, Integer, Hash)>] GetPostTimeline200Response data, response status code and response headers
+    def get_post_timeline_with_http_info(post_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AnalyticsApi.get_post_timeline ...'
+      end
+      # verify the required parameter 'post_id' is set
+      if @api_client.config.client_side_validation && post_id.nil?
+        fail ArgumentError, "Missing the required parameter 'post_id' when calling AnalyticsApi.get_post_timeline"
+      end
+      # resource path
+      local_var_path = '/v1/analytics/post-timeline'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'postId'] = post_id
+      query_params[:'fromDate'] = opts[:'from_date'] if !opts[:'from_date'].nil?
+      query_params[:'toDate'] = opts[:'to_date'] if !opts[:'to_date'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetPostTimeline200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"AnalyticsApi.get_post_timeline",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AnalyticsApi#get_post_timeline\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get posting frequency vs engagement
     # Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
     # @param [Hash] opts the optional parameters

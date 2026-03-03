@@ -142,6 +142,20 @@ describe 'AnalyticsApi' do
     end
   end
 
+  # unit tests for get_post_timeline
+  # Get post analytics timeline
+  # Returns a daily timeline of analytics metrics for a specific post, showing how impressions, likes, and other metrics evolved day-by-day since publishing. Each row represents one day of data per platform. For multi-platform Late posts, returns separate rows for each platform. Requires the Analytics add-on. 
+  # @param post_id The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID. 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :from_date Start of date range (ISO 8601). Defaults to 90 days ago.
+  # @option opts [Time] :to_date End of date range (ISO 8601). Defaults to now.
+  # @return [GetPostTimeline200Response]
+  describe 'get_post_timeline test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_posting_frequency
   # Get posting frequency vs engagement
   # Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 

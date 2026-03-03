@@ -11,6 +11,7 @@ All URIs are relative to *https://getlate.dev/api*
 | [**get_follower_stats**](AnalyticsApi.md#get_follower_stats) | **GET** /v1/accounts/follower-stats | Get follower stats |
 | [**get_linked_in_aggregate_analytics**](AnalyticsApi.md#get_linked_in_aggregate_analytics) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats |
 | [**get_linked_in_post_analytics**](AnalyticsApi.md#get_linked_in_post_analytics) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats |
+| [**get_post_timeline**](AnalyticsApi.md#get_post_timeline) | **GET** /v1/analytics/post-timeline | Get post analytics timeline |
 | [**get_posting_frequency**](AnalyticsApi.md#get_posting_frequency) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement |
 | [**get_you_tube_daily_views**](AnalyticsApi.md#get_you_tube_daily_views) | **GET** /v1/analytics/youtube/daily-views | Get YouTube daily views |
 
@@ -551,6 +552,81 @@ end
 ### Return type
 
 [**GetLinkedInPostAnalytics200Response**](GetLinkedInPostAnalytics200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_post_timeline
+
+> <GetPostTimeline200Response> get_post_timeline(post_id, opts)
+
+Get post analytics timeline
+
+Returns a daily timeline of analytics metrics for a specific post, showing how impressions, likes, and other metrics evolved day-by-day since publishing. Each row represents one day of data per platform. For multi-platform Late posts, returns separate rows for each platform. Requires the Analytics add-on. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::AnalyticsApi.new
+post_id = 'post_id_example' # String | The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID. 
+opts = {
+  from_date: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Start of date range (ISO 8601). Defaults to 90 days ago.
+  to_date: Time.parse('2013-10-20T19:20:30+01:00') # Time | End of date range (ISO 8601). Defaults to now.
+}
+
+begin
+  # Get post analytics timeline
+  result = api_instance.get_post_timeline(post_id, opts)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_post_timeline: #{e}"
+end
+```
+
+#### Using the get_post_timeline_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetPostTimeline200Response>, Integer, Hash)> get_post_timeline_with_http_info(post_id, opts)
+
+```ruby
+begin
+  # Get post analytics timeline
+  data, status_code, headers = api_instance.get_post_timeline_with_http_info(post_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetPostTimeline200Response>
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_post_timeline_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **post_id** | **String** | The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID.  |  |
+| **from_date** | **Time** | Start of date range (ISO 8601). Defaults to 90 days ago. | [optional] |
+| **to_date** | **Time** | End of date range (ISO 8601). Defaults to now. | [optional] |
+
+### Return type
+
+[**GetPostTimeline200Response**](GetPostTimeline200Response.md)
 
 ### Authorization
 

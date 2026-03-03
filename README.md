@@ -116,6 +116,7 @@ Class | Method | HTTP request | Description
 *Late::AnalyticsApi* | [**get_follower_stats**](docs/AnalyticsApi.md#get_follower_stats) | **GET** /v1/accounts/follower-stats | Get follower stats
 *Late::AnalyticsApi* | [**get_linked_in_aggregate_analytics**](docs/AnalyticsApi.md#get_linked_in_aggregate_analytics) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats
 *Late::AnalyticsApi* | [**get_linked_in_post_analytics**](docs/AnalyticsApi.md#get_linked_in_post_analytics) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats
+*Late::AnalyticsApi* | [**get_post_timeline**](docs/AnalyticsApi.md#get_post_timeline) | **GET** /v1/analytics/post-timeline | Get post analytics timeline
 *Late::AnalyticsApi* | [**get_posting_frequency**](docs/AnalyticsApi.md#get_posting_frequency) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement
 *Late::AnalyticsApi* | [**get_you_tube_daily_views**](docs/AnalyticsApi.md#get_you_tube_daily_views) | **GET** /v1/analytics/youtube/daily-views | Get YouTube daily views
 *Late::CommentsApi* | [**delete_inbox_comment**](docs/CommentsApi.md#delete_inbox_comment) | **DELETE** /v1/inbox/comments/{postId} | Delete comment
@@ -382,6 +383,11 @@ Class | Method | HTTP request | Description
  - [Late::GetPinterestBoards200Response](docs/GetPinterestBoards200Response.md)
  - [Late::GetPinterestBoards200ResponseBoardsInner](docs/GetPinterestBoards200ResponseBoardsInner.md)
  - [Late::GetPostLogs200Response](docs/GetPostLogs200Response.md)
+ - [Late::GetPostTimeline200Response](docs/GetPostTimeline200Response.md)
+ - [Late::GetPostTimeline200ResponseTimelineInner](docs/GetPostTimeline200ResponseTimelineInner.md)
+ - [Late::GetPostTimeline400Response](docs/GetPostTimeline400Response.md)
+ - [Late::GetPostTimeline403Response](docs/GetPostTimeline403Response.md)
+ - [Late::GetPostTimeline404Response](docs/GetPostTimeline404Response.md)
  - [Late::GetPostingFrequency200Response](docs/GetPostingFrequency200Response.md)
  - [Late::GetPostingFrequency200ResponseFrequencyInner](docs/GetPostingFrequency200ResponseFrequencyInner.md)
  - [Late::GetProfile200Response](docs/GetProfile200Response.md)
