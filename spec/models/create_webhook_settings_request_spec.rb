@@ -48,7 +48,7 @@ describe Late::CreateWebhookSettingsRequest do
   describe 'test attribute "events"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Array<String>', ["post.scheduled", "post.published", "post.failed", "post.partial", "account.connected", "account.disconnected", "message.received", "comment.received"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Array<String>', ["post.scheduled", "post.published", "post.failed", "post.partial", "post.recycled", "account.connected", "account.disconnected", "message.received", "comment.received"])
       # validator.allowable_values.each do |value|
       #   expect { instance.events = value }.not_to raise_error
       # end

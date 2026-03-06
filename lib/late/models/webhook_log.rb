@@ -207,7 +207,7 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      event_validator = EnumAttributeValidator.new('String', ["post.scheduled", "post.published", "post.failed", "post.partial", "account.connected", "account.disconnected", "message.received", "comment.received", "webhook.test"])
+      event_validator = EnumAttributeValidator.new('String', ["post.scheduled", "post.published", "post.failed", "post.partial", "post.recycled", "account.connected", "account.disconnected", "message.received", "comment.received", "webhook.test"])
       return false unless event_validator.valid?(@event)
       status_validator = EnumAttributeValidator.new('String', ["success", "failed"])
       return false unless status_validator.valid?(@status)
@@ -217,7 +217,7 @@ module Late
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] event Object to be assigned
     def event=(event)
-      validator = EnumAttributeValidator.new('String', ["post.scheduled", "post.published", "post.failed", "post.partial", "account.connected", "account.disconnected", "message.received", "comment.received", "webhook.test"])
+      validator = EnumAttributeValidator.new('String', ["post.scheduled", "post.published", "post.failed", "post.partial", "post.recycled", "account.connected", "account.disconnected", "message.received", "comment.received", "webhook.test"])
       unless validator.valid?(event)
         fail ArgumentError, "invalid value for \"event\", must be one of #{validator.allowable_values}."
       end

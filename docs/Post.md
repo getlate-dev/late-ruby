@@ -18,6 +18,8 @@
 | **mentions** | **Array&lt;String&gt;** |  | [optional] |
 | **visibility** | **String** |  | [optional] |
 | **metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
+| **recycling** | [**RecyclingState**](RecyclingState.md) |  | [optional] |
+| **recycled_from_post_id** | **String** | ID of the original post if this post was created via recycling | [optional] |
 | **queued_from_profile** | **String** | Profile ID if the post was scheduled via the queue | [optional] |
 | **queue_id** | **String** | Queue ID if the post was scheduled via a specific queue | [optional] |
 | **created_at** | **Time** |  | [optional] |
@@ -43,6 +45,8 @@ instance = Late::Post.new(
   mentions: null,
   visibility: null,
   metadata: null,
+  recycling: null,
+  recycled_from_post_id: null,
   queued_from_profile: null,
   queue_id: null,
   created_at: null,

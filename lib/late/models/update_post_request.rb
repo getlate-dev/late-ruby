@@ -22,12 +22,15 @@ module Late
     # Root-level TikTok settings applied to all TikTok platforms. Merged into each platform's platformSpecificData, with platform-specific settings taking precedence.
     attr_accessor :tiktok_settings
 
+    attr_accessor :recycling
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'content' => :'content',
         :'scheduled_for' => :'scheduledFor',
-        :'tiktok_settings' => :'tiktokSettings'
+        :'tiktok_settings' => :'tiktokSettings',
+        :'recycling' => :'recycling'
       }
     end
 
@@ -46,7 +49,8 @@ module Late
       {
         :'content' => :'String',
         :'scheduled_for' => :'Time',
-        :'tiktok_settings' => :'TikTokPlatformData'
+        :'tiktok_settings' => :'TikTokPlatformData',
+        :'recycling' => :'RecyclingConfig'
       }
     end
 
@@ -83,6 +87,10 @@ module Late
       if attributes.key?(:'tiktok_settings')
         self.tiktok_settings = attributes[:'tiktok_settings']
       end
+
+      if attributes.key?(:'recycling')
+        self.recycling = attributes[:'recycling']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -107,7 +115,8 @@ module Late
       self.class == o.class &&
           content == o.content &&
           scheduled_for == o.scheduled_for &&
-          tiktok_settings == o.tiktok_settings
+          tiktok_settings == o.tiktok_settings &&
+          recycling == o.recycling
     end
 
     # @see the `==` method
@@ -119,7 +128,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [content, scheduled_for, tiktok_settings].hash
+      [content, scheduled_for, tiktok_settings, recycling].hash
     end
 
     # Builds the object from hash

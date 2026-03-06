@@ -511,6 +511,8 @@ Class | Method | HTTP request | Description
  - [Late::QueueSlot](docs/QueueSlot.md)
  - [Late::QueueSlotsResponse](docs/QueueSlotsResponse.md)
  - [Late::QueueUpdateResponse](docs/QueueUpdateResponse.md)
+ - [Late::RecyclingConfig](docs/RecyclingConfig.md)
+ - [Late::RecyclingState](docs/RecyclingState.md)
  - [Late::RedditPlatformData](docs/RedditPlatformData.md)
  - [Late::ReplyToInboxPost200Response](docs/ReplyToInboxPost200Response.md)
  - [Late::ReplyToInboxPost200ResponseData](docs/ReplyToInboxPost200ResponseData.md)

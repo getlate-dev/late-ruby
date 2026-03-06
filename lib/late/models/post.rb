@@ -45,6 +45,11 @@ module Late
 
     attr_accessor :metadata
 
+    attr_accessor :recycling
+
+    # ID of the original post if this post was created via recycling
+    attr_accessor :recycled_from_post_id
+
     # Profile ID if the post was scheduled via the queue
     attr_accessor :queued_from_profile
 
@@ -94,6 +99,8 @@ module Late
         :'mentions' => :'mentions',
         :'visibility' => :'visibility',
         :'metadata' => :'metadata',
+        :'recycling' => :'recycling',
+        :'recycled_from_post_id' => :'recycledFromPostId',
         :'queued_from_profile' => :'queuedFromProfile',
         :'queue_id' => :'queueId',
         :'created_at' => :'createdAt',
@@ -128,6 +135,8 @@ module Late
         :'mentions' => :'Array<String>',
         :'visibility' => :'String',
         :'metadata' => :'Hash<String, Object>',
+        :'recycling' => :'RecyclingState',
+        :'recycled_from_post_id' => :'String',
         :'queued_from_profile' => :'String',
         :'queue_id' => :'String',
         :'created_at' => :'Time',
@@ -225,6 +234,14 @@ module Late
         end
       end
 
+      if attributes.key?(:'recycling')
+        self.recycling = attributes[:'recycling']
+      end
+
+      if attributes.key?(:'recycled_from_post_id')
+        self.recycled_from_post_id = attributes[:'recycled_from_post_id']
+      end
+
       if attributes.key?(:'queued_from_profile')
         self.queued_from_profile = attributes[:'queued_from_profile']
       end
@@ -300,6 +317,8 @@ module Late
           mentions == o.mentions &&
           visibility == o.visibility &&
           metadata == o.metadata &&
+          recycling == o.recycling &&
+          recycled_from_post_id == o.recycled_from_post_id &&
           queued_from_profile == o.queued_from_profile &&
           queue_id == o.queue_id &&
           created_at == o.created_at &&
@@ -315,7 +334,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_id, user_id, title, content, media_items, platforms, scheduled_for, timezone, status, tags, hashtags, mentions, visibility, metadata, queued_from_profile, queue_id, created_at, updated_at].hash
+      [_id, user_id, title, content, media_items, platforms, scheduled_for, timezone, status, tags, hashtags, mentions, visibility, metadata, recycling, recycled_from_post_id, queued_from_profile, queue_id, created_at, updated_at].hash
     end
 
     # Builds the object from hash

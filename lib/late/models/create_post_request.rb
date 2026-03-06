@@ -46,6 +46,8 @@ module Late
     # Root-level TikTok settings applied to all TikTok platforms. Merged into each platform's platformSpecificData, with platform-specific settings taking precedence.
     attr_accessor :tiktok_settings
 
+    attr_accessor :recycling
+
     # Profile ID to schedule via queue. When provided without scheduledFor, the post is auto-assigned to the next available slot. Do not call /v1/queue/next-slot and use that time in scheduledFor, as that bypasses queue locking.
     attr_accessor :queued_from_profile
 
@@ -69,6 +71,7 @@ module Late
         :'crossposting_enabled' => :'crosspostingEnabled',
         :'metadata' => :'metadata',
         :'tiktok_settings' => :'tiktokSettings',
+        :'recycling' => :'recycling',
         :'queued_from_profile' => :'queuedFromProfile',
         :'queue_id' => :'queueId'
       }
@@ -101,6 +104,7 @@ module Late
         :'crossposting_enabled' => :'Boolean',
         :'metadata' => :'Hash<String, Object>',
         :'tiktok_settings' => :'TikTokPlatformData',
+        :'recycling' => :'RecyclingConfig',
         :'queued_from_profile' => :'String',
         :'queue_id' => :'String'
       }
@@ -204,6 +208,10 @@ module Late
         self.tiktok_settings = attributes[:'tiktok_settings']
       end
 
+      if attributes.key?(:'recycling')
+        self.recycling = attributes[:'recycling']
+      end
+
       if attributes.key?(:'queued_from_profile')
         self.queued_from_profile = attributes[:'queued_from_profile']
       end
@@ -247,6 +255,7 @@ module Late
           crossposting_enabled == o.crossposting_enabled &&
           metadata == o.metadata &&
           tiktok_settings == o.tiktok_settings &&
+          recycling == o.recycling &&
           queued_from_profile == o.queued_from_profile &&
           queue_id == o.queue_id
     end
@@ -260,7 +269,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [title, content, media_items, platforms, scheduled_for, publish_now, is_draft, timezone, tags, hashtags, mentions, crossposting_enabled, metadata, tiktok_settings, queued_from_profile, queue_id].hash
+      [title, content, media_items, platforms, scheduled_for, publish_now, is_draft, timezone, tags, hashtags, mentions, crossposting_enabled, metadata, tiktok_settings, recycling, queued_from_profile, queue_id].hash
     end
 
     # Builds the object from hash

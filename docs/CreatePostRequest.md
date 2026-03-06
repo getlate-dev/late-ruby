@@ -18,6 +18,7 @@
 | **crossposting_enabled** | **Boolean** |  | [optional][default to true] |
 | **metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
 | **tiktok_settings** | [**TikTokPlatformData**](TikTokPlatformData.md) | Root-level TikTok settings applied to all TikTok platforms. Merged into each platform&#39;s platformSpecificData, with platform-specific settings taking precedence. | [optional] |
+| **recycling** | [**RecyclingConfig**](RecyclingConfig.md) |  | [optional] |
 | **queued_from_profile** | **String** | Profile ID to schedule via queue. When provided without scheduledFor, the post is auto-assigned to the next available slot. Do not call /v1/queue/next-slot and use that time in scheduledFor, as that bypasses queue locking. | [optional] |
 | **queue_id** | **String** | Specific queue ID to use when scheduling via queue. Only used when queuedFromProfile is also provided. If omitted, uses the profile&#39;s default queue.  | [optional] |
 
@@ -41,6 +42,7 @@ instance = Late::CreatePostRequest.new(
   crossposting_enabled: null,
   metadata: null,
   tiktok_settings: null,
+  recycling: null,
   queued_from_profile: null,
   queue_id: null
 )
