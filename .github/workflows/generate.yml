@@ -42,8 +42,8 @@ jobs:
 
       - name: Clean generated files
         run: |
-          rm -rf lib/late/models lib/late/api docs spec
-          rm -f late.gemspec
+          rm -rf lib/late-sdk/models lib/late-sdk/api docs spec
+          rm -rf lib/late lib/late.rb late.gemspec
 
       - name: Generate SDK
         run: |
@@ -86,7 +86,7 @@ jobs:
       - name: Update gem version
         if: steps.changes.outputs.has_changes == 'true'
         run: |
-          sed -i "s/VERSION = '.*'/VERSION = '${{ steps.version.outputs.gem_version }}'/" lib/late/version.rb
+          sed -i "s/VERSION = '.*'/VERSION = '${{ steps.version.outputs.gem_version }}'/" lib/late-sdk/version.rb
 
       - name: Commit and push
         if: steps.changes.outputs.has_changes == 'true'
