@@ -18,7 +18,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::AnalyticsSinglePostResponse.new(
   post_id: null,

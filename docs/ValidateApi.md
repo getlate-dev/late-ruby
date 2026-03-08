@@ -22,7 +22,7 @@ Check if a media URL is accessible and return metadata (content type, file size)
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -91,7 +91,7 @@ Dry-run the full post validation pipeline without publishing. Catches issues lik
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -160,7 +160,7 @@ Check weighted character count per platform and whether the text is within each 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -229,7 +229,7 @@ Check if a subreddit exists and return basic info (title, subscriber count, NSFW
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

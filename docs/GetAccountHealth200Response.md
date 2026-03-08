@@ -17,7 +17,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetAccountHealth200Response.new(
   account_id: null,

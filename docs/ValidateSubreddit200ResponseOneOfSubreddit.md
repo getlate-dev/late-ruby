@@ -16,7 +16,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::ValidateSubreddit200ResponseOneOfSubreddit.new(
   name: programming,

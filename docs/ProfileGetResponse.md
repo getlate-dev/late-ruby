@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::ProfileGetResponse.new(
   profile: null

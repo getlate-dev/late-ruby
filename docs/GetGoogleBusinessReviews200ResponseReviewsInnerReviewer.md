@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetGoogleBusinessReviews200ResponseReviewsInnerReviewer.new(
   display_name: null,

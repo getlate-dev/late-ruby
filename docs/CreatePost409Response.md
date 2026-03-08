@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::CreatePost409Response.new(
   error: This exact content was already posted to this account within the last 24 hours.,

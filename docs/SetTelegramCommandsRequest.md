@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::SetTelegramCommandsRequest.new(
   commands: null

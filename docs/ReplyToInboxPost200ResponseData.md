@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::ReplyToInboxPost200ResponseData.new(
   comment_id: null,

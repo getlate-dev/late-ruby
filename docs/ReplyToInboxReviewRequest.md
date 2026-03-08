@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::ReplyToInboxReviewRequest.new(
   account_id: null,

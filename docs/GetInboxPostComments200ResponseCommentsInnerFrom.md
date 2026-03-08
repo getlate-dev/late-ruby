@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetInboxPostComments200ResponseCommentsInnerFrom.new(
   id: null,

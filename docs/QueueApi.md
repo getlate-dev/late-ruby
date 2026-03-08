@@ -24,7 +24,7 @@ Create an additional queue for a profile. The first queue created becomes the de
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -93,7 +93,7 @@ Delete a queue from a profile. Requires queueId to specify which queue to delete
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -164,7 +164,7 @@ Returns the next available queue slot for preview purposes. To create a queue po
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -237,7 +237,7 @@ Returns queue schedules for a profile. Use all=true for all queues, or queueId f
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -312,7 +312,7 @@ Returns the next N upcoming queue slot times for a profile as ISO datetime strin
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -387,7 +387,7 @@ Create a new queue or update an existing one. Without queueId, creates/updates t
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

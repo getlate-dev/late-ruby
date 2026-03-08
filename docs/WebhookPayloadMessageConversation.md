@@ -15,7 +15,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::WebhookPayloadMessageConversation.new(
   id: null,

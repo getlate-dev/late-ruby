@@ -12,7 +12,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetLinkedInPostReactions200ResponseReactionsInner.new(
   reaction_type: null,

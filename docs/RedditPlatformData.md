@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::RedditPlatformData.new(
   subreddit: socialmedia,

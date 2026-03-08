@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::CheckInstagramHashtagsRequest.new(
   hashtags: [&quot;travel&quot;,&quot;followforfollow&quot;,&quot;fitness&quot;]

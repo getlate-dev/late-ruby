@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::ValidatePostRequest.new(
   content: Check out this video!,

@@ -12,7 +12,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::SelectLinkedInOrganization200Response.new(
   message: null,

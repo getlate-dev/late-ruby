@@ -15,7 +15,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::RecyclingConfig.new(
   enabled: null,

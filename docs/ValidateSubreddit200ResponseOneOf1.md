@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::ValidateSubreddit200ResponseOneOf1.new(
   exists: null,

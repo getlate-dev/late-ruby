@@ -20,7 +20,7 @@ Returns a single user's details by ID, including name, email, and role.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -89,7 +89,7 @@ Returns all users in the workspace including roles and profile access. Also retu
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

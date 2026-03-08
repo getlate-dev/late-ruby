@@ -26,7 +26,7 @@ Create multiple posts by uploading a CSV file. Use dryRun=true to validate witho
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -99,7 +99,7 @@ Create and optionally publish a post. Immediate posts (publishNow: true) include
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -168,7 +168,7 @@ Delete a draft or scheduled post from Late. Published posts cannot be deleted; u
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -237,7 +237,7 @@ Fetch a single post by ID. For published posts, this returns platformPostUrl for
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -306,7 +306,7 @@ Returns a paginated list of posts. Published posts include platformPostUrl with 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -397,7 +397,7 @@ Immediately retries publishing a failed post. Returns the updated post with its 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -466,7 +466,7 @@ Deletes a published post from the specified platform. The post record in Late is
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -537,7 +537,7 @@ Update an existing post. Only draft, scheduled, failed, and partial posts can be
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

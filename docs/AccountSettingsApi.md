@@ -27,7 +27,7 @@ Removes the ice breaker questions from an Instagram account's Messenger experien
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -95,7 +95,7 @@ Removes the persistent menu from Facebook Messenger conversations for this accou
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -163,7 +163,7 @@ Clears all bot commands configured for a Telegram bot account.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -231,7 +231,7 @@ Get the ice breaker configuration for an Instagram account.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -300,7 +300,7 @@ Get the persistent menu configuration for a Facebook Messenger account.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -369,7 +369,7 @@ Get the bot commands configuration for a Telegram account.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -438,7 +438,7 @@ Set ice breakers for an Instagram account. Max 4 ice breakers, question max 80 c
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -508,7 +508,7 @@ Set the persistent menu for a Facebook Messenger account. Max 3 top-level items,
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -578,7 +578,7 @@ Set bot commands for a Telegram account.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

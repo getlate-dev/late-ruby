@@ -19,7 +19,7 @@ Get a presigned URL to upload files directly to cloud storage (up to 5GB). Retur
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

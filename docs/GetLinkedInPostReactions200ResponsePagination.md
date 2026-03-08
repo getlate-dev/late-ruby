@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetLinkedInPostReactions200ResponsePagination.new(
   has_more: null,

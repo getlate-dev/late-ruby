@@ -46,7 +46,7 @@ Poll this endpoint to check if a Telegram access code has been used to connect a
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -115,7 +115,7 @@ Connect a Bluesky account using identifier (handle or email) and an app password
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -184,7 +184,7 @@ Initiate an OAuth connection flow. Returns an authUrl to redirect the user to. S
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -261,7 +261,7 @@ Returns all Facebook pages the connected account has access to, including the cu
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -330,7 +330,7 @@ Returns all Google Business Profile locations the connected account has access t
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -399,7 +399,7 @@ Returns LinkedIn organizations (company pages) the connected account has admin a
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -468,7 +468,7 @@ Fetch pending OAuth data for headless mode using the pendingDataToken from the r
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -537,7 +537,7 @@ Returns the boards available for a connected Pinterest account. Use this to get 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -606,7 +606,7 @@ Returns available post flairs for a subreddit. Some subreddits require a flair w
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -677,7 +677,7 @@ Returns the subreddits the connected Reddit account can post to. Use this to get
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -746,7 +746,7 @@ Generate an access code (valid 15 minutes) for connecting a Telegram channel or 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -815,7 +815,7 @@ Exchange the OAuth authorization code for tokens and connect the account to the 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -885,7 +885,7 @@ Connect a Telegram channel/group directly using the chat ID. Alternative to the 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -954,7 +954,7 @@ Returns the list of Facebook Pages the user can manage after OAuth. Extract temp
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure API key authorization: connectToken
@@ -1030,7 +1030,7 @@ For headless flows. Returns the list of GBP locations the user can manage. Use X
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure API key authorization: connectToken
@@ -1106,7 +1106,7 @@ Fetch full LinkedIn organization details (logos, vanity names, websites) for cus
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -1177,7 +1177,7 @@ For headless flows. Returns Pinterest boards the user can post to. Use X-Connect
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -1250,7 +1250,7 @@ For headless flows. Returns Snapchat Public Profiles the user can post to. Use X
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -1323,7 +1323,7 @@ Complete the headless flow by saving the user's selected Facebook page. Pass the
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure API key authorization: connectToken
@@ -1397,7 +1397,7 @@ Complete the headless flow by saving the user's selected GBP location. Include u
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure API key authorization: connectToken
@@ -1471,7 +1471,7 @@ Complete the LinkedIn connection flow. Set accountType to \"personal\" or \"orga
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -1540,7 +1540,7 @@ Complete the Pinterest connection flow. After OAuth, use this endpoint to save t
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -1609,7 +1609,7 @@ Complete the Snapchat connection flow by saving the selected Public Profile. Sna
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -1682,7 +1682,7 @@ Switch which Facebook Page is active for a connected account.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -1753,7 +1753,7 @@ Switch which GBP location is active for a connected account.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -1824,7 +1824,7 @@ Switch a LinkedIn account between personal profile and organization (company pag
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -1895,7 +1895,7 @@ Sets the default board used when publishing pins for this account.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -1966,7 +1966,7 @@ Sets the default subreddit used when publishing posts for this Reddit account.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

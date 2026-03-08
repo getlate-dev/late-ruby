@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::InitiateTelegramConnectRequest.new(
   chat_id: null,

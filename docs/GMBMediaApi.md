@@ -21,7 +21,7 @@ Creates a media item (photo) for a location from a publicly accessible URL.  Cat
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -92,7 +92,7 @@ Deletes a photo or media item from a GBP location.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -163,7 +163,7 @@ Lists media items (photos) for a Google Business Profile location. Returns photo
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

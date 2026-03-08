@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::UpdateFacebookPageRequest.new(
   selected_page_id: null

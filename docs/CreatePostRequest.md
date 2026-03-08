@@ -25,7 +25,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::CreatePostRequest.new(
   title: null,

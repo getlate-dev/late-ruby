@@ -17,7 +17,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::LinkedInAggregateAnalyticsTotalResponse.new(
   account_id: null,

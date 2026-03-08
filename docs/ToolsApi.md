@@ -27,7 +27,7 @@ Check if Instagram hashtags are banned, restricted, or safe to use.  Rate limits
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -96,7 +96,7 @@ Download videos from Bluesky posts.  Rate limits: Build (50/day), Accelerate (50
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -165,7 +165,7 @@ Download videos and reels from Facebook.  Rate limits: Build (50/day), Accelerat
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -234,7 +234,7 @@ Download Instagram reels, posts, or photos.  Rate limits: Build (50/day), Accele
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -303,7 +303,7 @@ Download videos from LinkedIn posts.  Rate limits: Build (50/day), Accelerate (5
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -372,7 +372,7 @@ Download TikTok videos with or without watermark.  Rate limits: Build (50/day), 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -447,7 +447,7 @@ Download videos from Twitter/X posts.  Rate limits: Build (50/day), Accelerate (
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -522,7 +522,7 @@ Download YouTube videos or audio. Returns available formats or direct download U
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -601,7 +601,7 @@ Extract transcript/captions from a YouTube video.  Rate limits: Build (50/day), 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

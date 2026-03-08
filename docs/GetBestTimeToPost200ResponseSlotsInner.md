@@ -12,7 +12,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetBestTimeToPost200ResponseSlotsInner.new(
   day_of_week: null,

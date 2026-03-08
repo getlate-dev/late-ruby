@@ -14,7 +14,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::SelectLinkedInOrganizationRequest.new(
   profile_id: null,

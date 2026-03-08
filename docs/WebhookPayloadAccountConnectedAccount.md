@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::WebhookPayloadAccountConnectedAccount.new(
   account_id: null,

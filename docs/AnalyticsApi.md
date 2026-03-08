@@ -29,7 +29,7 @@ Returns analytics for posts. With postId, returns a single post. Without it, ret
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -118,7 +118,7 @@ Returns the best times to post based on historical engagement data. Groups all p
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -193,7 +193,7 @@ Returns how engagement accumulates over time after a post is published. Each buc
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -268,7 +268,7 @@ Returns daily aggregated analytics metrics and a per-platform breakdown. Each da
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -347,7 +347,7 @@ Returns follower count history and growth metrics for connected social accounts.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -426,7 +426,7 @@ Returns aggregate analytics across all posts for a LinkedIn personal account. Or
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -505,7 +505,7 @@ Returns analytics for a specific LinkedIn post by URN. Works for both personal a
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -576,7 +576,7 @@ Returns individual reactions for a specific LinkedIn post, including reactor pro
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -653,7 +653,7 @@ Returns a daily timeline of analytics metrics for a specific post, showing how i
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -728,7 +728,7 @@ Returns the correlation between posting frequency (posts per week) and engagemen
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -803,7 +803,7 @@ Returns daily view counts for a YouTube video including views, watch time, and s
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

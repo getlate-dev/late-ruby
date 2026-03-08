@@ -24,7 +24,7 @@ Create a new webhook configuration. Maximum 10 webhooks per user.  Webhooks are 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -93,7 +93,7 @@ Permanently delete a webhook configuration.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -162,7 +162,7 @@ Retrieve webhook delivery history. Logs are automatically deleted after 7 days.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -239,7 +239,7 @@ Retrieve all configured webhooks for the authenticated user. Supports up to 10 w
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -305,7 +305,7 @@ Send a test webhook to verify your endpoint is configured correctly. The test pa
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -374,7 +374,7 @@ Update an existing webhook configuration. All fields except _id are optional; on
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

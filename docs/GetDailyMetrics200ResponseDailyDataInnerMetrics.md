@@ -16,7 +16,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetDailyMetrics200ResponseDailyDataInnerMetrics.new(
   impressions: null,

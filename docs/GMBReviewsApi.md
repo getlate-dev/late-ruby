@@ -19,7 +19,7 @@ Returns reviews for a GBP account including ratings, comments, and owner replies
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

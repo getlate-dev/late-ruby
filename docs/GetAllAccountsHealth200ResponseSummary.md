@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetAllAccountsHealth200ResponseSummary.new(
   total: null,

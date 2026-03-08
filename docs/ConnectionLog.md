@@ -21,7 +21,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::ConnectionLog.new(
   _id: null,

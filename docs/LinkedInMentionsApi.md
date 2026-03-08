@@ -19,7 +19,7 @@ Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Pers
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

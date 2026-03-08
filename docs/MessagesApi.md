@@ -24,7 +24,7 @@ Edit the text and/or reply markup of a previously sent Telegram message. Only su
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -97,7 +97,7 @@ Retrieve details and metadata for a specific conversation. Requires accountId qu
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -168,7 +168,7 @@ Fetch messages for a specific conversation. Requires accountId query parameter.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -239,7 +239,7 @@ Fetch conversations (DMs) from all connected messaging accounts in a single API 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -322,7 +322,7 @@ Send a message in a conversation. Supports text, attachments, quick replies, but
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -393,7 +393,7 @@ Archive or activate a conversation. Requires accountId in request body.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

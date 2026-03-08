@@ -18,7 +18,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::PostAnalytics.new(
   impressions: 0,

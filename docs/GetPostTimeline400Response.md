@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetPostTimeline400Response.new(
   error: Missing required parameter: postId

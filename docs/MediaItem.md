@@ -17,7 +17,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::MediaItem.new(
   type: null,

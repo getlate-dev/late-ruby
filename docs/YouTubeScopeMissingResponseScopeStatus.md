@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::YouTubeScopeMissingResponseScopeStatus.new(
   has_analytics_scope: false,

@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::YouTubeDailyViewsResponseScopeStatus.new(
   has_analytics_scope: null

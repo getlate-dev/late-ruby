@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetGoogleBusinessAttributes200ResponseAttributesInnerRepeatedEnumValue.new(
   set_values: null,

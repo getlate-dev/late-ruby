@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::SelectGoogleBusinessLocationRequest.new(
   profile_id: null,

@@ -20,7 +20,7 @@ Returns detailed GBP location info (hours, description, phone, website, categori
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -93,7 +93,7 @@ Updates GBP location details (hours, description, phone, website). The updateMas
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

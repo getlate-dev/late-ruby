@@ -14,7 +14,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetLinkedInMentions200Response.new(
   urn: urn:li:person:4qj5ox-agD,

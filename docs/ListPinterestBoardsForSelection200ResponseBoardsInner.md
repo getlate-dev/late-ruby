@@ -12,7 +12,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::ListPinterestBoardsForSelection200ResponseBoardsInner.new(
   id: null,

@@ -20,7 +20,7 @@ Fetch posts from a subreddit feed. Supports sorting, time filtering, and cursor-
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -101,7 +101,7 @@ Search Reddit posts using a connected account. Optionally scope to a specific su
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

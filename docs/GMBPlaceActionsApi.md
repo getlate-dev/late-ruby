@@ -21,7 +21,7 @@ Creates a place action link for a location.  Available action types: APPOINTMENT
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -92,7 +92,7 @@ Deletes a place action link (e.g. booking or ordering URL) from a GBP location.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -163,7 +163,7 @@ Lists place action links for a Google Business Profile location.  Place actions 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

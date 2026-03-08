@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetBestTimeToPost403Response.new(
   error: Analytics add-on required,

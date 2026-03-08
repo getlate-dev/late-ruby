@@ -21,7 +21,7 @@ Delete a reply to a review (Google Business only). Requires accountId in request
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -92,7 +92,7 @@ Fetch reviews from all connected Facebook Pages and Google Business accounts. Ag
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -181,7 +181,7 @@ Post a reply to a review. Requires accountId in request body.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

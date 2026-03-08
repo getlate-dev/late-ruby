@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::BulkUploadPosts200ResponseErrorsInner.new(
   row: null,

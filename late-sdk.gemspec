@@ -13,17 +13,17 @@ Generator version: 7.19.0
 =end
 
 $:.push File.expand_path("../lib", __FILE__)
-require "late/version"
+require "late-sdk/version"
 
 Gem::Specification.new do |s|
   s.name        = "late-sdk"
   s.version     = Late::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Late"]
+  s.authors     = ["OpenAPI-Generator"]
   s.email       = ["support@getlate.dev"]
-  s.homepage    = "https://github.com/getlate-dev/late-ruby"
-  s.summary     = "Late API Ruby SDK"
-  s.description = "Official Ruby SDK for the Late API. Schedule and publish social media posts across 13+ platforms."
+  s.homepage    = "https://openapi-generator.tech"
+  s.summary     = "Late API Ruby Gem"
+  s.description = "API reference for Late. Authenticate with a Bearer API key. Base URL: https://getlate.dev/api "
   s.license     = "Unlicense"
   s.required_ruby_version = ">= 2.7"
   s.metadata    = {}

@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetMediaPresignedUrlRequest.new(
   filename: my-video.mp4,

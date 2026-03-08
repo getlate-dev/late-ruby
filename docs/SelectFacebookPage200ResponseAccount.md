@@ -15,7 +15,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::SelectFacebookPage200ResponseAccount.new(
   account_id: null,

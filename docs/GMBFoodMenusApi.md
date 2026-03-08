@@ -20,7 +20,7 @@ Returns food menus for a GBP location including sections, items, pricing, and di
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -89,7 +89,7 @@ Updates food menus for a GBP location. Send the full menus array. Use updateMask
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

@@ -14,7 +14,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::InitiateTelegramConnect200ResponseAccount.new(
   _id: null,

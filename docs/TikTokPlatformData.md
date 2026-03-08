@@ -24,7 +24,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::TikTokPlatformData.new(
   draft: null,

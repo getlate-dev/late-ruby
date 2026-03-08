@@ -19,7 +19,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::RecyclingState.new(
   enabled: null,

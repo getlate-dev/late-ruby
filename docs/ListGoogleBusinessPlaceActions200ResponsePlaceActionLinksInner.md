@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::ListGoogleBusinessPlaceActions200ResponsePlaceActionLinksInner.new(
   name: null,

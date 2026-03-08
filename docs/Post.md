@@ -28,7 +28,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::Post.new(
   _id: null,

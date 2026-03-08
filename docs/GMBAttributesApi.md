@@ -20,7 +20,7 @@ Returns GBP location attributes (amenities, services, accessibility, payment typ
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -89,7 +89,7 @@ Updates location attributes (amenities, services, etc.).  The attributeMask spec
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

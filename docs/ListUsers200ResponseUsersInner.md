@@ -15,7 +15,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::ListUsers200ResponseUsersInner.new(
   _id: null,

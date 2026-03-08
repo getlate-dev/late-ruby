@@ -19,7 +19,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetPostTimeline200ResponseTimelineInner.new(
   date: null,

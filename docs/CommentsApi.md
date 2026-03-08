@@ -27,7 +27,7 @@ Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, Y
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -100,7 +100,7 @@ Fetch comments for a specific post. Requires accountId query parameter.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -181,7 +181,7 @@ Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -254,7 +254,7 @@ Like or upvote a comment on a post. Supported platforms: Facebook, Twitter/X, Bl
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -327,7 +327,7 @@ Returns posts with comment counts from all connected accounts. Aggregates data a
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -414,7 +414,7 @@ Post a reply to a post or specific comment. Requires accountId in request body.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -485,7 +485,7 @@ Send a private message to the author of a comment. Supported on Instagram and Fa
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -558,7 +558,7 @@ Unhide a previously hidden comment. Supported by Facebook, Instagram, and Thread
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -631,7 +631,7 @@ Remove a like from a comment. Supported platforms: Facebook, Twitter/X, Bluesky,
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::SelectLinkedInOrganization200ResponseBulkRefresh.new(
   updated_count: null,

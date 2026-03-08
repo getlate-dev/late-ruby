@@ -19,7 +19,7 @@ Returns the current plan name, billing period, plan limits, and usage counts.
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth

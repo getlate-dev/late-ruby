@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::CheckInstagramHashtags200ResponseSummary.new(
   banned: null,

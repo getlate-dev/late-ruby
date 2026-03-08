@@ -12,7 +12,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetDailyMetrics200ResponseDailyDataInner.new(
   date: 2025-12-01,

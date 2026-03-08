@@ -12,7 +12,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::UpdateGoogleBusinessLocationDetailsRequestRegularHoursPeriodsInner.new(
   open_day: null,

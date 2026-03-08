@@ -1,4 +1,4 @@
-# late
+# late-sdk
 
 Late - the Ruby gem for the Late API
 
@@ -21,28 +21,28 @@ For more information, please visit [https://getlate.dev](https://getlate.dev)
 To build the Ruby code into a gem:
 
 ```shell
-gem build late.gemspec
+gem build late-sdk.gemspec
 ```
 
 Then either install the gem locally:
 
 ```shell
-gem install ./late-0.1.0.gem
+gem install ./late-sdk-0.1.0.gem
 ```
 
-(for development, run `gem install --dev ./late-0.1.0.gem` to install the development dependencies)
+(for development, run `gem install --dev ./late-sdk-0.1.0.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'late', '~> 0.1.0'
+    gem 'late-sdk', '~> 0.1.0'
 
 ### Install from Git
 
 If the Ruby gem is hosted at a git repository: https://github.com/getlate-dev/late-ruby, then add the following in the Gemfile:
 
-    gem 'late', :git => 'https://github.com/getlate-dev/late-ruby.git'
+    gem 'late-sdk', :git => 'https://github.com/getlate-dev/late-ruby.git'
 
 ### Include the Ruby code directly
 
@@ -58,7 +58,7 @@ Please follow the [installation](#installation) procedure and then run the follo
 
 ```ruby
 # Load the gem
-require 'late'
+require 'late-sdk'
 
 # Setup authorization
 Late.configure do |config|

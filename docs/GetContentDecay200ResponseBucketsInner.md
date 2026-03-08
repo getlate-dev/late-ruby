@@ -12,7 +12,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetContentDecay200ResponseBucketsInner.new(
   bucket_order: null,

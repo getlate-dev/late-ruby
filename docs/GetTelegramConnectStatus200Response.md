@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 instance = Late::GetTelegramConnectStatus200Response.new(
   code: LATE-ABC123,

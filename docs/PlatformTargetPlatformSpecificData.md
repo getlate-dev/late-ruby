@@ -9,7 +9,7 @@ Returns the list of classes defined in oneOf.
 #### Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 Late::PlatformTargetPlatformSpecificData.openapi_one_of
 # =>
@@ -37,7 +37,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 #### Example
 
 ```ruby
-require 'late'
+require 'late-sdk'
 
 Late::PlatformTargetPlatformSpecificData.build(data)
 # => #<BlueskyPlatformData:0x00007fdd4aab02a0>

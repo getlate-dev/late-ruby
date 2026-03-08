@@ -21,7 +21,7 @@ Retrieve all publishing logs for a specific post. Shows the complete history of 
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -94,7 +94,7 @@ Retrieve connection event logs showing account connection and disconnection hist
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
@@ -175,7 +175,7 @@ Retrieve publishing logs for all posts with detailed information about each publ
 
 ```ruby
 require 'time'
-require 'late'
+require 'late-sdk'
 # setup authorization
 Late.configure do |config|
   # Configure Bearer authorization (JWT): bearerAuth
