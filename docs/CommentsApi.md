@@ -6,6 +6,7 @@ All URIs are relative to *https://getlate.dev/api*
 | ------ | ------------ | ----------- |
 | [**delete_inbox_comment**](CommentsApi.md#delete_inbox_comment) | **DELETE** /v1/inbox/comments/{postId} | Delete comment |
 | [**get_inbox_post_comments**](CommentsApi.md#get_inbox_post_comments) | **GET** /v1/inbox/comments/{postId} | Get post comments |
+| [**get_post_reactions**](CommentsApi.md#get_post_reactions) | **GET** /v1/inbox/reactions/{postId} | Get post reactions (who reacted) |
 | [**hide_inbox_comment**](CommentsApi.md#hide_inbox_comment) | **POST** /v1/inbox/comments/{postId}/{commentId}/hide | Hide comment |
 | [**like_inbox_comment**](CommentsApi.md#like_inbox_comment) | **POST** /v1/inbox/comments/{postId}/{commentId}/like | Like comment |
 | [**list_inbox_comments**](CommentsApi.md#list_inbox_comments) | **GET** /v1/inbox/comments | List commented posts |
@@ -158,6 +159,83 @@ end
 ### Return type
 
 [**GetInboxPostComments200Response**](GetInboxPostComments200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_post_reactions
+
+> <GetPostReactions200Response> get_post_reactions(post_id, account_id, opts)
+
+Get post reactions (who reacted)
+
+Fetch individual reactions for a post, including reactor profiles (name, headline/title, picture, profile URL). Currently only supported for **LinkedIn organization/company page** posts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::CommentsApi.new
+post_id = 'post_id_example' # String | Late post ID or platform-specific post ID (LinkedIn activity URN or numeric ID).
+account_id = 'account_id_example' # String | The social account ID (must be a LinkedIn organization account).
+opts = {
+  limit: 56, # Integer | Maximum number of reactions to return per page.
+  cursor: 'cursor_example' # String | Offset-based pagination start index.
+}
+
+begin
+  # Get post reactions (who reacted)
+  result = api_instance.get_post_reactions(post_id, account_id, opts)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling CommentsApi->get_post_reactions: #{e}"
+end
+```
+
+#### Using the get_post_reactions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetPostReactions200Response>, Integer, Hash)> get_post_reactions_with_http_info(post_id, account_id, opts)
+
+```ruby
+begin
+  # Get post reactions (who reacted)
+  data, status_code, headers = api_instance.get_post_reactions_with_http_info(post_id, account_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetPostReactions200Response>
+rescue Late::ApiError => e
+  puts "Error when calling CommentsApi->get_post_reactions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **post_id** | **String** | Late post ID or platform-specific post ID (LinkedIn activity URN or numeric ID). |  |
+| **account_id** | **String** | The social account ID (must be a LinkedIn organization account). |  |
+| **limit** | **Integer** | Maximum number of reactions to return per page. | [optional][default to 25] |
+| **cursor** | **String** | Offset-based pagination start index. | [optional] |
+
+### Return type
+
+[**GetPostReactions200Response**](GetPostReactions200Response.md)
 
 ### Authorization
 

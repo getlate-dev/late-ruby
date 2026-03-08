@@ -63,6 +63,21 @@ describe 'CommentsApi' do
     end
   end
 
+  # unit tests for get_post_reactions
+  # Get post reactions (who reacted)
+  # Fetch individual reactions for a post, including reactor profiles (name, headline/title, picture, profile URL). Currently only supported for **LinkedIn organization/company page** posts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+  # @param post_id Late post ID or platform-specific post ID (LinkedIn activity URN or numeric ID).
+  # @param account_id The social account ID (must be a LinkedIn organization account).
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit Maximum number of reactions to return per page.
+  # @option opts [String] :cursor Offset-based pagination start index.
+  # @return [GetPostReactions200Response]
+  describe 'get_post_reactions test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for hide_inbox_comment
   # Hide comment
   # Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden comments are only visible to the commenter and page admin. 

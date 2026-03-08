@@ -186,6 +186,90 @@ module Late
       return data, status_code, headers
     end
 
+    # Get post reactions (who reacted)
+    # Fetch individual reactions for a post, including reactor profiles (name, headline/title, picture, profile URL). Currently only supported for **LinkedIn organization/company page** posts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+    # @param post_id [String] Late post ID or platform-specific post ID (LinkedIn activity URN or numeric ID).
+    # @param account_id [String] The social account ID (must be a LinkedIn organization account).
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit Maximum number of reactions to return per page. (default to 25)
+    # @option opts [String] :cursor Offset-based pagination start index.
+    # @return [GetPostReactions200Response]
+    def get_post_reactions(post_id, account_id, opts = {})
+      data, _status_code, _headers = get_post_reactions_with_http_info(post_id, account_id, opts)
+      data
+    end
+
+    # Get post reactions (who reacted)
+    # Fetch individual reactions for a post, including reactor profiles (name, headline/title, picture, profile URL). Currently only supported for **LinkedIn organization/company page** posts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+    # @param post_id [String] Late post ID or platform-specific post ID (LinkedIn activity URN or numeric ID).
+    # @param account_id [String] The social account ID (must be a LinkedIn organization account).
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit Maximum number of reactions to return per page. (default to 25)
+    # @option opts [String] :cursor Offset-based pagination start index.
+    # @return [Array<(GetPostReactions200Response, Integer, Hash)>] GetPostReactions200Response data, response status code and response headers
+    def get_post_reactions_with_http_info(post_id, account_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CommentsApi.get_post_reactions ...'
+      end
+      # verify the required parameter 'post_id' is set
+      if @api_client.config.client_side_validation && post_id.nil?
+        fail ArgumentError, "Missing the required parameter 'post_id' when calling CommentsApi.get_post_reactions"
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling CommentsApi.get_post_reactions"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CommentsApi.get_post_reactions, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CommentsApi.get_post_reactions, must be greater than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/v1/inbox/reactions/{postId}'.sub('{' + 'postId' + '}', CGI.escape(post_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetPostReactions200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"CommentsApi.get_post_reactions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CommentsApi#get_post_reactions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Hide comment
     # Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden comments are only visible to the commenter and page admin. 
     # @param post_id [String] 
