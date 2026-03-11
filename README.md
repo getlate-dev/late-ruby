@@ -25,8 +25,9 @@ gem install late-sdk
 Or add it to your Gemfile:
 
 ```ruby
-gem 'late-sdk'
+gem "late-sdk"
 ```
+
 
 ## Getting Started
 
