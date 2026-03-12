@@ -108,6 +108,7 @@ Class | Method | HTTP request | Description
 *Late::CommentsApi* | [**unlike_inbox_comment**](docs/CommentsApi.md#unlike_inbox_comment) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/like | Unlike comment
 *Late::ConnectApi* | [**complete_telegram_connect**](docs/ConnectApi.md#complete_telegram_connect) | **PATCH** /v1/connect/telegram | Check Telegram status
 *Late::ConnectApi* | [**connect_bluesky_credentials**](docs/ConnectApi.md#connect_bluesky_credentials) | **POST** /v1/connect/bluesky/credentials | Connect Bluesky account
+*Late::ConnectApi* | [**connect_whats_app_credentials**](docs/ConnectApi.md#connect_whats_app_credentials) | **POST** /v1/connect/whatsapp/credentials | Connect WhatsApp via credentials
 *Late::ConnectApi* | [**get_connect_url**](docs/ConnectApi.md#get_connect_url) | **GET** /v1/connect/{platform} | Get OAuth connect URL
 *Late::ConnectApi* | [**get_facebook_pages**](docs/ConnectApi.md#get_facebook_pages) | **GET** /v1/accounts/{accountId}/facebook-page | List Facebook pages
 *Late::ConnectApi* | [**get_gmb_locations**](docs/ConnectApi.md#get_gmb_locations) | **GET** /v1/accounts/{accountId}/gmb-locations | List GBP locations
@@ -272,6 +273,9 @@ Class | Method | HTTP request | Description
  - [Late::CompleteTelegramConnect200Response](docs/CompleteTelegramConnect200Response.md)
  - [Late::ConnectBlueskyCredentials200Response](docs/ConnectBlueskyCredentials200Response.md)
  - [Late::ConnectBlueskyCredentialsRequest](docs/ConnectBlueskyCredentialsRequest.md)
+ - [Late::ConnectWhatsAppCredentials200Response](docs/ConnectWhatsAppCredentials200Response.md)
+ - [Late::ConnectWhatsAppCredentials200ResponseAccount](docs/ConnectWhatsAppCredentials200ResponseAccount.md)
+ - [Late::ConnectWhatsAppCredentialsRequest](docs/ConnectWhatsAppCredentialsRequest.md)
  - [Late::Connected](docs/Connected.md)
  - [Late::ConnectedAccount](docs/ConnectedAccount.md)
  - [Late::ConnectionLog](docs/ConnectionLog.md)
@@ -309,6 +313,8 @@ Class | Method | HTTP request | Description
  - [Late::CreateWhatsAppTemplate200Response](docs/CreateWhatsAppTemplate200Response.md)
  - [Late::CreateWhatsAppTemplate200ResponseTemplate](docs/CreateWhatsAppTemplate200ResponseTemplate.md)
  - [Late::CreateWhatsAppTemplateRequest](docs/CreateWhatsAppTemplateRequest.md)
+ - [Late::CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner](docs/CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner.md)
+ - [Late::CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInnerUrl](docs/CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInnerUrl.md)
  - [Late::DeleteAccountGroup200Response](docs/DeleteAccountGroup200Response.md)
  - [Late::DeleteGoogleBusinessMedia200Response](docs/DeleteGoogleBusinessMedia200Response.md)
  - [Late::DeleteGoogleBusinessPlaceAction200Response](docs/DeleteGoogleBusinessPlaceAction200Response.md)

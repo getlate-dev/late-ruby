@@ -14,26 +14,59 @@ require 'date'
 require 'time'
 
 module Late
-  class CreateWhatsAppTemplate200ResponseTemplate < ApiModelBase
-    attr_accessor :id
+  class ConnectWhatsAppCredentials200ResponseAccount < ApiModelBase
+    attr_accessor :account_id
 
-    attr_accessor :name
+    attr_accessor :platform
 
-    # APPROVED for library templates, PENDING for custom
-    attr_accessor :status
+    # Display phone number
+    attr_accessor :username
 
-    attr_accessor :category
+    # Meta-verified business name
+    attr_accessor :display_name
 
-    attr_accessor :language
+    attr_accessor :is_active
+
+    attr_accessor :phone_number
+
+    attr_accessor :verified_name
+
+    # GREEN, YELLOW, or RED
+    attr_accessor :quality_rating
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name',
-        :'status' => :'status',
-        :'category' => :'category',
-        :'language' => :'language'
+        :'account_id' => :'accountId',
+        :'platform' => :'platform',
+        :'username' => :'username',
+        :'display_name' => :'displayName',
+        :'is_active' => :'isActive',
+        :'phone_number' => :'phoneNumber',
+        :'verified_name' => :'verifiedName',
+        :'quality_rating' => :'qualityRating'
       }
     end
 
@@ -50,11 +83,14 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'name' => :'String',
-        :'status' => :'String',
-        :'category' => :'String',
-        :'language' => :'String'
+        :'account_id' => :'String',
+        :'platform' => :'String',
+        :'username' => :'String',
+        :'display_name' => :'String',
+        :'is_active' => :'Boolean',
+        :'phone_number' => :'String',
+        :'verified_name' => :'String',
+        :'quality_rating' => :'String'
       }
     end
 
@@ -68,36 +104,48 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::CreateWhatsAppTemplate200ResponseTemplate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::ConnectWhatsAppCredentials200ResponseAccount` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::CreateWhatsAppTemplate200ResponseTemplate`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::ConnectWhatsAppCredentials200ResponseAccount`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'account_id')
+        self.account_id = attributes[:'account_id']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'platform')
+        self.platform = attributes[:'platform']
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'username')
+        self.username = attributes[:'username']
       end
 
-      if attributes.key?(:'category')
-        self.category = attributes[:'category']
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
       end
 
-      if attributes.key?(:'language')
-        self.language = attributes[:'language']
+      if attributes.key?(:'is_active')
+        self.is_active = attributes[:'is_active']
+      end
+
+      if attributes.key?(:'phone_number')
+        self.phone_number = attributes[:'phone_number']
+      end
+
+      if attributes.key?(:'verified_name')
+        self.verified_name = attributes[:'verified_name']
+      end
+
+      if attributes.key?(:'quality_rating')
+        self.quality_rating = attributes[:'quality_rating']
       end
     end
 
@@ -113,7 +161,19 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      platform_validator = EnumAttributeValidator.new('String', ["whatsapp"])
+      return false unless platform_validator.valid?(@platform)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] platform Object to be assigned
+    def platform=(platform)
+      validator = EnumAttributeValidator.new('String', ["whatsapp"])
+      unless validator.valid?(platform)
+        fail ArgumentError, "invalid value for \"platform\", must be one of #{validator.allowable_values}."
+      end
+      @platform = platform
     end
 
     # Checks equality by comparing each attribute.
@@ -121,11 +181,14 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name &&
-          status == o.status &&
-          category == o.category &&
-          language == o.language
+          account_id == o.account_id &&
+          platform == o.platform &&
+          username == o.username &&
+          display_name == o.display_name &&
+          is_active == o.is_active &&
+          phone_number == o.phone_number &&
+          verified_name == o.verified_name &&
+          quality_rating == o.quality_rating
     end
 
     # @see the `==` method
@@ -137,7 +200,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, status, category, language].hash
+      [account_id, platform, username, display_name, is_active, phone_number, verified_name, quality_rating].hash
     end
 
     # Builds the object from hash

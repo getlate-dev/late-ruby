@@ -14,26 +14,13 @@ require 'date'
 require 'time'
 
 module Late
-  class CreateWhatsAppTemplate200ResponseTemplate < ApiModelBase
-    attr_accessor :id
-
-    attr_accessor :name
-
-    # APPROVED for library templates, PENDING for custom
-    attr_accessor :status
-
-    attr_accessor :category
-
-    attr_accessor :language
+  class CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInnerUrl < ApiModelBase
+    attr_accessor :base_url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name',
-        :'status' => :'status',
-        :'category' => :'category',
-        :'language' => :'language'
+        :'base_url' => :'base_url'
       }
     end
 
@@ -50,11 +37,7 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'name' => :'String',
-        :'status' => :'String',
-        :'category' => :'String',
-        :'language' => :'String'
+        :'base_url' => :'String'
       }
     end
 
@@ -68,36 +51,20 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::CreateWhatsAppTemplate200ResponseTemplate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInnerUrl` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::CreateWhatsAppTemplate200ResponseTemplate`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInnerUrl`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'category')
-        self.category = attributes[:'category']
-      end
-
-      if attributes.key?(:'language')
-        self.language = attributes[:'language']
+      if attributes.key?(:'base_url')
+        self.base_url = attributes[:'base_url']
       end
     end
 
@@ -121,11 +88,7 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name &&
-          status == o.status &&
-          category == o.category &&
-          language == o.language
+          base_url == o.base_url
     end
 
     # @see the `==` method
@@ -137,7 +100,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, status, category, language].hash
+      [base_url].hash
     end
 
     # Builds the object from hash

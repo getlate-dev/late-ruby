@@ -56,6 +56,18 @@ describe 'ConnectApi' do
     end
   end
 
+  # unit tests for connect_whats_app_credentials
+  # Connect WhatsApp via credentials
+  # Connect a WhatsApp Business Account by providing Meta credentials directly. This is the headless alternative to the Embedded Signup browser flow.  To get the required credentials: 1. Go to Meta Business Suite (business.facebook.com) 2. Create or select a WhatsApp Business Account 3. In Business Settings &gt; System Users, create a System User 4. Assign it the &#x60;whatsapp_business_management&#x60; and &#x60;whatsapp_business_messaging&#x60; permissions 5. Generate a permanent access token 6. Get the WABA ID from WhatsApp Manager &gt; Account Tools &gt; Phone Numbers 7. Get the Phone Number ID from the same page (click on the number) 
+  # @param connect_whats_app_credentials_request 
+  # @param [Hash] opts the optional parameters
+  # @return [ConnectWhatsAppCredentials200Response]
+  describe 'connect_whats_app_credentials test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_connect_url
   # Get OAuth connect URL
   # Initiate an OAuth connection flow. Returns an authUrl to redirect the user to. Standard flow: Late hosts the selection UI, then redirects to your redirect_url. Headless mode (headless&#x3D;true): user is redirected to your redirect_url with OAuth data for custom UI. Use the platform-specific selection endpoints to complete. 

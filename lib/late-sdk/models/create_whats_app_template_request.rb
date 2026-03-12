@@ -27,8 +27,17 @@ module Late
     # Template language code (e.g., en_US)
     attr_accessor :language
 
-    # Template components (header, body, footer, buttons)
+    # Template components (header, body, footer, buttons). Required for custom templates, omit when using library_template_name.
     attr_accessor :components
+
+    # Name of a pre-built template from Meta's template library (e.g., \"appointment_reminder\", \"auto_pay_reminder_1\", \"address_update\"). When provided, the template is pre-approved by Meta with no review wait. Omit `components` when using this field. 
+    attr_accessor :library_template_name
+
+    # Optional body customizations for library templates. Available options depend on the template (e.g., add_contact_number, add_learn_more_link, add_security_recommendation, add_track_package_link, code_expiration_minutes). 
+    attr_accessor :library_template_body_inputs
+
+    # Optional button customizations for library templates. Each item specifies button type and configuration (e.g., URL, phone number, quick reply). 
+    attr_accessor :library_template_button_inputs
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -59,7 +68,10 @@ module Late
         :'name' => :'name',
         :'category' => :'category',
         :'language' => :'language',
-        :'components' => :'components'
+        :'components' => :'components',
+        :'library_template_name' => :'library_template_name',
+        :'library_template_body_inputs' => :'library_template_body_inputs',
+        :'library_template_button_inputs' => :'library_template_button_inputs'
       }
     end
 
@@ -80,7 +92,10 @@ module Late
         :'name' => :'String',
         :'category' => :'String',
         :'language' => :'String',
-        :'components' => :'Array<Object>'
+        :'components' => :'Array<Object>',
+        :'library_template_name' => :'String',
+        :'library_template_body_inputs' => :'Object',
+        :'library_template_button_inputs' => :'Array<CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner>'
       }
     end
 
@@ -134,8 +149,20 @@ module Late
         if (value = attributes[:'components']).is_a?(Array)
           self.components = value
         end
-      else
-        self.components = nil
+      end
+
+      if attributes.key?(:'library_template_name')
+        self.library_template_name = attributes[:'library_template_name']
+      end
+
+      if attributes.key?(:'library_template_body_inputs')
+        self.library_template_body_inputs = attributes[:'library_template_body_inputs']
+      end
+
+      if attributes.key?(:'library_template_button_inputs')
+        if (value = attributes[:'library_template_button_inputs']).is_a?(Array)
+          self.library_template_button_inputs = value
+        end
       end
     end
 
@@ -165,10 +192,6 @@ module Late
         invalid_properties.push('invalid value for "language", language cannot be nil.')
       end
 
-      if @components.nil?
-        invalid_properties.push('invalid value for "components", components cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -183,7 +206,6 @@ module Late
       category_validator = EnumAttributeValidator.new('String', ["AUTHENTICATION", "MARKETING", "UTILITY"])
       return false unless category_validator.valid?(@category)
       return false if @language.nil?
-      return false if @components.nil?
       true
     end
 
@@ -232,16 +254,6 @@ module Late
       @language = language
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] components Value to be assigned
-    def components=(components)
-      if components.nil?
-        fail ArgumentError, 'components cannot be nil'
-      end
-
-      @components = components
-    end
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -251,7 +263,10 @@ module Late
           name == o.name &&
           category == o.category &&
           language == o.language &&
-          components == o.components
+          components == o.components &&
+          library_template_name == o.library_template_name &&
+          library_template_body_inputs == o.library_template_body_inputs &&
+          library_template_button_inputs == o.library_template_button_inputs
     end
 
     # @see the `==` method
@@ -263,7 +278,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, name, category, language, components].hash
+      [account_id, name, category, language, components, library_template_name, library_template_body_inputs, library_template_button_inputs].hash
     end
 
     # Builds the object from hash

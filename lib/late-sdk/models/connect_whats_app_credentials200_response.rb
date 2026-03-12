@@ -14,26 +14,16 @@ require 'date'
 require 'time'
 
 module Late
-  class CreateWhatsAppTemplate200ResponseTemplate < ApiModelBase
-    attr_accessor :id
+  class ConnectWhatsAppCredentials200Response < ApiModelBase
+    attr_accessor :message
 
-    attr_accessor :name
-
-    # APPROVED for library templates, PENDING for custom
-    attr_accessor :status
-
-    attr_accessor :category
-
-    attr_accessor :language
+    attr_accessor :account
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name',
-        :'status' => :'status',
-        :'category' => :'category',
-        :'language' => :'language'
+        :'message' => :'message',
+        :'account' => :'account'
       }
     end
 
@@ -50,11 +40,8 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'name' => :'String',
-        :'status' => :'String',
-        :'category' => :'String',
-        :'language' => :'String'
+        :'message' => :'String',
+        :'account' => :'ConnectWhatsAppCredentials200ResponseAccount'
       }
     end
 
@@ -68,36 +55,24 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::CreateWhatsAppTemplate200ResponseTemplate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::ConnectWhatsAppCredentials200Response` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::CreateWhatsAppTemplate200ResponseTemplate`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::ConnectWhatsAppCredentials200Response`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'category')
-        self.category = attributes[:'category']
-      end
-
-      if attributes.key?(:'language')
-        self.language = attributes[:'language']
+      if attributes.key?(:'account')
+        self.account = attributes[:'account']
       end
     end
 
@@ -121,11 +96,8 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name &&
-          status == o.status &&
-          category == o.category &&
-          language == o.language
+          message == o.message &&
+          account == o.account
     end
 
     # @see the `==` method
@@ -137,7 +109,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, status, category, language].hash
+      [message, account].hash
     end
 
     # Builds the object from hash

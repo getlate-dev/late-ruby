@@ -457,7 +457,7 @@ end
 
 Create template
 
-Create a new message template. Template names must be lowercase, start with a letter, and contain only letters, numbers, and underscores. Templates are submitted to Meta for review. 
+Create a new message template. Supports two modes:  **Custom template:** Provide `components` with your own content. Submitted to Meta for review (can take up to 24h).  **Library template:** Provide `library_template_name` instead of `components` to use a pre-built template from Meta's template library. Library templates are **pre-approved** (no review wait). You can optionally customize parameters and buttons via `library_template_body_inputs` and `library_template_button_inputs`.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
 
 ### Examples
 
@@ -471,7 +471,7 @@ Late.configure do |config|
 end
 
 api_instance = Late::WhatsAppApi.new
-create_whats_app_template_request = Late::CreateWhatsAppTemplateRequest.new({account_id: 'account_id_example', name: 'name_example', category: 'AUTHENTICATION', language: 'language_example', components: [3.56]}) # CreateWhatsAppTemplateRequest | 
+create_whats_app_template_request = Late::CreateWhatsAppTemplateRequest.new({account_id: 'account_id_example', name: 'name_example', category: 'AUTHENTICATION', language: 'language_example'}) # CreateWhatsAppTemplateRequest | 
 
 begin
   # Create template

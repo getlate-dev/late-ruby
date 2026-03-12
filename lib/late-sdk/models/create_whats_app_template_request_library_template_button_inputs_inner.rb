@@ -14,26 +14,41 @@ require 'date'
 require 'time'
 
 module Late
-  class CreateWhatsAppTemplate200ResponseTemplate < ApiModelBase
-    attr_accessor :id
+  class CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner < ApiModelBase
+    attr_accessor :type
 
-    attr_accessor :name
+    attr_accessor :url
 
-    # APPROVED for library templates, PENDING for custom
-    attr_accessor :status
+    attr_accessor :phone_number
 
-    attr_accessor :category
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
 
-    attr_accessor :language
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name',
-        :'status' => :'status',
-        :'category' => :'category',
-        :'language' => :'language'
+        :'type' => :'type',
+        :'url' => :'url',
+        :'phone_number' => :'phone_number'
       }
     end
 
@@ -50,11 +65,9 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'name' => :'String',
-        :'status' => :'String',
-        :'category' => :'String',
-        :'language' => :'String'
+        :'type' => :'String',
+        :'url' => :'CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInnerUrl',
+        :'phone_number' => :'String'
       }
     end
 
@@ -68,36 +81,28 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::CreateWhatsAppTemplate200ResponseTemplate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::CreateWhatsAppTemplate200ResponseTemplate`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'category')
-        self.category = attributes[:'category']
-      end
-
-      if attributes.key?(:'language')
-        self.language = attributes[:'language']
+      if attributes.key?(:'phone_number')
+        self.phone_number = attributes[:'phone_number']
       end
     end
 
@@ -113,7 +118,19 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      type_validator = EnumAttributeValidator.new('String', ["QUICK_REPLY", "URL", "PHONE_NUMBER"])
+      return false unless type_validator.valid?(@type)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] type Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('String', ["QUICK_REPLY", "URL", "PHONE_NUMBER"])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -121,11 +138,9 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name &&
-          status == o.status &&
-          category == o.category &&
-          language == o.language
+          type == o.type &&
+          url == o.url &&
+          phone_number == o.phone_number
     end
 
     # @see the `==` method
@@ -137,7 +152,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, status, category, language].hash
+      [type, url, phone_number].hash
     end
 
     # Builds the object from hash

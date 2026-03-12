@@ -6,6 +6,7 @@ All URIs are relative to *https://getlate.dev/api*
 | ------ | ------------ | ----------- |
 | [**complete_telegram_connect**](ConnectApi.md#complete_telegram_connect) | **PATCH** /v1/connect/telegram | Check Telegram status |
 | [**connect_bluesky_credentials**](ConnectApi.md#connect_bluesky_credentials) | **POST** /v1/connect/bluesky/credentials | Connect Bluesky account |
+| [**connect_whats_app_credentials**](ConnectApi.md#connect_whats_app_credentials) | **POST** /v1/connect/whatsapp/credentials | Connect WhatsApp via credentials |
 | [**get_connect_url**](ConnectApi.md#get_connect_url) | **GET** /v1/connect/{platform} | Get OAuth connect URL |
 | [**get_facebook_pages**](ConnectApi.md#get_facebook_pages) | **GET** /v1/accounts/{accountId}/facebook-page | List Facebook pages |
 | [**get_gmb_locations**](ConnectApi.md#get_gmb_locations) | **GET** /v1/accounts/{accountId}/gmb-locations | List GBP locations |
@@ -161,6 +162,75 @@ end
 ### Return type
 
 [**ConnectBlueskyCredentials200Response**](ConnectBlueskyCredentials200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## connect_whats_app_credentials
+
+> <ConnectWhatsAppCredentials200Response> connect_whats_app_credentials(connect_whats_app_credentials_request)
+
+Connect WhatsApp via credentials
+
+Connect a WhatsApp Business Account by providing Meta credentials directly. This is the headless alternative to the Embedded Signup browser flow.  To get the required credentials: 1. Go to Meta Business Suite (business.facebook.com) 2. Create or select a WhatsApp Business Account 3. In Business Settings > System Users, create a System User 4. Assign it the `whatsapp_business_management` and `whatsapp_business_messaging` permissions 5. Generate a permanent access token 6. Get the WABA ID from WhatsApp Manager > Account Tools > Phone Numbers 7. Get the Phone Number ID from the same page (click on the number) 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::ConnectApi.new
+connect_whats_app_credentials_request = Late::ConnectWhatsAppCredentialsRequest.new({profile_id: 'profile_id_example', access_token: 'access_token_example', waba_id: 'waba_id_example', phone_number_id: 'phone_number_id_example'}) # ConnectWhatsAppCredentialsRequest | 
+
+begin
+  # Connect WhatsApp via credentials
+  result = api_instance.connect_whats_app_credentials(connect_whats_app_credentials_request)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling ConnectApi->connect_whats_app_credentials: #{e}"
+end
+```
+
+#### Using the connect_whats_app_credentials_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ConnectWhatsAppCredentials200Response>, Integer, Hash)> connect_whats_app_credentials_with_http_info(connect_whats_app_credentials_request)
+
+```ruby
+begin
+  # Connect WhatsApp via credentials
+  data, status_code, headers = api_instance.connect_whats_app_credentials_with_http_info(connect_whats_app_credentials_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ConnectWhatsAppCredentials200Response>
+rescue Late::ApiError => e
+  puts "Error when calling ConnectApi->connect_whats_app_credentials_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **connect_whats_app_credentials_request** | [**ConnectWhatsAppCredentialsRequest**](ConnectWhatsAppCredentialsRequest.md) |  |  |
+
+### Return type
+
+[**ConnectWhatsAppCredentials200Response**](ConnectWhatsAppCredentials200Response.md)
 
 ### Authorization
 

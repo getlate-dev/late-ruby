@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional] |
 | **name** | **String** |  | [optional] |
-| **status** | **String** |  | [optional] |
+| **status** | **String** | APPROVED for library templates, PENDING for custom | [optional] |
 | **category** | **String** |  | [optional] |
 | **language** | **String** |  | [optional] |
 

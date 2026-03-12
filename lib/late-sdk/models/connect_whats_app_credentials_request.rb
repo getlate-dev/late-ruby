@@ -14,26 +14,26 @@ require 'date'
 require 'time'
 
 module Late
-  class CreateWhatsAppTemplate200ResponseTemplate < ApiModelBase
-    attr_accessor :id
+  class ConnectWhatsAppCredentialsRequest < ApiModelBase
+    # Your Late profile ID
+    attr_accessor :profile_id
 
-    attr_accessor :name
+    # Permanent System User access token from Meta Business Suite
+    attr_accessor :access_token
 
-    # APPROVED for library templates, PENDING for custom
-    attr_accessor :status
+    # WhatsApp Business Account ID from Meta
+    attr_accessor :waba_id
 
-    attr_accessor :category
-
-    attr_accessor :language
+    # Phone Number ID from Meta WhatsApp Manager
+    attr_accessor :phone_number_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name',
-        :'status' => :'status',
-        :'category' => :'category',
-        :'language' => :'language'
+        :'profile_id' => :'profileId',
+        :'access_token' => :'accessToken',
+        :'waba_id' => :'wabaId',
+        :'phone_number_id' => :'phoneNumberId'
       }
     end
 
@@ -50,11 +50,10 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'name' => :'String',
-        :'status' => :'String',
-        :'category' => :'String',
-        :'language' => :'String'
+        :'profile_id' => :'String',
+        :'access_token' => :'String',
+        :'waba_id' => :'String',
+        :'phone_number_id' => :'String'
       }
     end
 
@@ -68,36 +67,40 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::CreateWhatsAppTemplate200ResponseTemplate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::ConnectWhatsAppCredentialsRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::CreateWhatsAppTemplate200ResponseTemplate`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::ConnectWhatsAppCredentialsRequest`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'profile_id')
+        self.profile_id = attributes[:'profile_id']
+      else
+        self.profile_id = nil
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'access_token')
+        self.access_token = attributes[:'access_token']
+      else
+        self.access_token = nil
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'waba_id')
+        self.waba_id = attributes[:'waba_id']
+      else
+        self.waba_id = nil
       end
 
-      if attributes.key?(:'category')
-        self.category = attributes[:'category']
-      end
-
-      if attributes.key?(:'language')
-        self.language = attributes[:'language']
+      if attributes.key?(:'phone_number_id')
+        self.phone_number_id = attributes[:'phone_number_id']
+      else
+        self.phone_number_id = nil
       end
     end
 
@@ -106,6 +109,22 @@ module Late
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @profile_id.nil?
+        invalid_properties.push('invalid value for "profile_id", profile_id cannot be nil.')
+      end
+
+      if @access_token.nil?
+        invalid_properties.push('invalid value for "access_token", access_token cannot be nil.')
+      end
+
+      if @waba_id.nil?
+        invalid_properties.push('invalid value for "waba_id", waba_id cannot be nil.')
+      end
+
+      if @phone_number_id.nil?
+        invalid_properties.push('invalid value for "phone_number_id", phone_number_id cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -113,7 +132,51 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @profile_id.nil?
+      return false if @access_token.nil?
+      return false if @waba_id.nil?
+      return false if @phone_number_id.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] profile_id Value to be assigned
+    def profile_id=(profile_id)
+      if profile_id.nil?
+        fail ArgumentError, 'profile_id cannot be nil'
+      end
+
+      @profile_id = profile_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] access_token Value to be assigned
+    def access_token=(access_token)
+      if access_token.nil?
+        fail ArgumentError, 'access_token cannot be nil'
+      end
+
+      @access_token = access_token
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] waba_id Value to be assigned
+    def waba_id=(waba_id)
+      if waba_id.nil?
+        fail ArgumentError, 'waba_id cannot be nil'
+      end
+
+      @waba_id = waba_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] phone_number_id Value to be assigned
+    def phone_number_id=(phone_number_id)
+      if phone_number_id.nil?
+        fail ArgumentError, 'phone_number_id cannot be nil'
+      end
+
+      @phone_number_id = phone_number_id
     end
 
     # Checks equality by comparing each attribute.
@@ -121,11 +184,10 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name &&
-          status == o.status &&
-          category == o.category &&
-          language == o.language
+          profile_id == o.profile_id &&
+          access_token == o.access_token &&
+          waba_id == o.waba_id &&
+          phone_number_id == o.phone_number_id
     end
 
     # @see the `==` method
@@ -137,7 +199,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, status, category, language].hash
+      [profile_id, access_token, waba_id, phone_number_id].hash
     end
 
     # Builds the object from hash
