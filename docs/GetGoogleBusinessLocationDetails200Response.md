@@ -13,6 +13,8 @@
 | **profile** | [**GetGoogleBusinessLocationDetails200ResponseProfile**](GetGoogleBusinessLocationDetails200ResponseProfile.md) |  | [optional] |
 | **website_uri** | **String** |  | [optional] |
 | **phone_numbers** | [**GetGoogleBusinessLocationDetails200ResponsePhoneNumbers**](GetGoogleBusinessLocationDetails200ResponsePhoneNumbers.md) |  | [optional] |
+| **categories** | [**GetGoogleBusinessLocationDetails200ResponseCategories**](GetGoogleBusinessLocationDetails200ResponseCategories.md) |  | [optional] |
+| **service_items** | [**Array&lt;GetGoogleBusinessLocationDetails200ResponseServiceItemsInner&gt;**](GetGoogleBusinessLocationDetails200ResponseServiceItemsInner.md) | Services offered (returned when readMask includes &#39;serviceItems&#39;) | [optional] |
 
 ## Example
 
@@ -28,7 +30,9 @@ instance = Late::GetGoogleBusinessLocationDetails200Response.new(
   special_hours: null,
   profile: null,
   website_uri: null,
-  phone_numbers: null
+  phone_numbers: null,
+  categories: null,
+  service_items: null
 )
 ```
 

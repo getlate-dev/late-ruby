@@ -14,7 +14,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get location details
 
-Returns detailed GBP location info (hours, description, phone, website, categories). Use readMask to request specific fields.
+Returns detailed GBP location info (hours, description, phone, website, categories, services). Use readMask to request specific fields.
 
 ### Examples
 
@@ -31,7 +31,7 @@ api_instance = Late::GMBLocationDetailsApi.new
 account_id = 'account_id_example' # String | The Late account ID (from /v1/accounts)
 opts = {
   location_id: 'location_id_example', # String | Override which location to query. If omitted, uses the account's selected location. Use GET /gmb-locations to list valid IDs.
-  read_mask: 'read_mask_example' # String | Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours.
+  read_mask: 'read_mask_example' # String | Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours.
 }
 
 begin
@@ -67,7 +67,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **account_id** | **String** | The Late account ID (from /v1/accounts) |  |
 | **location_id** | **String** | Override which location to query. If omitted, uses the account&#39;s selected location. Use GET /gmb-locations to list valid IDs. | [optional] |
-| **read_mask** | **String** | Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours. | [optional] |
+| **read_mask** | **String** | Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. | [optional] |
 
 ### Return type
 
@@ -89,7 +89,7 @@ end
 
 Update location details
 
-Updates GBP location details (hours, description, phone, website). The updateMask field is required and specifies which fields to update.
+Updates GBP location details. The updateMask field is required and specifies which fields to update. This endpoint proxies Google's Business Information API locations.patch, so any valid updateMask field is supported. Common fields: regularHours, specialHours, profile.description, websiteUri, phoneNumbers, categories, serviceItems. 
 
 ### Examples
 

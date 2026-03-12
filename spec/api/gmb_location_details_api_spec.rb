@@ -34,11 +34,11 @@ describe 'GMBLocationDetailsApi' do
 
   # unit tests for get_google_business_location_details
   # Get location details
-  # Returns detailed GBP location info (hours, description, phone, website, categories). Use readMask to request specific fields.
+  # Returns detailed GBP location info (hours, description, phone, website, categories, services). Use readMask to request specific fields.
   # @param account_id The Late account ID (from /v1/accounts)
   # @param [Hash] opts the optional parameters
   # @option opts [String] :location_id Override which location to query. If omitted, uses the account&#39;s selected location. Use GET /gmb-locations to list valid IDs.
-  # @option opts [String] :read_mask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours.
+  # @option opts [String] :read_mask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours.
   # @return [GetGoogleBusinessLocationDetails200Response]
   describe 'get_google_business_location_details test' do
     it 'should work' do
@@ -48,7 +48,7 @@ describe 'GMBLocationDetailsApi' do
 
   # unit tests for update_google_business_location_details
   # Update location details
-  # Updates GBP location details (hours, description, phone, website). The updateMask field is required and specifies which fields to update.
+  # Updates GBP location details. The updateMask field is required and specifies which fields to update. This endpoint proxies Google&#39;s Business Information API locations.patch, so any valid updateMask field is supported. Common fields: regularHours, specialHours, profile.description, websiteUri, phoneNumbers, categories, serviceItems. 
   # @param account_id The Late account ID (from /v1/accounts)
   # @param update_google_business_location_details_request 
   # @param [Hash] opts the optional parameters

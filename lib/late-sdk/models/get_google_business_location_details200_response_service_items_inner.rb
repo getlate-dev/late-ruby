@@ -14,45 +14,19 @@ require 'date'
 require 'time'
 
 module Late
-  class GetGoogleBusinessLocationDetails200Response < ApiModelBase
-    attr_accessor :success
+  class GetGoogleBusinessLocationDetails200ResponseServiceItemsInner < ApiModelBase
+    attr_accessor :structured_service_item
 
-    attr_accessor :account_id
+    attr_accessor :free_form_service_item
 
-    attr_accessor :location_id
-
-    # Business name
-    attr_accessor :title
-
-    attr_accessor :regular_hours
-
-    attr_accessor :special_hours
-
-    attr_accessor :profile
-
-    attr_accessor :website_uri
-
-    attr_accessor :phone_numbers
-
-    attr_accessor :categories
-
-    # Services offered (returned when readMask includes 'serviceItems')
-    attr_accessor :service_items
+    attr_accessor :price
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'success' => :'success',
-        :'account_id' => :'accountId',
-        :'location_id' => :'locationId',
-        :'title' => :'title',
-        :'regular_hours' => :'regularHours',
-        :'special_hours' => :'specialHours',
-        :'profile' => :'profile',
-        :'website_uri' => :'websiteUri',
-        :'phone_numbers' => :'phoneNumbers',
-        :'categories' => :'categories',
-        :'service_items' => :'serviceItems'
+        :'structured_service_item' => :'structuredServiceItem',
+        :'free_form_service_item' => :'freeFormServiceItem',
+        :'price' => :'price'
       }
     end
 
@@ -69,17 +43,9 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'success' => :'Boolean',
-        :'account_id' => :'String',
-        :'location_id' => :'String',
-        :'title' => :'String',
-        :'regular_hours' => :'GetGoogleBusinessLocationDetails200ResponseRegularHours',
-        :'special_hours' => :'GetGoogleBusinessLocationDetails200ResponseSpecialHours',
-        :'profile' => :'GetGoogleBusinessLocationDetails200ResponseProfile',
-        :'website_uri' => :'String',
-        :'phone_numbers' => :'GetGoogleBusinessLocationDetails200ResponsePhoneNumbers',
-        :'categories' => :'GetGoogleBusinessLocationDetails200ResponseCategories',
-        :'service_items' => :'Array<GetGoogleBusinessLocationDetails200ResponseServiceItemsInner>'
+        :'structured_service_item' => :'GetGoogleBusinessLocationDetails200ResponseServiceItemsInnerStructuredServiceItem',
+        :'free_form_service_item' => :'GetGoogleBusinessLocationDetails200ResponseServiceItemsInnerFreeFormServiceItem',
+        :'price' => :'GetGoogleBusinessLocationDetails200ResponseServiceItemsInnerPrice'
       }
     end
 
@@ -93,62 +59,28 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::GetGoogleBusinessLocationDetails200Response` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::GetGoogleBusinessLocationDetails200ResponseServiceItemsInner` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::GetGoogleBusinessLocationDetails200Response`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::GetGoogleBusinessLocationDetails200ResponseServiceItemsInner`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'success')
-        self.success = attributes[:'success']
+      if attributes.key?(:'structured_service_item')
+        self.structured_service_item = attributes[:'structured_service_item']
       end
 
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
+      if attributes.key?(:'free_form_service_item')
+        self.free_form_service_item = attributes[:'free_form_service_item']
       end
 
-      if attributes.key?(:'location_id')
-        self.location_id = attributes[:'location_id']
-      end
-
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'regular_hours')
-        self.regular_hours = attributes[:'regular_hours']
-      end
-
-      if attributes.key?(:'special_hours')
-        self.special_hours = attributes[:'special_hours']
-      end
-
-      if attributes.key?(:'profile')
-        self.profile = attributes[:'profile']
-      end
-
-      if attributes.key?(:'website_uri')
-        self.website_uri = attributes[:'website_uri']
-      end
-
-      if attributes.key?(:'phone_numbers')
-        self.phone_numbers = attributes[:'phone_numbers']
-      end
-
-      if attributes.key?(:'categories')
-        self.categories = attributes[:'categories']
-      end
-
-      if attributes.key?(:'service_items')
-        if (value = attributes[:'service_items']).is_a?(Array)
-          self.service_items = value
-        end
+      if attributes.key?(:'price')
+        self.price = attributes[:'price']
       end
     end
 
@@ -172,17 +104,9 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          success == o.success &&
-          account_id == o.account_id &&
-          location_id == o.location_id &&
-          title == o.title &&
-          regular_hours == o.regular_hours &&
-          special_hours == o.special_hours &&
-          profile == o.profile &&
-          website_uri == o.website_uri &&
-          phone_numbers == o.phone_numbers &&
-          categories == o.categories &&
-          service_items == o.service_items
+          structured_service_item == o.structured_service_item &&
+          free_form_service_item == o.free_form_service_item &&
+          price == o.price
     end
 
     # @see the `==` method
@@ -194,7 +118,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [success, account_id, location_id, title, regular_hours, special_hours, profile, website_uri, phone_numbers, categories, service_items].hash
+      [structured_service_item, free_form_service_item, price].hash
     end
 
     # Builds the object from hash

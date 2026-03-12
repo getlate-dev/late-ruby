@@ -15,7 +15,7 @@ require 'time'
 
 module Late
   class UpdateGoogleBusinessLocationDetailsRequest < ApiModelBase
-    # Required. Comma-separated fields to update (e.g. 'regularHours', 'specialHours', 'profile.description')
+    # Required. Comma-separated fields to update (e.g. 'regularHours', 'specialHours', 'profile.description', 'categories', 'serviceItems'). Any valid Google Business Information API updateMask field is supported.
     attr_accessor :update_mask
 
     attr_accessor :regular_hours
@@ -28,6 +28,11 @@ module Late
 
     attr_accessor :phone_numbers
 
+    attr_accessor :categories
+
+    # Services offered by the business. Use updateMask='serviceItems' to update.
+    attr_accessor :service_items
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -36,7 +41,9 @@ module Late
         :'special_hours' => :'specialHours',
         :'profile' => :'profile',
         :'website_uri' => :'websiteUri',
-        :'phone_numbers' => :'phoneNumbers'
+        :'phone_numbers' => :'phoneNumbers',
+        :'categories' => :'categories',
+        :'service_items' => :'serviceItems'
       }
     end
 
@@ -58,7 +65,9 @@ module Late
         :'special_hours' => :'GetGoogleBusinessLocationDetails200ResponseSpecialHours',
         :'profile' => :'UpdateGoogleBusinessLocationDetailsRequestProfile',
         :'website_uri' => :'String',
-        :'phone_numbers' => :'GetGoogleBusinessLocationDetails200ResponsePhoneNumbers'
+        :'phone_numbers' => :'GetGoogleBusinessLocationDetails200ResponsePhoneNumbers',
+        :'categories' => :'UpdateGoogleBusinessLocationDetailsRequestCategories',
+        :'service_items' => :'Array<UpdateGoogleBusinessLocationDetailsRequestServiceItemsInner>'
       }
     end
 
@@ -109,6 +118,16 @@ module Late
       if attributes.key?(:'phone_numbers')
         self.phone_numbers = attributes[:'phone_numbers']
       end
+
+      if attributes.key?(:'categories')
+        self.categories = attributes[:'categories']
+      end
+
+      if attributes.key?(:'service_items')
+        if (value = attributes[:'service_items']).is_a?(Array)
+          self.service_items = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -151,7 +170,9 @@ module Late
           special_hours == o.special_hours &&
           profile == o.profile &&
           website_uri == o.website_uri &&
-          phone_numbers == o.phone_numbers
+          phone_numbers == o.phone_numbers &&
+          categories == o.categories &&
+          service_items == o.service_items
     end
 
     # @see the `==` method
@@ -163,7 +184,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [update_mask, regular_hours, special_hours, profile, website_uri, phone_numbers].hash
+      [update_mask, regular_hours, special_hours, profile, website_uri, phone_numbers, categories, service_items].hash
     end
 
     # Builds the object from hash
