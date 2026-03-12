@@ -49,6 +49,12 @@ describe Late::UsageStats do
     end
   end
 
+  describe 'test attribute "billing_anchor_day"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "limits"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

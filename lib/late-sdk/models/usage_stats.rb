@@ -21,6 +21,9 @@ module Late
 
     attr_accessor :signup_date
 
+    # Day of month (1-31) when the billing cycle resets
+    attr_accessor :billing_anchor_day
+
     attr_accessor :limits
 
     attr_accessor :usage
@@ -53,6 +56,7 @@ module Late
         :'plan_name' => :'planName',
         :'billing_period' => :'billingPeriod',
         :'signup_date' => :'signupDate',
+        :'billing_anchor_day' => :'billingAnchorDay',
         :'limits' => :'limits',
         :'usage' => :'usage'
       }
@@ -74,6 +78,7 @@ module Late
         :'plan_name' => :'String',
         :'billing_period' => :'String',
         :'signup_date' => :'Time',
+        :'billing_anchor_day' => :'Integer',
         :'limits' => :'UsageStatsLimits',
         :'usage' => :'UsageStatsUsage'
       }
@@ -111,6 +116,10 @@ module Late
 
       if attributes.key?(:'signup_date')
         self.signup_date = attributes[:'signup_date']
+      end
+
+      if attributes.key?(:'billing_anchor_day')
+        self.billing_anchor_day = attributes[:'billing_anchor_day']
       end
 
       if attributes.key?(:'limits')
@@ -157,6 +166,7 @@ module Late
           plan_name == o.plan_name &&
           billing_period == o.billing_period &&
           signup_date == o.signup_date &&
+          billing_anchor_day == o.billing_anchor_day &&
           limits == o.limits &&
           usage == o.usage
     end
@@ -170,7 +180,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [plan_name, billing_period, signup_date, limits, usage].hash
+      [plan_name, billing_period, signup_date, billing_anchor_day, limits, usage].hash
     end
 
     # Builds the object from hash
