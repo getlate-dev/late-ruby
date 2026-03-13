@@ -53,7 +53,7 @@ jobs:
             -o . \
             --skip-validate-spec \
             --additional-properties=gemName=late-sdk,moduleName=Late,gemVersion=0.1.0 \
-            --inline-schema-name-mappings "getGoogleBusinessLocationDetails_200_response_specialHours_specialHourPeriods_inner_startDate=GbpSpecialHourPeriodStartDate,getGoogleBusinessLocationDetails_200_response_specialHours_specialHourPeriods_inner=GbpSpecialHourPeriod,getGoogleBusinessLocationDetails_200_response_serviceItems_inner_freeFormServiceItem_label=GbpFreeFormServiceItemLabel" \
+            --inline-schema-name-mappings "getGoogleBusinessLocationDetails_200_response_specialHours_specialHourPeriods_inner_startDate=GbpSpecialHourPeriodStartDate,getGoogleBusinessLocationDetails_200_response_specialHours_specialHourPeriods_inner=GbpSpecialHourPeriod,getGoogleBusinessLocationDetails_200_response_serviceItems_inner_freeFormServiceItem_label=GbpFreeFormServiceItemLabel,updateGoogleBusinessLocationDetails_request_serviceItems_inner_freeFormServiceItem_label=GbpUpdateFreeFormServiceItemLabel" \
             --git-user-id=getlate-dev \
             --git-repo-id=late-ruby
 
