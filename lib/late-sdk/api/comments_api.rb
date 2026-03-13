@@ -187,7 +187,7 @@ module Late
     end
 
     # Hide comment
-    # Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden comments are only visible to the commenter and page admin. 
+    # Hide a comment on a post. Supported by Facebook, Instagram, Threads, and X/Twitter. Hidden comments are only visible to the commenter and page admin. For X/Twitter, the reply must belong to a conversation started by the authenticated user. Requires the tweet.moderate.write scope and X API Basic tier or higher. 
     # @param post_id [String] 
     # @param comment_id [String] 
     # @param hide_inbox_comment_request [HideInboxCommentRequest] 
@@ -199,7 +199,7 @@ module Late
     end
 
     # Hide comment
-    # Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden comments are only visible to the commenter and page admin. 
+    # Hide a comment on a post. Supported by Facebook, Instagram, Threads, and X/Twitter. Hidden comments are only visible to the commenter and page admin. For X/Twitter, the reply must belong to a conversation started by the authenticated user. Requires the tweet.moderate.write scope and X API Basic tier or higher. 
     # @param post_id [String] 
     # @param comment_id [String] 
     # @param hide_inbox_comment_request [HideInboxCommentRequest] 
@@ -609,7 +609,7 @@ module Late
     end
 
     # Unhide comment
-    # Unhide a previously hidden comment. Supported by Facebook, Instagram, and Threads. 
+    # Unhide a previously hidden comment. Supported by Facebook, Instagram, Threads, and X/Twitter. 
     # @param post_id [String] 
     # @param comment_id [String] 
     # @param account_id [String] 
@@ -621,7 +621,7 @@ module Late
     end
 
     # Unhide comment
-    # Unhide a previously hidden comment. Supported by Facebook, Instagram, and Threads. 
+    # Unhide a previously hidden comment. Supported by Facebook, Instagram, Threads, and X/Twitter. 
     # @param post_id [String] 
     # @param comment_id [String] 
     # @param account_id [String] 

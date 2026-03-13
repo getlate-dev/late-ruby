@@ -26,6 +26,8 @@ docs/AnalyticsSinglePostResponseMediaItemsInner.md
 docs/ApiKey.md
 docs/ApiKeyProfileIdsInner.md
 docs/BlueskyPlatformData.md
+docs/BookmarkPost200Response.md
+docs/BookmarkPostRequest.md
 docs/BulkDeleteWhatsAppContacts200Response.md
 docs/BulkDeleteWhatsAppContactsRequest.md
 docs/BulkUpdateWhatsAppContacts200Response.md
@@ -112,6 +114,8 @@ docs/EditInboxMessageRequestReplyMarkupKeyboardInnerInner.md
 docs/ErrorResponse.md
 docs/Expired.md
 docs/FacebookPlatformData.md
+docs/FollowUser200Response.md
+docs/FollowUserRequest.md
 docs/FollowerStatsResponse.md
 docs/FoodMenu.md
 docs/FoodMenuItem.md
@@ -392,6 +396,7 @@ docs/RedditPlatformData.md
 docs/RedditSearchApi.md
 docs/ReleaseWhatsAppPhoneNumber200Response.md
 docs/ReleaseWhatsAppPhoneNumber200ResponsePhoneNumber.md
+docs/RemoveBookmark200Response.md
 docs/RemoveWhatsAppBroadcastRecipients200Response.md
 docs/RemoveWhatsAppBroadcastRecipientsRequest.md
 docs/RenameWhatsAppGroup200Response.md
@@ -402,6 +407,8 @@ docs/ReplyToInboxPostRequest.md
 docs/ReplyToInboxReview200Response.md
 docs/ReplyToInboxReview200ResponseReply.md
 docs/ReplyToInboxReviewRequest.md
+docs/RetweetPost200Response.md
+docs/RetweetPostRequest.md
 docs/ReviewsApi.md
 docs/ScheduleWhatsAppBroadcast200Response.md
 docs/ScheduleWhatsAppBroadcast200ResponseBroadcast.md
@@ -462,8 +469,11 @@ docs/TikTokPlatformData.md
 docs/ToolsApi.md
 docs/TranscriptResponse.md
 docs/TranscriptSegment.md
+docs/TwitterEngagementApi.md
 docs/TwitterPlatformData.md
 docs/TwitterPlatformDataThreadItemsInner.md
+docs/UndoRetweet200Response.md
+docs/UnfollowUser200Response.md
 docs/UnlikeInboxComment200Response.md
 docs/UnpublishPost200Response.md
 docs/UnpublishPostRequest.md
@@ -608,6 +618,7 @@ lib/late-sdk/api/queue_api.rb
 lib/late-sdk/api/reddit_search_api.rb
 lib/late-sdk/api/reviews_api.rb
 lib/late-sdk/api/tools_api.rb
+lib/late-sdk/api/twitter_engagement_api.rb
 lib/late-sdk/api/usage_api.rb
 lib/late-sdk/api/users_api.rb
 lib/late-sdk/api/validate_api.rb
@@ -633,6 +644,8 @@ lib/late-sdk/models/analytics_single_post_response_media_items_inner.rb
 lib/late-sdk/models/api_key.rb
 lib/late-sdk/models/api_key_profile_ids_inner.rb
 lib/late-sdk/models/bluesky_platform_data.rb
+lib/late-sdk/models/bookmark_post200_response.rb
+lib/late-sdk/models/bookmark_post_request.rb
 lib/late-sdk/models/bulk_delete_whats_app_contacts200_response.rb
 lib/late-sdk/models/bulk_delete_whats_app_contacts_request.rb
 lib/late-sdk/models/bulk_update_whats_app_contacts200_response.rb
@@ -717,6 +730,8 @@ lib/late-sdk/models/edit_inbox_message_request_reply_markup_keyboard_inner_inner
 lib/late-sdk/models/error_response.rb
 lib/late-sdk/models/expired.rb
 lib/late-sdk/models/facebook_platform_data.rb
+lib/late-sdk/models/follow_user200_response.rb
+lib/late-sdk/models/follow_user_request.rb
 lib/late-sdk/models/follower_stats_response.rb
 lib/late-sdk/models/food_menu.rb
 lib/late-sdk/models/food_menu_item.rb
@@ -982,6 +997,7 @@ lib/late-sdk/models/recycling_state.rb
 lib/late-sdk/models/reddit_platform_data.rb
 lib/late-sdk/models/release_whats_app_phone_number200_response.rb
 lib/late-sdk/models/release_whats_app_phone_number200_response_phone_number.rb
+lib/late-sdk/models/remove_bookmark200_response.rb
 lib/late-sdk/models/remove_whats_app_broadcast_recipients200_response.rb
 lib/late-sdk/models/remove_whats_app_broadcast_recipients_request.rb
 lib/late-sdk/models/rename_whats_app_group200_response.rb
@@ -992,6 +1008,8 @@ lib/late-sdk/models/reply_to_inbox_post_request.rb
 lib/late-sdk/models/reply_to_inbox_review200_response.rb
 lib/late-sdk/models/reply_to_inbox_review200_response_reply.rb
 lib/late-sdk/models/reply_to_inbox_review_request.rb
+lib/late-sdk/models/retweet_post200_response.rb
+lib/late-sdk/models/retweet_post_request.rb
 lib/late-sdk/models/schedule_whats_app_broadcast200_response.rb
 lib/late-sdk/models/schedule_whats_app_broadcast200_response_broadcast.rb
 lib/late-sdk/models/schedule_whats_app_broadcast_request.rb
@@ -1052,6 +1070,8 @@ lib/late-sdk/models/transcript_response.rb
 lib/late-sdk/models/transcript_segment.rb
 lib/late-sdk/models/twitter_platform_data.rb
 lib/late-sdk/models/twitter_platform_data_thread_items_inner.rb
+lib/late-sdk/models/undo_retweet200_response.rb
+lib/late-sdk/models/unfollow_user200_response.rb
 lib/late-sdk/models/unlike_inbox_comment200_response.rb
 lib/late-sdk/models/unpublish_post200_response.rb
 lib/late-sdk/models/unpublish_post_request.rb
@@ -1188,6 +1208,7 @@ spec/api/queue_api_spec.rb
 spec/api/reddit_search_api_spec.rb
 spec/api/reviews_api_spec.rb
 spec/api/tools_api_spec.rb
+spec/api/twitter_engagement_api_spec.rb
 spec/api/usage_api_spec.rb
 spec/api/users_api_spec.rb
 spec/api/validate_api_spec.rb
@@ -1209,6 +1230,8 @@ spec/models/analytics_single_post_response_spec.rb
 spec/models/api_key_profile_ids_inner_spec.rb
 spec/models/api_key_spec.rb
 spec/models/bluesky_platform_data_spec.rb
+spec/models/bookmark_post200_response_spec.rb
+spec/models/bookmark_post_request_spec.rb
 spec/models/bulk_delete_whats_app_contacts200_response_spec.rb
 spec/models/bulk_delete_whats_app_contacts_request_spec.rb
 spec/models/bulk_update_whats_app_contacts200_response_spec.rb
@@ -1293,6 +1316,8 @@ spec/models/edit_inbox_message_request_spec.rb
 spec/models/error_response_spec.rb
 spec/models/expired_spec.rb
 spec/models/facebook_platform_data_spec.rb
+spec/models/follow_user200_response_spec.rb
+spec/models/follow_user_request_spec.rb
 spec/models/follower_stats_response_spec.rb
 spec/models/food_menu_item_attributes_spec.rb
 spec/models/food_menu_item_options_inner_spec.rb
@@ -1558,6 +1583,7 @@ spec/models/recycling_state_spec.rb
 spec/models/reddit_platform_data_spec.rb
 spec/models/release_whats_app_phone_number200_response_phone_number_spec.rb
 spec/models/release_whats_app_phone_number200_response_spec.rb
+spec/models/remove_bookmark200_response_spec.rb
 spec/models/remove_whats_app_broadcast_recipients200_response_spec.rb
 spec/models/remove_whats_app_broadcast_recipients_request_spec.rb
 spec/models/rename_whats_app_group200_response_spec.rb
@@ -1568,6 +1594,8 @@ spec/models/reply_to_inbox_post_request_spec.rb
 spec/models/reply_to_inbox_review200_response_reply_spec.rb
 spec/models/reply_to_inbox_review200_response_spec.rb
 spec/models/reply_to_inbox_review_request_spec.rb
+spec/models/retweet_post200_response_spec.rb
+spec/models/retweet_post_request_spec.rb
 spec/models/schedule_whats_app_broadcast200_response_broadcast_spec.rb
 spec/models/schedule_whats_app_broadcast200_response_spec.rb
 spec/models/schedule_whats_app_broadcast_request_spec.rb
@@ -1628,6 +1656,8 @@ spec/models/transcript_response_spec.rb
 spec/models/transcript_segment_spec.rb
 spec/models/twitter_platform_data_spec.rb
 spec/models/twitter_platform_data_thread_items_inner_spec.rb
+spec/models/undo_retweet200_response_spec.rb
+spec/models/unfollow_user200_response_spec.rb
 spec/models/unlike_inbox_comment200_response_spec.rb
 spec/models/unpublish_post200_response_spec.rb
 spec/models/unpublish_post_request_spec.rb

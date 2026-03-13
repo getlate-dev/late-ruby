@@ -193,6 +193,12 @@ Class | Method | HTTP request | Description
 *Late::ToolsApi* | [**download_twitter_media**](docs/ToolsApi.md#download_twitter_media) | **GET** /v1/tools/twitter/download | Download Twitter/X media
 *Late::ToolsApi* | [**download_you_tube_video**](docs/ToolsApi.md#download_you_tube_video) | **GET** /v1/tools/youtube/download | Download YouTube video
 *Late::ToolsApi* | [**get_you_tube_transcript**](docs/ToolsApi.md#get_you_tube_transcript) | **GET** /v1/tools/youtube/transcript | Get YouTube transcript
+*Late::TwitterEngagementApi* | [**bookmark_post**](docs/TwitterEngagementApi.md#bookmark_post) | **POST** /v1/twitter/bookmark | Bookmark a tweet
+*Late::TwitterEngagementApi* | [**follow_user**](docs/TwitterEngagementApi.md#follow_user) | **POST** /v1/twitter/follow | Follow a user
+*Late::TwitterEngagementApi* | [**remove_bookmark**](docs/TwitterEngagementApi.md#remove_bookmark) | **DELETE** /v1/twitter/bookmark | Remove bookmark
+*Late::TwitterEngagementApi* | [**retweet_post**](docs/TwitterEngagementApi.md#retweet_post) | **POST** /v1/twitter/retweet | Retweet a post
+*Late::TwitterEngagementApi* | [**undo_retweet**](docs/TwitterEngagementApi.md#undo_retweet) | **DELETE** /v1/twitter/retweet | Undo retweet
+*Late::TwitterEngagementApi* | [**unfollow_user**](docs/TwitterEngagementApi.md#unfollow_user) | **DELETE** /v1/twitter/follow | Unfollow a user
 *Late::UsageApi* | [**get_usage_stats**](docs/UsageApi.md#get_usage_stats) | **GET** /v1/usage-stats | Get plan and usage stats
 *Late::UsersApi* | [**get_user**](docs/UsersApi.md#get_user) | **GET** /v1/users/{userId} | Get user
 *Late::UsersApi* | [**list_users**](docs/UsersApi.md#list_users) | **GET** /v1/users | List users
@@ -261,6 +267,8 @@ Class | Method | HTTP request | Description
  - [Late::ApiKey](docs/ApiKey.md)
  - [Late::ApiKeyProfileIdsInner](docs/ApiKeyProfileIdsInner.md)
  - [Late::BlueskyPlatformData](docs/BlueskyPlatformData.md)
+ - [Late::BookmarkPost200Response](docs/BookmarkPost200Response.md)
+ - [Late::BookmarkPostRequest](docs/BookmarkPostRequest.md)
  - [Late::BulkDeleteWhatsAppContacts200Response](docs/BulkDeleteWhatsAppContacts200Response.md)
  - [Late::BulkDeleteWhatsAppContactsRequest](docs/BulkDeleteWhatsAppContactsRequest.md)
  - [Late::BulkUpdateWhatsAppContacts200Response](docs/BulkUpdateWhatsAppContacts200Response.md)
@@ -345,6 +353,8 @@ Class | Method | HTTP request | Description
  - [Late::ErrorResponse](docs/ErrorResponse.md)
  - [Late::Expired](docs/Expired.md)
  - [Late::FacebookPlatformData](docs/FacebookPlatformData.md)
+ - [Late::FollowUser200Response](docs/FollowUser200Response.md)
+ - [Late::FollowUserRequest](docs/FollowUserRequest.md)
  - [Late::FollowerStatsResponse](docs/FollowerStatsResponse.md)
  - [Late::FoodMenu](docs/FoodMenu.md)
  - [Late::FoodMenuItem](docs/FoodMenuItem.md)
@@ -610,6 +620,7 @@ Class | Method | HTTP request | Description
  - [Late::RedditPlatformData](docs/RedditPlatformData.md)
  - [Late::ReleaseWhatsAppPhoneNumber200Response](docs/ReleaseWhatsAppPhoneNumber200Response.md)
  - [Late::ReleaseWhatsAppPhoneNumber200ResponsePhoneNumber](docs/ReleaseWhatsAppPhoneNumber200ResponsePhoneNumber.md)
+ - [Late::RemoveBookmark200Response](docs/RemoveBookmark200Response.md)
  - [Late::RemoveWhatsAppBroadcastRecipients200Response](docs/RemoveWhatsAppBroadcastRecipients200Response.md)
  - [Late::RemoveWhatsAppBroadcastRecipientsRequest](docs/RemoveWhatsAppBroadcastRecipientsRequest.md)
  - [Late::RenameWhatsAppGroup200Response](docs/RenameWhatsAppGroup200Response.md)
@@ -620,6 +631,8 @@ Class | Method | HTTP request | Description
  - [Late::ReplyToInboxReview200Response](docs/ReplyToInboxReview200Response.md)
  - [Late::ReplyToInboxReview200ResponseReply](docs/ReplyToInboxReview200ResponseReply.md)
  - [Late::ReplyToInboxReviewRequest](docs/ReplyToInboxReviewRequest.md)
+ - [Late::RetweetPost200Response](docs/RetweetPost200Response.md)
+ - [Late::RetweetPostRequest](docs/RetweetPostRequest.md)
  - [Late::ScheduleWhatsAppBroadcast200Response](docs/ScheduleWhatsAppBroadcast200Response.md)
  - [Late::ScheduleWhatsAppBroadcast200ResponseBroadcast](docs/ScheduleWhatsAppBroadcast200ResponseBroadcast.md)
  - [Late::ScheduleWhatsAppBroadcastRequest](docs/ScheduleWhatsAppBroadcastRequest.md)
@@ -680,6 +693,8 @@ Class | Method | HTTP request | Description
  - [Late::TranscriptSegment](docs/TranscriptSegment.md)
  - [Late::TwitterPlatformData](docs/TwitterPlatformData.md)
  - [Late::TwitterPlatformDataThreadItemsInner](docs/TwitterPlatformDataThreadItemsInner.md)
+ - [Late::UndoRetweet200Response](docs/UndoRetweet200Response.md)
+ - [Late::UnfollowUser200Response](docs/UnfollowUser200Response.md)
  - [Late::UnlikeInboxComment200Response](docs/UnlikeInboxComment200Response.md)
  - [Late::UnpublishPost200Response](docs/UnpublishPost200Response.md)
  - [Late::UnpublishPostRequest](docs/UnpublishPostRequest.md)
