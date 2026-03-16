@@ -34,17 +34,17 @@ describe 'AnalyticsApi' do
 
   # unit tests for get_analytics
   # Get post analytics
-  # Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
+  # Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats. 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :post_id Returns analytics for a single post. Accepts both Late Post IDs and External Post IDs. Late IDs are auto-resolved to External Post analytics.
   # @option opts [String] :platform Filter by platform (default \&quot;all\&quot;)
   # @option opts [String] :profile_id Filter by profile ID (default \&quot;all\&quot;)
   # @option opts [String] :source Filter by post source: late (posted via Late API), external (synced from platform), all (default)
-  # @option opts [Date] :from_date Inclusive lower bound
-  # @option opts [Date] :to_date Inclusive upper bound
+  # @option opts [Date] :from_date Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days.
+  # @option opts [Date] :to_date Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted.
   # @option opts [Integer] :limit Page size (default 50)
   # @option opts [Integer] :page Page number (default 1)
-  # @option opts [String] :sort_by Sort by date or engagement
+  # @option opts [String] :sort_by Sort by date, engagement, or a specific metric
   # @option opts [String] :order Sort order
   # @return [GetAnalytics200Response]
   describe 'get_analytics test' do

@@ -17,6 +17,10 @@ module Late
   class AnalyticsSinglePostResponse < ApiModelBase
     attr_accessor :post_id
 
+    # Original Late post ID if scheduled via Late
+    attr_accessor :late_post_id
+
+    # Overall post status. \"partial\" when some platforms published and others failed.
     attr_accessor :status
 
     attr_accessor :content
@@ -34,6 +38,12 @@ module Late
     attr_accessor :platform_post_url
 
     attr_accessor :is_external
+
+    # Overall sync state across all platforms
+    attr_accessor :sync_status
+
+    # Human-readable status message for pending, partial, or failed states
+    attr_accessor :message
 
     attr_accessor :thumbnail_url
 
@@ -68,6 +78,7 @@ module Late
     def self.attribute_map
       {
         :'post_id' => :'postId',
+        :'late_post_id' => :'latePostId',
         :'status' => :'status',
         :'content' => :'content',
         :'scheduled_for' => :'scheduledFor',
@@ -77,6 +88,8 @@ module Late
         :'platform' => :'platform',
         :'platform_post_url' => :'platformPostUrl',
         :'is_external' => :'isExternal',
+        :'sync_status' => :'syncStatus',
+        :'message' => :'message',
         :'thumbnail_url' => :'thumbnailUrl',
         :'media_type' => :'mediaType',
         :'media_items' => :'mediaItems'
@@ -97,6 +110,7 @@ module Late
     def self.openapi_types
       {
         :'post_id' => :'String',
+        :'late_post_id' => :'String',
         :'status' => :'String',
         :'content' => :'String',
         :'scheduled_for' => :'Time',
@@ -106,6 +120,8 @@ module Late
         :'platform' => :'String',
         :'platform_post_url' => :'String',
         :'is_external' => :'Boolean',
+        :'sync_status' => :'String',
+        :'message' => :'String',
         :'thumbnail_url' => :'String',
         :'media_type' => :'String',
         :'media_items' => :'Array<AnalyticsSinglePostResponseMediaItemsInner>'
@@ -136,6 +152,10 @@ module Late
 
       if attributes.key?(:'post_id')
         self.post_id = attributes[:'post_id']
+      end
+
+      if attributes.key?(:'late_post_id')
+        self.late_post_id = attributes[:'late_post_id']
       end
 
       if attributes.key?(:'status')
@@ -176,6 +196,14 @@ module Late
         self.is_external = attributes[:'is_external']
       end
 
+      if attributes.key?(:'sync_status')
+        self.sync_status = attributes[:'sync_status']
+      end
+
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
+      end
+
       if attributes.key?(:'thumbnail_url')
         self.thumbnail_url = attributes[:'thumbnail_url']
       end
@@ -203,9 +231,33 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      status_validator = EnumAttributeValidator.new('String', ["published", "failed", "partial"])
+      return false unless status_validator.valid?(@status)
+      sync_status_validator = EnumAttributeValidator.new('String', ["synced", "pending", "partial", "unavailable"])
+      return false unless sync_status_validator.valid?(@sync_status)
       media_type_validator = EnumAttributeValidator.new('String', ["image", "video", "carousel", "text"])
       return false unless media_type_validator.valid?(@media_type)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] status Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('String', ["published", "failed", "partial"])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+      end
+      @status = status
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] sync_status Object to be assigned
+    def sync_status=(sync_status)
+      validator = EnumAttributeValidator.new('String', ["synced", "pending", "partial", "unavailable"])
+      unless validator.valid?(sync_status)
+        fail ArgumentError, "invalid value for \"sync_status\", must be one of #{validator.allowable_values}."
+      end
+      @sync_status = sync_status
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -224,6 +276,7 @@ module Late
       return true if self.equal?(o)
       self.class == o.class &&
           post_id == o.post_id &&
+          late_post_id == o.late_post_id &&
           status == o.status &&
           content == o.content &&
           scheduled_for == o.scheduled_for &&
@@ -233,6 +286,8 @@ module Late
           platform == o.platform &&
           platform_post_url == o.platform_post_url &&
           is_external == o.is_external &&
+          sync_status == o.sync_status &&
+          message == o.message &&
           thumbnail_url == o.thumbnail_url &&
           media_type == o.media_type &&
           media_items == o.media_items
@@ -247,7 +302,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [post_id, status, content, scheduled_for, published_at, analytics, platform_analytics, platform, platform_post_url, is_external, thumbnail_url, media_type, media_items].hash
+      [post_id, late_post_id, status, content, scheduled_for, published_at, analytics, platform_analytics, platform, platform_post_url, is_external, sync_status, message, thumbnail_url, media_type, media_items].hash
     end
 
     # Builds the object from hash

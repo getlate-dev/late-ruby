@@ -25,7 +25,35 @@ module Late
 
     attr_accessor :analytics
 
-    attr_accessor :account_metrics
+    # Sync state of analytics for this platform
+    attr_accessor :sync_status
+
+    attr_accessor :platform_post_url
+
+    # Error details when status is failed
+    attr_accessor :error_message
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -35,7 +63,9 @@ module Late
         :'account_id' => :'accountId',
         :'account_username' => :'accountUsername',
         :'analytics' => :'analytics',
-        :'account_metrics' => :'accountMetrics'
+        :'sync_status' => :'syncStatus',
+        :'platform_post_url' => :'platformPostUrl',
+        :'error_message' => :'errorMessage'
       }
     end
 
@@ -57,7 +87,9 @@ module Late
         :'account_id' => :'String',
         :'account_username' => :'String',
         :'analytics' => :'PostAnalytics',
-        :'account_metrics' => :'PlatformAnalyticsAccountMetrics'
+        :'sync_status' => :'String',
+        :'platform_post_url' => :'String',
+        :'error_message' => :'String'
       }
     end
 
@@ -103,8 +135,16 @@ module Late
         self.analytics = attributes[:'analytics']
       end
 
-      if attributes.key?(:'account_metrics')
-        self.account_metrics = attributes[:'account_metrics']
+      if attributes.key?(:'sync_status')
+        self.sync_status = attributes[:'sync_status']
+      end
+
+      if attributes.key?(:'platform_post_url')
+        self.platform_post_url = attributes[:'platform_post_url']
+      end
+
+      if attributes.key?(:'error_message')
+        self.error_message = attributes[:'error_message']
       end
     end
 
@@ -120,7 +160,31 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      status_validator = EnumAttributeValidator.new('String', ["published", "failed"])
+      return false unless status_validator.valid?(@status)
+      sync_status_validator = EnumAttributeValidator.new('String', ["synced", "pending", "unavailable"])
+      return false unless sync_status_validator.valid?(@sync_status)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] status Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('String', ["published", "failed"])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+      end
+      @status = status
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] sync_status Object to be assigned
+    def sync_status=(sync_status)
+      validator = EnumAttributeValidator.new('String', ["synced", "pending", "unavailable"])
+      unless validator.valid?(sync_status)
+        fail ArgumentError, "invalid value for \"sync_status\", must be one of #{validator.allowable_values}."
+      end
+      @sync_status = sync_status
     end
 
     # Checks equality by comparing each attribute.
@@ -133,7 +197,9 @@ module Late
           account_id == o.account_id &&
           account_username == o.account_username &&
           analytics == o.analytics &&
-          account_metrics == o.account_metrics
+          sync_status == o.sync_status &&
+          platform_post_url == o.platform_post_url &&
+          error_message == o.error_message
     end
 
     # @see the `==` method
@@ -145,7 +211,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [platform, status, account_id, account_username, analytics, account_metrics].hash
+      [platform, status, account_id, account_username, analytics, sync_status, platform_post_url, error_message].hash
     end
 
     # Builds the object from hash

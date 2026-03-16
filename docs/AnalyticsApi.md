@@ -23,7 +23,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get post analytics
 
-Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
+Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats. 
 
 ### Examples
 
@@ -42,11 +42,11 @@ opts = {
   platform: 'platform_example', # String | Filter by platform (default \"all\")
   profile_id: 'profile_id_example', # String | Filter by profile ID (default \"all\")
   source: 'all', # String | Filter by post source: late (posted via Late API), external (synced from platform), all (default)
-  from_date: Date.parse('2013-10-20'), # Date | Inclusive lower bound
-  to_date: Date.parse('2013-10-20'), # Date | Inclusive upper bound
+  from_date: Date.parse('2013-10-20'), # Date | Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days.
+  to_date: Date.parse('2013-10-20'), # Date | Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted.
   limit: 56, # Integer | Page size (default 50)
   page: 56, # Integer | Page number (default 1)
-  sort_by: 'date', # String | Sort by date or engagement
+  sort_by: 'date', # String | Sort by date, engagement, or a specific metric
   order: 'asc' # String | Sort order
 }
 
@@ -85,11 +85,11 @@ end
 | **platform** | **String** | Filter by platform (default \&quot;all\&quot;) | [optional] |
 | **profile_id** | **String** | Filter by profile ID (default \&quot;all\&quot;) | [optional] |
 | **source** | **String** | Filter by post source: late (posted via Late API), external (synced from platform), all (default) | [optional][default to &#39;all&#39;] |
-| **from_date** | **Date** | Inclusive lower bound | [optional] |
-| **to_date** | **Date** | Inclusive upper bound | [optional] |
+| **from_date** | **Date** | Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days. | [optional] |
+| **to_date** | **Date** | Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted. | [optional] |
 | **limit** | **Integer** | Page size (default 50) | [optional][default to 50] |
 | **page** | **Integer** | Page number (default 1) | [optional][default to 1] |
-| **sort_by** | **String** | Sort by date or engagement | [optional][default to &#39;date&#39;] |
+| **sort_by** | **String** | Sort by date, engagement, or a specific metric | [optional][default to &#39;date&#39;] |
 | **order** | **String** | Sort order | [optional][default to &#39;desc&#39;] |
 
 ### Return type

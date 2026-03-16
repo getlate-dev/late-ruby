@@ -9,7 +9,9 @@
 | **account_id** | **String** |  | [optional] |
 | **account_username** | **String** |  | [optional] |
 | **analytics** | [**PostAnalytics**](PostAnalytics.md) |  | [optional] |
-| **account_metrics** | [**PlatformAnalyticsAccountMetrics**](PlatformAnalyticsAccountMetrics.md) |  | [optional] |
+| **sync_status** | **String** | Sync state of analytics for this platform | [optional] |
+| **platform_post_url** | **String** |  | [optional] |
+| **error_message** | **String** | Error details when status is failed | [optional] |
 
 ## Example
 
@@ -22,7 +24,9 @@ instance = Late::PlatformAnalytics.new(
   account_id: null,
   account_username: null,
   analytics: null,
-  account_metrics: null
+  sync_status: null,
+  platform_post_url: null,
+  error_message: null
 )
 ```
 

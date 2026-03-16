@@ -17,6 +17,9 @@ module Late
   class AnalyticsListResponsePostsInner < ApiModelBase
     attr_accessor :_id
 
+    # Original Late post ID if scheduled via Late
+    attr_accessor :late_post_id
+
     attr_accessor :content
 
     attr_accessor :scheduled_for
@@ -34,6 +37,8 @@ module Late
     attr_accessor :platform_post_url
 
     attr_accessor :is_external
+
+    attr_accessor :profile_id
 
     attr_accessor :thumbnail_url
 
@@ -68,6 +73,7 @@ module Late
     def self.attribute_map
       {
         :'_id' => :'_id',
+        :'late_post_id' => :'latePostId',
         :'content' => :'content',
         :'scheduled_for' => :'scheduledFor',
         :'published_at' => :'publishedAt',
@@ -77,6 +83,7 @@ module Late
         :'platform' => :'platform',
         :'platform_post_url' => :'platformPostUrl',
         :'is_external' => :'isExternal',
+        :'profile_id' => :'profileId',
         :'thumbnail_url' => :'thumbnailUrl',
         :'media_type' => :'mediaType',
         :'media_items' => :'mediaItems'
@@ -97,6 +104,7 @@ module Late
     def self.openapi_types
       {
         :'_id' => :'String',
+        :'late_post_id' => :'String',
         :'content' => :'String',
         :'scheduled_for' => :'Time',
         :'published_at' => :'Time',
@@ -106,6 +114,7 @@ module Late
         :'platform' => :'String',
         :'platform_post_url' => :'String',
         :'is_external' => :'Boolean',
+        :'profile_id' => :'String',
         :'thumbnail_url' => :'String',
         :'media_type' => :'String',
         :'media_items' => :'Array<AnalyticsSinglePostResponseMediaItemsInner>'
@@ -136,6 +145,10 @@ module Late
 
       if attributes.key?(:'_id')
         self._id = attributes[:'_id']
+      end
+
+      if attributes.key?(:'late_post_id')
+        self.late_post_id = attributes[:'late_post_id']
       end
 
       if attributes.key?(:'content')
@@ -174,6 +187,10 @@ module Late
 
       if attributes.key?(:'is_external')
         self.is_external = attributes[:'is_external']
+      end
+
+      if attributes.key?(:'profile_id')
+        self.profile_id = attributes[:'profile_id']
       end
 
       if attributes.key?(:'thumbnail_url')
@@ -224,6 +241,7 @@ module Late
       return true if self.equal?(o)
       self.class == o.class &&
           _id == o._id &&
+          late_post_id == o.late_post_id &&
           content == o.content &&
           scheduled_for == o.scheduled_for &&
           published_at == o.published_at &&
@@ -233,6 +251,7 @@ module Late
           platform == o.platform &&
           platform_post_url == o.platform_post_url &&
           is_external == o.is_external &&
+          profile_id == o.profile_id &&
           thumbnail_url == o.thumbnail_url &&
           media_type == o.media_type &&
           media_items == o.media_items
@@ -247,7 +266,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_id, content, scheduled_for, published_at, status, analytics, platforms, platform, platform_post_url, is_external, thumbnail_url, media_type, media_items].hash
+      [_id, late_post_id, content, scheduled_for, published_at, status, analytics, platforms, platform, platform_post_url, is_external, profile_id, thumbnail_url, media_type, media_items].hash
     end
 
     # Builds the object from hash

@@ -14,25 +14,17 @@ require 'date'
 require 'time'
 
 module Late
-  class AnalyticsOverview < ApiModelBase
-    attr_accessor :total_posts
+  class GetAnalytics400Response < ApiModelBase
+    attr_accessor :error
 
-    attr_accessor :published_posts
-
-    attr_accessor :scheduled_posts
-
-    attr_accessor :last_sync
-
-    attr_accessor :data_staleness
+    # Detailed validation errors
+    attr_accessor :details
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total_posts' => :'totalPosts',
-        :'published_posts' => :'publishedPosts',
-        :'scheduled_posts' => :'scheduledPosts',
-        :'last_sync' => :'lastSync',
-        :'data_staleness' => :'dataStaleness'
+        :'error' => :'error',
+        :'details' => :'details'
       }
     end
 
@@ -49,11 +41,8 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'total_posts' => :'Integer',
-        :'published_posts' => :'Integer',
-        :'scheduled_posts' => :'Integer',
-        :'last_sync' => :'Time',
-        :'data_staleness' => :'AnalyticsOverviewDataStaleness'
+        :'error' => :'String',
+        :'details' => :'Object'
       }
     end
 
@@ -67,36 +56,24 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::AnalyticsOverview` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::GetAnalytics400Response` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::AnalyticsOverview`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::GetAnalytics400Response`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'total_posts')
-        self.total_posts = attributes[:'total_posts']
+      if attributes.key?(:'error')
+        self.error = attributes[:'error']
       end
 
-      if attributes.key?(:'published_posts')
-        self.published_posts = attributes[:'published_posts']
-      end
-
-      if attributes.key?(:'scheduled_posts')
-        self.scheduled_posts = attributes[:'scheduled_posts']
-      end
-
-      if attributes.key?(:'last_sync')
-        self.last_sync = attributes[:'last_sync']
-      end
-
-      if attributes.key?(:'data_staleness')
-        self.data_staleness = attributes[:'data_staleness']
+      if attributes.key?(:'details')
+        self.details = attributes[:'details']
       end
     end
 
@@ -120,11 +97,8 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total_posts == o.total_posts &&
-          published_posts == o.published_posts &&
-          scheduled_posts == o.scheduled_posts &&
-          last_sync == o.last_sync &&
-          data_staleness == o.data_staleness
+          error == o.error &&
+          details == o.details
     end
 
     # @see the `==` method
@@ -136,7 +110,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [total_posts, published_posts, scheduled_posts, last_sync, data_staleness].hash
+      [error, details].hash
     end
 
     # Builds the object from hash

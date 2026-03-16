@@ -20,17 +20,17 @@ module Late
       @api_client = api_client
     end
     # Get post analytics
-    # Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
+    # Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats. 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :post_id Returns analytics for a single post. Accepts both Late Post IDs and External Post IDs. Late IDs are auto-resolved to External Post analytics.
     # @option opts [String] :platform Filter by platform (default \&quot;all\&quot;)
     # @option opts [String] :profile_id Filter by profile ID (default \&quot;all\&quot;)
     # @option opts [String] :source Filter by post source: late (posted via Late API), external (synced from platform), all (default) (default to 'all')
-    # @option opts [Date] :from_date Inclusive lower bound
-    # @option opts [Date] :to_date Inclusive upper bound
+    # @option opts [Date] :from_date Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days.
+    # @option opts [Date] :to_date Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted.
     # @option opts [Integer] :limit Page size (default 50) (default to 50)
     # @option opts [Integer] :page Page number (default 1) (default to 1)
-    # @option opts [String] :sort_by Sort by date or engagement (default to 'date')
+    # @option opts [String] :sort_by Sort by date, engagement, or a specific metric (default to 'date')
     # @option opts [String] :order Sort order (default to 'desc')
     # @return [GetAnalytics200Response]
     def get_analytics(opts = {})
@@ -39,17 +39,17 @@ module Late
     end
 
     # Get post analytics
-    # Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
+    # Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats. 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :post_id Returns analytics for a single post. Accepts both Late Post IDs and External Post IDs. Late IDs are auto-resolved to External Post analytics.
     # @option opts [String] :platform Filter by platform (default \&quot;all\&quot;)
     # @option opts [String] :profile_id Filter by profile ID (default \&quot;all\&quot;)
     # @option opts [String] :source Filter by post source: late (posted via Late API), external (synced from platform), all (default) (default to 'all')
-    # @option opts [Date] :from_date Inclusive lower bound
-    # @option opts [Date] :to_date Inclusive upper bound
+    # @option opts [Date] :from_date Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days.
+    # @option opts [Date] :to_date Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted.
     # @option opts [Integer] :limit Page size (default 50) (default to 50)
     # @option opts [Integer] :page Page number (default 1) (default to 1)
-    # @option opts [String] :sort_by Sort by date or engagement (default to 'date')
+    # @option opts [String] :sort_by Sort by date, engagement, or a specific metric (default to 'date')
     # @option opts [String] :order Sort order (default to 'desc')
     # @return [Array<(GetAnalytics200Response, Integer, Hash)>] GetAnalytics200Response data, response status code and response headers
     def get_analytics_with_http_info(opts = {})
@@ -72,7 +72,7 @@ module Late
         fail ArgumentError, 'invalid value for "opts[:"page"]" when calling AnalyticsApi.get_analytics, must be greater than or equal to 1.'
       end
 
-      allowable_values = ["date", "engagement"]
+      allowable_values = ["date", "engagement", "impressions", "reach", "likes", "comments", "shares", "saves", "clicks", "views"]
       if @api_client.config.client_side_validation && opts[:'sort_by'] && !allowable_values.include?(opts[:'sort_by'])
         fail ArgumentError, "invalid value for \"sort_by\", must be one of #{allowable_values}"
       end

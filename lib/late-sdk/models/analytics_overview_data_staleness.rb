@@ -14,21 +14,18 @@ require 'date'
 require 'time'
 
 module Late
-  class PlatformAnalyticsAccountMetrics < ApiModelBase
-    # Followers/fans count (e.g., Instagram, Facebook Pages, Twitter)
-    attr_accessor :followers
+  class AnalyticsOverviewDataStaleness < ApiModelBase
+    # Number of accounts with stale analytics data
+    attr_accessor :stale_account_count
 
-    # Subscribers count (e.g., YouTube)
-    attr_accessor :subscribers
-
-    attr_accessor :last_updated
+    # Whether a background sync was triggered for stale accounts
+    attr_accessor :sync_triggered
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'followers' => :'followers',
-        :'subscribers' => :'subscribers',
-        :'last_updated' => :'lastUpdated'
+        :'stale_account_count' => :'staleAccountCount',
+        :'sync_triggered' => :'syncTriggered'
       }
     end
 
@@ -45,9 +42,8 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'followers' => :'Integer',
-        :'subscribers' => :'Integer',
-        :'last_updated' => :'Time'
+        :'stale_account_count' => :'Integer',
+        :'sync_triggered' => :'Boolean'
       }
     end
 
@@ -61,28 +57,24 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::PlatformAnalyticsAccountMetrics` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::AnalyticsOverviewDataStaleness` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::PlatformAnalyticsAccountMetrics`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::AnalyticsOverviewDataStaleness`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'followers')
-        self.followers = attributes[:'followers']
+      if attributes.key?(:'stale_account_count')
+        self.stale_account_count = attributes[:'stale_account_count']
       end
 
-      if attributes.key?(:'subscribers')
-        self.subscribers = attributes[:'subscribers']
-      end
-
-      if attributes.key?(:'last_updated')
-        self.last_updated = attributes[:'last_updated']
+      if attributes.key?(:'sync_triggered')
+        self.sync_triggered = attributes[:'sync_triggered']
       end
     end
 
@@ -106,9 +98,8 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          followers == o.followers &&
-          subscribers == o.subscribers &&
-          last_updated == o.last_updated
+          stale_account_count == o.stale_account_count &&
+          sync_triggered == o.sync_triggered
     end
 
     # @see the `==` method
@@ -120,7 +111,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [followers, subscribers, last_updated].hash
+      [stale_account_count, sync_triggered].hash
     end
 
     # Builds the object from hash
