@@ -55,7 +55,7 @@ Late.configure do |config|
 end
 
 api_instance = Late::ConnectApi.new
-code = 'LATE-ABC123' # String | The access code to check status for
+code = 'ZRN-ABC123' # String | The access code to check status for
 
 begin
   # Check Telegram status

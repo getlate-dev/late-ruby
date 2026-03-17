@@ -16,7 +16,7 @@
 require 'late-sdk'
 
 instance = Late::GetTelegramConnectStatus200Response.new(
-  code: LATE-ABC123,
+  code: ZRN-ABC123,
   expires_at: null,
   expires_in: 900,
   bot_username: LateScheduleBot,
