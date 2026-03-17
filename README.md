@@ -1,6 +1,6 @@
-# late-sdk
+# Zernio Ruby SDK
 
-Late - the Ruby gem for the Zernio API
+Zernio - the Ruby gem for the Zernio API
 
 API reference for Zernio. Authenticate with a Bearer API key.
 Base URL: https://zernio.com/api
@@ -19,13 +19,13 @@ For more information, please visit [https://zernio.com](https://zernio.com)
 Install via RubyGems:
 
 ```bash
-gem install late-sdk
+gem install zernio-sdk
 ```
 
 Or add it to your Gemfile:
 
 ```ruby
-gem "late-sdk"
+gem "zernio-sdk"
 ```
 
 
@@ -35,7 +35,7 @@ Please follow the [installation](#installation) procedure and then run the follo
 
 ```ruby
 # Load the gem
-require 'late-sdk'
+require 'zernio-sdk'
 
 # Setup authorization
 Late.configure do |config|
