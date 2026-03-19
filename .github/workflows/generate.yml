@@ -57,6 +57,26 @@ jobs:
             --git-user-id=zernio-dev \
             --git-repo-id=zernio-ruby
 
+      - name: Rebrand gemspec name to zernio-sdk
+        run: |
+          # The generator creates s.name = "late-sdk", change it to "zernio-sdk"
+          # so the primary gem is published as zernio-sdk
+          sed -i 's/s.name        = "late-sdk"/s.name        = "zernio-sdk"/' late-sdk.gemspec
+
+      - name: Restore zernio-sdk.rb entry point
+        run: |
+          # The generator cleans files, so recreate the zernio-sdk.rb alias
+          printf '%s\n' "# Zernio SDK - forwards to late-sdk for backwards compatibility" "require 'late-sdk'" "" "# Alias the module so both Late and Zernio work" "Zernio = Late unless defined?(Zernio)" > lib/zernio-sdk.rb
+
+      - name: Add Zernio alias to late-sdk.rb
+        run: |
+          # Ensure the Zernio alias is present at the end of lib/late-sdk.rb
+          if ! grep -q 'Zernio = Late' lib/late-sdk.rb; then
+            echo '' >> lib/late-sdk.rb
+            echo '# Zernio alias for backwards compatibility during rebrand' >> lib/late-sdk.rb
+            echo 'Zernio = Late unless defined?(Zernio)' >> lib/late-sdk.rb
+          fi
+
       - name: Patch README install instructions
         run: |
           python3 -c "
@@ -124,28 +144,31 @@ jobs:
           - Version: ${{ steps.version.outputs.new_version }}"
           git push
 
-      - name: Build gem
-        if: steps.changes.outputs.has_changes == 'true'
-        run: gem build late-sdk.gemspec
-
-      - name: Publish to RubyGems
+      - name: Setup RubyGems credentials
         if: steps.changes.outputs.has_changes == 'true'
         run: |
           mkdir -p ~/.gem
           echo -e "---\n:rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}" > ~/.gem/credentials
           chmod 0600 ~/.gem/credentials
-          gem push late-sdk-${{ steps.version.outputs.gem_version }}.gem
-        continue-on-error: true
 
-      - name: Build and publish as zernio-sdk
+      - name: Build and publish zernio-sdk (primary)
         if: steps.changes.outputs.has_changes == 'true'
         run: |
-          cp late-sdk.gemspec zernio-sdk.gemspec
-          sed -i 's/s.name        = "late-sdk"/s.name        = "zernio-sdk"/' zernio-sdk.gemspec
-          gem build zernio-sdk.gemspec
+          # late-sdk.gemspec has s.name = "zernio-sdk" (set in rebrand step)
+          # so gem build produces zernio-sdk-VERSION.gem
+          gem build late-sdk.gemspec
           gem push zernio-sdk-${{ steps.version.outputs.gem_version }}.gem
-        env:
-          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        continue-on-error: true
+
+      - name: Build and publish late-sdk (legacy alias)
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          # Create a copy with s.name swapped back to "late-sdk" for the legacy gem
+          cp late-sdk.gemspec late-sdk-legacy.gemspec
+          sed -i 's/s.name        = "zernio-sdk"/s.name        = "late-sdk"/' late-sdk-legacy.gemspec
+          gem build late-sdk-legacy.gemspec
+          gem push late-sdk-${{ steps.version.outputs.gem_version }}.gem
+          rm -f late-sdk-legacy.gemspec
         continue-on-error: true
 
       - name: Create GitHub Release
