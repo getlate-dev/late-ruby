@@ -107,6 +107,12 @@ describe Late::TikTokPlatformData do
     end
   end
 
+  describe 'test attribute "video_cover_image_url"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "photo_cover_index"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

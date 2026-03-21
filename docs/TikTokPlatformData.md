@@ -15,7 +15,8 @@
 | **content_preview_confirmed** | **Boolean** | User has confirmed they previewed the content | [optional] |
 | **express_consent_given** | **Boolean** | User has given express consent for posting | [optional] |
 | **media_type** | **String** | Optional override. Defaults based on provided media items. | [optional] |
-| **video_cover_timestamp_ms** | **Integer** | Optional for video posts. Timestamp in milliseconds to select which frame to use as thumbnail (defaults to 1000ms/1 second). | [optional] |
+| **video_cover_timestamp_ms** | **Integer** | Optional for video posts. Timestamp in milliseconds to select which frame to use as thumbnail (defaults to 1000ms/1 second). Ignored when videoCoverImageUrl is provided. | [optional] |
+| **video_cover_image_url** | **String** | Optional for video posts. URL of a custom thumbnail image (JPG, PNG, or WebP, max 20MB). The image is prepended as a 1-second still frame to the video and used as the cover. Overrides videoCoverTimestampMs when provided. | [optional] |
 | **photo_cover_index** | **Integer** | Optional for photo carousels. Index of image to use as cover, 0-based (defaults to 0/first image). | [optional] |
 | **auto_add_music** | **Boolean** | When true, TikTok may add recommended music (photos only) | [optional] |
 | **video_made_with_ai** | **Boolean** | Set true to disclose AI-generated content | [optional] |
@@ -39,6 +40,7 @@ instance = Late::TikTokPlatformData.new(
   express_consent_given: null,
   media_type: null,
   video_cover_timestamp_ms: null,
+  video_cover_image_url: null,
   photo_cover_index: null,
   auto_add_music: null,
   video_made_with_ai: null,

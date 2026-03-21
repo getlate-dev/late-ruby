@@ -8,6 +8,7 @@ All URIs are relative to *https://zernio.com/api*
 | [**get_account_health**](AccountsApi.md#get_account_health) | **GET** /v1/accounts/{accountId}/health | Check account health |
 | [**get_all_accounts_health**](AccountsApi.md#get_all_accounts_health) | **GET** /v1/accounts/health | Check accounts health |
 | [**get_follower_stats**](AccountsApi.md#get_follower_stats) | **GET** /v1/accounts/follower-stats | Get follower stats |
+| [**get_tik_tok_creator_info**](AccountsApi.md#get_tik_tok_creator_info) | **GET** /v1/accounts/{accountId}/tiktok/creator-info | Get TikTok creator info |
 | [**list_accounts**](AccountsApi.md#list_accounts) | **GET** /v1/accounts | List accounts |
 | [**update_account**](AccountsApi.md#update_account) | **PUT** /v1/accounts/{accountId} | Update account |
 
@@ -293,6 +294,79 @@ end
 ### Return type
 
 [**GetFollowerStats200Response**](GetFollowerStats200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_tik_tok_creator_info
+
+> <GetTikTokCreatorInfo200Response> get_tik_tok_creator_info(account_id, opts)
+
+Get TikTok creator info
+
+Returns TikTok creator details, available privacy levels, posting limits, and commercial content options for a specific TikTok account. Only works with TikTok accounts.
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::AccountsApi.new
+account_id = 'account_id_example' # String | The TikTok account ID
+opts = {
+  media_type: 'video' # String | The media type to get creator info for (affects available interaction settings)
+}
+
+begin
+  # Get TikTok creator info
+  result = api_instance.get_tik_tok_creator_info(account_id, opts)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling AccountsApi->get_tik_tok_creator_info: #{e}"
+end
+```
+
+#### Using the get_tik_tok_creator_info_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetTikTokCreatorInfo200Response>, Integer, Hash)> get_tik_tok_creator_info_with_http_info(account_id, opts)
+
+```ruby
+begin
+  # Get TikTok creator info
+  data, status_code, headers = api_instance.get_tik_tok_creator_info_with_http_info(account_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetTikTokCreatorInfo200Response>
+rescue Late::ApiError => e
+  puts "Error when calling AccountsApi->get_tik_tok_creator_info_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_id** | **String** | The TikTok account ID |  |
+| **media_type** | **String** | The media type to get creator info for (affects available interaction settings) | [optional][default to &#39;video&#39;] |
+
+### Return type
+
+[**GetTikTokCreatorInfo200Response**](GetTikTokCreatorInfo200Response.md)
 
 ### Authorization
 

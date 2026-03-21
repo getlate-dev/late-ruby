@@ -49,8 +49,11 @@ module Late
     # Optional override. Defaults based on provided media items.
     attr_accessor :media_type
 
-    # Optional for video posts. Timestamp in milliseconds to select which frame to use as thumbnail (defaults to 1000ms/1 second).
+    # Optional for video posts. Timestamp in milliseconds to select which frame to use as thumbnail (defaults to 1000ms/1 second). Ignored when videoCoverImageUrl is provided.
     attr_accessor :video_cover_timestamp_ms
+
+    # Optional for video posts. URL of a custom thumbnail image (JPG, PNG, or WebP, max 20MB). The image is prepended as a 1-second still frame to the video and used as the cover. Overrides videoCoverTimestampMs when provided.
+    attr_accessor :video_cover_image_url
 
     # Optional for photo carousels. Index of image to use as cover, 0-based (defaults to 0/first image).
     attr_accessor :photo_cover_index
@@ -101,6 +104,7 @@ module Late
         :'express_consent_given' => :'expressConsentGiven',
         :'media_type' => :'mediaType',
         :'video_cover_timestamp_ms' => :'videoCoverTimestampMs',
+        :'video_cover_image_url' => :'videoCoverImageUrl',
         :'photo_cover_index' => :'photoCoverIndex',
         :'auto_add_music' => :'autoAddMusic',
         :'video_made_with_ai' => :'videoMadeWithAi',
@@ -133,6 +137,7 @@ module Late
         :'express_consent_given' => :'Boolean',
         :'media_type' => :'String',
         :'video_cover_timestamp_ms' => :'Integer',
+        :'video_cover_image_url' => :'String',
         :'photo_cover_index' => :'Integer',
         :'auto_add_music' => :'Boolean',
         :'video_made_with_ai' => :'Boolean',
@@ -208,6 +213,10 @@ module Late
 
       if attributes.key?(:'video_cover_timestamp_ms')
         self.video_cover_timestamp_ms = attributes[:'video_cover_timestamp_ms']
+      end
+
+      if attributes.key?(:'video_cover_image_url')
+        self.video_cover_image_url = attributes[:'video_cover_image_url']
       end
 
       if attributes.key?(:'photo_cover_index')
@@ -340,6 +349,7 @@ module Late
           express_consent_given == o.express_consent_given &&
           media_type == o.media_type &&
           video_cover_timestamp_ms == o.video_cover_timestamp_ms &&
+          video_cover_image_url == o.video_cover_image_url &&
           photo_cover_index == o.photo_cover_index &&
           auto_add_music == o.auto_add_music &&
           video_made_with_ai == o.video_made_with_ai &&
@@ -355,7 +365,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [draft, privacy_level, allow_comment, allow_duet, allow_stitch, commercial_content_type, brand_partner_promote, is_brand_organic_post, content_preview_confirmed, express_consent_given, media_type, video_cover_timestamp_ms, photo_cover_index, auto_add_music, video_made_with_ai, description].hash
+      [draft, privacy_level, allow_comment, allow_duet, allow_stitch, commercial_content_type, brand_partner_promote, is_brand_organic_post, content_preview_confirmed, express_consent_given, media_type, video_cover_timestamp_ms, video_cover_image_url, photo_cover_index, auto_add_music, video_made_with_ai, description].hash
     end
 
     # Builds the object from hash

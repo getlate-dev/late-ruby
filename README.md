@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 *Late::AccountsApi* | [**get_account_health**](docs/AccountsApi.md#get_account_health) | **GET** /v1/accounts/{accountId}/health | Check account health
 *Late::AccountsApi* | [**get_all_accounts_health**](docs/AccountsApi.md#get_all_accounts_health) | **GET** /v1/accounts/health | Check accounts health
 *Late::AccountsApi* | [**get_follower_stats**](docs/AccountsApi.md#get_follower_stats) | **GET** /v1/accounts/follower-stats | Get follower stats
+*Late::AccountsApi* | [**get_tik_tok_creator_info**](docs/AccountsApi.md#get_tik_tok_creator_info) | **GET** /v1/accounts/{accountId}/tiktok/creator-info | Get TikTok creator info
 *Late::AccountsApi* | [**list_accounts**](docs/AccountsApi.md#list_accounts) | **GET** /v1/accounts | List accounts
 *Late::AccountsApi* | [**update_account**](docs/AccountsApi.md#update_account) | **PUT** /v1/accounts/{accountId} | Update account
 *Late::AnalyticsApi* | [**get_analytics**](docs/AnalyticsApi.md#get_analytics) | **GET** /v1/analytics | Get post analytics
@@ -467,6 +468,11 @@ Class | Method | HTTP request | Description
  - [Late::GetTelegramCommands200Response](docs/GetTelegramCommands200Response.md)
  - [Late::GetTelegramCommands200ResponseDataInner](docs/GetTelegramCommands200ResponseDataInner.md)
  - [Late::GetTelegramConnectStatus200Response](docs/GetTelegramConnectStatus200Response.md)
+ - [Late::GetTikTokCreatorInfo200Response](docs/GetTikTokCreatorInfo200Response.md)
+ - [Late::GetTikTokCreatorInfo200ResponseCommercialContentTypesInner](docs/GetTikTokCreatorInfo200ResponseCommercialContentTypesInner.md)
+ - [Late::GetTikTokCreatorInfo200ResponseCreator](docs/GetTikTokCreatorInfo200ResponseCreator.md)
+ - [Late::GetTikTokCreatorInfo200ResponsePostingLimits](docs/GetTikTokCreatorInfo200ResponsePostingLimits.md)
+ - [Late::GetTikTokCreatorInfo200ResponsePrivacyLevelsInner](docs/GetTikTokCreatorInfo200ResponsePrivacyLevelsInner.md)
  - [Late::GetUser200Response](docs/GetUser200Response.md)
  - [Late::GetUser200ResponseUser](docs/GetUser200ResponseUser.md)
  - [Late::GetWebhookLogs200Response](docs/GetWebhookLogs200Response.md)

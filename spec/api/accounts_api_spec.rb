@@ -86,6 +86,19 @@ describe 'AccountsApi' do
     end
   end
 
+  # unit tests for get_tik_tok_creator_info
+  # Get TikTok creator info
+  # Returns TikTok creator details, available privacy levels, posting limits, and commercial content options for a specific TikTok account. Only works with TikTok accounts.
+  # @param account_id The TikTok account ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :media_type The media type to get creator info for (affects available interaction settings)
+  # @return [GetTikTokCreatorInfo200Response]
+  describe 'get_tik_tok_creator_info test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for list_accounts
   # List accounts
   # Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.

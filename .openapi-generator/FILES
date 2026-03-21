@@ -234,6 +234,11 @@ docs/GetRedditSubreddits200ResponseSubredditsInner.md
 docs/GetTelegramCommands200Response.md
 docs/GetTelegramCommands200ResponseDataInner.md
 docs/GetTelegramConnectStatus200Response.md
+docs/GetTikTokCreatorInfo200Response.md
+docs/GetTikTokCreatorInfo200ResponseCommercialContentTypesInner.md
+docs/GetTikTokCreatorInfo200ResponseCreator.md
+docs/GetTikTokCreatorInfo200ResponsePostingLimits.md
+docs/GetTikTokCreatorInfo200ResponsePrivacyLevelsInner.md
 docs/GetUser200Response.md
 docs/GetUser200ResponseUser.md
 docs/GetWebhookLogs200Response.md
@@ -845,6 +850,11 @@ lib/late-sdk/models/get_reddit_subreddits200_response_subreddits_inner.rb
 lib/late-sdk/models/get_telegram_commands200_response.rb
 lib/late-sdk/models/get_telegram_commands200_response_data_inner.rb
 lib/late-sdk/models/get_telegram_connect_status200_response.rb
+lib/late-sdk/models/get_tik_tok_creator_info200_response.rb
+lib/late-sdk/models/get_tik_tok_creator_info200_response_commercial_content_types_inner.rb
+lib/late-sdk/models/get_tik_tok_creator_info200_response_creator.rb
+lib/late-sdk/models/get_tik_tok_creator_info200_response_posting_limits.rb
+lib/late-sdk/models/get_tik_tok_creator_info200_response_privacy_levels_inner.rb
 lib/late-sdk/models/get_user200_response.rb
 lib/late-sdk/models/get_user200_response_user.rb
 lib/late-sdk/models/get_webhook_logs200_response.rb
@@ -1432,6 +1442,11 @@ spec/models/get_reddit_subreddits200_response_subreddits_inner_spec.rb
 spec/models/get_telegram_commands200_response_data_inner_spec.rb
 spec/models/get_telegram_commands200_response_spec.rb
 spec/models/get_telegram_connect_status200_response_spec.rb
+spec/models/get_tik_tok_creator_info200_response_commercial_content_types_inner_spec.rb
+spec/models/get_tik_tok_creator_info200_response_creator_spec.rb
+spec/models/get_tik_tok_creator_info200_response_posting_limits_spec.rb
+spec/models/get_tik_tok_creator_info200_response_privacy_levels_inner_spec.rb
+spec/models/get_tik_tok_creator_info200_response_spec.rb
 spec/models/get_user200_response_spec.rb
 spec/models/get_user200_response_user_spec.rb
 spec/models/get_webhook_logs200_response_spec.rb
