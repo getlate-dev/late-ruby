@@ -9,6 +9,8 @@ All URIs are relative to *https://zernio.com/api*
 | [**get_content_decay**](AnalyticsApi.md#get_content_decay) | **GET** /v1/analytics/content-decay | Get content performance decay |
 | [**get_daily_metrics**](AnalyticsApi.md#get_daily_metrics) | **GET** /v1/analytics/daily-metrics | Get daily aggregated metrics |
 | [**get_follower_stats**](AnalyticsApi.md#get_follower_stats) | **GET** /v1/accounts/follower-stats | Get follower stats |
+| [**get_instagram_account_insights**](AnalyticsApi.md#get_instagram_account_insights) | **GET** /v1/analytics/instagram/account-insights | Get Instagram account-level insights |
+| [**get_instagram_demographics**](AnalyticsApi.md#get_instagram_demographics) | **GET** /v1/analytics/instagram/demographics | Get Instagram audience demographics |
 | [**get_linked_in_aggregate_analytics**](AnalyticsApi.md#get_linked_in_aggregate_analytics) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats |
 | [**get_linked_in_post_analytics**](AnalyticsApi.md#get_linked_in_post_analytics) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats |
 | [**get_linked_in_post_reactions**](AnalyticsApi.md#get_linked_in_post_reactions) | **GET** /v1/accounts/{accountId}/linkedin-post-reactions | Get LinkedIn post reactions |
@@ -403,6 +405,164 @@ end
 ### Return type
 
 [**GetFollowerStats200Response**](GetFollowerStats200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_instagram_account_insights
+
+> <InstagramAccountInsightsResponse> get_instagram_account_insights(account_id, opts)
+
+Get Instagram account-level insights
+
+Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account's performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::AnalyticsApi.new
+account_id = 'account_id_example' # String | The Zernio SocialAccount ID for the Instagram account
+opts = {
+  metrics: 'metrics_example', # String | Comma-separated list of metrics. Defaults to \"reach,views,accounts_engaged,total_interactions\". Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \"reach\" supports metricType=time_series. All other metrics are total_value only. 
+  since: Date.parse('2013-10-20'), # Date | Start date (YYYY-MM-DD). Defaults to 30 days ago.
+  _until: Date.parse('2013-10-20'), # Date | End date (YYYY-MM-DD). Defaults to today.
+  metric_type: 'time_series', # String | \"total_value\" (default) returns aggregated totals and supports breakdowns. \"time_series\" returns daily values but only works with the \"reach\" metric. 
+  breakdown: 'breakdown_example' # String | Breakdown dimension (only valid with metricType=total_value). Valid values depend on the metric: media_product_type, follow_type, follower_type, contact_button_type. 
+}
+
+begin
+  # Get Instagram account-level insights
+  result = api_instance.get_instagram_account_insights(account_id, opts)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_instagram_account_insights: #{e}"
+end
+```
+
+#### Using the get_instagram_account_insights_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<InstagramAccountInsightsResponse>, Integer, Hash)> get_instagram_account_insights_with_http_info(account_id, opts)
+
+```ruby
+begin
+  # Get Instagram account-level insights
+  data, status_code, headers = api_instance.get_instagram_account_insights_with_http_info(account_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <InstagramAccountInsightsResponse>
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_instagram_account_insights_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_id** | **String** | The Zernio SocialAccount ID for the Instagram account |  |
+| **metrics** | **String** | Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics are total_value only.  | [optional] |
+| **since** | **Date** | Start date (YYYY-MM-DD). Defaults to 30 days ago. | [optional] |
+| **_until** | **Date** | End date (YYYY-MM-DD). Defaults to today. | [optional] |
+| **metric_type** | **String** | \&quot;total_value\&quot; (default) returns aggregated totals and supports breakdowns. \&quot;time_series\&quot; returns daily values but only works with the \&quot;reach\&quot; metric.  | [optional][default to &#39;total_value&#39;] |
+| **breakdown** | **String** | Breakdown dimension (only valid with metricType&#x3D;total_value). Valid values depend on the metric: media_product_type, follow_type, follower_type, contact_button_type.  | [optional] |
+
+### Return type
+
+[**InstagramAccountInsightsResponse**](InstagramAccountInsightsResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_instagram_demographics
+
+> <InstagramDemographicsResponse> get_instagram_demographics(account_id, opts)
+
+Get Instagram audience demographics
+
+Returns audience demographic insights for an Instagram account, broken down by age, city, country, and/or gender. Requires at least 100 followers. Returns top 45 entries per dimension. Data may be delayed up to 48 hours. Requires the Analytics add-on. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::AnalyticsApi.new
+account_id = 'account_id_example' # String | The Zernio SocialAccount ID for the Instagram account
+opts = {
+  metric: 'follower_demographics', # String | \"follower_demographics\" for follower audience data, or \"engaged_audience_demographics\" for engaged viewers. 
+  breakdown: 'breakdown_example', # String | Comma-separated list of demographic dimensions: age, city, country, gender. Defaults to all four if omitted. 
+  timeframe: 'this_week' # String | Time period for demographic data. Defaults to \"this_month\". 
+}
+
+begin
+  # Get Instagram audience demographics
+  result = api_instance.get_instagram_demographics(account_id, opts)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_instagram_demographics: #{e}"
+end
+```
+
+#### Using the get_instagram_demographics_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<InstagramDemographicsResponse>, Integer, Hash)> get_instagram_demographics_with_http_info(account_id, opts)
+
+```ruby
+begin
+  # Get Instagram audience demographics
+  data, status_code, headers = api_instance.get_instagram_demographics_with_http_info(account_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <InstagramDemographicsResponse>
+rescue Late::ApiError => e
+  puts "Error when calling AnalyticsApi->get_instagram_demographics_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_id** | **String** | The Zernio SocialAccount ID for the Instagram account |  |
+| **metric** | **String** | \&quot;follower_demographics\&quot; for follower audience data, or \&quot;engaged_audience_demographics\&quot; for engaged viewers.  | [optional][default to &#39;follower_demographics&#39;] |
+| **breakdown** | **String** | Comma-separated list of demographic dimensions: age, city, country, gender. Defaults to all four if omitted.  | [optional] |
+| **timeframe** | **String** | Time period for demographic data. Defaults to \&quot;this_month\&quot;.  | [optional][default to &#39;this_month&#39;] |
+
+### Return type
+
+[**InstagramDemographicsResponse**](InstagramDemographicsResponse.md)
 
 ### Authorization
 

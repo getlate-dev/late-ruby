@@ -113,6 +113,38 @@ describe 'AnalyticsApi' do
     end
   end
 
+  # unit tests for get_instagram_account_insights
+  # Get Instagram account-level insights
+  # Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account&#39;s performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
+  # @param account_id The Zernio SocialAccount ID for the Instagram account
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics are total_value only. 
+  # @option opts [Date] :since Start date (YYYY-MM-DD). Defaults to 30 days ago.
+  # @option opts [Date] :_until End date (YYYY-MM-DD). Defaults to today.
+  # @option opts [String] :metric_type \&quot;total_value\&quot; (default) returns aggregated totals and supports breakdowns. \&quot;time_series\&quot; returns daily values but only works with the \&quot;reach\&quot; metric. 
+  # @option opts [String] :breakdown Breakdown dimension (only valid with metricType&#x3D;total_value). Valid values depend on the metric: media_product_type, follow_type, follower_type, contact_button_type. 
+  # @return [InstagramAccountInsightsResponse]
+  describe 'get_instagram_account_insights test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_instagram_demographics
+  # Get Instagram audience demographics
+  # Returns audience demographic insights for an Instagram account, broken down by age, city, country, and/or gender. Requires at least 100 followers. Returns top 45 entries per dimension. Data may be delayed up to 48 hours. Requires the Analytics add-on. 
+  # @param account_id The Zernio SocialAccount ID for the Instagram account
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :metric \&quot;follower_demographics\&quot; for follower audience data, or \&quot;engaged_audience_demographics\&quot; for engaged viewers. 
+  # @option opts [String] :breakdown Comma-separated list of demographic dimensions: age, city, country, gender. Defaults to all four if omitted. 
+  # @option opts [String] :timeframe Time period for demographic data. Defaults to \&quot;this_month\&quot;. 
+  # @return [InstagramDemographicsResponse]
+  describe 'get_instagram_demographics test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_linked_in_aggregate_analytics
   # Get LinkedIn aggregate stats
   # Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.

@@ -422,6 +422,170 @@ module Late
       return data, status_code, headers
     end
 
+    # Get Instagram account-level insights
+    # Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account's performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
+    # @param account_id [String] The Zernio SocialAccount ID for the Instagram account
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics are total_value only. 
+    # @option opts [Date] :since Start date (YYYY-MM-DD). Defaults to 30 days ago.
+    # @option opts [Date] :_until End date (YYYY-MM-DD). Defaults to today.
+    # @option opts [String] :metric_type \&quot;total_value\&quot; (default) returns aggregated totals and supports breakdowns. \&quot;time_series\&quot; returns daily values but only works with the \&quot;reach\&quot; metric.  (default to 'total_value')
+    # @option opts [String] :breakdown Breakdown dimension (only valid with metricType&#x3D;total_value). Valid values depend on the metric: media_product_type, follow_type, follower_type, contact_button_type. 
+    # @return [InstagramAccountInsightsResponse]
+    def get_instagram_account_insights(account_id, opts = {})
+      data, _status_code, _headers = get_instagram_account_insights_with_http_info(account_id, opts)
+      data
+    end
+
+    # Get Instagram account-level insights
+    # Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account&#39;s performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
+    # @param account_id [String] The Zernio SocialAccount ID for the Instagram account
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics are total_value only. 
+    # @option opts [Date] :since Start date (YYYY-MM-DD). Defaults to 30 days ago.
+    # @option opts [Date] :_until End date (YYYY-MM-DD). Defaults to today.
+    # @option opts [String] :metric_type \&quot;total_value\&quot; (default) returns aggregated totals and supports breakdowns. \&quot;time_series\&quot; returns daily values but only works with the \&quot;reach\&quot; metric.  (default to 'total_value')
+    # @option opts [String] :breakdown Breakdown dimension (only valid with metricType&#x3D;total_value). Valid values depend on the metric: media_product_type, follow_type, follower_type, contact_button_type. 
+    # @return [Array<(InstagramAccountInsightsResponse, Integer, Hash)>] InstagramAccountInsightsResponse data, response status code and response headers
+    def get_instagram_account_insights_with_http_info(account_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AnalyticsApi.get_instagram_account_insights ...'
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling AnalyticsApi.get_instagram_account_insights"
+      end
+      allowable_values = ["time_series", "total_value"]
+      if @api_client.config.client_side_validation && opts[:'metric_type'] && !allowable_values.include?(opts[:'metric_type'])
+        fail ArgumentError, "invalid value for \"metric_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/v1/analytics/instagram/account-insights'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+      query_params[:'metrics'] = opts[:'metrics'] if !opts[:'metrics'].nil?
+      query_params[:'since'] = opts[:'since'] if !opts[:'since'].nil?
+      query_params[:'until'] = opts[:'_until'] if !opts[:'_until'].nil?
+      query_params[:'metricType'] = opts[:'metric_type'] if !opts[:'metric_type'].nil?
+      query_params[:'breakdown'] = opts[:'breakdown'] if !opts[:'breakdown'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InstagramAccountInsightsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"AnalyticsApi.get_instagram_account_insights",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AnalyticsApi#get_instagram_account_insights\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Instagram audience demographics
+    # Returns audience demographic insights for an Instagram account, broken down by age, city, country, and/or gender. Requires at least 100 followers. Returns top 45 entries per dimension. Data may be delayed up to 48 hours. Requires the Analytics add-on. 
+    # @param account_id [String] The Zernio SocialAccount ID for the Instagram account
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :metric \&quot;follower_demographics\&quot; for follower audience data, or \&quot;engaged_audience_demographics\&quot; for engaged viewers.  (default to 'follower_demographics')
+    # @option opts [String] :breakdown Comma-separated list of demographic dimensions: age, city, country, gender. Defaults to all four if omitted. 
+    # @option opts [String] :timeframe Time period for demographic data. Defaults to \&quot;this_month\&quot;.  (default to 'this_month')
+    # @return [InstagramDemographicsResponse]
+    def get_instagram_demographics(account_id, opts = {})
+      data, _status_code, _headers = get_instagram_demographics_with_http_info(account_id, opts)
+      data
+    end
+
+    # Get Instagram audience demographics
+    # Returns audience demographic insights for an Instagram account, broken down by age, city, country, and/or gender. Requires at least 100 followers. Returns top 45 entries per dimension. Data may be delayed up to 48 hours. Requires the Analytics add-on. 
+    # @param account_id [String] The Zernio SocialAccount ID for the Instagram account
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :metric \&quot;follower_demographics\&quot; for follower audience data, or \&quot;engaged_audience_demographics\&quot; for engaged viewers.  (default to 'follower_demographics')
+    # @option opts [String] :breakdown Comma-separated list of demographic dimensions: age, city, country, gender. Defaults to all four if omitted. 
+    # @option opts [String] :timeframe Time period for demographic data. Defaults to \&quot;this_month\&quot;.  (default to 'this_month')
+    # @return [Array<(InstagramDemographicsResponse, Integer, Hash)>] InstagramDemographicsResponse data, response status code and response headers
+    def get_instagram_demographics_with_http_info(account_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AnalyticsApi.get_instagram_demographics ...'
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling AnalyticsApi.get_instagram_demographics"
+      end
+      allowable_values = ["follower_demographics", "engaged_audience_demographics"]
+      if @api_client.config.client_side_validation && opts[:'metric'] && !allowable_values.include?(opts[:'metric'])
+        fail ArgumentError, "invalid value for \"metric\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["this_week", "this_month"]
+      if @api_client.config.client_side_validation && opts[:'timeframe'] && !allowable_values.include?(opts[:'timeframe'])
+        fail ArgumentError, "invalid value for \"timeframe\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/v1/analytics/instagram/demographics'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+      query_params[:'metric'] = opts[:'metric'] if !opts[:'metric'].nil?
+      query_params[:'breakdown'] = opts[:'breakdown'] if !opts[:'breakdown'].nil?
+      query_params[:'timeframe'] = opts[:'timeframe'] if !opts[:'timeframe'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InstagramDemographicsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"AnalyticsApi.get_instagram_demographics",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AnalyticsApi#get_instagram_demographics\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get LinkedIn aggregate stats
     # Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.
     # @param account_id [String] The ID of the LinkedIn personal account

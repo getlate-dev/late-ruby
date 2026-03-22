@@ -193,6 +193,7 @@ docs/GetInboxPostComments200ResponseCommentsInner.md
 docs/GetInboxPostComments200ResponseCommentsInnerFrom.md
 docs/GetInboxPostComments200ResponseMeta.md
 docs/GetInboxPostComments200ResponsePagination.md
+docs/GetInstagramAccountInsights404Response.md
 docs/GetLinkedInAggregateAnalytics200Response.md
 docs/GetLinkedInAggregateAnalytics400Response.md
 docs/GetLinkedInAggregateAnalytics402Response.md
@@ -294,6 +295,13 @@ docs/InitiateTelegramConnect200ResponseAccount.md
 docs/InitiateTelegramConnectRequest.md
 docs/InlineObject.md
 docs/InlineObject1.md
+docs/InstagramAccountInsightsResponse.md
+docs/InstagramAccountInsightsResponseDateRange.md
+docs/InstagramAccountInsightsResponseMetricsValue.md
+docs/InstagramAccountInsightsResponseMetricsValueBreakdownsInner.md
+docs/InstagramAccountInsightsResponseMetricsValueValuesInner.md
+docs/InstagramDemographicsResponse.md
+docs/InstagramDemographicsResponseDemographicsValueInner.md
 docs/InstagramPlatformData.md
 docs/InstagramPlatformDataTrialParams.md
 docs/InstagramPlatformDataUserTagsInner.md
@@ -809,6 +817,7 @@ lib/late-sdk/models/get_inbox_post_comments200_response_comments_inner.rb
 lib/late-sdk/models/get_inbox_post_comments200_response_comments_inner_from.rb
 lib/late-sdk/models/get_inbox_post_comments200_response_meta.rb
 lib/late-sdk/models/get_inbox_post_comments200_response_pagination.rb
+lib/late-sdk/models/get_instagram_account_insights404_response.rb
 lib/late-sdk/models/get_linked_in_aggregate_analytics200_response.rb
 lib/late-sdk/models/get_linked_in_aggregate_analytics400_response.rb
 lib/late-sdk/models/get_linked_in_aggregate_analytics402_response.rb
@@ -910,6 +919,13 @@ lib/late-sdk/models/initiate_telegram_connect200_response_account.rb
 lib/late-sdk/models/initiate_telegram_connect_request.rb
 lib/late-sdk/models/inline_object.rb
 lib/late-sdk/models/inline_object1.rb
+lib/late-sdk/models/instagram_account_insights_response.rb
+lib/late-sdk/models/instagram_account_insights_response_date_range.rb
+lib/late-sdk/models/instagram_account_insights_response_metrics_value.rb
+lib/late-sdk/models/instagram_account_insights_response_metrics_value_breakdowns_inner.rb
+lib/late-sdk/models/instagram_account_insights_response_metrics_value_values_inner.rb
+lib/late-sdk/models/instagram_demographics_response.rb
+lib/late-sdk/models/instagram_demographics_response_demographics_value_inner.rb
 lib/late-sdk/models/instagram_platform_data.rb
 lib/late-sdk/models/instagram_platform_data_trial_params.rb
 lib/late-sdk/models/instagram_platform_data_user_tags_inner.rb
@@ -1401,6 +1417,7 @@ spec/models/get_inbox_post_comments200_response_comments_inner_spec.rb
 spec/models/get_inbox_post_comments200_response_meta_spec.rb
 spec/models/get_inbox_post_comments200_response_pagination_spec.rb
 spec/models/get_inbox_post_comments200_response_spec.rb
+spec/models/get_instagram_account_insights404_response_spec.rb
 spec/models/get_linked_in_aggregate_analytics200_response_spec.rb
 spec/models/get_linked_in_aggregate_analytics400_response_spec.rb
 spec/models/get_linked_in_aggregate_analytics402_response_spec.rb
@@ -1502,6 +1519,13 @@ spec/models/initiate_telegram_connect200_response_spec.rb
 spec/models/initiate_telegram_connect_request_spec.rb
 spec/models/inline_object1_spec.rb
 spec/models/inline_object_spec.rb
+spec/models/instagram_account_insights_response_date_range_spec.rb
+spec/models/instagram_account_insights_response_metrics_value_breakdowns_inner_spec.rb
+spec/models/instagram_account_insights_response_metrics_value_spec.rb
+spec/models/instagram_account_insights_response_metrics_value_values_inner_spec.rb
+spec/models/instagram_account_insights_response_spec.rb
+spec/models/instagram_demographics_response_demographics_value_inner_spec.rb
+spec/models/instagram_demographics_response_spec.rb
 spec/models/instagram_platform_data_spec.rb
 spec/models/instagram_platform_data_trial_params_spec.rb
 spec/models/instagram_platform_data_user_tags_inner_spec.rb
