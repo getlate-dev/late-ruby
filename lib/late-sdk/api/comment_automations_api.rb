@@ -287,33 +287,29 @@ module Late
 
     # List comment-to-DM automations
     # List all comment-to-DM automations for a profile. Returns automations with their stats.
-    # @param profile_id [String] Profile ID
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
     # @return [ListCommentAutomations200Response]
-    def list_comment_automations(profile_id, opts = {})
-      data, _status_code, _headers = list_comment_automations_with_http_info(profile_id, opts)
+    def list_comment_automations(opts = {})
+      data, _status_code, _headers = list_comment_automations_with_http_info(opts)
       data
     end
 
     # List comment-to-DM automations
     # List all comment-to-DM automations for a profile. Returns automations with their stats.
-    # @param profile_id [String] Profile ID
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
     # @return [Array<(ListCommentAutomations200Response, Integer, Hash)>] ListCommentAutomations200Response data, response status code and response headers
-    def list_comment_automations_with_http_info(profile_id, opts = {})
+    def list_comment_automations_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CommentAutomationsApi.list_comment_automations ...'
-      end
-      # verify the required parameter 'profile_id' is set
-      if @api_client.config.client_side_validation && profile_id.nil?
-        fail ArgumentError, "Missing the required parameter 'profile_id' when calling CommentAutomationsApi.list_comment_automations"
       end
       # resource path
       local_var_path = '/v1/comment-automations'
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'profileId'] = profile_id
+      query_params[:'profileId'] = opts[:'profile_id'] if !opts[:'profile_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

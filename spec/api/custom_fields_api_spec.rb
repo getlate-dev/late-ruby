@@ -68,8 +68,8 @@ describe 'CustomFieldsApi' do
 
   # unit tests for list_custom_fields
   # List custom field definitions
-  # @param profile_id 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
   # @return [nil]
   describe 'list_custom_fields test' do
     it 'should work' do

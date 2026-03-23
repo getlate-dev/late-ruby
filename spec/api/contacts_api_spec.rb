@@ -92,8 +92,8 @@ describe 'ContactsApi' do
   # unit tests for list_contacts
   # List contacts
   # List and search contacts for a profile. Supports filtering by tags, platform, subscription status, and full-text search.
-  # @param profile_id 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
   # @option opts [String] :search 
   # @option opts [String] :tag 
   # @option opts [String] :platform 

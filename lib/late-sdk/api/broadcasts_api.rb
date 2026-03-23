@@ -415,33 +415,29 @@ module Late
     end
 
     # List broadcasts
-    # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
     # @option opts [String] :status 
     # @option opts [String] :platform 
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [Integer] :skip  (default to 0)
     # @return [nil]
-    def list_broadcasts(profile_id, opts = {})
-      list_broadcasts_with_http_info(profile_id, opts)
+    def list_broadcasts(opts = {})
+      list_broadcasts_with_http_info(opts)
       nil
     end
 
     # List broadcasts
-    # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
     # @option opts [String] :status 
     # @option opts [String] :platform 
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [Integer] :skip  (default to 0)
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def list_broadcasts_with_http_info(profile_id, opts = {})
+    def list_broadcasts_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BroadcastsApi.list_broadcasts ...'
-      end
-      # verify the required parameter 'profile_id' is set
-      if @api_client.config.client_side_validation && profile_id.nil?
-        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BroadcastsApi.list_broadcasts"
       end
       allowable_values = ["draft", "scheduled", "sending", "completed", "failed", "cancelled"]
       if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
@@ -452,7 +448,7 @@ module Late
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'profileId'] = profile_id
+      query_params[:'profileId'] = opts[:'profile_id'] if !opts[:'profile_id'].nil?
       query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
       query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?

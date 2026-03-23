@@ -290,7 +290,7 @@ nil (empty response body)
 
 ## list_comment_automations
 
-> <ListCommentAutomations200Response> list_comment_automations(profile_id)
+> <ListCommentAutomations200Response> list_comment_automations(opts)
 
 List comment-to-DM automations
 
@@ -308,11 +308,13 @@ Late.configure do |config|
 end
 
 api_instance = Late::CommentAutomationsApi.new
-profile_id = 'profile_id_example' # String | Profile ID
+opts = {
+  profile_id: 'profile_id_example' # String | Filter by profile. Omit to list across all profiles
+}
 
 begin
   # List comment-to-DM automations
-  result = api_instance.list_comment_automations(profile_id)
+  result = api_instance.list_comment_automations(opts)
   p result
 rescue Late::ApiError => e
   puts "Error when calling CommentAutomationsApi->list_comment_automations: #{e}"
@@ -323,12 +325,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ListCommentAutomations200Response>, Integer, Hash)> list_comment_automations_with_http_info(profile_id)
+> <Array(<ListCommentAutomations200Response>, Integer, Hash)> list_comment_automations_with_http_info(opts)
 
 ```ruby
 begin
   # List comment-to-DM automations
-  data, status_code, headers = api_instance.list_comment_automations_with_http_info(profile_id)
+  data, status_code, headers = api_instance.list_comment_automations_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ListCommentAutomations200Response>
@@ -341,7 +343,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **profile_id** | **String** | Profile ID |  |
+| **profile_id** | **String** | Filter by profile. Omit to list across all profiles | [optional] |
 
 ### Return type
 

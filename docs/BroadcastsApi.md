@@ -424,7 +424,7 @@ nil (empty response body)
 
 ## list_broadcasts
 
-> list_broadcasts(profile_id, opts)
+> list_broadcasts(opts)
 
 List broadcasts
 
@@ -440,8 +440,8 @@ Late.configure do |config|
 end
 
 api_instance = Late::BroadcastsApi.new
-profile_id = 'profile_id_example' # String | 
 opts = {
+  profile_id: 'profile_id_example', # String | Filter by profile. Omit to list across all profiles
   status: 'draft', # String | 
   platform: 'platform_example', # String | 
   limit: 56, # Integer | 
@@ -450,7 +450,7 @@ opts = {
 
 begin
   # List broadcasts
-  api_instance.list_broadcasts(profile_id, opts)
+  api_instance.list_broadcasts(opts)
 rescue Late::ApiError => e
   puts "Error when calling BroadcastsApi->list_broadcasts: #{e}"
 end
@@ -460,12 +460,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> list_broadcasts_with_http_info(profile_id, opts)
+> <Array(nil, Integer, Hash)> list_broadcasts_with_http_info(opts)
 
 ```ruby
 begin
   # List broadcasts
-  data, status_code, headers = api_instance.list_broadcasts_with_http_info(profile_id, opts)
+  data, status_code, headers = api_instance.list_broadcasts_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -478,7 +478,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **profile_id** | **String** |  |  |
+| **profile_id** | **String** | Filter by profile. Omit to list across all profiles | [optional] |
 | **status** | **String** |  | [optional] |
 | **platform** | **String** |  | [optional] |
 | **limit** | **Integer** |  | [optional][default to 50] |

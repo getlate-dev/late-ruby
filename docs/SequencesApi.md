@@ -424,7 +424,7 @@ nil (empty response body)
 
 ## list_sequences
 
-> list_sequences(profile_id, opts)
+> list_sequences(opts)
 
 List sequences
 
@@ -440,8 +440,8 @@ Late.configure do |config|
 end
 
 api_instance = Late::SequencesApi.new
-profile_id = 'profile_id_example' # String | 
 opts = {
+  profile_id: 'profile_id_example', # String | Filter by profile. Omit to list across all profiles
   status: 'draft', # String | 
   limit: 56, # Integer | 
   skip: 56 # Integer | 
@@ -449,7 +449,7 @@ opts = {
 
 begin
   # List sequences
-  api_instance.list_sequences(profile_id, opts)
+  api_instance.list_sequences(opts)
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->list_sequences: #{e}"
 end
@@ -459,12 +459,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> list_sequences_with_http_info(profile_id, opts)
+> <Array(nil, Integer, Hash)> list_sequences_with_http_info(opts)
 
 ```ruby
 begin
   # List sequences
-  data, status_code, headers = api_instance.list_sequences_with_http_info(profile_id, opts)
+  data, status_code, headers = api_instance.list_sequences_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -477,7 +477,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **profile_id** | **String** |  |  |
+| **profile_id** | **String** | Filter by profile. Omit to list across all profiles | [optional] |
 | **status** | **String** |  | [optional] |
 | **limit** | **Integer** |  | [optional][default to 50] |
 | **skip** | **Integer** |  | [optional][default to 0] |

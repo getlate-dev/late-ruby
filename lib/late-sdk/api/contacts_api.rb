@@ -340,8 +340,8 @@ module Late
 
     # List contacts
     # List and search contacts for a profile. Supports filtering by tags, platform, subscription status, and full-text search.
-    # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
     # @option opts [String] :search 
     # @option opts [String] :tag 
     # @option opts [String] :platform 
@@ -349,15 +349,15 @@ module Late
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [Integer] :skip  (default to 0)
     # @return [nil]
-    def list_contacts(profile_id, opts = {})
-      list_contacts_with_http_info(profile_id, opts)
+    def list_contacts(opts = {})
+      list_contacts_with_http_info(opts)
       nil
     end
 
     # List contacts
     # List and search contacts for a profile. Supports filtering by tags, platform, subscription status, and full-text search.
-    # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
     # @option opts [String] :search 
     # @option opts [String] :tag 
     # @option opts [String] :platform 
@@ -365,13 +365,9 @@ module Late
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [Integer] :skip  (default to 0)
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def list_contacts_with_http_info(profile_id, opts = {})
+    def list_contacts_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContactsApi.list_contacts ...'
-      end
-      # verify the required parameter 'profile_id' is set
-      if @api_client.config.client_side_validation && profile_id.nil?
-        fail ArgumentError, "Missing the required parameter 'profile_id' when calling ContactsApi.list_contacts"
       end
       allowable_values = ["instagram", "facebook", "telegram", "twitter", "bluesky", "reddit", "whatsapp"]
       if @api_client.config.client_side_validation && opts[:'platform'] && !allowable_values.include?(opts[:'platform'])
@@ -390,7 +386,7 @@ module Late
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'profileId'] = profile_id
+      query_params[:'profileId'] = opts[:'profile_id'] if !opts[:'profile_id'].nil?
       query_params[:'search'] = opts[:'search'] if !opts[:'search'].nil?
       query_params[:'tag'] = opts[:'tag'] if !opts[:'tag'].nil?
       query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?

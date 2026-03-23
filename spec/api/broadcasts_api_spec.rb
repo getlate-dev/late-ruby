@@ -104,8 +104,8 @@ describe 'BroadcastsApi' do
 
   # unit tests for list_broadcasts
   # List broadcasts
-  # @param profile_id 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
   # @option opts [String] :status 
   # @option opts [String] :platform 
   # @option opts [Integer] :limit 

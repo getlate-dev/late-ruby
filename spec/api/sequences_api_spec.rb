@@ -104,8 +104,8 @@ describe 'SequencesApi' do
 
   # unit tests for list_sequences
   # List sequences
-  # @param profile_id 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
   # @option opts [String] :status 
   # @option opts [Integer] :limit 
   # @option opts [Integer] :skip 

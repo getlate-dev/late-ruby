@@ -349,7 +349,7 @@ nil (empty response body)
 
 ## list_contacts
 
-> list_contacts(profile_id, opts)
+> list_contacts(opts)
 
 List contacts
 
@@ -367,8 +367,8 @@ Late.configure do |config|
 end
 
 api_instance = Late::ContactsApi.new
-profile_id = 'profile_id_example' # String | 
 opts = {
+  profile_id: 'profile_id_example', # String | Filter by profile. Omit to list across all profiles
   search: 'search_example', # String | 
   tag: 'tag_example', # String | 
   platform: 'instagram', # String | 
@@ -379,7 +379,7 @@ opts = {
 
 begin
   # List contacts
-  api_instance.list_contacts(profile_id, opts)
+  api_instance.list_contacts(opts)
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->list_contacts: #{e}"
 end
@@ -389,12 +389,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> list_contacts_with_http_info(profile_id, opts)
+> <Array(nil, Integer, Hash)> list_contacts_with_http_info(opts)
 
 ```ruby
 begin
   # List contacts
-  data, status_code, headers = api_instance.list_contacts_with_http_info(profile_id, opts)
+  data, status_code, headers = api_instance.list_contacts_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -407,7 +407,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **profile_id** | **String** |  |  |
+| **profile_id** | **String** | Filter by profile. Omit to list across all profiles | [optional] |
 | **search** | **String** |  | [optional] |
 | **tag** | **String** |  | [optional] |
 | **platform** | **String** |  | [optional] |

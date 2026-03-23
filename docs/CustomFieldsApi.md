@@ -214,7 +214,7 @@ nil (empty response body)
 
 ## list_custom_fields
 
-> list_custom_fields(profile_id)
+> list_custom_fields(opts)
 
 List custom field definitions
 
@@ -230,11 +230,13 @@ Late.configure do |config|
 end
 
 api_instance = Late::CustomFieldsApi.new
-profile_id = 'profile_id_example' # String | 
+opts = {
+  profile_id: 'profile_id_example' # String | Filter by profile. Omit to list across all profiles
+}
 
 begin
   # List custom field definitions
-  api_instance.list_custom_fields(profile_id)
+  api_instance.list_custom_fields(opts)
 rescue Late::ApiError => e
   puts "Error when calling CustomFieldsApi->list_custom_fields: #{e}"
 end
@@ -244,12 +246,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> list_custom_fields_with_http_info(profile_id)
+> <Array(nil, Integer, Hash)> list_custom_fields_with_http_info(opts)
 
 ```ruby
 begin
   # List custom field definitions
-  data, status_code, headers = api_instance.list_custom_fields_with_http_info(profile_id)
+  data, status_code, headers = api_instance.list_custom_fields_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -262,7 +264,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **profile_id** | **String** |  |  |
+| **profile_id** | **String** | Filter by profile. Omit to list across all profiles | [optional] |
 
 ### Return type
 

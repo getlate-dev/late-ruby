@@ -84,8 +84,8 @@ describe 'CommentAutomationsApi' do
   # unit tests for list_comment_automations
   # List comment-to-DM automations
   # List all comment-to-DM automations for a profile. Returns automations with their stats.
-  # @param profile_id Profile ID
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
   # @return [ListCommentAutomations200Response]
   describe 'list_comment_automations test' do
     it 'should work' do
