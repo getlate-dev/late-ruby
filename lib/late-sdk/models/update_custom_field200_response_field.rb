@@ -14,13 +14,25 @@ require 'date'
 require 'time'
 
 module Late
-  class GetBroadcast200ResponseBroadcastSegmentFilters < ApiModelBase
-    attr_accessor :tags
+  class UpdateCustomField200ResponseField < ApiModelBase
+    attr_accessor :id
+
+    attr_accessor :name
+
+    attr_accessor :slug
+
+    attr_accessor :type
+
+    attr_accessor :options
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'tags' => :'tags'
+        :'id' => :'id',
+        :'name' => :'name',
+        :'slug' => :'slug',
+        :'type' => :'type',
+        :'options' => :'options'
       }
     end
 
@@ -37,7 +49,11 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'tags' => :'Array<String>'
+        :'id' => :'String',
+        :'name' => :'String',
+        :'slug' => :'String',
+        :'type' => :'String',
+        :'options' => :'Array<String>'
       }
     end
 
@@ -51,21 +67,37 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::GetBroadcast200ResponseBroadcastSegmentFilters` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::UpdateCustomField200ResponseField` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::GetBroadcast200ResponseBroadcastSegmentFilters`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::UpdateCustomField200ResponseField`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'slug')
+        self.slug = attributes[:'slug']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'options')
+        if (value = attributes[:'options']).is_a?(Array)
+          self.options = value
         end
       end
     end
@@ -90,7 +122,11 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          tags == o.tags
+          id == o.id &&
+          name == o.name &&
+          slug == o.slug &&
+          type == o.type &&
+          options == o.options
     end
 
     # @see the `==` method
@@ -102,7 +138,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [tags].hash
+      [id, name, slug, type, options].hash
     end
 
     # Builds the object from hash

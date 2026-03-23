@@ -14,7 +14,7 @@ All URIs are relative to *https://zernio.com/api*
 
 ## create_comment_automation
 
-> create_comment_automation(create_comment_automation_request)
+> <CreateCommentAutomation200Response> create_comment_automation(create_comment_automation_request)
 
 Create a comment-to-DM automation
 
@@ -36,7 +36,8 @@ create_comment_automation_request = Late::CreateCommentAutomationRequest.new({pr
 
 begin
   # Create a comment-to-DM automation
-  api_instance.create_comment_automation(create_comment_automation_request)
+  result = api_instance.create_comment_automation(create_comment_automation_request)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling CommentAutomationsApi->create_comment_automation: #{e}"
 end
@@ -44,9 +45,9 @@ end
 
 #### Using the create_comment_automation_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> create_comment_automation_with_http_info(create_comment_automation_request)
+> <Array(<CreateCommentAutomation200Response>, Integer, Hash)> create_comment_automation_with_http_info(create_comment_automation_request)
 
 ```ruby
 begin
@@ -54,7 +55,7 @@ begin
   data, status_code, headers = api_instance.create_comment_automation_with_http_info(create_comment_automation_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CreateCommentAutomation200Response>
 rescue Late::ApiError => e
   puts "Error when calling CommentAutomationsApi->create_comment_automation_with_http_info: #{e}"
 end
@@ -68,7 +69,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CreateCommentAutomation200Response**](CreateCommentAutomation200Response.md)
 
 ### Authorization
 
@@ -148,7 +149,7 @@ nil (empty response body)
 
 ## get_comment_automation
 
-> get_comment_automation(automation_id)
+> <GetCommentAutomation200Response> get_comment_automation(automation_id)
 
 Get automation details with recent logs
 
@@ -168,7 +169,8 @@ automation_id = 'automation_id_example' # String |
 
 begin
   # Get automation details with recent logs
-  api_instance.get_comment_automation(automation_id)
+  result = api_instance.get_comment_automation(automation_id)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling CommentAutomationsApi->get_comment_automation: #{e}"
 end
@@ -176,9 +178,9 @@ end
 
 #### Using the get_comment_automation_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_comment_automation_with_http_info(automation_id)
+> <Array(<GetCommentAutomation200Response>, Integer, Hash)> get_comment_automation_with_http_info(automation_id)
 
 ```ruby
 begin
@@ -186,7 +188,7 @@ begin
   data, status_code, headers = api_instance.get_comment_automation_with_http_info(automation_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <GetCommentAutomation200Response>
 rescue Late::ApiError => e
   puts "Error when calling CommentAutomationsApi->get_comment_automation_with_http_info: #{e}"
 end
@@ -200,7 +202,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**GetCommentAutomation200Response**](GetCommentAutomation200Response.md)
 
 ### Authorization
 
@@ -214,7 +216,7 @@ nil (empty response body)
 
 ## list_comment_automation_logs
 
-> list_comment_automation_logs(automation_id, opts)
+> <ListCommentAutomationLogs200Response> list_comment_automation_logs(automation_id, opts)
 
 List trigger logs for an automation
 
@@ -241,7 +243,8 @@ opts = {
 
 begin
   # List trigger logs for an automation
-  api_instance.list_comment_automation_logs(automation_id, opts)
+  result = api_instance.list_comment_automation_logs(automation_id, opts)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling CommentAutomationsApi->list_comment_automation_logs: #{e}"
 end
@@ -249,9 +252,9 @@ end
 
 #### Using the list_comment_automation_logs_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_comment_automation_logs_with_http_info(automation_id, opts)
+> <Array(<ListCommentAutomationLogs200Response>, Integer, Hash)> list_comment_automation_logs_with_http_info(automation_id, opts)
 
 ```ruby
 begin
@@ -259,7 +262,7 @@ begin
   data, status_code, headers = api_instance.list_comment_automation_logs_with_http_info(automation_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ListCommentAutomationLogs200Response>
 rescue Late::ApiError => e
   puts "Error when calling CommentAutomationsApi->list_comment_automation_logs_with_http_info: #{e}"
 end
@@ -276,7 +279,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ListCommentAutomationLogs200Response**](ListCommentAutomationLogs200Response.md)
 
 ### Authorization
 
@@ -361,7 +364,7 @@ end
 
 ## update_comment_automation
 
-> update_comment_automation(automation_id, opts)
+> <UpdateCommentAutomation200Response> update_comment_automation(automation_id, opts)
 
 Update automation settings
 
@@ -384,7 +387,8 @@ opts = {
 
 begin
   # Update automation settings
-  api_instance.update_comment_automation(automation_id, opts)
+  result = api_instance.update_comment_automation(automation_id, opts)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling CommentAutomationsApi->update_comment_automation: #{e}"
 end
@@ -392,9 +396,9 @@ end
 
 #### Using the update_comment_automation_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> update_comment_automation_with_http_info(automation_id, opts)
+> <Array(<UpdateCommentAutomation200Response>, Integer, Hash)> update_comment_automation_with_http_info(automation_id, opts)
 
 ```ruby
 begin
@@ -402,7 +406,7 @@ begin
   data, status_code, headers = api_instance.update_comment_automation_with_http_info(automation_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <UpdateCommentAutomation200Response>
 rescue Late::ApiError => e
   puts "Error when calling CommentAutomationsApi->update_comment_automation_with_http_info: #{e}"
 end
@@ -417,7 +421,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**UpdateCommentAutomation200Response**](UpdateCommentAutomation200Response.md)
 
 ### Authorization
 

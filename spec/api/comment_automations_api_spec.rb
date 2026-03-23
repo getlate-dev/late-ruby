@@ -37,7 +37,7 @@ describe 'CommentAutomationsApi' do
   # Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
   # @param create_comment_automation_request 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [CreateCommentAutomation200Response]
   describe 'create_comment_automation test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -59,7 +59,7 @@ describe 'CommentAutomationsApi' do
   # Get automation details with recent logs
   # @param automation_id 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [GetCommentAutomation200Response]
   describe 'get_comment_automation test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -74,7 +74,7 @@ describe 'CommentAutomationsApi' do
   # @option opts [String] :status Filter by result status
   # @option opts [Integer] :limit 
   # @option opts [Integer] :skip 
-  # @return [nil]
+  # @return [ListCommentAutomationLogs200Response]
   describe 'list_comment_automation_logs test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -98,7 +98,7 @@ describe 'CommentAutomationsApi' do
   # @param automation_id 
   # @param [Hash] opts the optional parameters
   # @option opts [UpdateCommentAutomationRequest] :update_comment_automation_request 
-  # @return [nil]
+  # @return [UpdateCommentAutomation200Response]
   describe 'update_comment_automation test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

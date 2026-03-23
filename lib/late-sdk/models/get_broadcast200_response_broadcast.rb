@@ -120,7 +120,7 @@ module Late
         :'account_id' => :'String',
         :'message' => :'GetBroadcast200ResponseBroadcastMessage',
         :'template' => :'GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate',
-        :'segment_filters' => :'GetBroadcast200ResponseBroadcastSegmentFilters',
+        :'segment_filters' => :'ListContacts200ResponseFilters',
         :'status' => :'String',
         :'scheduled_at' => :'Time',
         :'started_at' => :'Time',

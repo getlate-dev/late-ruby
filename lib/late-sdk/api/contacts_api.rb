@@ -23,17 +23,17 @@ module Late
     # Import up to 1000 contacts at a time. Skips duplicates.
     # @param bulk_create_contacts_request [BulkCreateContactsRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [BulkCreateContacts200Response]
     def bulk_create_contacts(bulk_create_contacts_request, opts = {})
-      bulk_create_contacts_with_http_info(bulk_create_contacts_request, opts)
-      nil
+      data, _status_code, _headers = bulk_create_contacts_with_http_info(bulk_create_contacts_request, opts)
+      data
     end
 
     # Bulk create contacts
     # Import up to 1000 contacts at a time. Skips duplicates.
     # @param bulk_create_contacts_request [BulkCreateContactsRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(BulkCreateContacts200Response, Integer, Hash)>] BulkCreateContacts200Response data, response status code and response headers
     def bulk_create_contacts_with_http_info(bulk_create_contacts_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContactsApi.bulk_create_contacts ...'
@@ -65,7 +65,7 @@ module Late
       post_body = opts[:debug_body] || @api_client.object_to_http_body(bulk_create_contacts_request)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'BulkCreateContacts200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -91,17 +91,17 @@ module Late
     # Create a new contact. Optionally create a platform channel in the same request by providing accountId, platform, and platformIdentifier.
     # @param create_contact_request [CreateContactRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [CreateContact200Response]
     def create_contact(create_contact_request, opts = {})
-      create_contact_with_http_info(create_contact_request, opts)
-      nil
+      data, _status_code, _headers = create_contact_with_http_info(create_contact_request, opts)
+      data
     end
 
     # Create a contact
     # Create a new contact. Optionally create a platform channel in the same request by providing accountId, platform, and platformIdentifier.
     # @param create_contact_request [CreateContactRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(CreateContact200Response, Integer, Hash)>] CreateContact200Response data, response status code and response headers
     def create_contact_with_http_info(create_contact_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContactsApi.create_contact ...'
@@ -133,7 +133,7 @@ module Late
       post_body = opts[:debug_body] || @api_client.object_to_http_body(create_contact_request)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'CreateContact200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -219,16 +219,16 @@ module Late
     # Get contact with channels
     # @param contact_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [GetContact200Response]
     def get_contact(contact_id, opts = {})
-      get_contact_with_http_info(contact_id, opts)
-      nil
+      data, _status_code, _headers = get_contact_with_http_info(contact_id, opts)
+      data
     end
 
     # Get contact with channels
     # @param contact_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(GetContact200Response, Integer, Hash)>] GetContact200Response data, response status code and response headers
     def get_contact_with_http_info(contact_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContactsApi.get_contact ...'
@@ -255,7 +255,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'GetContact200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -280,16 +280,16 @@ module Late
     # List channels for a contact
     # @param contact_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [GetContactChannels200Response]
     def get_contact_channels(contact_id, opts = {})
-      get_contact_channels_with_http_info(contact_id, opts)
-      nil
+      data, _status_code, _headers = get_contact_channels_with_http_info(contact_id, opts)
+      data
     end
 
     # List channels for a contact
     # @param contact_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(GetContactChannels200Response, Integer, Hash)>] GetContactChannels200Response data, response status code and response headers
     def get_contact_channels_with_http_info(contact_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContactsApi.get_contact_channels ...'
@@ -316,7 +316,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'GetContactChannels200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -348,10 +348,10 @@ module Late
     # @option opts [String] :is_subscribed 
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [Integer] :skip  (default to 0)
-    # @return [nil]
+    # @return [ListContacts200Response]
     def list_contacts(opts = {})
-      list_contacts_with_http_info(opts)
-      nil
+      data, _status_code, _headers = list_contacts_with_http_info(opts)
+      data
     end
 
     # List contacts
@@ -364,7 +364,7 @@ module Late
     # @option opts [String] :is_subscribed 
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [Integer] :skip  (default to 0)
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(ListContacts200Response, Integer, Hash)>] ListContacts200Response data, response status code and response headers
     def list_contacts_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContactsApi.list_contacts ...'
@@ -406,7 +406,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'ListContacts200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -432,17 +432,17 @@ module Late
     # @param contact_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [UpdateContactRequest] :update_contact_request 
-    # @return [nil]
+    # @return [UpdateContact200Response]
     def update_contact(contact_id, opts = {})
-      update_contact_with_http_info(contact_id, opts)
-      nil
+      data, _status_code, _headers = update_contact_with_http_info(contact_id, opts)
+      data
     end
 
     # Update a contact
     # @param contact_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [UpdateContactRequest] :update_contact_request 
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(UpdateContact200Response, Integer, Hash)>] UpdateContact200Response data, response status code and response headers
     def update_contact_with_http_info(contact_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContactsApi.update_contact ...'
@@ -474,7 +474,7 @@ module Late
       post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'update_contact_request'])
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'UpdateContact200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']

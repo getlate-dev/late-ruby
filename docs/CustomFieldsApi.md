@@ -82,7 +82,7 @@ nil (empty response body)
 
 ## create_custom_field
 
-> create_custom_field(create_custom_field_request)
+> <CreateCustomField200Response> create_custom_field(create_custom_field_request)
 
 Create a custom field definition
 
@@ -102,7 +102,8 @@ create_custom_field_request = Late::CreateCustomFieldRequest.new({profile_id: 'p
 
 begin
   # Create a custom field definition
-  api_instance.create_custom_field(create_custom_field_request)
+  result = api_instance.create_custom_field(create_custom_field_request)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling CustomFieldsApi->create_custom_field: #{e}"
 end
@@ -110,9 +111,9 @@ end
 
 #### Using the create_custom_field_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> create_custom_field_with_http_info(create_custom_field_request)
+> <Array(<CreateCustomField200Response>, Integer, Hash)> create_custom_field_with_http_info(create_custom_field_request)
 
 ```ruby
 begin
@@ -120,7 +121,7 @@ begin
   data, status_code, headers = api_instance.create_custom_field_with_http_info(create_custom_field_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CreateCustomField200Response>
 rescue Late::ApiError => e
   puts "Error when calling CustomFieldsApi->create_custom_field_with_http_info: #{e}"
 end
@@ -134,7 +135,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CreateCustomField200Response**](CreateCustomField200Response.md)
 
 ### Authorization
 
@@ -214,7 +215,7 @@ nil (empty response body)
 
 ## list_custom_fields
 
-> list_custom_fields(opts)
+> <ListCustomFields200Response> list_custom_fields(opts)
 
 List custom field definitions
 
@@ -236,7 +237,8 @@ opts = {
 
 begin
   # List custom field definitions
-  api_instance.list_custom_fields(opts)
+  result = api_instance.list_custom_fields(opts)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling CustomFieldsApi->list_custom_fields: #{e}"
 end
@@ -244,9 +246,9 @@ end
 
 #### Using the list_custom_fields_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_custom_fields_with_http_info(opts)
+> <Array(<ListCustomFields200Response>, Integer, Hash)> list_custom_fields_with_http_info(opts)
 
 ```ruby
 begin
@@ -254,7 +256,7 @@ begin
   data, status_code, headers = api_instance.list_custom_fields_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ListCustomFields200Response>
 rescue Late::ApiError => e
   puts "Error when calling CustomFieldsApi->list_custom_fields_with_http_info: #{e}"
 end
@@ -268,7 +270,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ListCustomFields200Response**](ListCustomFields200Response.md)
 
 ### Authorization
 
@@ -352,7 +354,7 @@ nil (empty response body)
 
 ## update_custom_field
 
-> update_custom_field(field_id, opts)
+> <UpdateCustomField200Response> update_custom_field(field_id, opts)
 
 Update a custom field definition
 
@@ -375,7 +377,8 @@ opts = {
 
 begin
   # Update a custom field definition
-  api_instance.update_custom_field(field_id, opts)
+  result = api_instance.update_custom_field(field_id, opts)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling CustomFieldsApi->update_custom_field: #{e}"
 end
@@ -383,9 +386,9 @@ end
 
 #### Using the update_custom_field_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> update_custom_field_with_http_info(field_id, opts)
+> <Array(<UpdateCustomField200Response>, Integer, Hash)> update_custom_field_with_http_info(field_id, opts)
 
 ```ruby
 begin
@@ -393,7 +396,7 @@ begin
   data, status_code, headers = api_instance.update_custom_field_with_http_info(field_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <UpdateCustomField200Response>
 rescue Late::ApiError => e
   puts "Error when calling CustomFieldsApi->update_custom_field_with_http_info: #{e}"
 end
@@ -408,7 +411,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**UpdateCustomField200Response**](UpdateCustomField200Response.md)
 
 ### Authorization
 

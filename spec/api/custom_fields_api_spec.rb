@@ -48,7 +48,7 @@ describe 'CustomFieldsApi' do
   # Create a custom field definition
   # @param create_custom_field_request 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [CreateCustomField200Response]
   describe 'create_custom_field test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -70,7 +70,7 @@ describe 'CustomFieldsApi' do
   # List custom field definitions
   # @param [Hash] opts the optional parameters
   # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
-  # @return [nil]
+  # @return [ListCustomFields200Response]
   describe 'list_custom_fields test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -95,7 +95,7 @@ describe 'CustomFieldsApi' do
   # @param field_id 
   # @param [Hash] opts the optional parameters
   # @option opts [UpdateCustomFieldRequest] :update_custom_field_request 
-  # @return [nil]
+  # @return [UpdateCustomField200Response]
   describe 'update_custom_field test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -23,17 +23,17 @@ module Late
     # Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
     # @param create_comment_automation_request [CreateCommentAutomationRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [CreateCommentAutomation200Response]
     def create_comment_automation(create_comment_automation_request, opts = {})
-      create_comment_automation_with_http_info(create_comment_automation_request, opts)
-      nil
+      data, _status_code, _headers = create_comment_automation_with_http_info(create_comment_automation_request, opts)
+      data
     end
 
     # Create a comment-to-DM automation
     # Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
     # @param create_comment_automation_request [CreateCommentAutomationRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(CreateCommentAutomation200Response, Integer, Hash)>] CreateCommentAutomation200Response data, response status code and response headers
     def create_comment_automation_with_http_info(create_comment_automation_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CommentAutomationsApi.create_comment_automation ...'
@@ -65,7 +65,7 @@ module Late
       post_body = opts[:debug_body] || @api_client.object_to_http_body(create_comment_automation_request)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'CreateCommentAutomation200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -151,16 +151,16 @@ module Late
     # Get automation details with recent logs
     # @param automation_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [GetCommentAutomation200Response]
     def get_comment_automation(automation_id, opts = {})
-      get_comment_automation_with_http_info(automation_id, opts)
-      nil
+      data, _status_code, _headers = get_comment_automation_with_http_info(automation_id, opts)
+      data
     end
 
     # Get automation details with recent logs
     # @param automation_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(GetCommentAutomation200Response, Integer, Hash)>] GetCommentAutomation200Response data, response status code and response headers
     def get_comment_automation_with_http_info(automation_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CommentAutomationsApi.get_comment_automation ...'
@@ -187,7 +187,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'GetCommentAutomation200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -216,10 +216,10 @@ module Late
     # @option opts [String] :status Filter by result status
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [Integer] :skip  (default to 0)
-    # @return [nil]
+    # @return [ListCommentAutomationLogs200Response]
     def list_comment_automation_logs(automation_id, opts = {})
-      list_comment_automation_logs_with_http_info(automation_id, opts)
-      nil
+      data, _status_code, _headers = list_comment_automation_logs_with_http_info(automation_id, opts)
+      data
     end
 
     # List trigger logs for an automation
@@ -229,7 +229,7 @@ module Late
     # @option opts [String] :status Filter by result status
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [Integer] :skip  (default to 0)
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(ListCommentAutomationLogs200Response, Integer, Hash)>] ListCommentAutomationLogs200Response data, response status code and response headers
     def list_comment_automation_logs_with_http_info(automation_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CommentAutomationsApi.list_comment_automation_logs ...'
@@ -263,7 +263,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'ListCommentAutomationLogs200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -349,17 +349,17 @@ module Late
     # @param automation_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [UpdateCommentAutomationRequest] :update_comment_automation_request 
-    # @return [nil]
+    # @return [UpdateCommentAutomation200Response]
     def update_comment_automation(automation_id, opts = {})
-      update_comment_automation_with_http_info(automation_id, opts)
-      nil
+      data, _status_code, _headers = update_comment_automation_with_http_info(automation_id, opts)
+      data
     end
 
     # Update automation settings
     # @param automation_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [UpdateCommentAutomationRequest] :update_comment_automation_request 
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(UpdateCommentAutomation200Response, Integer, Hash)>] UpdateCommentAutomation200Response data, response status code and response headers
     def update_comment_automation_with_http_info(automation_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CommentAutomationsApi.update_comment_automation ...'
@@ -391,7 +391,7 @@ module Late
       post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'update_comment_automation_request'])
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'UpdateCommentAutomation200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']

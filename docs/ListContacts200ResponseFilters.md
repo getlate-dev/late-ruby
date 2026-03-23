@@ -1,4 +1,4 @@
-# Late::GetBroadcast200ResponseBroadcastSegmentFilters
+# Late::ListContacts200ResponseFilters
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'late-sdk'
 
-instance = Late::GetBroadcast200ResponseBroadcastSegmentFilters.new(
+instance = Late::ListContacts200ResponseFilters.new(
   tags: null
 )
 ```

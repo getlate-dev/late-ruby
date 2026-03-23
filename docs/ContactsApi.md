@@ -15,7 +15,7 @@ All URIs are relative to *https://zernio.com/api*
 
 ## bulk_create_contacts
 
-> bulk_create_contacts(bulk_create_contacts_request)
+> <BulkCreateContacts200Response> bulk_create_contacts(bulk_create_contacts_request)
 
 Bulk create contacts
 
@@ -37,7 +37,8 @@ bulk_create_contacts_request = Late::BulkCreateContactsRequest.new({profile_id: 
 
 begin
   # Bulk create contacts
-  api_instance.bulk_create_contacts(bulk_create_contacts_request)
+  result = api_instance.bulk_create_contacts(bulk_create_contacts_request)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->bulk_create_contacts: #{e}"
 end
@@ -45,9 +46,9 @@ end
 
 #### Using the bulk_create_contacts_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> bulk_create_contacts_with_http_info(bulk_create_contacts_request)
+> <Array(<BulkCreateContacts200Response>, Integer, Hash)> bulk_create_contacts_with_http_info(bulk_create_contacts_request)
 
 ```ruby
 begin
@@ -55,7 +56,7 @@ begin
   data, status_code, headers = api_instance.bulk_create_contacts_with_http_info(bulk_create_contacts_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <BulkCreateContacts200Response>
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->bulk_create_contacts_with_http_info: #{e}"
 end
@@ -69,7 +70,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**BulkCreateContacts200Response**](BulkCreateContacts200Response.md)
 
 ### Authorization
 
@@ -83,7 +84,7 @@ nil (empty response body)
 
 ## create_contact
 
-> create_contact(create_contact_request)
+> <CreateContact200Response> create_contact(create_contact_request)
 
 Create a contact
 
@@ -105,7 +106,8 @@ create_contact_request = Late::CreateContactRequest.new({profile_id: 'profile_id
 
 begin
   # Create a contact
-  api_instance.create_contact(create_contact_request)
+  result = api_instance.create_contact(create_contact_request)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->create_contact: #{e}"
 end
@@ -113,9 +115,9 @@ end
 
 #### Using the create_contact_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> create_contact_with_http_info(create_contact_request)
+> <Array(<CreateContact200Response>, Integer, Hash)> create_contact_with_http_info(create_contact_request)
 
 ```ruby
 begin
@@ -123,7 +125,7 @@ begin
   data, status_code, headers = api_instance.create_contact_with_http_info(create_contact_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CreateContact200Response>
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->create_contact_with_http_info: #{e}"
 end
@@ -137,7 +139,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CreateContact200Response**](CreateContact200Response.md)
 
 ### Authorization
 
@@ -217,7 +219,7 @@ nil (empty response body)
 
 ## get_contact
 
-> get_contact(contact_id)
+> <GetContact200Response> get_contact(contact_id)
 
 Get contact with channels
 
@@ -237,7 +239,8 @@ contact_id = 'contact_id_example' # String |
 
 begin
   # Get contact with channels
-  api_instance.get_contact(contact_id)
+  result = api_instance.get_contact(contact_id)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->get_contact: #{e}"
 end
@@ -245,9 +248,9 @@ end
 
 #### Using the get_contact_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_contact_with_http_info(contact_id)
+> <Array(<GetContact200Response>, Integer, Hash)> get_contact_with_http_info(contact_id)
 
 ```ruby
 begin
@@ -255,7 +258,7 @@ begin
   data, status_code, headers = api_instance.get_contact_with_http_info(contact_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <GetContact200Response>
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->get_contact_with_http_info: #{e}"
 end
@@ -269,7 +272,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**GetContact200Response**](GetContact200Response.md)
 
 ### Authorization
 
@@ -283,7 +286,7 @@ nil (empty response body)
 
 ## get_contact_channels
 
-> get_contact_channels(contact_id)
+> <GetContactChannels200Response> get_contact_channels(contact_id)
 
 List channels for a contact
 
@@ -303,7 +306,8 @@ contact_id = 'contact_id_example' # String |
 
 begin
   # List channels for a contact
-  api_instance.get_contact_channels(contact_id)
+  result = api_instance.get_contact_channels(contact_id)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->get_contact_channels: #{e}"
 end
@@ -311,9 +315,9 @@ end
 
 #### Using the get_contact_channels_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_contact_channels_with_http_info(contact_id)
+> <Array(<GetContactChannels200Response>, Integer, Hash)> get_contact_channels_with_http_info(contact_id)
 
 ```ruby
 begin
@@ -321,7 +325,7 @@ begin
   data, status_code, headers = api_instance.get_contact_channels_with_http_info(contact_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <GetContactChannels200Response>
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->get_contact_channels_with_http_info: #{e}"
 end
@@ -335,7 +339,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**GetContactChannels200Response**](GetContactChannels200Response.md)
 
 ### Authorization
 
@@ -349,7 +353,7 @@ nil (empty response body)
 
 ## list_contacts
 
-> list_contacts(opts)
+> <ListContacts200Response> list_contacts(opts)
 
 List contacts
 
@@ -379,7 +383,8 @@ opts = {
 
 begin
   # List contacts
-  api_instance.list_contacts(opts)
+  result = api_instance.list_contacts(opts)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->list_contacts: #{e}"
 end
@@ -387,9 +392,9 @@ end
 
 #### Using the list_contacts_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_contacts_with_http_info(opts)
+> <Array(<ListContacts200Response>, Integer, Hash)> list_contacts_with_http_info(opts)
 
 ```ruby
 begin
@@ -397,7 +402,7 @@ begin
   data, status_code, headers = api_instance.list_contacts_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ListContacts200Response>
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->list_contacts_with_http_info: #{e}"
 end
@@ -417,7 +422,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ListContacts200Response**](ListContacts200Response.md)
 
 ### Authorization
 
@@ -431,7 +436,7 @@ nil (empty response body)
 
 ## update_contact
 
-> update_contact(contact_id, opts)
+> <UpdateContact200Response> update_contact(contact_id, opts)
 
 Update a contact
 
@@ -454,7 +459,8 @@ opts = {
 
 begin
   # Update a contact
-  api_instance.update_contact(contact_id, opts)
+  result = api_instance.update_contact(contact_id, opts)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->update_contact: #{e}"
 end
@@ -462,9 +468,9 @@ end
 
 #### Using the update_contact_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> update_contact_with_http_info(contact_id, opts)
+> <Array(<UpdateContact200Response>, Integer, Hash)> update_contact_with_http_info(contact_id, opts)
 
 ```ruby
 begin
@@ -472,7 +478,7 @@ begin
   data, status_code, headers = api_instance.update_contact_with_http_info(contact_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <UpdateContact200Response>
 rescue Late::ApiError => e
   puts "Error when calling ContactsApi->update_contact_with_http_info: #{e}"
 end
@@ -487,7 +493,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**UpdateContact200Response**](UpdateContact200Response.md)
 
 ### Authorization
 

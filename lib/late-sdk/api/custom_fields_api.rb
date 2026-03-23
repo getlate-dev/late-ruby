@@ -89,16 +89,16 @@ module Late
     # Create a custom field definition
     # @param create_custom_field_request [CreateCustomFieldRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [CreateCustomField200Response]
     def create_custom_field(create_custom_field_request, opts = {})
-      create_custom_field_with_http_info(create_custom_field_request, opts)
-      nil
+      data, _status_code, _headers = create_custom_field_with_http_info(create_custom_field_request, opts)
+      data
     end
 
     # Create a custom field definition
     # @param create_custom_field_request [CreateCustomFieldRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(CreateCustomField200Response, Integer, Hash)>] CreateCustomField200Response data, response status code and response headers
     def create_custom_field_with_http_info(create_custom_field_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CustomFieldsApi.create_custom_field ...'
@@ -130,7 +130,7 @@ module Late
       post_body = opts[:debug_body] || @api_client.object_to_http_body(create_custom_field_request)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'CreateCustomField200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -216,16 +216,16 @@ module Late
     # List custom field definitions
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
-    # @return [nil]
+    # @return [ListCustomFields200Response]
     def list_custom_fields(opts = {})
-      list_custom_fields_with_http_info(opts)
-      nil
+      data, _status_code, _headers = list_custom_fields_with_http_info(opts)
+      data
     end
 
     # List custom field definitions
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter by profile. Omit to list across all profiles
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(ListCustomFields200Response, Integer, Hash)>] ListCustomFields200Response data, response status code and response headers
     def list_custom_fields_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CustomFieldsApi.list_custom_fields ...'
@@ -249,7 +249,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'ListCustomFields200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -353,17 +353,17 @@ module Late
     # @param field_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [UpdateCustomFieldRequest] :update_custom_field_request 
-    # @return [nil]
+    # @return [UpdateCustomField200Response]
     def update_custom_field(field_id, opts = {})
-      update_custom_field_with_http_info(field_id, opts)
-      nil
+      data, _status_code, _headers = update_custom_field_with_http_info(field_id, opts)
+      data
     end
 
     # Update a custom field definition
     # @param field_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [UpdateCustomFieldRequest] :update_custom_field_request 
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(UpdateCustomField200Response, Integer, Hash)>] UpdateCustomField200Response data, response status code and response headers
     def update_custom_field_with_http_info(field_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CustomFieldsApi.update_custom_field ...'
@@ -395,7 +395,7 @@ module Late
       post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'update_custom_field_request'])
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'UpdateCustomField200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']

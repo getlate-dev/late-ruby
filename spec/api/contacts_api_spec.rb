@@ -37,7 +37,7 @@ describe 'ContactsApi' do
   # Import up to 1000 contacts at a time. Skips duplicates.
   # @param bulk_create_contacts_request 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [BulkCreateContacts200Response]
   describe 'bulk_create_contacts test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -49,7 +49,7 @@ describe 'ContactsApi' do
   # Create a new contact. Optionally create a platform channel in the same request by providing accountId, platform, and platformIdentifier.
   # @param create_contact_request 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [CreateContact200Response]
   describe 'create_contact test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -71,7 +71,7 @@ describe 'ContactsApi' do
   # Get contact with channels
   # @param contact_id 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [GetContact200Response]
   describe 'get_contact test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -82,7 +82,7 @@ describe 'ContactsApi' do
   # List channels for a contact
   # @param contact_id 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [GetContactChannels200Response]
   describe 'get_contact_channels test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -100,7 +100,7 @@ describe 'ContactsApi' do
   # @option opts [String] :is_subscribed 
   # @option opts [Integer] :limit 
   # @option opts [Integer] :skip 
-  # @return [nil]
+  # @return [ListContacts200Response]
   describe 'list_contacts test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -112,7 +112,7 @@ describe 'ContactsApi' do
   # @param contact_id 
   # @param [Hash] opts the optional parameters
   # @option opts [UpdateContactRequest] :update_contact_request 
-  # @return [nil]
+  # @return [UpdateContact200Response]
   describe 'update_contact test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
