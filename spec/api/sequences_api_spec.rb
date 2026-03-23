@@ -36,7 +36,7 @@ describe 'SequencesApi' do
   # Activate a sequence
   # @param sequence_id 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [ActivateSequence200Response]
   describe 'activate_sequence test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -70,7 +70,7 @@ describe 'SequencesApi' do
   # @param sequence_id 
   # @param enroll_contacts_request 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [EnrollContacts200Response]
   describe 'enroll_contacts test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -81,7 +81,7 @@ describe 'SequencesApi' do
   # Get sequence with steps
   # @param sequence_id 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [GetSequence200Response]
   describe 'get_sequence test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -95,7 +95,7 @@ describe 'SequencesApi' do
   # @option opts [String] :status 
   # @option opts [Integer] :limit 
   # @option opts [Integer] :skip 
-  # @return [nil]
+  # @return [ListSequenceEnrollments200Response]
   describe 'list_sequence_enrollments test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -120,7 +120,7 @@ describe 'SequencesApi' do
   # Pause a sequence
   # @param sequence_id 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [ActivateSequence200Response]
   describe 'pause_sequence test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -143,7 +143,7 @@ describe 'SequencesApi' do
   # Update a sequence
   # @param sequence_id 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [UpdateSequence200Response]
   describe 'update_sequence test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

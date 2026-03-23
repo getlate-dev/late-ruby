@@ -1,4 +1,4 @@
-# Late::CreateSequenceRequestStepsInnerMessage
+# Late::GetBroadcast200ResponseBroadcastMessage
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'late-sdk'
 
-instance = Late::CreateSequenceRequestStepsInnerMessage.new(
+instance = Late::GetBroadcast200ResponseBroadcastMessage.new(
   text: null
 )
 ```

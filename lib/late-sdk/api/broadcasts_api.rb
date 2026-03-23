@@ -23,17 +23,17 @@ module Late
     # @param broadcast_id [String] 
     # @param add_broadcast_recipients_request [AddBroadcastRecipientsRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [AddBroadcastRecipients200Response]
     def add_broadcast_recipients(broadcast_id, add_broadcast_recipients_request, opts = {})
-      add_broadcast_recipients_with_http_info(broadcast_id, add_broadcast_recipients_request, opts)
-      nil
+      data, _status_code, _headers = add_broadcast_recipients_with_http_info(broadcast_id, add_broadcast_recipients_request, opts)
+      data
     end
 
     # Add recipients to a broadcast
     # @param broadcast_id [String] 
     # @param add_broadcast_recipients_request [AddBroadcastRecipientsRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(AddBroadcastRecipients200Response, Integer, Hash)>] AddBroadcastRecipients200Response data, response status code and response headers
     def add_broadcast_recipients_with_http_info(broadcast_id, add_broadcast_recipients_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BroadcastsApi.add_broadcast_recipients ...'
@@ -69,7 +69,7 @@ module Late
       post_body = opts[:debug_body] || @api_client.object_to_http_body(add_broadcast_recipients_request)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'AddBroadcastRecipients200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -94,16 +94,16 @@ module Late
     # Cancel a broadcast
     # @param broadcast_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [CancelBroadcast200Response]
     def cancel_broadcast(broadcast_id, opts = {})
-      cancel_broadcast_with_http_info(broadcast_id, opts)
-      nil
+      data, _status_code, _headers = cancel_broadcast_with_http_info(broadcast_id, opts)
+      data
     end
 
     # Cancel a broadcast
     # @param broadcast_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(CancelBroadcast200Response, Integer, Hash)>] CancelBroadcast200Response data, response status code and response headers
     def cancel_broadcast_with_http_info(broadcast_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BroadcastsApi.cancel_broadcast ...'
@@ -130,7 +130,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'CancelBroadcast200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -282,16 +282,16 @@ module Late
     # Get broadcast details
     # @param broadcast_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [GetBroadcast200Response]
     def get_broadcast(broadcast_id, opts = {})
-      get_broadcast_with_http_info(broadcast_id, opts)
-      nil
+      data, _status_code, _headers = get_broadcast_with_http_info(broadcast_id, opts)
+      data
     end
 
     # Get broadcast details
     # @param broadcast_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(GetBroadcast200Response, Integer, Hash)>] GetBroadcast200Response data, response status code and response headers
     def get_broadcast_with_http_info(broadcast_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BroadcastsApi.get_broadcast ...'
@@ -318,7 +318,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'GetBroadcast200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -346,10 +346,10 @@ module Late
     # @option opts [String] :status 
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [Integer] :skip  (default to 0)
-    # @return [nil]
+    # @return [ListBroadcastRecipients200Response]
     def list_broadcast_recipients(broadcast_id, opts = {})
-      list_broadcast_recipients_with_http_info(broadcast_id, opts)
-      nil
+      data, _status_code, _headers = list_broadcast_recipients_with_http_info(broadcast_id, opts)
+      data
     end
 
     # List broadcast recipients
@@ -358,7 +358,7 @@ module Late
     # @option opts [String] :status 
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [Integer] :skip  (default to 0)
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(ListBroadcastRecipients200Response, Integer, Hash)>] ListBroadcastRecipients200Response data, response status code and response headers
     def list_broadcast_recipients_with_http_info(broadcast_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BroadcastsApi.list_broadcast_recipients ...'
@@ -392,7 +392,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'ListBroadcastRecipients200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -492,17 +492,17 @@ module Late
     # @param broadcast_id [String] 
     # @param schedule_broadcast_request [ScheduleBroadcastRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [ScheduleBroadcast200Response]
     def schedule_broadcast(broadcast_id, schedule_broadcast_request, opts = {})
-      schedule_broadcast_with_http_info(broadcast_id, schedule_broadcast_request, opts)
-      nil
+      data, _status_code, _headers = schedule_broadcast_with_http_info(broadcast_id, schedule_broadcast_request, opts)
+      data
     end
 
     # Schedule broadcast for later
     # @param broadcast_id [String] 
     # @param schedule_broadcast_request [ScheduleBroadcastRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(ScheduleBroadcast200Response, Integer, Hash)>] ScheduleBroadcast200Response data, response status code and response headers
     def schedule_broadcast_with_http_info(broadcast_id, schedule_broadcast_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BroadcastsApi.schedule_broadcast ...'
@@ -538,7 +538,7 @@ module Late
       post_body = opts[:debug_body] || @api_client.object_to_http_body(schedule_broadcast_request)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'ScheduleBroadcast200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -624,16 +624,16 @@ module Late
     # Update a broadcast
     # @param broadcast_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [UpdateBroadcast200Response]
     def update_broadcast(broadcast_id, opts = {})
-      update_broadcast_with_http_info(broadcast_id, opts)
-      nil
+      data, _status_code, _headers = update_broadcast_with_http_info(broadcast_id, opts)
+      data
     end
 
     # Update a broadcast
     # @param broadcast_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(UpdateBroadcast200Response, Integer, Hash)>] UpdateBroadcast200Response data, response status code and response headers
     def update_broadcast_with_http_info(broadcast_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BroadcastsApi.update_broadcast ...'
@@ -660,7 +660,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'UpdateBroadcast200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']

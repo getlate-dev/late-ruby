@@ -22,16 +22,16 @@ module Late
     # Activate a sequence
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [ActivateSequence200Response]
     def activate_sequence(sequence_id, opts = {})
-      activate_sequence_with_http_info(sequence_id, opts)
-      nil
+      data, _status_code, _headers = activate_sequence_with_http_info(sequence_id, opts)
+      data
     end
 
     # Activate a sequence
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(ActivateSequence200Response, Integer, Hash)>] ActivateSequence200Response data, response status code and response headers
     def activate_sequence_with_http_info(sequence_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SequencesApi.activate_sequence ...'
@@ -58,7 +58,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'ActivateSequence200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -211,17 +211,17 @@ module Late
     # @param sequence_id [String] 
     # @param enroll_contacts_request [EnrollContactsRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [EnrollContacts200Response]
     def enroll_contacts(sequence_id, enroll_contacts_request, opts = {})
-      enroll_contacts_with_http_info(sequence_id, enroll_contacts_request, opts)
-      nil
+      data, _status_code, _headers = enroll_contacts_with_http_info(sequence_id, enroll_contacts_request, opts)
+      data
     end
 
     # Enroll contacts in a sequence
     # @param sequence_id [String] 
     # @param enroll_contacts_request [EnrollContactsRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(EnrollContacts200Response, Integer, Hash)>] EnrollContacts200Response data, response status code and response headers
     def enroll_contacts_with_http_info(sequence_id, enroll_contacts_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SequencesApi.enroll_contacts ...'
@@ -257,7 +257,7 @@ module Late
       post_body = opts[:debug_body] || @api_client.object_to_http_body(enroll_contacts_request)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'EnrollContacts200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -282,16 +282,16 @@ module Late
     # Get sequence with steps
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [GetSequence200Response]
     def get_sequence(sequence_id, opts = {})
-      get_sequence_with_http_info(sequence_id, opts)
-      nil
+      data, _status_code, _headers = get_sequence_with_http_info(sequence_id, opts)
+      data
     end
 
     # Get sequence with steps
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(GetSequence200Response, Integer, Hash)>] GetSequence200Response data, response status code and response headers
     def get_sequence_with_http_info(sequence_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SequencesApi.get_sequence ...'
@@ -318,7 +318,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'GetSequence200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -346,10 +346,10 @@ module Late
     # @option opts [String] :status 
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [Integer] :skip  (default to 0)
-    # @return [nil]
+    # @return [ListSequenceEnrollments200Response]
     def list_sequence_enrollments(sequence_id, opts = {})
-      list_sequence_enrollments_with_http_info(sequence_id, opts)
-      nil
+      data, _status_code, _headers = list_sequence_enrollments_with_http_info(sequence_id, opts)
+      data
     end
 
     # List enrollments for a sequence
@@ -358,7 +358,7 @@ module Late
     # @option opts [String] :status 
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [Integer] :skip  (default to 0)
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(ListSequenceEnrollments200Response, Integer, Hash)>] ListSequenceEnrollments200Response data, response status code and response headers
     def list_sequence_enrollments_with_http_info(sequence_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SequencesApi.list_sequence_enrollments ...'
@@ -392,7 +392,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'ListSequenceEnrollments200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -488,16 +488,16 @@ module Late
     # Pause a sequence
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [ActivateSequence200Response]
     def pause_sequence(sequence_id, opts = {})
-      pause_sequence_with_http_info(sequence_id, opts)
-      nil
+      data, _status_code, _headers = pause_sequence_with_http_info(sequence_id, opts)
+      data
     end
 
     # Pause a sequence
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(ActivateSequence200Response, Integer, Hash)>] ActivateSequence200Response data, response status code and response headers
     def pause_sequence_with_http_info(sequence_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SequencesApi.pause_sequence ...'
@@ -524,7 +524,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'ActivateSequence200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -616,16 +616,16 @@ module Late
     # Update a sequence
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [UpdateSequence200Response]
     def update_sequence(sequence_id, opts = {})
-      update_sequence_with_http_info(sequence_id, opts)
-      nil
+      data, _status_code, _headers = update_sequence_with_http_info(sequence_id, opts)
+      data
     end
 
     # Update a sequence
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(UpdateSequence200Response, Integer, Hash)>] UpdateSequence200Response data, response status code and response headers
     def update_sequence_with_http_info(sequence_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SequencesApi.update_sequence ...'
@@ -652,7 +652,7 @@ module Late
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'UpdateSequence200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']

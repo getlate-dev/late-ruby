@@ -37,7 +37,7 @@ describe 'BroadcastsApi' do
   # @param broadcast_id 
   # @param add_broadcast_recipients_request 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [AddBroadcastRecipients200Response]
   describe 'add_broadcast_recipients test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -48,7 +48,7 @@ describe 'BroadcastsApi' do
   # Cancel a broadcast
   # @param broadcast_id 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [CancelBroadcast200Response]
   describe 'cancel_broadcast test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -81,7 +81,7 @@ describe 'BroadcastsApi' do
   # Get broadcast details
   # @param broadcast_id 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [GetBroadcast200Response]
   describe 'get_broadcast test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -95,7 +95,7 @@ describe 'BroadcastsApi' do
   # @option opts [String] :status 
   # @option opts [Integer] :limit 
   # @option opts [Integer] :skip 
-  # @return [nil]
+  # @return [ListBroadcastRecipients200Response]
   describe 'list_broadcast_recipients test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -122,7 +122,7 @@ describe 'BroadcastsApi' do
   # @param broadcast_id 
   # @param schedule_broadcast_request 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [ScheduleBroadcast200Response]
   describe 'schedule_broadcast test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -144,7 +144,7 @@ describe 'BroadcastsApi' do
   # Update a broadcast
   # @param broadcast_id 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [UpdateBroadcast200Response]
   describe 'update_broadcast test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

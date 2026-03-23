@@ -14,6 +14,8 @@ docs/AccountWithFollowerStats.md
 docs/AccountWithFollowerStatsAllOfAccountStats.md
 docs/AccountsApi.md
 docs/AccountsListResponse.md
+docs/ActivateSequence200Response.md
+docs/AddBroadcastRecipients200Response.md
 docs/AddBroadcastRecipientsRequest.md
 docs/AddWhatsAppBroadcastRecipients200Response.md
 docs/AddWhatsAppBroadcastRecipientsRequest.md
@@ -40,6 +42,8 @@ docs/BulkUpdateWhatsAppContactsRequest.md
 docs/BulkUploadPosts200Response.md
 docs/BulkUploadPosts200ResponseErrorsInner.md
 docs/BulkUploadPosts429Response.md
+docs/CancelBroadcast200Response.md
+docs/CancelBroadcast200ResponseBroadcast.md
 docs/CancelWhatsAppBroadcastSchedule200Response.md
 docs/CancelWhatsAppBroadcastSchedule200ResponseBroadcast.md
 docs/CaptionResponse.md
@@ -93,7 +97,6 @@ docs/CreateQueueSlot201Response.md
 docs/CreateQueueSlotRequest.md
 docs/CreateSequenceRequest.md
 docs/CreateSequenceRequestStepsInner.md
-docs/CreateSequenceRequestStepsInnerMessage.md
 docs/CreateSequenceRequestStepsInnerTemplate.md
 docs/CreateSequenceRequestStepsInnerTemplateVariableMappingValue.md
 docs/CreateWebhookSettingsRequest.md
@@ -132,6 +135,7 @@ docs/EditInboxMessage200ResponseData.md
 docs/EditInboxMessageRequest.md
 docs/EditInboxMessageRequestReplyMarkup.md
 docs/EditInboxMessageRequestReplyMarkupKeyboardInnerInner.md
+docs/EnrollContacts200Response.md
 docs/EnrollContactsRequest.md
 docs/ErrorResponse.md
 docs/Expired.md
@@ -168,6 +172,10 @@ docs/GetAnalytics402Response.md
 docs/GetBestTimeToPost200Response.md
 docs/GetBestTimeToPost200ResponseSlotsInner.md
 docs/GetBestTimeToPost403Response.md
+docs/GetBroadcast200Response.md
+docs/GetBroadcast200ResponseBroadcast.md
+docs/GetBroadcast200ResponseBroadcastMessage.md
+docs/GetBroadcast200ResponseBroadcastSegmentFilters.md
 docs/GetConnectUrl200Response.md
 docs/GetContentDecay200Response.md
 docs/GetContentDecay200ResponseBucketsInner.md
@@ -253,6 +261,10 @@ docs/GetRedditFlairs200Response.md
 docs/GetRedditFlairs200ResponseFlairsInner.md
 docs/GetRedditSubreddits200Response.md
 docs/GetRedditSubreddits200ResponseSubredditsInner.md
+docs/GetSequence200Response.md
+docs/GetSequence200ResponseSequence.md
+docs/GetSequence200ResponseSequenceStepsInner.md
+docs/GetSequence200ResponseSequenceStepsInnerTemplate.md
 docs/GetTelegramCommands200Response.md
 docs/GetTelegramCommands200ResponseDataInner.md
 docs/GetTelegramConnectStatus200Response.md
@@ -341,6 +353,8 @@ docs/ListAccountGroups200Response.md
 docs/ListAccountGroups200ResponseGroupsInner.md
 docs/ListAccounts200Response.md
 docs/ListApiKeys200Response.md
+docs/ListBroadcastRecipients200Response.md
+docs/ListBroadcastRecipients200ResponseRecipientsInner.md
 docs/ListBroadcasts200Response.md
 docs/ListBroadcasts200ResponseBroadcastsInner.md
 docs/ListCommentAutomations200Response.md
@@ -378,6 +392,8 @@ docs/ListPostsLogs200ResponsePagination.md
 docs/ListQueueSlots200Response.md
 docs/ListQueueSlots200ResponseOneOf.md
 docs/ListQueueSlots200ResponseOneOf1.md
+docs/ListSequenceEnrollments200Response.md
+docs/ListSequenceEnrollments200ResponseEnrollmentsInner.md
 docs/ListSequences200Response.md
 docs/ListSequences200ResponseSequencesInner.md
 docs/ListSnapchatProfiles200Response.md
@@ -453,6 +469,8 @@ docs/ReplyToInboxReviewRequest.md
 docs/RetweetPost200Response.md
 docs/RetweetPostRequest.md
 docs/ReviewsApi.md
+docs/ScheduleBroadcast200Response.md
+docs/ScheduleBroadcast200ResponseBroadcast.md
 docs/ScheduleBroadcastRequest.md
 docs/ScheduleWhatsAppBroadcast200Response.md
 docs/ScheduleWhatsAppBroadcast200ResponseBroadcast.md
@@ -529,6 +547,8 @@ docs/UpdateAccount200Response.md
 docs/UpdateAccountGroup200Response.md
 docs/UpdateAccountGroupRequest.md
 docs/UpdateAccountRequest.md
+docs/UpdateBroadcast200Response.md
+docs/UpdateBroadcast200ResponseBroadcast.md
 docs/UpdateCommentAutomationRequest.md
 docs/UpdateContactRequest.md
 docs/UpdateCustomFieldRequest.md
@@ -566,6 +586,8 @@ docs/UpdateQueueSlot200Response.md
 docs/UpdateQueueSlotRequest.md
 docs/UpdateRedditSubreddits200Response.md
 docs/UpdateRedditSubredditsRequest.md
+docs/UpdateSequence200Response.md
+docs/UpdateSequence200ResponseSequence.md
 docs/UpdateWebhookSettings200Response.md
 docs/UpdateWebhookSettingsRequest.md
 docs/UpdateWhatsAppBusinessProfileRequest.md
@@ -688,6 +710,8 @@ lib/late-sdk/models/account_get_response.rb
 lib/late-sdk/models/account_with_follower_stats.rb
 lib/late-sdk/models/account_with_follower_stats_all_of_account_stats.rb
 lib/late-sdk/models/accounts_list_response.rb
+lib/late-sdk/models/activate_sequence200_response.rb
+lib/late-sdk/models/add_broadcast_recipients200_response.rb
 lib/late-sdk/models/add_broadcast_recipients_request.rb
 lib/late-sdk/models/add_whats_app_broadcast_recipients200_response.rb
 lib/late-sdk/models/add_whats_app_broadcast_recipients_request.rb
@@ -712,6 +736,8 @@ lib/late-sdk/models/bulk_update_whats_app_contacts_request.rb
 lib/late-sdk/models/bulk_upload_posts200_response.rb
 lib/late-sdk/models/bulk_upload_posts200_response_errors_inner.rb
 lib/late-sdk/models/bulk_upload_posts429_response.rb
+lib/late-sdk/models/cancel_broadcast200_response.rb
+lib/late-sdk/models/cancel_broadcast200_response_broadcast.rb
 lib/late-sdk/models/cancel_whats_app_broadcast_schedule200_response.rb
 lib/late-sdk/models/cancel_whats_app_broadcast_schedule200_response_broadcast.rb
 lib/late-sdk/models/caption_response.rb
@@ -761,7 +787,6 @@ lib/late-sdk/models/create_queue_slot201_response.rb
 lib/late-sdk/models/create_queue_slot_request.rb
 lib/late-sdk/models/create_sequence_request.rb
 lib/late-sdk/models/create_sequence_request_steps_inner.rb
-lib/late-sdk/models/create_sequence_request_steps_inner_message.rb
 lib/late-sdk/models/create_sequence_request_steps_inner_template.rb
 lib/late-sdk/models/create_sequence_request_steps_inner_template_variable_mapping_value.rb
 lib/late-sdk/models/create_webhook_settings_request.rb
@@ -799,6 +824,7 @@ lib/late-sdk/models/edit_inbox_message200_response_data.rb
 lib/late-sdk/models/edit_inbox_message_request.rb
 lib/late-sdk/models/edit_inbox_message_request_reply_markup.rb
 lib/late-sdk/models/edit_inbox_message_request_reply_markup_keyboard_inner_inner.rb
+lib/late-sdk/models/enroll_contacts200_response.rb
 lib/late-sdk/models/enroll_contacts_request.rb
 lib/late-sdk/models/error_response.rb
 lib/late-sdk/models/expired.rb
@@ -829,6 +855,10 @@ lib/late-sdk/models/get_analytics402_response.rb
 lib/late-sdk/models/get_best_time_to_post200_response.rb
 lib/late-sdk/models/get_best_time_to_post200_response_slots_inner.rb
 lib/late-sdk/models/get_best_time_to_post403_response.rb
+lib/late-sdk/models/get_broadcast200_response.rb
+lib/late-sdk/models/get_broadcast200_response_broadcast.rb
+lib/late-sdk/models/get_broadcast200_response_broadcast_message.rb
+lib/late-sdk/models/get_broadcast200_response_broadcast_segment_filters.rb
 lib/late-sdk/models/get_connect_url200_response.rb
 lib/late-sdk/models/get_content_decay200_response.rb
 lib/late-sdk/models/get_content_decay200_response_buckets_inner.rb
@@ -914,6 +944,10 @@ lib/late-sdk/models/get_reddit_flairs200_response.rb
 lib/late-sdk/models/get_reddit_flairs200_response_flairs_inner.rb
 lib/late-sdk/models/get_reddit_subreddits200_response.rb
 lib/late-sdk/models/get_reddit_subreddits200_response_subreddits_inner.rb
+lib/late-sdk/models/get_sequence200_response.rb
+lib/late-sdk/models/get_sequence200_response_sequence.rb
+lib/late-sdk/models/get_sequence200_response_sequence_steps_inner.rb
+lib/late-sdk/models/get_sequence200_response_sequence_steps_inner_template.rb
 lib/late-sdk/models/get_telegram_commands200_response.rb
 lib/late-sdk/models/get_telegram_commands200_response_data_inner.rb
 lib/late-sdk/models/get_telegram_connect_status200_response.rb
@@ -1000,6 +1034,8 @@ lib/late-sdk/models/list_account_groups200_response.rb
 lib/late-sdk/models/list_account_groups200_response_groups_inner.rb
 lib/late-sdk/models/list_accounts200_response.rb
 lib/late-sdk/models/list_api_keys200_response.rb
+lib/late-sdk/models/list_broadcast_recipients200_response.rb
+lib/late-sdk/models/list_broadcast_recipients200_response_recipients_inner.rb
 lib/late-sdk/models/list_broadcasts200_response.rb
 lib/late-sdk/models/list_broadcasts200_response_broadcasts_inner.rb
 lib/late-sdk/models/list_comment_automations200_response.rb
@@ -1037,6 +1073,8 @@ lib/late-sdk/models/list_posts_logs200_response_pagination.rb
 lib/late-sdk/models/list_queue_slots200_response.rb
 lib/late-sdk/models/list_queue_slots200_response_one_of.rb
 lib/late-sdk/models/list_queue_slots200_response_one_of1.rb
+lib/late-sdk/models/list_sequence_enrollments200_response.rb
+lib/late-sdk/models/list_sequence_enrollments200_response_enrollments_inner.rb
 lib/late-sdk/models/list_sequences200_response.rb
 lib/late-sdk/models/list_sequences200_response_sequences_inner.rb
 lib/late-sdk/models/list_snapchat_profiles200_response.rb
@@ -1104,6 +1142,8 @@ lib/late-sdk/models/reply_to_inbox_review200_response_reply.rb
 lib/late-sdk/models/reply_to_inbox_review_request.rb
 lib/late-sdk/models/retweet_post200_response.rb
 lib/late-sdk/models/retweet_post_request.rb
+lib/late-sdk/models/schedule_broadcast200_response.rb
+lib/late-sdk/models/schedule_broadcast200_response_broadcast.rb
 lib/late-sdk/models/schedule_broadcast_request.rb
 lib/late-sdk/models/schedule_whats_app_broadcast200_response.rb
 lib/late-sdk/models/schedule_whats_app_broadcast200_response_broadcast.rb
@@ -1177,6 +1217,8 @@ lib/late-sdk/models/update_account200_response.rb
 lib/late-sdk/models/update_account_group200_response.rb
 lib/late-sdk/models/update_account_group_request.rb
 lib/late-sdk/models/update_account_request.rb
+lib/late-sdk/models/update_broadcast200_response.rb
+lib/late-sdk/models/update_broadcast200_response_broadcast.rb
 lib/late-sdk/models/update_comment_automation_request.rb
 lib/late-sdk/models/update_contact_request.rb
 lib/late-sdk/models/update_custom_field_request.rb
@@ -1214,6 +1256,8 @@ lib/late-sdk/models/update_queue_slot200_response.rb
 lib/late-sdk/models/update_queue_slot_request.rb
 lib/late-sdk/models/update_reddit_subreddits200_response.rb
 lib/late-sdk/models/update_reddit_subreddits_request.rb
+lib/late-sdk/models/update_sequence200_response.rb
+lib/late-sdk/models/update_sequence200_response_sequence.rb
 lib/late-sdk/models/update_webhook_settings200_response.rb
 lib/late-sdk/models/update_webhook_settings_request.rb
 lib/late-sdk/models/update_whats_app_business_profile_request.rb
@@ -1324,6 +1368,8 @@ spec/models/account_get_response_spec.rb
 spec/models/account_with_follower_stats_all_of_account_stats_spec.rb
 spec/models/account_with_follower_stats_spec.rb
 spec/models/accounts_list_response_spec.rb
+spec/models/activate_sequence200_response_spec.rb
+spec/models/add_broadcast_recipients200_response_spec.rb
 spec/models/add_broadcast_recipients_request_spec.rb
 spec/models/add_whats_app_broadcast_recipients200_response_spec.rb
 spec/models/add_whats_app_broadcast_recipients_request_recipients_inner_spec.rb
@@ -1348,6 +1394,8 @@ spec/models/bulk_update_whats_app_contacts_request_spec.rb
 spec/models/bulk_upload_posts200_response_errors_inner_spec.rb
 spec/models/bulk_upload_posts200_response_spec.rb
 spec/models/bulk_upload_posts429_response_spec.rb
+spec/models/cancel_broadcast200_response_broadcast_spec.rb
+spec/models/cancel_broadcast200_response_spec.rb
 spec/models/cancel_whats_app_broadcast_schedule200_response_broadcast_spec.rb
 spec/models/cancel_whats_app_broadcast_schedule200_response_spec.rb
 spec/models/caption_response_spec.rb
@@ -1396,7 +1444,6 @@ spec/models/create_profile_request_spec.rb
 spec/models/create_queue_slot201_response_spec.rb
 spec/models/create_queue_slot_request_spec.rb
 spec/models/create_sequence_request_spec.rb
-spec/models/create_sequence_request_steps_inner_message_spec.rb
 spec/models/create_sequence_request_steps_inner_spec.rb
 spec/models/create_sequence_request_steps_inner_template_spec.rb
 spec/models/create_sequence_request_steps_inner_template_variable_mapping_value_spec.rb
@@ -1435,6 +1482,7 @@ spec/models/edit_inbox_message200_response_spec.rb
 spec/models/edit_inbox_message_request_reply_markup_keyboard_inner_inner_spec.rb
 spec/models/edit_inbox_message_request_reply_markup_spec.rb
 spec/models/edit_inbox_message_request_spec.rb
+spec/models/enroll_contacts200_response_spec.rb
 spec/models/enroll_contacts_request_spec.rb
 spec/models/error_response_spec.rb
 spec/models/expired_spec.rb
@@ -1465,6 +1513,10 @@ spec/models/get_analytics402_response_spec.rb
 spec/models/get_best_time_to_post200_response_slots_inner_spec.rb
 spec/models/get_best_time_to_post200_response_spec.rb
 spec/models/get_best_time_to_post403_response_spec.rb
+spec/models/get_broadcast200_response_broadcast_message_spec.rb
+spec/models/get_broadcast200_response_broadcast_segment_filters_spec.rb
+spec/models/get_broadcast200_response_broadcast_spec.rb
+spec/models/get_broadcast200_response_spec.rb
 spec/models/get_connect_url200_response_spec.rb
 spec/models/get_content_decay200_response_buckets_inner_spec.rb
 spec/models/get_content_decay200_response_spec.rb
@@ -1550,6 +1602,10 @@ spec/models/get_reddit_flairs200_response_flairs_inner_spec.rb
 spec/models/get_reddit_flairs200_response_spec.rb
 spec/models/get_reddit_subreddits200_response_spec.rb
 spec/models/get_reddit_subreddits200_response_subreddits_inner_spec.rb
+spec/models/get_sequence200_response_sequence_spec.rb
+spec/models/get_sequence200_response_sequence_steps_inner_spec.rb
+spec/models/get_sequence200_response_sequence_steps_inner_template_spec.rb
+spec/models/get_sequence200_response_spec.rb
 spec/models/get_telegram_commands200_response_data_inner_spec.rb
 spec/models/get_telegram_commands200_response_spec.rb
 spec/models/get_telegram_connect_status200_response_spec.rb
@@ -1636,6 +1692,8 @@ spec/models/list_account_groups200_response_groups_inner_spec.rb
 spec/models/list_account_groups200_response_spec.rb
 spec/models/list_accounts200_response_spec.rb
 spec/models/list_api_keys200_response_spec.rb
+spec/models/list_broadcast_recipients200_response_recipients_inner_spec.rb
+spec/models/list_broadcast_recipients200_response_spec.rb
 spec/models/list_broadcasts200_response_broadcasts_inner_spec.rb
 spec/models/list_broadcasts200_response_spec.rb
 spec/models/list_comment_automations200_response_automations_inner_spec.rb
@@ -1673,6 +1731,8 @@ spec/models/list_posts_logs200_response_spec.rb
 spec/models/list_queue_slots200_response_one_of1_spec.rb
 spec/models/list_queue_slots200_response_one_of_spec.rb
 spec/models/list_queue_slots200_response_spec.rb
+spec/models/list_sequence_enrollments200_response_enrollments_inner_spec.rb
+spec/models/list_sequence_enrollments200_response_spec.rb
 spec/models/list_sequences200_response_sequences_inner_spec.rb
 spec/models/list_sequences200_response_spec.rb
 spec/models/list_snapchat_profiles200_response_public_profiles_inner_spec.rb
@@ -1740,6 +1800,8 @@ spec/models/reply_to_inbox_review200_response_spec.rb
 spec/models/reply_to_inbox_review_request_spec.rb
 spec/models/retweet_post200_response_spec.rb
 spec/models/retweet_post_request_spec.rb
+spec/models/schedule_broadcast200_response_broadcast_spec.rb
+spec/models/schedule_broadcast200_response_spec.rb
 spec/models/schedule_broadcast_request_spec.rb
 spec/models/schedule_whats_app_broadcast200_response_broadcast_spec.rb
 spec/models/schedule_whats_app_broadcast200_response_spec.rb
@@ -1813,6 +1875,8 @@ spec/models/update_account200_response_spec.rb
 spec/models/update_account_group200_response_spec.rb
 spec/models/update_account_group_request_spec.rb
 spec/models/update_account_request_spec.rb
+spec/models/update_broadcast200_response_broadcast_spec.rb
+spec/models/update_broadcast200_response_spec.rb
 spec/models/update_comment_automation_request_spec.rb
 spec/models/update_contact_request_spec.rb
 spec/models/update_custom_field_request_spec.rb
@@ -1850,6 +1914,8 @@ spec/models/update_queue_slot200_response_spec.rb
 spec/models/update_queue_slot_request_spec.rb
 spec/models/update_reddit_subreddits200_response_spec.rb
 spec/models/update_reddit_subreddits_request_spec.rb
+spec/models/update_sequence200_response_sequence_spec.rb
+spec/models/update_sequence200_response_spec.rb
 spec/models/update_webhook_settings200_response_spec.rb
 spec/models/update_webhook_settings_request_spec.rb
 spec/models/update_whats_app_business_profile_request_spec.rb

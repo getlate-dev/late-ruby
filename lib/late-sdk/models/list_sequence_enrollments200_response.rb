@@ -14,13 +14,19 @@ require 'date'
 require 'time'
 
 module Late
-  class CreateSequenceRequestStepsInnerMessage < ApiModelBase
-    attr_accessor :text
+  class ListSequenceEnrollments200Response < ApiModelBase
+    attr_accessor :success
+
+    attr_accessor :enrollments
+
+    attr_accessor :pagination
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'text' => :'text'
+        :'success' => :'success',
+        :'enrollments' => :'enrollments',
+        :'pagination' => :'pagination'
       }
     end
 
@@ -37,7 +43,9 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'text' => :'String'
+        :'success' => :'Boolean',
+        :'enrollments' => :'Array<ListSequenceEnrollments200ResponseEnrollmentsInner>',
+        :'pagination' => :'GetWhatsAppContacts200ResponsePagination'
       }
     end
 
@@ -51,20 +59,30 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::CreateSequenceRequestStepsInnerMessage` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::ListSequenceEnrollments200Response` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::CreateSequenceRequestStepsInnerMessage`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::ListSequenceEnrollments200Response`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'text')
-        self.text = attributes[:'text']
+      if attributes.key?(:'success')
+        self.success = attributes[:'success']
+      end
+
+      if attributes.key?(:'enrollments')
+        if (value = attributes[:'enrollments']).is_a?(Array)
+          self.enrollments = value
+        end
+      end
+
+      if attributes.key?(:'pagination')
+        self.pagination = attributes[:'pagination']
       end
     end
 
@@ -88,7 +106,9 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          text == o.text
+          success == o.success &&
+          enrollments == o.enrollments &&
+          pagination == o.pagination
     end
 
     # @see the `==` method
@@ -100,7 +120,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [text].hash
+      [success, enrollments, pagination].hash
     end
 
     # Builds the object from hash

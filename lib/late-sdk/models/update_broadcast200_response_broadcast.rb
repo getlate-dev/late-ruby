@@ -14,22 +14,25 @@ require 'date'
 require 'time'
 
 module Late
-  class CreateSequenceRequestStepsInner < ApiModelBase
-    attr_accessor :order
+  class UpdateBroadcast200ResponseBroadcast < ApiModelBase
+    attr_accessor :id
 
-    attr_accessor :delay_minutes
+    attr_accessor :name
 
-    attr_accessor :message
+    attr_accessor :description
 
-    attr_accessor :template
+    attr_accessor :status
+
+    attr_accessor :updated_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'order' => :'order',
-        :'delay_minutes' => :'delayMinutes',
-        :'message' => :'message',
-        :'template' => :'template'
+        :'id' => :'id',
+        :'name' => :'name',
+        :'description' => :'description',
+        :'status' => :'status',
+        :'updated_at' => :'updatedAt'
       }
     end
 
@@ -46,10 +49,11 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'order' => :'Integer',
-        :'delay_minutes' => :'Integer',
-        :'message' => :'GetBroadcast200ResponseBroadcastMessage',
-        :'template' => :'CreateSequenceRequestStepsInnerTemplate'
+        :'id' => :'String',
+        :'name' => :'String',
+        :'description' => :'String',
+        :'status' => :'String',
+        :'updated_at' => :'Time'
       }
     end
 
@@ -63,36 +67,36 @@ module Late
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::CreateSequenceRequestStepsInner` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Late::UpdateBroadcast200ResponseBroadcast` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::CreateSequenceRequestStepsInner`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Late::UpdateBroadcast200ResponseBroadcast`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'order')
-        self.order = attributes[:'order']
-      else
-        self.order = nil
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'delay_minutes')
-        self.delay_minutes = attributes[:'delay_minutes']
-      else
-        self.delay_minutes = nil
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'template')
-        self.template = attributes[:'template']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
       end
     end
 
@@ -101,14 +105,6 @@ module Late
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @order.nil?
-        invalid_properties.push('invalid value for "order", order cannot be nil.')
-      end
-
-      if @delay_minutes.nil?
-        invalid_properties.push('invalid value for "delay_minutes", delay_minutes cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -116,29 +112,7 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @order.nil?
-      return false if @delay_minutes.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] order Value to be assigned
-    def order=(order)
-      if order.nil?
-        fail ArgumentError, 'order cannot be nil'
-      end
-
-      @order = order
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] delay_minutes Value to be assigned
-    def delay_minutes=(delay_minutes)
-      if delay_minutes.nil?
-        fail ArgumentError, 'delay_minutes cannot be nil'
-      end
-
-      @delay_minutes = delay_minutes
     end
 
     # Checks equality by comparing each attribute.
@@ -146,10 +120,11 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          order == o.order &&
-          delay_minutes == o.delay_minutes &&
-          message == o.message &&
-          template == o.template
+          id == o.id &&
+          name == o.name &&
+          description == o.description &&
+          status == o.status &&
+          updated_at == o.updated_at
     end
 
     # @see the `==` method
@@ -161,7 +136,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [order, delay_minutes, message, template].hash
+      [id, name, description, status, updated_at].hash
     end
 
     # Builds the object from hash

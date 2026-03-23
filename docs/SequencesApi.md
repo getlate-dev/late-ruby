@@ -18,7 +18,7 @@ All URIs are relative to *https://zernio.com/api*
 
 ## activate_sequence
 
-> activate_sequence(sequence_id)
+> <ActivateSequence200Response> activate_sequence(sequence_id)
 
 Activate a sequence
 
@@ -38,7 +38,8 @@ sequence_id = 'sequence_id_example' # String |
 
 begin
   # Activate a sequence
-  api_instance.activate_sequence(sequence_id)
+  result = api_instance.activate_sequence(sequence_id)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->activate_sequence: #{e}"
 end
@@ -46,9 +47,9 @@ end
 
 #### Using the activate_sequence_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> activate_sequence_with_http_info(sequence_id)
+> <Array(<ActivateSequence200Response>, Integer, Hash)> activate_sequence_with_http_info(sequence_id)
 
 ```ruby
 begin
@@ -56,7 +57,7 @@ begin
   data, status_code, headers = api_instance.activate_sequence_with_http_info(sequence_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ActivateSequence200Response>
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->activate_sequence_with_http_info: #{e}"
 end
@@ -70,7 +71,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ActivateSequence200Response**](ActivateSequence200Response.md)
 
 ### Authorization
 
@@ -216,7 +217,7 @@ nil (empty response body)
 
 ## enroll_contacts
 
-> enroll_contacts(sequence_id, enroll_contacts_request)
+> <EnrollContacts200Response> enroll_contacts(sequence_id, enroll_contacts_request)
 
 Enroll contacts in a sequence
 
@@ -237,7 +238,8 @@ enroll_contacts_request = Late::EnrollContactsRequest.new({contact_ids: ['contac
 
 begin
   # Enroll contacts in a sequence
-  api_instance.enroll_contacts(sequence_id, enroll_contacts_request)
+  result = api_instance.enroll_contacts(sequence_id, enroll_contacts_request)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->enroll_contacts: #{e}"
 end
@@ -245,9 +247,9 @@ end
 
 #### Using the enroll_contacts_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> enroll_contacts_with_http_info(sequence_id, enroll_contacts_request)
+> <Array(<EnrollContacts200Response>, Integer, Hash)> enroll_contacts_with_http_info(sequence_id, enroll_contacts_request)
 
 ```ruby
 begin
@@ -255,7 +257,7 @@ begin
   data, status_code, headers = api_instance.enroll_contacts_with_http_info(sequence_id, enroll_contacts_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <EnrollContacts200Response>
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->enroll_contacts_with_http_info: #{e}"
 end
@@ -270,7 +272,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**EnrollContacts200Response**](EnrollContacts200Response.md)
 
 ### Authorization
 
@@ -284,7 +286,7 @@ nil (empty response body)
 
 ## get_sequence
 
-> get_sequence(sequence_id)
+> <GetSequence200Response> get_sequence(sequence_id)
 
 Get sequence with steps
 
@@ -304,7 +306,8 @@ sequence_id = 'sequence_id_example' # String |
 
 begin
   # Get sequence with steps
-  api_instance.get_sequence(sequence_id)
+  result = api_instance.get_sequence(sequence_id)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->get_sequence: #{e}"
 end
@@ -312,9 +315,9 @@ end
 
 #### Using the get_sequence_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_sequence_with_http_info(sequence_id)
+> <Array(<GetSequence200Response>, Integer, Hash)> get_sequence_with_http_info(sequence_id)
 
 ```ruby
 begin
@@ -322,7 +325,7 @@ begin
   data, status_code, headers = api_instance.get_sequence_with_http_info(sequence_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <GetSequence200Response>
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->get_sequence_with_http_info: #{e}"
 end
@@ -336,7 +339,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**GetSequence200Response**](GetSequence200Response.md)
 
 ### Authorization
 
@@ -350,7 +353,7 @@ nil (empty response body)
 
 ## list_sequence_enrollments
 
-> list_sequence_enrollments(sequence_id, opts)
+> <ListSequenceEnrollments200Response> list_sequence_enrollments(sequence_id, opts)
 
 List enrollments for a sequence
 
@@ -375,7 +378,8 @@ opts = {
 
 begin
   # List enrollments for a sequence
-  api_instance.list_sequence_enrollments(sequence_id, opts)
+  result = api_instance.list_sequence_enrollments(sequence_id, opts)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->list_sequence_enrollments: #{e}"
 end
@@ -383,9 +387,9 @@ end
 
 #### Using the list_sequence_enrollments_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_sequence_enrollments_with_http_info(sequence_id, opts)
+> <Array(<ListSequenceEnrollments200Response>, Integer, Hash)> list_sequence_enrollments_with_http_info(sequence_id, opts)
 
 ```ruby
 begin
@@ -393,7 +397,7 @@ begin
   data, status_code, headers = api_instance.list_sequence_enrollments_with_http_info(sequence_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ListSequenceEnrollments200Response>
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->list_sequence_enrollments_with_http_info: #{e}"
 end
@@ -410,7 +414,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ListSequenceEnrollments200Response**](ListSequenceEnrollments200Response.md)
 
 ### Authorization
 
@@ -499,7 +503,7 @@ end
 
 ## pause_sequence
 
-> pause_sequence(sequence_id)
+> <ActivateSequence200Response> pause_sequence(sequence_id)
 
 Pause a sequence
 
@@ -519,7 +523,8 @@ sequence_id = 'sequence_id_example' # String |
 
 begin
   # Pause a sequence
-  api_instance.pause_sequence(sequence_id)
+  result = api_instance.pause_sequence(sequence_id)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->pause_sequence: #{e}"
 end
@@ -527,9 +532,9 @@ end
 
 #### Using the pause_sequence_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> pause_sequence_with_http_info(sequence_id)
+> <Array(<ActivateSequence200Response>, Integer, Hash)> pause_sequence_with_http_info(sequence_id)
 
 ```ruby
 begin
@@ -537,7 +542,7 @@ begin
   data, status_code, headers = api_instance.pause_sequence_with_http_info(sequence_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ActivateSequence200Response>
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->pause_sequence_with_http_info: #{e}"
 end
@@ -551,7 +556,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ActivateSequence200Response**](ActivateSequence200Response.md)
 
 ### Authorization
 
@@ -633,7 +638,7 @@ nil (empty response body)
 
 ## update_sequence
 
-> update_sequence(sequence_id)
+> <UpdateSequence200Response> update_sequence(sequence_id)
 
 Update a sequence
 
@@ -653,7 +658,8 @@ sequence_id = 'sequence_id_example' # String |
 
 begin
   # Update a sequence
-  api_instance.update_sequence(sequence_id)
+  result = api_instance.update_sequence(sequence_id)
+  p result
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->update_sequence: #{e}"
 end
@@ -661,9 +667,9 @@ end
 
 #### Using the update_sequence_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> update_sequence_with_http_info(sequence_id)
+> <Array(<UpdateSequence200Response>, Integer, Hash)> update_sequence_with_http_info(sequence_id)
 
 ```ruby
 begin
@@ -671,7 +677,7 @@ begin
   data, status_code, headers = api_instance.update_sequence_with_http_info(sequence_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <UpdateSequence200Response>
 rescue Late::ApiError => e
   puts "Error when calling SequencesApi->update_sequence_with_http_info: #{e}"
 end
@@ -685,7 +691,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**UpdateSequence200Response**](UpdateSequence200Response.md)
 
 ### Authorization
 

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **order** | **Integer** |  |  |
 | **delay_minutes** | **Integer** |  |  |
-| **message** | [**CreateSequenceRequestStepsInnerMessage**](CreateSequenceRequestStepsInnerMessage.md) |  | [optional] |
+| **message** | [**GetBroadcast200ResponseBroadcastMessage**](GetBroadcast200ResponseBroadcastMessage.md) |  | [optional] |
 | **template** | [**CreateSequenceRequestStepsInnerTemplate**](CreateSequenceRequestStepsInnerTemplate.md) |  | [optional] |
 
 ## Example
