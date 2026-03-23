@@ -25,6 +25,9 @@ module Late
 
     attr_accessor :status
 
+    # Template name or message text snippet
+    attr_accessor :message_preview
+
     attr_accessor :recipient_count
 
     attr_accessor :scheduled_at
@@ -73,6 +76,7 @@ module Late
         :'description' => :'description',
         :'template' => :'template',
         :'status' => :'status',
+        :'message_preview' => :'messagePreview',
         :'recipient_count' => :'recipientCount',
         :'scheduled_at' => :'scheduledAt',
         :'started_at' => :'startedAt',
@@ -103,6 +107,7 @@ module Late
         :'description' => :'String',
         :'template' => :'GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate',
         :'status' => :'String',
+        :'message_preview' => :'String',
         :'recipient_count' => :'Integer',
         :'scheduled_at' => :'Time',
         :'started_at' => :'Time',
@@ -155,6 +160,10 @@ module Late
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'message_preview')
+        self.message_preview = attributes[:'message_preview']
       end
 
       if attributes.key?(:'recipient_count')
@@ -231,6 +240,7 @@ module Late
           description == o.description &&
           template == o.template &&
           status == o.status &&
+          message_preview == o.message_preview &&
           recipient_count == o.recipient_count &&
           scheduled_at == o.scheduled_at &&
           started_at == o.started_at &&
@@ -251,7 +261,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, description, template, status, recipient_count, scheduled_at, started_at, completed_at, sent_count, delivered_count, read_count, failed_count, created_at].hash
+      [id, name, description, template, status, message_preview, recipient_count, scheduled_at, started_at, completed_at, sent_count, delivered_count, read_count, failed_count, created_at].hash
     end
 
     # Builds the object from hash

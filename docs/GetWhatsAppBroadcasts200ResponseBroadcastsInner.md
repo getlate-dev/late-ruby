@@ -9,6 +9,7 @@
 | **description** | **String** |  | [optional] |
 | **template** | [**GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate**](GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate.md) |  | [optional] |
 | **status** | **String** |  | [optional] |
+| **message_preview** | **String** | Template name or message text snippet | [optional] |
 | **recipient_count** | **Integer** |  | [optional] |
 | **scheduled_at** | **Time** |  | [optional] |
 | **started_at** | **Time** |  | [optional] |
@@ -30,6 +31,7 @@ instance = Late::GetWhatsAppBroadcasts200ResponseBroadcastsInner.new(
   description: null,
   template: null,
   status: null,
+  message_preview: null,
   recipient_count: null,
   scheduled_at: null,
   started_at: null,
