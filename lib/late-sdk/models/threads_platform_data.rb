@@ -16,12 +16,16 @@ require 'time'
 module Late
   # Up to 10 images per carousel (no videos). Videos must be H.264/AAC MP4, max 5 min. Images JPEG/PNG, max 8 MB. Use threadItems for reply chains.
   class ThreadsPlatformData < ApiModelBase
+    # Topic tag for post categorization and discoverability on Threads. Must be 1-50 characters, cannot contain periods (.) or ampersands (&). Overrides auto-extraction from content hashtags when provided.
+    attr_accessor :topic_tag
+
     # Sequence of posts in a Threads thread (root then replies in order).
     attr_accessor :thread_items
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'topic_tag' => :'topic_tag',
         :'thread_items' => :'threadItems'
       }
     end
@@ -39,6 +43,7 @@ module Late
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'topic_tag' => :'String',
         :'thread_items' => :'Array<TwitterPlatformDataThreadItemsInner>'
       }
     end
@@ -65,6 +70,10 @@ module Late
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'topic_tag')
+        self.topic_tag = attributes[:'topic_tag']
+      end
+
       if attributes.key?(:'thread_items')
         if (value = attributes[:'thread_items']).is_a?(Array)
           self.thread_items = value
@@ -77,6 +86,14 @@ module Late
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if !@topic_tag.nil? && @topic_tag.to_s.length > 50
+        invalid_properties.push('invalid value for "topic_tag", the character length must be smaller than or equal to 50.')
+      end
+
+      if !@topic_tag.nil? && @topic_tag.to_s.length < 1
+        invalid_properties.push('invalid value for "topic_tag", the character length must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -84,7 +101,27 @@ module Late
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if !@topic_tag.nil? && @topic_tag.to_s.length > 50
+      return false if !@topic_tag.nil? && @topic_tag.to_s.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] topic_tag Value to be assigned
+    def topic_tag=(topic_tag)
+      if topic_tag.nil?
+        fail ArgumentError, 'topic_tag cannot be nil'
+      end
+
+      if topic_tag.to_s.length > 50
+        fail ArgumentError, 'invalid value for "topic_tag", the character length must be smaller than or equal to 50.'
+      end
+
+      if topic_tag.to_s.length < 1
+        fail ArgumentError, 'invalid value for "topic_tag", the character length must be greater than or equal to 1.'
+      end
+
+      @topic_tag = topic_tag
     end
 
     # Checks equality by comparing each attribute.
@@ -92,6 +129,7 @@ module Late
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          topic_tag == o.topic_tag &&
           thread_items == o.thread_items
     end
 
@@ -104,7 +142,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [thread_items].hash
+      [topic_tag, thread_items].hash
     end
 
     # Builds the object from hash
