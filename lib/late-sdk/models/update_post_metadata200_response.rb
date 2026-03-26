@@ -19,6 +19,9 @@ module Late
 
     attr_accessor :message
 
+    # Only present in direct video ID mode
+    attr_accessor :video_id
+
     attr_accessor :updated_fields
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -26,6 +29,7 @@ module Late
       {
         :'success' => :'success',
         :'message' => :'message',
+        :'video_id' => :'videoId',
         :'updated_fields' => :'updatedFields'
       }
     end
@@ -45,6 +49,7 @@ module Late
       {
         :'success' => :'Boolean',
         :'message' => :'String',
+        :'video_id' => :'String',
         :'updated_fields' => :'Array<String>'
       }
     end
@@ -79,6 +84,10 @@ module Late
         self.message = attributes[:'message']
       end
 
+      if attributes.key?(:'video_id')
+        self.video_id = attributes[:'video_id']
+      end
+
       if attributes.key?(:'updated_fields')
         if (value = attributes[:'updated_fields']).is_a?(Array)
           self.updated_fields = value
@@ -108,6 +117,7 @@ module Late
       self.class == o.class &&
           success == o.success &&
           message == o.message &&
+          video_id == o.video_id &&
           updated_fields == o.updated_fields
     end
 
@@ -120,7 +130,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [success, message, updated_fields].hash
+      [success, message, video_id, updated_fields].hash
     end
 
     # Builds the object from hash

@@ -18,6 +18,12 @@ module Late
     # The platform to update metadata on
     attr_accessor :platform
 
+    # YouTube video ID (required for direct mode, ignored for post-based mode)
+    attr_accessor :video_id
+
+    # Zernio social account ID (required for direct mode, ignored for post-based mode)
+    attr_accessor :account_id
+
     # New video title (max 100 characters for YouTube)
     attr_accessor :title
 
@@ -59,6 +65,8 @@ module Late
     def self.attribute_map
       {
         :'platform' => :'platform',
+        :'video_id' => :'videoId',
+        :'account_id' => :'accountId',
         :'title' => :'title',
         :'description' => :'description',
         :'tags' => :'tags',
@@ -81,6 +89,8 @@ module Late
     def self.openapi_types
       {
         :'platform' => :'String',
+        :'video_id' => :'String',
+        :'account_id' => :'String',
         :'title' => :'String',
         :'description' => :'String',
         :'tags' => :'Array<String>',
@@ -115,6 +125,14 @@ module Late
         self.platform = attributes[:'platform']
       else
         self.platform = nil
+      end
+
+      if attributes.key?(:'video_id')
+        self.video_id = attributes[:'video_id']
+      end
+
+      if attributes.key?(:'account_id')
+        self.account_id = attributes[:'account_id']
       end
 
       if attributes.key?(:'title')
@@ -209,6 +227,8 @@ module Late
       return true if self.equal?(o)
       self.class == o.class &&
           platform == o.platform &&
+          video_id == o.video_id &&
+          account_id == o.account_id &&
           title == o.title &&
           description == o.description &&
           tags == o.tags &&
@@ -225,7 +245,7 @@ module Late
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [platform, title, description, tags, category_id, privacy_status].hash
+      [platform, video_id, account_id, title, description, tags, category_id, privacy_status].hash
     end
 
     # Builds the object from hash

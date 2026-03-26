@@ -143,8 +143,8 @@ describe 'PostsApi' do
 
   # unit tests for update_post_metadata
   # Update post metadata
-  # Updates metadata of an already-published post on the specified platform without re-uploading the media. Currently only supported for YouTube videos (title, description, tags, category, privacy status). The post must have \&quot;published\&quot; status on the target platform. At least one updatable field is required. 
-  # @param post_id 
+  # Updates metadata of a published video on the specified platform without re-uploading. Currently only supported for YouTube. At least one updatable field is required.  **Two modes:**  1. **Post-based** (video published through Zernio): pass the Zernio postId in the URL and &#x60;platform&#x60; in the body. 2. **Direct video ID** (video uploaded outside Zernio, e.g. directly to YouTube): use &#x60;_&#x60; as the postId,    and pass &#x60;videoId&#x60; + &#x60;accountId&#x60; + &#x60;platform&#x60; in the body. The accountId is the Zernio social account ID    for the connected YouTube channel. 
+  # @param post_id Zernio post ID, or \&quot;_\&quot; when using direct video ID mode
   # @param update_post_metadata_request 
   # @param [Hash] opts the optional parameters
   # @return [UpdatePostMetadata200Response]
