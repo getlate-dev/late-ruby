@@ -20,6 +20,7 @@ docs/AddBroadcastRecipientsRequest.md
 docs/AddWhatsAppBroadcastRecipients200Response.md
 docs/AddWhatsAppBroadcastRecipientsRequest.md
 docs/AddWhatsAppBroadcastRecipientsRequestRecipientsInner.md
+docs/AddWhatsAppGroupParticipantsRequest.md
 docs/AnalyticsApi.md
 docs/AnalyticsListResponse.md
 docs/AnalyticsListResponsePostsInner.md
@@ -29,6 +30,7 @@ docs/AnalyticsSinglePostResponse.md
 docs/AnalyticsSinglePostResponseMediaItemsInner.md
 docs/ApiKey.md
 docs/ApiKeyProfileIdsInner.md
+docs/ApproveWhatsAppGroupJoinRequestsRequest.md
 docs/BlueskyPlatformData.md
 docs/BookmarkPost200Response.md
 docs/BookmarkPostRequest.md
@@ -119,6 +121,10 @@ docs/CreateWhatsAppBroadcastRequestRecipientsInner.md
 docs/CreateWhatsAppContact200Response.md
 docs/CreateWhatsAppContact200ResponseContact.md
 docs/CreateWhatsAppContactRequest.md
+docs/CreateWhatsAppGroupChat201Response.md
+docs/CreateWhatsAppGroupChat201ResponseGroup.md
+docs/CreateWhatsAppGroupChatRequest.md
+docs/CreateWhatsAppGroupInviteLink200Response.md
 docs/CreateWhatsAppTemplate200Response.md
 docs/CreateWhatsAppTemplate200ResponseTemplate.md
 docs/CreateWhatsAppTemplateRequest.md
@@ -314,6 +320,9 @@ docs/GetWhatsAppContacts200ResponseFilters.md
 docs/GetWhatsAppContacts200ResponsePagination.md
 docs/GetWhatsAppDisplayName200Response.md
 docs/GetWhatsAppDisplayName200ResponseDisplayName.md
+docs/GetWhatsAppGroupChat200Response.md
+docs/GetWhatsAppGroupChat200ResponseGroup.md
+docs/GetWhatsAppGroupChat200ResponseGroupParticipantsInner.md
 docs/GetWhatsAppGroups200Response.md
 docs/GetWhatsAppGroups200ResponseGroupsInner.md
 docs/GetWhatsAppGroups200ResponseSummary.md
@@ -425,6 +434,12 @@ docs/ListSnapchatProfiles200Response.md
 docs/ListSnapchatProfiles200ResponsePublicProfilesInner.md
 docs/ListUsers200Response.md
 docs/ListUsers200ResponseUsersInner.md
+docs/ListWhatsAppGroupChats200Response.md
+docs/ListWhatsAppGroupChats200ResponseGroupsInner.md
+docs/ListWhatsAppGroupChats200ResponsePaging.md
+docs/ListWhatsAppGroupChats200ResponsePagingCursors.md
+docs/ListWhatsAppGroupJoinRequests200Response.md
+docs/ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner.md
 docs/LogsApi.md
 docs/MediaApi.md
 docs/MediaItem.md
@@ -478,11 +493,13 @@ docs/RecyclingConfig.md
 docs/RecyclingState.md
 docs/RedditPlatformData.md
 docs/RedditSearchApi.md
+docs/RejectWhatsAppGroupJoinRequestsRequest.md
 docs/ReleaseWhatsAppPhoneNumber200Response.md
 docs/ReleaseWhatsAppPhoneNumber200ResponsePhoneNumber.md
 docs/RemoveBookmark200Response.md
 docs/RemoveWhatsAppBroadcastRecipients200Response.md
 docs/RemoveWhatsAppBroadcastRecipientsRequest.md
+docs/RemoveWhatsAppGroupParticipantsRequest.md
 docs/RenameWhatsAppGroup200Response.md
 docs/RenameWhatsAppGroupRequest.md
 docs/ReplyToInboxPost200Response.md
@@ -630,6 +647,7 @@ docs/UpdateWhatsAppContactRequest.md
 docs/UpdateWhatsAppDisplayName200Response.md
 docs/UpdateWhatsAppDisplayName200ResponseDisplayName.md
 docs/UpdateWhatsAppDisplayNameRequest.md
+docs/UpdateWhatsAppGroupChatRequest.md
 docs/UpdateWhatsAppTemplate200Response.md
 docs/UpdateWhatsAppTemplate200ResponseTemplate.md
 docs/UpdateWhatsAppTemplateRequest.md
@@ -749,6 +767,7 @@ lib/late-sdk/models/add_broadcast_recipients_request.rb
 lib/late-sdk/models/add_whats_app_broadcast_recipients200_response.rb
 lib/late-sdk/models/add_whats_app_broadcast_recipients_request.rb
 lib/late-sdk/models/add_whats_app_broadcast_recipients_request_recipients_inner.rb
+lib/late-sdk/models/add_whats_app_group_participants_request.rb
 lib/late-sdk/models/analytics_list_response.rb
 lib/late-sdk/models/analytics_list_response_posts_inner.rb
 lib/late-sdk/models/analytics_overview.rb
@@ -757,6 +776,7 @@ lib/late-sdk/models/analytics_single_post_response.rb
 lib/late-sdk/models/analytics_single_post_response_media_items_inner.rb
 lib/late-sdk/models/api_key.rb
 lib/late-sdk/models/api_key_profile_ids_inner.rb
+lib/late-sdk/models/approve_whats_app_group_join_requests_request.rb
 lib/late-sdk/models/bluesky_platform_data.rb
 lib/late-sdk/models/bookmark_post200_response.rb
 lib/late-sdk/models/bookmark_post_request.rb
@@ -842,6 +862,10 @@ lib/late-sdk/models/create_whats_app_broadcast_request_recipients_inner.rb
 lib/late-sdk/models/create_whats_app_contact200_response.rb
 lib/late-sdk/models/create_whats_app_contact200_response_contact.rb
 lib/late-sdk/models/create_whats_app_contact_request.rb
+lib/late-sdk/models/create_whats_app_group_chat201_response.rb
+lib/late-sdk/models/create_whats_app_group_chat201_response_group.rb
+lib/late-sdk/models/create_whats_app_group_chat_request.rb
+lib/late-sdk/models/create_whats_app_group_invite_link200_response.rb
 lib/late-sdk/models/create_whats_app_template200_response.rb
 lib/late-sdk/models/create_whats_app_template200_response_template.rb
 lib/late-sdk/models/create_whats_app_template_request.rb
@@ -1030,6 +1054,9 @@ lib/late-sdk/models/get_whats_app_contacts200_response_filters.rb
 lib/late-sdk/models/get_whats_app_contacts200_response_pagination.rb
 lib/late-sdk/models/get_whats_app_display_name200_response.rb
 lib/late-sdk/models/get_whats_app_display_name200_response_display_name.rb
+lib/late-sdk/models/get_whats_app_group_chat200_response.rb
+lib/late-sdk/models/get_whats_app_group_chat200_response_group.rb
+lib/late-sdk/models/get_whats_app_group_chat200_response_group_participants_inner.rb
 lib/late-sdk/models/get_whats_app_groups200_response.rb
 lib/late-sdk/models/get_whats_app_groups200_response_groups_inner.rb
 lib/late-sdk/models/get_whats_app_groups200_response_summary.rb
@@ -1139,6 +1166,12 @@ lib/late-sdk/models/list_snapchat_profiles200_response.rb
 lib/late-sdk/models/list_snapchat_profiles200_response_public_profiles_inner.rb
 lib/late-sdk/models/list_users200_response.rb
 lib/late-sdk/models/list_users200_response_users_inner.rb
+lib/late-sdk/models/list_whats_app_group_chats200_response.rb
+lib/late-sdk/models/list_whats_app_group_chats200_response_groups_inner.rb
+lib/late-sdk/models/list_whats_app_group_chats200_response_paging.rb
+lib/late-sdk/models/list_whats_app_group_chats200_response_paging_cursors.rb
+lib/late-sdk/models/list_whats_app_group_join_requests200_response.rb
+lib/late-sdk/models/list_whats_app_group_join_requests200_response_join_requests_inner.rb
 lib/late-sdk/models/media_item.rb
 lib/late-sdk/models/media_upload_response.rb
 lib/late-sdk/models/money.rb
@@ -1185,11 +1218,13 @@ lib/late-sdk/models/queue_update_response.rb
 lib/late-sdk/models/recycling_config.rb
 lib/late-sdk/models/recycling_state.rb
 lib/late-sdk/models/reddit_platform_data.rb
+lib/late-sdk/models/reject_whats_app_group_join_requests_request.rb
 lib/late-sdk/models/release_whats_app_phone_number200_response.rb
 lib/late-sdk/models/release_whats_app_phone_number200_response_phone_number.rb
 lib/late-sdk/models/remove_bookmark200_response.rb
 lib/late-sdk/models/remove_whats_app_broadcast_recipients200_response.rb
 lib/late-sdk/models/remove_whats_app_broadcast_recipients_request.rb
+lib/late-sdk/models/remove_whats_app_group_participants_request.rb
 lib/late-sdk/models/rename_whats_app_group200_response.rb
 lib/late-sdk/models/rename_whats_app_group_request.rb
 lib/late-sdk/models/reply_to_inbox_post200_response.rb
@@ -1333,6 +1368,7 @@ lib/late-sdk/models/update_whats_app_contact_request.rb
 lib/late-sdk/models/update_whats_app_display_name200_response.rb
 lib/late-sdk/models/update_whats_app_display_name200_response_display_name.rb
 lib/late-sdk/models/update_whats_app_display_name_request.rb
+lib/late-sdk/models/update_whats_app_group_chat_request.rb
 lib/late-sdk/models/update_whats_app_template200_response.rb
 lib/late-sdk/models/update_whats_app_template200_response_template.rb
 lib/late-sdk/models/update_whats_app_template_request.rb
@@ -1440,6 +1476,7 @@ spec/models/add_broadcast_recipients_request_spec.rb
 spec/models/add_whats_app_broadcast_recipients200_response_spec.rb
 spec/models/add_whats_app_broadcast_recipients_request_recipients_inner_spec.rb
 spec/models/add_whats_app_broadcast_recipients_request_spec.rb
+spec/models/add_whats_app_group_participants_request_spec.rb
 spec/models/analytics_list_response_posts_inner_spec.rb
 spec/models/analytics_list_response_spec.rb
 spec/models/analytics_overview_data_staleness_spec.rb
@@ -1448,6 +1485,7 @@ spec/models/analytics_single_post_response_media_items_inner_spec.rb
 spec/models/analytics_single_post_response_spec.rb
 spec/models/api_key_profile_ids_inner_spec.rb
 spec/models/api_key_spec.rb
+spec/models/approve_whats_app_group_join_requests_request_spec.rb
 spec/models/bluesky_platform_data_spec.rb
 spec/models/bookmark_post200_response_spec.rb
 spec/models/bookmark_post_request_spec.rb
@@ -1533,6 +1571,10 @@ spec/models/create_whats_app_broadcast_request_spec.rb
 spec/models/create_whats_app_contact200_response_contact_spec.rb
 spec/models/create_whats_app_contact200_response_spec.rb
 spec/models/create_whats_app_contact_request_spec.rb
+spec/models/create_whats_app_group_chat201_response_group_spec.rb
+spec/models/create_whats_app_group_chat201_response_spec.rb
+spec/models/create_whats_app_group_chat_request_spec.rb
+spec/models/create_whats_app_group_invite_link200_response_spec.rb
 spec/models/create_whats_app_template200_response_spec.rb
 spec/models/create_whats_app_template200_response_template_spec.rb
 spec/models/create_whats_app_template_request_library_template_button_inputs_inner_spec.rb
@@ -1721,6 +1763,9 @@ spec/models/get_whats_app_contacts200_response_pagination_spec.rb
 spec/models/get_whats_app_contacts200_response_spec.rb
 spec/models/get_whats_app_display_name200_response_display_name_spec.rb
 spec/models/get_whats_app_display_name200_response_spec.rb
+spec/models/get_whats_app_group_chat200_response_group_participants_inner_spec.rb
+spec/models/get_whats_app_group_chat200_response_group_spec.rb
+spec/models/get_whats_app_group_chat200_response_spec.rb
 spec/models/get_whats_app_groups200_response_groups_inner_spec.rb
 spec/models/get_whats_app_groups200_response_spec.rb
 spec/models/get_whats_app_groups200_response_summary_spec.rb
@@ -1830,6 +1875,12 @@ spec/models/list_snapchat_profiles200_response_public_profiles_inner_spec.rb
 spec/models/list_snapchat_profiles200_response_spec.rb
 spec/models/list_users200_response_spec.rb
 spec/models/list_users200_response_users_inner_spec.rb
+spec/models/list_whats_app_group_chats200_response_groups_inner_spec.rb
+spec/models/list_whats_app_group_chats200_response_paging_cursors_spec.rb
+spec/models/list_whats_app_group_chats200_response_paging_spec.rb
+spec/models/list_whats_app_group_chats200_response_spec.rb
+spec/models/list_whats_app_group_join_requests200_response_join_requests_inner_spec.rb
+spec/models/list_whats_app_group_join_requests200_response_spec.rb
 spec/models/media_item_spec.rb
 spec/models/media_upload_response_spec.rb
 spec/models/money_spec.rb
@@ -1876,11 +1927,13 @@ spec/models/queue_update_response_spec.rb
 spec/models/recycling_config_spec.rb
 spec/models/recycling_state_spec.rb
 spec/models/reddit_platform_data_spec.rb
+spec/models/reject_whats_app_group_join_requests_request_spec.rb
 spec/models/release_whats_app_phone_number200_response_phone_number_spec.rb
 spec/models/release_whats_app_phone_number200_response_spec.rb
 spec/models/remove_bookmark200_response_spec.rb
 spec/models/remove_whats_app_broadcast_recipients200_response_spec.rb
 spec/models/remove_whats_app_broadcast_recipients_request_spec.rb
+spec/models/remove_whats_app_group_participants_request_spec.rb
 spec/models/rename_whats_app_group200_response_spec.rb
 spec/models/rename_whats_app_group_request_spec.rb
 spec/models/reply_to_inbox_post200_response_data_spec.rb
@@ -2024,6 +2077,7 @@ spec/models/update_whats_app_contact_request_spec.rb
 spec/models/update_whats_app_display_name200_response_display_name_spec.rb
 spec/models/update_whats_app_display_name200_response_spec.rb
 spec/models/update_whats_app_display_name_request_spec.rb
+spec/models/update_whats_app_group_chat_request_spec.rb
 spec/models/update_whats_app_template200_response_spec.rb
 spec/models/update_whats_app_template200_response_template_spec.rb
 spec/models/update_whats_app_template_request_spec.rb

@@ -45,6 +45,34 @@ describe 'WhatsAppApi' do
     end
   end
 
+  # unit tests for add_whats_app_group_participants
+  # Add participants
+  # Add participants to a WhatsApp group. Maximum 8 participants per request. 
+  # @param group_id Group ID
+  # @param account_id WhatsApp social account ID
+  # @param add_whats_app_group_participants_request 
+  # @param [Hash] opts the optional parameters
+  # @return [UnpublishPost200Response]
+  describe 'add_whats_app_group_participants test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for approve_whats_app_group_join_requests
+  # Approve join requests
+  # Approve pending join requests for a WhatsApp group. 
+  # @param group_id Group ID
+  # @param account_id WhatsApp social account ID
+  # @param approve_whats_app_group_join_requests_request 
+  # @param [Hash] opts the optional parameters
+  # @return [UnpublishPost200Response]
+  describe 'approve_whats_app_group_join_requests test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for bulk_delete_whats_app_contacts
   # Bulk delete contacts
   # **Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; for individual deletes instead. Permanently delete multiple contacts at once (max 500 per request). 
@@ -105,6 +133,31 @@ describe 'WhatsAppApi' do
     end
   end
 
+  # unit tests for create_whats_app_group_chat
+  # Create group
+  # Create a new WhatsApp group chat. Returns the group ID and optionally an invite link. 
+  # @param create_whats_app_group_chat_request 
+  # @param [Hash] opts the optional parameters
+  # @return [CreateWhatsAppGroupChat201Response]
+  describe 'create_whats_app_group_chat test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for create_whats_app_group_invite_link
+  # Create invite link
+  # Create a new invite link for a WhatsApp group. The previous link is revoked. 
+  # @param group_id Group ID
+  # @param account_id WhatsApp social account ID
+  # @param [Hash] opts the optional parameters
+  # @return [CreateWhatsAppGroupInviteLink200Response]
+  describe 'create_whats_app_group_invite_link test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for create_whats_app_template
   # Create template
   # Create a new message template. Supports two modes:  **Custom template:** Provide &#x60;components&#x60; with your own content. Submitted to Meta for review (can take up to 24h).  **Library template:** Provide &#x60;library_template_name&#x60; instead of &#x60;components&#x60; to use a pre-built template from Meta&#39;s template library. Library templates are **pre-approved** (no review wait). You can optionally customize parameters and buttons via &#x60;library_template_body_inputs&#x60; and &#x60;library_template_button_inputs&#x60;.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
@@ -148,6 +201,19 @@ describe 'WhatsAppApi' do
   # @param [Hash] opts the optional parameters
   # @return [RenameWhatsAppGroup200Response]
   describe 'delete_whats_app_group test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_whats_app_group_chat
+  # Delete group
+  # Delete a WhatsApp group and remove all participants. 
+  # @param group_id Group ID
+  # @param account_id WhatsApp social account ID
+  # @param [Hash] opts the optional parameters
+  # @return [UnpublishPost200Response]
+  describe 'delete_whats_app_group_chat test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -262,6 +328,19 @@ describe 'WhatsAppApi' do
     end
   end
 
+  # unit tests for get_whats_app_group_chat
+  # Get group info
+  # Retrieve metadata about a WhatsApp group including subject, description, participants, and settings. 
+  # @param group_id Group ID
+  # @param account_id WhatsApp social account ID
+  # @param [Hash] opts the optional parameters
+  # @return [GetWhatsAppGroupChat200Response]
+  describe 'get_whats_app_group_chat test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_whats_app_groups
   # List contact groups
   # **Deprecated.** Use contact tags via &#x60;GET /v1/contacts&#x60; for grouping instead. WhatsApp groups have no cross-platform equivalent. List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
@@ -311,6 +390,47 @@ describe 'WhatsAppApi' do
     end
   end
 
+  # unit tests for list_whats_app_group_chats
+  # List active groups
+  # List active WhatsApp group chats for a business phone number. These are actual WhatsApp group conversations on the platform. 
+  # @param account_id WhatsApp social account ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit Max groups to return
+  # @option opts [String] :after Pagination cursor
+  # @return [ListWhatsAppGroupChats200Response]
+  describe 'list_whats_app_group_chats test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for list_whats_app_group_join_requests
+  # List join requests
+  # List pending join requests for a WhatsApp group (only for groups with approval_required mode). 
+  # @param group_id Group ID
+  # @param account_id WhatsApp social account ID
+  # @param [Hash] opts the optional parameters
+  # @return [ListWhatsAppGroupJoinRequests200Response]
+  describe 'list_whats_app_group_join_requests test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for reject_whats_app_group_join_requests
+  # Reject join requests
+  # Reject pending join requests for a WhatsApp group. 
+  # @param group_id Group ID
+  # @param account_id WhatsApp social account ID
+  # @param reject_whats_app_group_join_requests_request 
+  # @param [Hash] opts the optional parameters
+  # @return [UnpublishPost200Response]
+  describe 'reject_whats_app_group_join_requests test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for remove_whats_app_broadcast_recipients
   # Remove recipients
   # **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; with removal flag instead. Remove recipients from a draft broadcast by phone number. 
@@ -319,6 +439,20 @@ describe 'WhatsAppApi' do
   # @param [Hash] opts the optional parameters
   # @return [RemoveWhatsAppBroadcastRecipients200Response]
   describe 'remove_whats_app_broadcast_recipients test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for remove_whats_app_group_participants
+  # Remove participants
+  # Remove participants from a WhatsApp group. 
+  # @param group_id Group ID
+  # @param account_id WhatsApp social account ID
+  # @param remove_whats_app_group_participants_request 
+  # @param [Hash] opts the optional parameters
+  # @return [UnpublishPost200Response]
+  describe 'remove_whats_app_group_participants test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -405,6 +539,20 @@ describe 'WhatsAppApi' do
   # @param [Hash] opts the optional parameters
   # @return [UpdateWhatsAppDisplayName200Response]
   describe 'update_whats_app_display_name test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_whats_app_group_chat
+  # Update group settings
+  # Update the subject, description, or join approval mode of a WhatsApp group. 
+  # @param group_id Group ID
+  # @param account_id WhatsApp social account ID
+  # @param update_whats_app_group_chat_request 
+  # @param [Hash] opts the optional parameters
+  # @return [UnpublishPost200Response]
+  describe 'update_whats_app_group_chat test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

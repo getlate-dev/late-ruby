@@ -93,6 +93,168 @@ module Late
       return data, status_code, headers
     end
 
+    # Add participants
+    # Add participants to a WhatsApp group. Maximum 8 participants per request. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param add_whats_app_group_participants_request [AddWhatsAppGroupParticipantsRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [UnpublishPost200Response]
+    def add_whats_app_group_participants(group_id, account_id, add_whats_app_group_participants_request, opts = {})
+      data, _status_code, _headers = add_whats_app_group_participants_with_http_info(group_id, account_id, add_whats_app_group_participants_request, opts)
+      data
+    end
+
+    # Add participants
+    # Add participants to a WhatsApp group. Maximum 8 participants per request. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param add_whats_app_group_participants_request [AddWhatsAppGroupParticipantsRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UnpublishPost200Response, Integer, Hash)>] UnpublishPost200Response data, response status code and response headers
+    def add_whats_app_group_participants_with_http_info(group_id, account_id, add_whats_app_group_participants_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WhatsAppApi.add_whats_app_group_participants ...'
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling WhatsAppApi.add_whats_app_group_participants"
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling WhatsAppApi.add_whats_app_group_participants"
+      end
+      # verify the required parameter 'add_whats_app_group_participants_request' is set
+      if @api_client.config.client_side_validation && add_whats_app_group_participants_request.nil?
+        fail ArgumentError, "Missing the required parameter 'add_whats_app_group_participants_request' when calling WhatsAppApi.add_whats_app_group_participants"
+      end
+      # resource path
+      local_var_path = '/v1/whatsapp/wa-groups/{groupId}/participants'.sub('{' + 'groupId' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(add_whats_app_group_participants_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UnpublishPost200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WhatsAppApi.add_whats_app_group_participants",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WhatsAppApi#add_whats_app_group_participants\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Approve join requests
+    # Approve pending join requests for a WhatsApp group. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param approve_whats_app_group_join_requests_request [ApproveWhatsAppGroupJoinRequestsRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [UnpublishPost200Response]
+    def approve_whats_app_group_join_requests(group_id, account_id, approve_whats_app_group_join_requests_request, opts = {})
+      data, _status_code, _headers = approve_whats_app_group_join_requests_with_http_info(group_id, account_id, approve_whats_app_group_join_requests_request, opts)
+      data
+    end
+
+    # Approve join requests
+    # Approve pending join requests for a WhatsApp group. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param approve_whats_app_group_join_requests_request [ApproveWhatsAppGroupJoinRequestsRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UnpublishPost200Response, Integer, Hash)>] UnpublishPost200Response data, response status code and response headers
+    def approve_whats_app_group_join_requests_with_http_info(group_id, account_id, approve_whats_app_group_join_requests_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WhatsAppApi.approve_whats_app_group_join_requests ...'
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling WhatsAppApi.approve_whats_app_group_join_requests"
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling WhatsAppApi.approve_whats_app_group_join_requests"
+      end
+      # verify the required parameter 'approve_whats_app_group_join_requests_request' is set
+      if @api_client.config.client_side_validation && approve_whats_app_group_join_requests_request.nil?
+        fail ArgumentError, "Missing the required parameter 'approve_whats_app_group_join_requests_request' when calling WhatsAppApi.approve_whats_app_group_join_requests"
+      end
+      # resource path
+      local_var_path = '/v1/whatsapp/wa-groups/{groupId}/join-requests'.sub('{' + 'groupId' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(approve_whats_app_group_join_requests_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UnpublishPost200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WhatsAppApi.approve_whats_app_group_join_requests",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WhatsAppApi#approve_whats_app_group_join_requests\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Bulk delete contacts
     # **Deprecated.** Use `DELETE /v1/contacts/{id}` for individual deletes instead. Permanently delete multiple contacts at once (max 500 per request). 
     # @param bulk_delete_whats_app_contacts_request [BulkDeleteWhatsAppContactsRequest] 
@@ -428,6 +590,144 @@ module Late
       return data, status_code, headers
     end
 
+    # Create group
+    # Create a new WhatsApp group chat. Returns the group ID and optionally an invite link. 
+    # @param create_whats_app_group_chat_request [CreateWhatsAppGroupChatRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [CreateWhatsAppGroupChat201Response]
+    def create_whats_app_group_chat(create_whats_app_group_chat_request, opts = {})
+      data, _status_code, _headers = create_whats_app_group_chat_with_http_info(create_whats_app_group_chat_request, opts)
+      data
+    end
+
+    # Create group
+    # Create a new WhatsApp group chat. Returns the group ID and optionally an invite link. 
+    # @param create_whats_app_group_chat_request [CreateWhatsAppGroupChatRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateWhatsAppGroupChat201Response, Integer, Hash)>] CreateWhatsAppGroupChat201Response data, response status code and response headers
+    def create_whats_app_group_chat_with_http_info(create_whats_app_group_chat_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WhatsAppApi.create_whats_app_group_chat ...'
+      end
+      # verify the required parameter 'create_whats_app_group_chat_request' is set
+      if @api_client.config.client_side_validation && create_whats_app_group_chat_request.nil?
+        fail ArgumentError, "Missing the required parameter 'create_whats_app_group_chat_request' when calling WhatsAppApi.create_whats_app_group_chat"
+      end
+      # resource path
+      local_var_path = '/v1/whatsapp/wa-groups'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_whats_app_group_chat_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreateWhatsAppGroupChat201Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WhatsAppApi.create_whats_app_group_chat",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WhatsAppApi#create_whats_app_group_chat\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create invite link
+    # Create a new invite link for a WhatsApp group. The previous link is revoked. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param [Hash] opts the optional parameters
+    # @return [CreateWhatsAppGroupInviteLink200Response]
+    def create_whats_app_group_invite_link(group_id, account_id, opts = {})
+      data, _status_code, _headers = create_whats_app_group_invite_link_with_http_info(group_id, account_id, opts)
+      data
+    end
+
+    # Create invite link
+    # Create a new invite link for a WhatsApp group. The previous link is revoked. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateWhatsAppGroupInviteLink200Response, Integer, Hash)>] CreateWhatsAppGroupInviteLink200Response data, response status code and response headers
+    def create_whats_app_group_invite_link_with_http_info(group_id, account_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WhatsAppApi.create_whats_app_group_invite_link ...'
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling WhatsAppApi.create_whats_app_group_invite_link"
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling WhatsAppApi.create_whats_app_group_invite_link"
+      end
+      # resource path
+      local_var_path = '/v1/whatsapp/wa-groups/{groupId}/invite-link'.sub('{' + 'groupId' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreateWhatsAppGroupInviteLink200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WhatsAppApi.create_whats_app_group_invite_link",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WhatsAppApi#create_whats_app_group_invite_link\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create template
     # Create a new message template. Supports two modes:  **Custom template:** Provide `components` with your own content. Submitted to Meta for review (can take up to 24h).  **Library template:** Provide `library_template_name` instead of `components` to use a pre-built template from Meta's template library. Library templates are **pre-approved** (no review wait). You can optionally customize parameters and buttons via `library_template_body_inputs` and `library_template_button_inputs`.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
     # @param create_whats_app_template_request [CreateWhatsAppTemplateRequest] 
@@ -686,6 +986,76 @@ module Late
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WhatsAppApi#delete_whats_app_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete group
+    # Delete a WhatsApp group and remove all participants. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param [Hash] opts the optional parameters
+    # @return [UnpublishPost200Response]
+    def delete_whats_app_group_chat(group_id, account_id, opts = {})
+      data, _status_code, _headers = delete_whats_app_group_chat_with_http_info(group_id, account_id, opts)
+      data
+    end
+
+    # Delete group
+    # Delete a WhatsApp group and remove all participants. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UnpublishPost200Response, Integer, Hash)>] UnpublishPost200Response data, response status code and response headers
+    def delete_whats_app_group_chat_with_http_info(group_id, account_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WhatsAppApi.delete_whats_app_group_chat ...'
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling WhatsAppApi.delete_whats_app_group_chat"
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling WhatsAppApi.delete_whats_app_group_chat"
+      end
+      # resource path
+      local_var_path = '/v1/whatsapp/wa-groups/{groupId}'.sub('{' + 'groupId' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UnpublishPost200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WhatsAppApi.delete_whats_app_group_chat",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WhatsAppApi#delete_whats_app_group_chat\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1253,6 +1623,76 @@ module Late
       return data, status_code, headers
     end
 
+    # Get group info
+    # Retrieve metadata about a WhatsApp group including subject, description, participants, and settings. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param [Hash] opts the optional parameters
+    # @return [GetWhatsAppGroupChat200Response]
+    def get_whats_app_group_chat(group_id, account_id, opts = {})
+      data, _status_code, _headers = get_whats_app_group_chat_with_http_info(group_id, account_id, opts)
+      data
+    end
+
+    # Get group info
+    # Retrieve metadata about a WhatsApp group including subject, description, participants, and settings. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetWhatsAppGroupChat200Response, Integer, Hash)>] GetWhatsAppGroupChat200Response data, response status code and response headers
+    def get_whats_app_group_chat_with_http_info(group_id, account_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WhatsAppApi.get_whats_app_group_chat ...'
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling WhatsAppApi.get_whats_app_group_chat"
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling WhatsAppApi.get_whats_app_group_chat"
+      end
+      # resource path
+      local_var_path = '/v1/whatsapp/wa-groups/{groupId}'.sub('{' + 'groupId' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetWhatsAppGroupChat200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WhatsAppApi.get_whats_app_group_chat",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WhatsAppApi#get_whats_app_group_chat\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List contact groups
     # **Deprecated.** Use contact tags via `GET /v1/contacts` for grouping instead. WhatsApp groups have no cross-platform equivalent. List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
     # @param account_id [String] WhatsApp social account ID
@@ -1519,6 +1959,231 @@ module Late
       return data, status_code, headers
     end
 
+    # List active groups
+    # List active WhatsApp group chats for a business phone number. These are actual WhatsApp group conversations on the platform. 
+    # @param account_id [String] WhatsApp social account ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit Max groups to return (default to 25)
+    # @option opts [String] :after Pagination cursor
+    # @return [ListWhatsAppGroupChats200Response]
+    def list_whats_app_group_chats(account_id, opts = {})
+      data, _status_code, _headers = list_whats_app_group_chats_with_http_info(account_id, opts)
+      data
+    end
+
+    # List active groups
+    # List active WhatsApp group chats for a business phone number. These are actual WhatsApp group conversations on the platform. 
+    # @param account_id [String] WhatsApp social account ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit Max groups to return (default to 25)
+    # @option opts [String] :after Pagination cursor
+    # @return [Array<(ListWhatsAppGroupChats200Response, Integer, Hash)>] ListWhatsAppGroupChats200Response data, response status code and response headers
+    def list_whats_app_group_chats_with_http_info(account_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WhatsAppApi.list_whats_app_group_chats ...'
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling WhatsAppApi.list_whats_app_group_chats"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1024
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WhatsAppApi.list_whats_app_group_chats, must be smaller than or equal to 1024.'
+      end
+
+      # resource path
+      local_var_path = '/v1/whatsapp/wa-groups'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'after'] = opts[:'after'] if !opts[:'after'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListWhatsAppGroupChats200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WhatsAppApi.list_whats_app_group_chats",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WhatsAppApi#list_whats_app_group_chats\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List join requests
+    # List pending join requests for a WhatsApp group (only for groups with approval_required mode). 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param [Hash] opts the optional parameters
+    # @return [ListWhatsAppGroupJoinRequests200Response]
+    def list_whats_app_group_join_requests(group_id, account_id, opts = {})
+      data, _status_code, _headers = list_whats_app_group_join_requests_with_http_info(group_id, account_id, opts)
+      data
+    end
+
+    # List join requests
+    # List pending join requests for a WhatsApp group (only for groups with approval_required mode). 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ListWhatsAppGroupJoinRequests200Response, Integer, Hash)>] ListWhatsAppGroupJoinRequests200Response data, response status code and response headers
+    def list_whats_app_group_join_requests_with_http_info(group_id, account_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WhatsAppApi.list_whats_app_group_join_requests ...'
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling WhatsAppApi.list_whats_app_group_join_requests"
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling WhatsAppApi.list_whats_app_group_join_requests"
+      end
+      # resource path
+      local_var_path = '/v1/whatsapp/wa-groups/{groupId}/join-requests'.sub('{' + 'groupId' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListWhatsAppGroupJoinRequests200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WhatsAppApi.list_whats_app_group_join_requests",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WhatsAppApi#list_whats_app_group_join_requests\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Reject join requests
+    # Reject pending join requests for a WhatsApp group. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param reject_whats_app_group_join_requests_request [RejectWhatsAppGroupJoinRequestsRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [UnpublishPost200Response]
+    def reject_whats_app_group_join_requests(group_id, account_id, reject_whats_app_group_join_requests_request, opts = {})
+      data, _status_code, _headers = reject_whats_app_group_join_requests_with_http_info(group_id, account_id, reject_whats_app_group_join_requests_request, opts)
+      data
+    end
+
+    # Reject join requests
+    # Reject pending join requests for a WhatsApp group. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param reject_whats_app_group_join_requests_request [RejectWhatsAppGroupJoinRequestsRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UnpublishPost200Response, Integer, Hash)>] UnpublishPost200Response data, response status code and response headers
+    def reject_whats_app_group_join_requests_with_http_info(group_id, account_id, reject_whats_app_group_join_requests_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WhatsAppApi.reject_whats_app_group_join_requests ...'
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling WhatsAppApi.reject_whats_app_group_join_requests"
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling WhatsAppApi.reject_whats_app_group_join_requests"
+      end
+      # verify the required parameter 'reject_whats_app_group_join_requests_request' is set
+      if @api_client.config.client_side_validation && reject_whats_app_group_join_requests_request.nil?
+        fail ArgumentError, "Missing the required parameter 'reject_whats_app_group_join_requests_request' when calling WhatsAppApi.reject_whats_app_group_join_requests"
+      end
+      # resource path
+      local_var_path = '/v1/whatsapp/wa-groups/{groupId}/join-requests'.sub('{' + 'groupId' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(reject_whats_app_group_join_requests_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UnpublishPost200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WhatsAppApi.reject_whats_app_group_join_requests",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WhatsAppApi#reject_whats_app_group_join_requests\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Remove recipients
     # **Deprecated.** Use `POST /v1/broadcasts/{id}/recipients` with removal flag instead. Remove recipients from a draft broadcast by phone number. 
     # @param broadcast_id [String] Broadcast ID
@@ -1589,6 +2254,87 @@ module Late
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WhatsAppApi#remove_whats_app_broadcast_recipients\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove participants
+    # Remove participants from a WhatsApp group. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param remove_whats_app_group_participants_request [RemoveWhatsAppGroupParticipantsRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [UnpublishPost200Response]
+    def remove_whats_app_group_participants(group_id, account_id, remove_whats_app_group_participants_request, opts = {})
+      data, _status_code, _headers = remove_whats_app_group_participants_with_http_info(group_id, account_id, remove_whats_app_group_participants_request, opts)
+      data
+    end
+
+    # Remove participants
+    # Remove participants from a WhatsApp group. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param remove_whats_app_group_participants_request [RemoveWhatsAppGroupParticipantsRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UnpublishPost200Response, Integer, Hash)>] UnpublishPost200Response data, response status code and response headers
+    def remove_whats_app_group_participants_with_http_info(group_id, account_id, remove_whats_app_group_participants_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WhatsAppApi.remove_whats_app_group_participants ...'
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling WhatsAppApi.remove_whats_app_group_participants"
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling WhatsAppApi.remove_whats_app_group_participants"
+      end
+      # verify the required parameter 'remove_whats_app_group_participants_request' is set
+      if @api_client.config.client_side_validation && remove_whats_app_group_participants_request.nil?
+        fail ArgumentError, "Missing the required parameter 'remove_whats_app_group_participants_request' when calling WhatsAppApi.remove_whats_app_group_participants"
+      end
+      # resource path
+      local_var_path = '/v1/whatsapp/wa-groups/{groupId}/participants'.sub('{' + 'groupId' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(remove_whats_app_group_participants_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UnpublishPost200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WhatsAppApi.remove_whats_app_group_participants",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WhatsAppApi#remove_whats_app_group_participants\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2072,6 +2818,87 @@ module Late
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WhatsAppApi#update_whats_app_display_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update group settings
+    # Update the subject, description, or join approval mode of a WhatsApp group. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param update_whats_app_group_chat_request [UpdateWhatsAppGroupChatRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [UnpublishPost200Response]
+    def update_whats_app_group_chat(group_id, account_id, update_whats_app_group_chat_request, opts = {})
+      data, _status_code, _headers = update_whats_app_group_chat_with_http_info(group_id, account_id, update_whats_app_group_chat_request, opts)
+      data
+    end
+
+    # Update group settings
+    # Update the subject, description, or join approval mode of a WhatsApp group. 
+    # @param group_id [String] Group ID
+    # @param account_id [String] WhatsApp social account ID
+    # @param update_whats_app_group_chat_request [UpdateWhatsAppGroupChatRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UnpublishPost200Response, Integer, Hash)>] UnpublishPost200Response data, response status code and response headers
+    def update_whats_app_group_chat_with_http_info(group_id, account_id, update_whats_app_group_chat_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WhatsAppApi.update_whats_app_group_chat ...'
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling WhatsAppApi.update_whats_app_group_chat"
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling WhatsAppApi.update_whats_app_group_chat"
+      end
+      # verify the required parameter 'update_whats_app_group_chat_request' is set
+      if @api_client.config.client_side_validation && update_whats_app_group_chat_request.nil?
+        fail ArgumentError, "Missing the required parameter 'update_whats_app_group_chat_request' when calling WhatsAppApi.update_whats_app_group_chat"
+      end
+      # resource path
+      local_var_path = '/v1/whatsapp/wa-groups/{groupId}'.sub('{' + 'groupId' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'accountId'] = account_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(update_whats_app_group_chat_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UnpublishPost200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WhatsAppApi.update_whats_app_group_chat",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WhatsAppApi#update_whats_app_group_chat\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

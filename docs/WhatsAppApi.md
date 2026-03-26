@@ -5,15 +5,20 @@ All URIs are relative to *https://zernio.com/api*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**add_whats_app_broadcast_recipients**](WhatsAppApi.md#add_whats_app_broadcast_recipients) | **PATCH** /v1/whatsapp/broadcasts/{broadcastId}/recipients | Add recipients |
+| [**add_whats_app_group_participants**](WhatsAppApi.md#add_whats_app_group_participants) | **POST** /v1/whatsapp/wa-groups/{groupId}/participants | Add participants |
+| [**approve_whats_app_group_join_requests**](WhatsAppApi.md#approve_whats_app_group_join_requests) | **POST** /v1/whatsapp/wa-groups/{groupId}/join-requests | Approve join requests |
 | [**bulk_delete_whats_app_contacts**](WhatsAppApi.md#bulk_delete_whats_app_contacts) | **DELETE** /v1/whatsapp/contacts/bulk | Bulk delete contacts |
 | [**bulk_update_whats_app_contacts**](WhatsAppApi.md#bulk_update_whats_app_contacts) | **POST** /v1/whatsapp/contacts/bulk | Bulk update contacts |
 | [**cancel_whats_app_broadcast_schedule**](WhatsAppApi.md#cancel_whats_app_broadcast_schedule) | **DELETE** /v1/whatsapp/broadcasts/{broadcastId}/schedule | Cancel scheduled broadcast |
 | [**create_whats_app_broadcast**](WhatsAppApi.md#create_whats_app_broadcast) | **POST** /v1/whatsapp/broadcasts | Create broadcast |
 | [**create_whats_app_contact**](WhatsAppApi.md#create_whats_app_contact) | **POST** /v1/whatsapp/contacts | Create contact |
+| [**create_whats_app_group_chat**](WhatsAppApi.md#create_whats_app_group_chat) | **POST** /v1/whatsapp/wa-groups | Create group |
+| [**create_whats_app_group_invite_link**](WhatsAppApi.md#create_whats_app_group_invite_link) | **POST** /v1/whatsapp/wa-groups/{groupId}/invite-link | Create invite link |
 | [**create_whats_app_template**](WhatsAppApi.md#create_whats_app_template) | **POST** /v1/whatsapp/templates | Create template |
 | [**delete_whats_app_broadcast**](WhatsAppApi.md#delete_whats_app_broadcast) | **DELETE** /v1/whatsapp/broadcasts/{broadcastId} | Delete broadcast |
 | [**delete_whats_app_contact**](WhatsAppApi.md#delete_whats_app_contact) | **DELETE** /v1/whatsapp/contacts/{contactId} | Delete contact |
 | [**delete_whats_app_group**](WhatsAppApi.md#delete_whats_app_group) | **DELETE** /v1/whatsapp/groups | Delete group |
+| [**delete_whats_app_group_chat**](WhatsAppApi.md#delete_whats_app_group_chat) | **DELETE** /v1/whatsapp/wa-groups/{groupId} | Delete group |
 | [**delete_whats_app_template**](WhatsAppApi.md#delete_whats_app_template) | **DELETE** /v1/whatsapp/templates/{templateName} | Delete template |
 | [**get_whats_app_broadcast**](WhatsAppApi.md#get_whats_app_broadcast) | **GET** /v1/whatsapp/broadcasts/{broadcastId} | Get broadcast |
 | [**get_whats_app_broadcast_recipients**](WhatsAppApi.md#get_whats_app_broadcast_recipients) | **GET** /v1/whatsapp/broadcasts/{broadcastId}/recipients | List recipients |
@@ -22,11 +27,16 @@ All URIs are relative to *https://zernio.com/api*
 | [**get_whats_app_contact**](WhatsAppApi.md#get_whats_app_contact) | **GET** /v1/whatsapp/contacts/{contactId} | Get contact |
 | [**get_whats_app_contacts**](WhatsAppApi.md#get_whats_app_contacts) | **GET** /v1/whatsapp/contacts | List contacts |
 | [**get_whats_app_display_name**](WhatsAppApi.md#get_whats_app_display_name) | **GET** /v1/whatsapp/business-profile/display-name | Get display name and review status |
+| [**get_whats_app_group_chat**](WhatsAppApi.md#get_whats_app_group_chat) | **GET** /v1/whatsapp/wa-groups/{groupId} | Get group info |
 | [**get_whats_app_groups**](WhatsAppApi.md#get_whats_app_groups) | **GET** /v1/whatsapp/groups | List contact groups |
 | [**get_whats_app_template**](WhatsAppApi.md#get_whats_app_template) | **GET** /v1/whatsapp/templates/{templateName} | Get template |
 | [**get_whats_app_templates**](WhatsAppApi.md#get_whats_app_templates) | **GET** /v1/whatsapp/templates | List templates |
 | [**import_whats_app_contacts**](WhatsAppApi.md#import_whats_app_contacts) | **POST** /v1/whatsapp/contacts/import | Bulk import contacts |
+| [**list_whats_app_group_chats**](WhatsAppApi.md#list_whats_app_group_chats) | **GET** /v1/whatsapp/wa-groups | List active groups |
+| [**list_whats_app_group_join_requests**](WhatsAppApi.md#list_whats_app_group_join_requests) | **GET** /v1/whatsapp/wa-groups/{groupId}/join-requests | List join requests |
+| [**reject_whats_app_group_join_requests**](WhatsAppApi.md#reject_whats_app_group_join_requests) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/join-requests | Reject join requests |
 | [**remove_whats_app_broadcast_recipients**](WhatsAppApi.md#remove_whats_app_broadcast_recipients) | **DELETE** /v1/whatsapp/broadcasts/{broadcastId}/recipients | Remove recipients |
+| [**remove_whats_app_group_participants**](WhatsAppApi.md#remove_whats_app_group_participants) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/participants | Remove participants |
 | [**rename_whats_app_group**](WhatsAppApi.md#rename_whats_app_group) | **POST** /v1/whatsapp/groups | Rename group |
 | [**schedule_whats_app_broadcast**](WhatsAppApi.md#schedule_whats_app_broadcast) | **POST** /v1/whatsapp/broadcasts/{broadcastId}/schedule | Schedule broadcast |
 | [**send_whats_app_broadcast**](WhatsAppApi.md#send_whats_app_broadcast) | **POST** /v1/whatsapp/broadcasts/{broadcastId}/send | Send broadcast |
@@ -34,6 +44,7 @@ All URIs are relative to *https://zernio.com/api*
 | [**update_whats_app_business_profile**](WhatsAppApi.md#update_whats_app_business_profile) | **POST** /v1/whatsapp/business-profile | Update business profile |
 | [**update_whats_app_contact**](WhatsAppApi.md#update_whats_app_contact) | **PUT** /v1/whatsapp/contacts/{contactId} | Update contact |
 | [**update_whats_app_display_name**](WhatsAppApi.md#update_whats_app_display_name) | **POST** /v1/whatsapp/business-profile/display-name | Request display name change |
+| [**update_whats_app_group_chat**](WhatsAppApi.md#update_whats_app_group_chat) | **POST** /v1/whatsapp/wa-groups/{groupId} | Update group settings |
 | [**update_whats_app_template**](WhatsAppApi.md#update_whats_app_template) | **PATCH** /v1/whatsapp/templates/{templateName} | Update template |
 | [**upload_whats_app_profile_photo**](WhatsAppApi.md#upload_whats_app_profile_photo) | **POST** /v1/whatsapp/business-profile/photo | Upload profile picture |
 
@@ -98,6 +109,152 @@ end
 ### Return type
 
 [**AddWhatsAppBroadcastRecipients200Response**](AddWhatsAppBroadcastRecipients200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## add_whats_app_group_participants
+
+> <UnpublishPost200Response> add_whats_app_group_participants(group_id, account_id, add_whats_app_group_participants_request)
+
+Add participants
+
+Add participants to a WhatsApp group. Maximum 8 participants per request. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::WhatsAppApi.new
+group_id = 'group_id_example' # String | Group ID
+account_id = 'account_id_example' # String | WhatsApp social account ID
+add_whats_app_group_participants_request = Late::AddWhatsAppGroupParticipantsRequest.new({phone_numbers: ['phone_numbers_example']}) # AddWhatsAppGroupParticipantsRequest | 
+
+begin
+  # Add participants
+  result = api_instance.add_whats_app_group_participants(group_id, account_id, add_whats_app_group_participants_request)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->add_whats_app_group_participants: #{e}"
+end
+```
+
+#### Using the add_whats_app_group_participants_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UnpublishPost200Response>, Integer, Hash)> add_whats_app_group_participants_with_http_info(group_id, account_id, add_whats_app_group_participants_request)
+
+```ruby
+begin
+  # Add participants
+  data, status_code, headers = api_instance.add_whats_app_group_participants_with_http_info(group_id, account_id, add_whats_app_group_participants_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UnpublishPost200Response>
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->add_whats_app_group_participants_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_id** | **String** | Group ID |  |
+| **account_id** | **String** | WhatsApp social account ID |  |
+| **add_whats_app_group_participants_request** | [**AddWhatsAppGroupParticipantsRequest**](AddWhatsAppGroupParticipantsRequest.md) |  |  |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## approve_whats_app_group_join_requests
+
+> <UnpublishPost200Response> approve_whats_app_group_join_requests(group_id, account_id, approve_whats_app_group_join_requests_request)
+
+Approve join requests
+
+Approve pending join requests for a WhatsApp group. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::WhatsAppApi.new
+group_id = 'group_id_example' # String | Group ID
+account_id = 'account_id_example' # String | WhatsApp social account ID
+approve_whats_app_group_join_requests_request = Late::ApproveWhatsAppGroupJoinRequestsRequest.new({phone_numbers: ['phone_numbers_example']}) # ApproveWhatsAppGroupJoinRequestsRequest | 
+
+begin
+  # Approve join requests
+  result = api_instance.approve_whats_app_group_join_requests(group_id, account_id, approve_whats_app_group_join_requests_request)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->approve_whats_app_group_join_requests: #{e}"
+end
+```
+
+#### Using the approve_whats_app_group_join_requests_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UnpublishPost200Response>, Integer, Hash)> approve_whats_app_group_join_requests_with_http_info(group_id, account_id, approve_whats_app_group_join_requests_request)
+
+```ruby
+begin
+  # Approve join requests
+  data, status_code, headers = api_instance.approve_whats_app_group_join_requests_with_http_info(group_id, account_id, approve_whats_app_group_join_requests_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UnpublishPost200Response>
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->approve_whats_app_group_join_requests_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_id** | **String** | Group ID |  |
+| **account_id** | **String** | WhatsApp social account ID |  |
+| **approve_whats_app_group_join_requests_request** | [**ApproveWhatsAppGroupJoinRequestsRequest**](ApproveWhatsAppGroupJoinRequestsRequest.md) |  |  |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
 
 ### Authorization
 
@@ -454,6 +611,146 @@ end
 - **Accept**: application/json
 
 
+## create_whats_app_group_chat
+
+> <CreateWhatsAppGroupChat201Response> create_whats_app_group_chat(create_whats_app_group_chat_request)
+
+Create group
+
+Create a new WhatsApp group chat. Returns the group ID and optionally an invite link. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::WhatsAppApi.new
+create_whats_app_group_chat_request = Late::CreateWhatsAppGroupChatRequest.new({account_id: 'account_id_example', subject: 'subject_example'}) # CreateWhatsAppGroupChatRequest | 
+
+begin
+  # Create group
+  result = api_instance.create_whats_app_group_chat(create_whats_app_group_chat_request)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->create_whats_app_group_chat: #{e}"
+end
+```
+
+#### Using the create_whats_app_group_chat_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CreateWhatsAppGroupChat201Response>, Integer, Hash)> create_whats_app_group_chat_with_http_info(create_whats_app_group_chat_request)
+
+```ruby
+begin
+  # Create group
+  data, status_code, headers = api_instance.create_whats_app_group_chat_with_http_info(create_whats_app_group_chat_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CreateWhatsAppGroupChat201Response>
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->create_whats_app_group_chat_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **create_whats_app_group_chat_request** | [**CreateWhatsAppGroupChatRequest**](CreateWhatsAppGroupChatRequest.md) |  |  |
+
+### Return type
+
+[**CreateWhatsAppGroupChat201Response**](CreateWhatsAppGroupChat201Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_whats_app_group_invite_link
+
+> <CreateWhatsAppGroupInviteLink200Response> create_whats_app_group_invite_link(group_id, account_id)
+
+Create invite link
+
+Create a new invite link for a WhatsApp group. The previous link is revoked. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::WhatsAppApi.new
+group_id = 'group_id_example' # String | Group ID
+account_id = 'account_id_example' # String | WhatsApp social account ID
+
+begin
+  # Create invite link
+  result = api_instance.create_whats_app_group_invite_link(group_id, account_id)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->create_whats_app_group_invite_link: #{e}"
+end
+```
+
+#### Using the create_whats_app_group_invite_link_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CreateWhatsAppGroupInviteLink200Response>, Integer, Hash)> create_whats_app_group_invite_link_with_http_info(group_id, account_id)
+
+```ruby
+begin
+  # Create invite link
+  data, status_code, headers = api_instance.create_whats_app_group_invite_link_with_http_info(group_id, account_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CreateWhatsAppGroupInviteLink200Response>
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->create_whats_app_group_invite_link_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_id** | **String** | Group ID |  |
+| **account_id** | **String** | WhatsApp social account ID |  |
+
+### Return type
+
+[**CreateWhatsAppGroupInviteLink200Response**](CreateWhatsAppGroupInviteLink200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## create_whats_app_template
 
 > <CreateWhatsAppTemplate200Response> create_whats_app_template(create_whats_app_template_request)
@@ -727,6 +1024,77 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_whats_app_group_chat
+
+> <UnpublishPost200Response> delete_whats_app_group_chat(group_id, account_id)
+
+Delete group
+
+Delete a WhatsApp group and remove all participants. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::WhatsAppApi.new
+group_id = 'group_id_example' # String | Group ID
+account_id = 'account_id_example' # String | WhatsApp social account ID
+
+begin
+  # Delete group
+  result = api_instance.delete_whats_app_group_chat(group_id, account_id)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->delete_whats_app_group_chat: #{e}"
+end
+```
+
+#### Using the delete_whats_app_group_chat_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UnpublishPost200Response>, Integer, Hash)> delete_whats_app_group_chat_with_http_info(group_id, account_id)
+
+```ruby
+begin
+  # Delete group
+  data, status_code, headers = api_instance.delete_whats_app_group_chat_with_http_info(group_id, account_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UnpublishPost200Response>
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->delete_whats_app_group_chat_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_id** | **String** | Group ID |  |
+| **account_id** | **String** | WhatsApp social account ID |  |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -1314,6 +1682,77 @@ end
 - **Accept**: application/json
 
 
+## get_whats_app_group_chat
+
+> <GetWhatsAppGroupChat200Response> get_whats_app_group_chat(group_id, account_id)
+
+Get group info
+
+Retrieve metadata about a WhatsApp group including subject, description, participants, and settings. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::WhatsAppApi.new
+group_id = 'group_id_example' # String | Group ID
+account_id = 'account_id_example' # String | WhatsApp social account ID
+
+begin
+  # Get group info
+  result = api_instance.get_whats_app_group_chat(group_id, account_id)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->get_whats_app_group_chat: #{e}"
+end
+```
+
+#### Using the get_whats_app_group_chat_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetWhatsAppGroupChat200Response>, Integer, Hash)> get_whats_app_group_chat_with_http_info(group_id, account_id)
+
+```ruby
+begin
+  # Get group info
+  data, status_code, headers = api_instance.get_whats_app_group_chat_with_http_info(group_id, account_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetWhatsAppGroupChat200Response>
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->get_whats_app_group_chat_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_id** | **String** | Group ID |  |
+| **account_id** | **String** | WhatsApp social account ID |  |
+
+### Return type
+
+[**GetWhatsAppGroupChat200Response**](GetWhatsAppGroupChat200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_whats_app_groups
 
 > <GetWhatsAppGroups200Response> get_whats_app_groups(account_id)
@@ -1592,6 +2031,225 @@ end
 - **Accept**: application/json
 
 
+## list_whats_app_group_chats
+
+> <ListWhatsAppGroupChats200Response> list_whats_app_group_chats(account_id, opts)
+
+List active groups
+
+List active WhatsApp group chats for a business phone number. These are actual WhatsApp group conversations on the platform. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::WhatsAppApi.new
+account_id = 'account_id_example' # String | WhatsApp social account ID
+opts = {
+  limit: 56, # Integer | Max groups to return
+  after: 'after_example' # String | Pagination cursor
+}
+
+begin
+  # List active groups
+  result = api_instance.list_whats_app_group_chats(account_id, opts)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->list_whats_app_group_chats: #{e}"
+end
+```
+
+#### Using the list_whats_app_group_chats_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ListWhatsAppGroupChats200Response>, Integer, Hash)> list_whats_app_group_chats_with_http_info(account_id, opts)
+
+```ruby
+begin
+  # List active groups
+  data, status_code, headers = api_instance.list_whats_app_group_chats_with_http_info(account_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ListWhatsAppGroupChats200Response>
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->list_whats_app_group_chats_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_id** | **String** | WhatsApp social account ID |  |
+| **limit** | **Integer** | Max groups to return | [optional][default to 25] |
+| **after** | **String** | Pagination cursor | [optional] |
+
+### Return type
+
+[**ListWhatsAppGroupChats200Response**](ListWhatsAppGroupChats200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_whats_app_group_join_requests
+
+> <ListWhatsAppGroupJoinRequests200Response> list_whats_app_group_join_requests(group_id, account_id)
+
+List join requests
+
+List pending join requests for a WhatsApp group (only for groups with approval_required mode). 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::WhatsAppApi.new
+group_id = 'group_id_example' # String | Group ID
+account_id = 'account_id_example' # String | WhatsApp social account ID
+
+begin
+  # List join requests
+  result = api_instance.list_whats_app_group_join_requests(group_id, account_id)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->list_whats_app_group_join_requests: #{e}"
+end
+```
+
+#### Using the list_whats_app_group_join_requests_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ListWhatsAppGroupJoinRequests200Response>, Integer, Hash)> list_whats_app_group_join_requests_with_http_info(group_id, account_id)
+
+```ruby
+begin
+  # List join requests
+  data, status_code, headers = api_instance.list_whats_app_group_join_requests_with_http_info(group_id, account_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ListWhatsAppGroupJoinRequests200Response>
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->list_whats_app_group_join_requests_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_id** | **String** | Group ID |  |
+| **account_id** | **String** | WhatsApp social account ID |  |
+
+### Return type
+
+[**ListWhatsAppGroupJoinRequests200Response**](ListWhatsAppGroupJoinRequests200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## reject_whats_app_group_join_requests
+
+> <UnpublishPost200Response> reject_whats_app_group_join_requests(group_id, account_id, reject_whats_app_group_join_requests_request)
+
+Reject join requests
+
+Reject pending join requests for a WhatsApp group. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::WhatsAppApi.new
+group_id = 'group_id_example' # String | Group ID
+account_id = 'account_id_example' # String | WhatsApp social account ID
+reject_whats_app_group_join_requests_request = Late::RejectWhatsAppGroupJoinRequestsRequest.new({phone_numbers: ['phone_numbers_example']}) # RejectWhatsAppGroupJoinRequestsRequest | 
+
+begin
+  # Reject join requests
+  result = api_instance.reject_whats_app_group_join_requests(group_id, account_id, reject_whats_app_group_join_requests_request)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->reject_whats_app_group_join_requests: #{e}"
+end
+```
+
+#### Using the reject_whats_app_group_join_requests_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UnpublishPost200Response>, Integer, Hash)> reject_whats_app_group_join_requests_with_http_info(group_id, account_id, reject_whats_app_group_join_requests_request)
+
+```ruby
+begin
+  # Reject join requests
+  data, status_code, headers = api_instance.reject_whats_app_group_join_requests_with_http_info(group_id, account_id, reject_whats_app_group_join_requests_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UnpublishPost200Response>
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->reject_whats_app_group_join_requests_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_id** | **String** | Group ID |  |
+| **account_id** | **String** | WhatsApp social account ID |  |
+| **reject_whats_app_group_join_requests_request** | [**RejectWhatsAppGroupJoinRequestsRequest**](RejectWhatsAppGroupJoinRequestsRequest.md) |  |  |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## remove_whats_app_broadcast_recipients
 
 > <RemoveWhatsAppBroadcastRecipients200Response> remove_whats_app_broadcast_recipients(broadcast_id, remove_whats_app_broadcast_recipients_request)
@@ -1652,6 +2310,79 @@ end
 ### Return type
 
 [**RemoveWhatsAppBroadcastRecipients200Response**](RemoveWhatsAppBroadcastRecipients200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## remove_whats_app_group_participants
+
+> <UnpublishPost200Response> remove_whats_app_group_participants(group_id, account_id, remove_whats_app_group_participants_request)
+
+Remove participants
+
+Remove participants from a WhatsApp group. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::WhatsAppApi.new
+group_id = 'group_id_example' # String | Group ID
+account_id = 'account_id_example' # String | WhatsApp social account ID
+remove_whats_app_group_participants_request = Late::RemoveWhatsAppGroupParticipantsRequest.new({phone_numbers: ['phone_numbers_example']}) # RemoveWhatsAppGroupParticipantsRequest | 
+
+begin
+  # Remove participants
+  result = api_instance.remove_whats_app_group_participants(group_id, account_id, remove_whats_app_group_participants_request)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->remove_whats_app_group_participants: #{e}"
+end
+```
+
+#### Using the remove_whats_app_group_participants_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UnpublishPost200Response>, Integer, Hash)> remove_whats_app_group_participants_with_http_info(group_id, account_id, remove_whats_app_group_participants_request)
+
+```ruby
+begin
+  # Remove participants
+  data, status_code, headers = api_instance.remove_whats_app_group_participants_with_http_info(group_id, account_id, remove_whats_app_group_participants_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UnpublishPost200Response>
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->remove_whats_app_group_participants_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_id** | **String** | Group ID |  |
+| **account_id** | **String** | WhatsApp social account ID |  |
+| **remove_whats_app_group_participants_request** | [**RemoveWhatsAppGroupParticipantsRequest**](RemoveWhatsAppGroupParticipantsRequest.md) |  |  |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
 
 ### Authorization
 
@@ -2139,6 +2870,79 @@ end
 ### Return type
 
 [**UpdateWhatsAppDisplayName200Response**](UpdateWhatsAppDisplayName200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_whats_app_group_chat
+
+> <UnpublishPost200Response> update_whats_app_group_chat(group_id, account_id, update_whats_app_group_chat_request)
+
+Update group settings
+
+Update the subject, description, or join approval mode of a WhatsApp group. 
+
+### Examples
+
+```ruby
+require 'time'
+require 'late-sdk'
+# setup authorization
+Late.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Late::WhatsAppApi.new
+group_id = 'group_id_example' # String | Group ID
+account_id = 'account_id_example' # String | WhatsApp social account ID
+update_whats_app_group_chat_request = Late::UpdateWhatsAppGroupChatRequest.new # UpdateWhatsAppGroupChatRequest | 
+
+begin
+  # Update group settings
+  result = api_instance.update_whats_app_group_chat(group_id, account_id, update_whats_app_group_chat_request)
+  p result
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->update_whats_app_group_chat: #{e}"
+end
+```
+
+#### Using the update_whats_app_group_chat_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UnpublishPost200Response>, Integer, Hash)> update_whats_app_group_chat_with_http_info(group_id, account_id, update_whats_app_group_chat_request)
+
+```ruby
+begin
+  # Update group settings
+  data, status_code, headers = api_instance.update_whats_app_group_chat_with_http_info(group_id, account_id, update_whats_app_group_chat_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UnpublishPost200Response>
+rescue Late::ApiError => e
+  puts "Error when calling WhatsAppApi->update_whats_app_group_chat_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_id** | **String** | Group ID |  |
+| **account_id** | **String** | WhatsApp social account ID |  |
+| **update_whats_app_group_chat_request** | [**UpdateWhatsAppGroupChatRequest**](UpdateWhatsAppGroupChatRequest.md) |  |  |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
 
 ### Authorization
 
