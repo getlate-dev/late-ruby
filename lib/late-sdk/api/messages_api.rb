@@ -170,7 +170,7 @@ module Late
     end
 
     # List messages
-    # Fetch messages for a specific conversation. Requires accountId query parameter.
+    # Fetch messages for a specific conversation. Requires accountId query parameter.  **Twitter/X limitation:** X's encrypted \"X Chat\" messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the [list conversations endpoint](#/Messages/listInboxConversations) for more details. 
     # @param conversation_id [String] The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID.
     # @param account_id [String] Social account ID
     # @param [Hash] opts the optional parameters
@@ -181,7 +181,7 @@ module Late
     end
 
     # List messages
-    # Fetch messages for a specific conversation. Requires accountId query parameter.
+    # Fetch messages for a specific conversation. Requires accountId query parameter.  **Twitter/X limitation:** X&#39;s encrypted \&quot;X Chat\&quot; messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the [list conversations endpoint](#/Messages/listInboxConversations) for more details. 
     # @param conversation_id [String] The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID.
     # @param account_id [String] Social account ID
     # @param [Hash] opts the optional parameters
@@ -240,7 +240,7 @@ module Late
     end
 
     # List conversations
-    # Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated. Supported platforms: Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram. 
+    # Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated. Supported platforms: Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram.  **Twitter/X limitation:** X has replaced traditional DMs with encrypted \"X Chat\" for many accounts. Messages sent or received through encrypted X Chat are not accessible via X's API (the `/2/dm_events` endpoint only returns legacy unencrypted DMs). This means some Twitter/X conversations may show only outgoing messages or appear empty. This is an X platform limitation that affects all third-party applications. See [X's docs on encrypted messaging](https://help.x.com/en/using-x/about-chat) for more details. 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter by profile ID
     # @option opts [String] :platform Filter by platform
@@ -256,7 +256,7 @@ module Late
     end
 
     # List conversations
-    # Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated. Supported platforms: Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram. 
+    # Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated. Supported platforms: Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram.  **Twitter/X limitation:** X has replaced traditional DMs with encrypted \&quot;X Chat\&quot; for many accounts. Messages sent or received through encrypted X Chat are not accessible via X&#39;s API (the &#x60;/2/dm_events&#x60; endpoint only returns legacy unencrypted DMs). This means some Twitter/X conversations may show only outgoing messages or appear empty. This is an X platform limitation that affects all third-party applications. See [X&#39;s docs on encrypted messaging](https://help.x.com/en/using-x/about-chat) for more details. 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :profile_id Filter by profile ID
     # @option opts [String] :platform Filter by platform
